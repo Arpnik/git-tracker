@@ -1,0 +1,70 @@
+# Edit these patterns to match how your repos are laid out.
+# Each pattern is a regex tested against the file's path within the repo.
+# First category whose pattern matches wins. Order matters (top = highest priority).
+
+categories:
+  infra:
+    - '(^|/)Dockerfile'
+    - '(^|/)docker-compose'
+    - '\.tf$'
+    - '\.tfvars$'
+    - '(^|/)\.github/workflows/'
+    - '(^|/)k8s/'
+    - '(^|/)helm/'
+    - '(^|/)terraform/'
+    - '(^|/)ansible/'
+    - '\.ya?ml$'          # catches most CI/config yaml not already matched above
+
+  frontend:
+    - '\.jsx?$'
+    - '\.tsx?$'
+    - '\.vue$'
+    - '\.svelte$'
+    - '(^|/)(src/)?components/'
+    - '(^|/)(src/)?pages/'
+    - '(^|/)frontend/'
+    - '(^|/)client/'
+    - '(^|/)web/'
+
+  ui_design:
+    - '\.css$'
+    - '\.scss$'
+    - '\.sass$'
+    - '\.less$'
+    - '\.html?$'
+    - '(^|/)styles?/'
+    - '(^|/)assets/'
+    - '\.(png|jpg|jpeg|svg|gif|webp)$'
+
+  backend:
+    - '\.py$'
+    - '\.go$'
+    - '\.rb$'
+    - '\.php$'
+    - '\.java$'
+    - '\.kt$'
+    - '\.rs$'
+    - '\.cs$'
+    - '(^|/)server/'
+    - '(^|/)api/'
+    - '(^|/)backend/'
+    - '(^|/)services?/'
+
+  data_ml:
+    - '\.ipynb$'
+    - '\.sql$'
+    - '(^|/)models?/'
+    - '(^|/)notebooks?/'
+    - '(^|/)pipelines?/'
+
+  docs:
+    - '\.md$'
+    - '\.rst$'
+    - '(^|/)docs?/'
+
+  tests:
+    - '(^|/)tests?/'
+    - '(^|/)__tests__/'
+    - '\.(spec|test)\.[jt]sx?$'
+    - '_test\.py$'
+    - '_test\.go$'
