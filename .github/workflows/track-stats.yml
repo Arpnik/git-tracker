@@ -25,7 +25,7 @@ jobs:
         env:
           STATS_PAT: ${{ secrets.STATS_PAT }}
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
-          DAYS_LOOKBACK: '90'
+          DAYS_LOOKBACK: '490'
           # INCLUDE_ORGS: 'my-org,another-org'
           # EXCLUDE_REPOS: 'someone/huge-repo'
         run: python scripts/collect_stats.py
