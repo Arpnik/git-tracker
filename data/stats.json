@@ -1,0 +1,206 @@
+{
+  "totals": {
+    "commits": 128,
+    "additions": 582949,
+    "deletions": 8022
+  },
+  "by_repo": {
+    "GetKnowbie/Operators": {
+      "commits": 4,
+      "additions": 21,
+      "deletions": 59
+    },
+    "GetKnowbie/AdminV2": {
+      "commits": 4,
+      "additions": 34,
+      "deletions": 48
+    },
+    "aysha8665/rexploit-dataset": {
+      "commits": 5,
+      "additions": 5227,
+      "deletions": 4943
+    },
+    "Arpnik/RExploit": {
+      "commits": 12,
+      "additions": 549701,
+      "deletions": 1715
+    },
+    "Arpnik/neetcode-submissions": {
+      "commits": 46,
+      "additions": 1800,
+      "deletions": 0
+    },
+    "Arpnik/NL2SQL": {
+      "commits": 48,
+      "additions": 6242,
+      "deletions": 881
+    },
+    "Arpnik/home_assessment": {
+      "commits": 7,
+      "additions": 19121,
+      "deletions": 375
+    },
+    "Arpnik/git-tracker": {
+      "commits": 2,
+      "additions": 803,
+      "deletions": 1
+    }
+  },
+  "by_language": {
+    "JavaScript": {
+      "additions": 37,
+      "deletions": 15,
+      "files": 8
+    },
+    "JSON": {
+      "additions": 559323,
+      "deletions": 105,
+      "files": 515
+    },
+    "Other": {
+      "additions": 786,
+      "deletions": 20,
+      "files": 25
+    },
+    "SOL": {
+      "additions": 8826,
+      "deletions": 6339,
+      "files": 94
+    },
+    "TXT": {
+      "additions": 2,
+      "deletions": 61,
+      "files": 3
+    },
+    "Markdown": {
+      "additions": 1474,
+      "deletions": 50,
+      "files": 18
+    },
+    "PNG": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 13
+    },
+    "PDF": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 2
+    },
+    "JSONL": {
+      "additions": 634,
+      "deletions": 19,
+      "files": 35
+    },
+    "OLD": {
+      "additions": 60,
+      "deletions": 0,
+      "files": 1
+    },
+    "Python": {
+      "additions": 8641,
+      "deletions": 1401,
+      "files": 184
+    },
+    "HTML": {
+      "additions": 1029,
+      "deletions": 0,
+      "files": 2
+    },
+    "Java": {
+      "additions": 1800,
+      "deletions": 0,
+      "files": 46
+    },
+    "YAML": {
+      "additions": 254,
+      "deletions": 6,
+      "files": 13
+    },
+    "DB": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 5
+    },
+    "TOML": {
+      "additions": 83,
+      "deletions": 6,
+      "files": 3
+    }
+  },
+  "by_category": {
+    "frontend": {
+      "additions": 37,
+      "deletions": 15,
+      "files": 8
+    },
+    "other": {
+      "additions": 569633,
+      "deletions": 6546,
+      "files": 675
+    },
+    "tests": {
+      "additions": 1,
+      "deletions": 1,
+      "files": 1
+    },
+    "docs": {
+      "additions": 1474,
+      "deletions": 50,
+      "files": 18
+    },
+    "ui_design": {
+      "additions": 1029,
+      "deletions": 0,
+      "files": 15
+    },
+    "infra": {
+      "additions": 334,
+      "deletions": 9,
+      "files": 20
+    },
+    "backend": {
+      "additions": 10441,
+      "deletions": 1401,
+      "files": 230
+    }
+  },
+  "by_week": {
+    "2026-05-18": {
+      "commits": 2,
+      "additions": 45,
+      "deletions": 4
+    },
+    "2026-05-04": {
+      "commits": 11,
+      "additions": 313,
+      "deletions": 55
+    },
+    "2026-04-27": {
+      "commits": 9,
+      "additions": 293,
+      "deletions": 48
+    },
+    "2026-04-20": {
+      "commits": 41,
+      "additions": 557078,
+      "deletions": 6823
+    },
+    "2026-05-11": {
+      "commits": 25,
+      "additions": 19744,
+      "deletions": 382
+    },
+    "2026-04-13": {
+      "commits": 38,
+      "additions": 4673,
+      "deletions": 709
+    },
+    "2026-07-06": {
+      "commits": 2,
+      "additions": 803,
+      "deletions": 1
+    }
+  },
+  "generated_at": "2026-07-11T21:14:43.113211+00:00"
+}
