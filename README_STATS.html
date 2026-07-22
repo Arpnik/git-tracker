@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dev Stats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+  :root{--bg:#0d1117;--panel:#11161d;--line:#1f2630;--text:#c9d1d9;--dim:#6e7681;
+    --accent:#3fb950;--accent2:#58a6ff;--warn:#e3b341;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--mono);font-size:14px}
+  header{padding:28px 32px 16px;border-bottom:1px solid var(--line)}
+  header .prompt{color:var(--accent)}
+  h1{margin:4px 0 0;font-size:22px;font-weight:600;letter-spacing:-.5px}
+  .sub{color:var(--dim);margin-top:6px}
+  main{padding:24px 32px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px}
+  .card h2{margin:0 0 14px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);font-weight:600}
+  .totals{display:flex;gap:28px;flex-wrap:wrap}
+  .stat .n{font-size:28px;font-weight:700}
+  .stat .l{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+  .add{color:var(--accent)} .del{color:#f85149}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  td,th{padding:6px 4px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--dim);font-weight:500;text-transform:uppercase;font-size:11px}
+  .full{grid-column:1/-1}
+  canvas{max-height:280px}
+  details{margin:8px 0;border:1px solid var(--line);border-radius:6px;padding:8px 12px}
+  summary{cursor:pointer;color:var(--accent2)}
+</style>
+</head>
+<body>
+<header>
+  <div class="prompt">$ dev-stats --report</div>
+  <h1 id="ts">loading...</h1>
+  <div class="sub">summary of code changes across every repo you have write access to</div>
+</header>
+<main id="app"></main>
+<script>
+const stats = {"totals": {"commits": 128, "additions": 582949, "deletions": 8022}, "by_repo": {"GetKnowbie/Operators": {"commits": 4, "additions": 21, "deletions": 59}, "GetKnowbie/AdminV2": {"commits": 4, "additions": 34, "deletions": 48}, "aysha8665/rexploit-dataset": {"commits": 5, "additions": 5227, "deletions": 4943}, "Arpnik/RExploit": {"commits": 12, "additions": 549701, "deletions": 1715}, "Arpnik/neetcode-submissions": {"commits": 46, "additions": 1800, "deletions": 0}, "Arpnik/NL2SQL": {"commits": 48, "additions": 6242, "deletions": 881}, "Arpnik/home_assessment": {"commits": 7, "additions": 19121, "deletions": 375}, "Arpnik/git-tracker": {"commits": 2, "additions": 803, "deletions": 1}}, "by_language": {"JavaScript": {"additions": 37, "deletions": 15, "files": 8}, "JSON": {"additions": 559323, "deletions": 105, "files": 515}, "Other": {"additions": 786, "deletions": 20, "files": 25}, "SOL": {"additions": 8826, "deletions": 6339, "files": 94}, "TXT": {"additions": 2, "deletions": 61, "files": 3}, "Markdown": {"additions": 1474, "deletions": 50, "files": 18}, "PNG": {"additions": 0, "deletions": 0, "files": 13}, "PDF": {"additions": 0, "deletions": 0, "files": 2}, "JSONL": {"additions": 634, "deletions": 19, "files": 35}, "OLD": {"additions": 60, "deletions": 0, "files": 1}, "Python": {"additions": 8641, "deletions": 1401, "files": 184}, "HTML": {"additions": 1029, "deletions": 0, "files": 2}, "Java": {"additions": 1800, "deletions": 0, "files": 46}, "YAML": {"additions": 254, "deletions": 6, "files": 13}, "DB": {"additions": 0, "deletions": 0, "files": 5}, "TOML": {"additions": 83, "deletions": 6, "files": 3}}, "by_category": {"frontend": {"additions": 37, "deletions": 15, "files": 8}, "other": {"additions": 569633, "deletions": 6546, "files": 675}, "tests": {"additions": 1, "deletions": 1, "files": 1}, "docs": {"additions": 1474, "deletions": 50, "files": 18}, "ui_design": {"additions": 1029, "deletions": 0, "files": 15}, "infra": {"additions": 334, "deletions": 9, "files": 20}, "backend": {"additions": 10441, "deletions": 1401, "files": 230}}, "by_week": {"2026-05-18": {"commits": 2, "additions": 45, "deletions": 4}, "2026-05-04": {"commits": 11, "additions": 313, "deletions": 55}, "2026-04-27": {"commits": 9, "additions": 293, "deletions": 48}, "2026-04-20": {"commits": 41, "additions": 557078, "deletions": 6823}, "2026-05-11": {"commits": 25, "additions": 19744, "deletions": 382}, "2026-04-13": {"commits": 38, "additions": 4673, "deletions": 709}, "2026-07-06": {"commits": 2, "additions": 803, "deletions": 1}}, "generated_at": "2026-07-22T16:03:26.062129+00:00", "by_repo_language": {}};
+function el(tag, cls, html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+function render(){
+  document.getElementById('ts').textContent = 'updated ' + new Date(stats.generated_at).toLocaleString();
+  const app = document.getElementById('app');
+
+  const totals = el('div','card full',
+    '<h2>totals</h2><div class="totals">'
+    + '<div class="stat"><div class="n">'+stats.totals.commits+'</div><div class="l">commits</div></div>'
+    + '<div class="stat"><div class="n add">+'+stats.totals.additions.toLocaleString()+'</div><div class="l">lines added</div></div>'
+    + '<div class="stat"><div class="n del">-'+stats.totals.deletions.toLocaleString()+'</div><div class="l">lines removed</div></div>'
+    + '</div>');
+  app.appendChild(totals);
+
+  app.appendChild(el('div','card','<h2>by category</h2><canvas id="catChart"></canvas>'));
+  app.appendChild(el('div','card','<h2>by language</h2><canvas id="langChart"></canvas>'));
+
+  // Language table (full detail, not just top-N chart).
+  const langRows = Object.entries(stats.by_language)
+    .sort((a,b)=>b[1].additions-a[1].additions)
+    .map(([l,s])=>'<tr><td>'+l+'</td><td class="add">+'+s.additions+'</td><td class="del">-'+s.deletions+'</td><td>'+s.files+'</td></tr>').join('');
+  app.appendChild(el('div','card full','<h2>languages (full)</h2><table><tr><th>language</th><th>added</th><th>removed</th><th>files</th></tr>'+langRows+'</table>'));
+
+  // Repo table.
+  const repoRows = Object.entries(stats.by_repo)
+    .sort((a,b)=>b[1].additions-a[1].additions)
+    .map(([r,s])=>'<tr><td>'+r+'</td><td>'+s.commits+'</td><td class="add">+'+s.additions+'</td><td class="del">-'+s.deletions+'</td></tr>').join('');
+  app.appendChild(el('div','card full','<h2>by repository</h2><table><tr><th>repo</th><th>commits</th><th>added</th><th>removed</th></tr>'+repoRows+'</table>'));
+
+  // Language detail per repository.
+  const rl = stats.by_repo_language || {};
+  const detailCard = el('div','card full','<h2>language detail by repository</h2>');
+  Object.entries(rl)
+    .sort((a,b)=>Object.values(b[1]).reduce((t,v)=>t+v.additions,0)-Object.values(a[1]).reduce((t,v)=>t+v.additions,0))
+    .forEach(([repo,langs])=>{
+      const rows = Object.entries(langs).sort((a,b)=>b[1].additions-a[1].additions)
+        .map(([l,s])=>'<tr><td>'+l+'</td><td class="add">+'+s.additions+'</td><td class="del">-'+s.deletions+'</td><td>'+s.files+'</td></tr>').join('');
+      const d = el('details',null,'<summary>'+repo+'</summary><table><tr><th>language</th><th>added</th><th>removed</th><th>files</th></tr>'+rows+'</table>');
+      detailCard.appendChild(d);
+    });
+  app.appendChild(detailCard);
+
+  const palette=['#3fb950','#58a6ff','#e3b341','#f85149','#bc8cff','#39c5cf','#f778ba','#79c0ff'];
+  new Chart(document.getElementById('catChart'),{type:'doughnut',
+    data:{labels:Object.keys(stats.by_category),datasets:[{data:Object.values(stats.by_category).map(v=>v.additions+v.deletions),backgroundColor:palette}]},
+    options:{plugins:{legend:{labels:{color:'#c9d1d9'}}}}});
+  const langs=Object.entries(stats.by_language).sort((a,b)=>(b[1].additions+b[1].deletions)-(a[1].additions+a[1].deletions)).slice(0,10);
+  new Chart(document.getElementById('langChart'),{type:'bar',
+    data:{labels:langs.map(l=>l[0]),datasets:[{label:'lines changed',data:langs.map(l=>l[1].additions+l[1].deletions),backgroundColor:'#58a6ff'}]},
+    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#6e7681'},grid:{color:'#1f2630'}},y:{ticks:{color:'#c9d1d9'},grid:{display:false}}}}});
+}
+render();
+</script>
+</body>
+</html>
