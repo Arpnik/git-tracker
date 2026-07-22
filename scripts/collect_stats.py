@@ -7,7 +7,7 @@ language and by category (frontend/backend/UI/infra/etc.).
 Env vars:
   STATS_PAT       - GitHub PAT (classic) with `repo` + `read:org` scopes. Required.
   GH_USERNAME     - Your GitHub login. Required.
-  DAYS_LOOKBACK   - On first run, how far back to look. Default 90.
+  DAYS_LOOKBACK   - On first run, how far back to look. Default 365 (one year).
   INCLUDE_ORGS    - Comma-separated org logins to restrict to (optional, default: all).
   EXCLUDE_REPOS   - Comma-separated "owner/repo" to skip (optional). Merged with the
                     in-script EXCLUDE_REPOS_DEFAULT set below.
@@ -38,7 +38,7 @@ GRAPHQL_API = "https://api.github.com/graphql"
 
 TOKEN = os.environ.get("STATS_PAT")
 USERNAME = os.environ.get("GH_USERNAME")
-DAYS_LOOKBACK = int(os.environ.get("DAYS_LOOKBACK", "90"))
+DAYS_LOOKBACK = int(os.environ.get("DAYS_LOOKBACK", "365"))
 INCLUDE_ORGS = {o.strip() for o in os.environ.get("INCLUDE_ORGS", "").split(",") if o.strip()}
 
 # --- Repos to exclude from the analysis -------------------------------------
@@ -278,15 +278,32 @@ def list_accessible_repos():
 
 
 def list_commit_shas(owner, repo, branch, since_iso):
+    """List SHAs authored by USERNAME on `branch` since `since_iso`.
+
+    Returns (shas, error). On any fetch problem we print a debuggable message
+    and return whatever we have plus a short error string (None on success).
+    """
+    full = f"{owner}/{repo}"
     shas, page = [], 1
     while True:
         r = gh_request("GET", f"{GITHUB_API}/repos/{owner}/{repo}/commits", params={
             "sha": branch, "author": USERNAME, "since": since_iso,
             "per_page": 100, "page": page,
         })
-        if r.status_code in (409, 404):  # empty repo / no access to branch
-            break
-        r.raise_for_status()
+        if r.status_code == 409:  # empty repository — nothing to do, not an error
+            return shas, None
+        if r.status_code == 404:
+            msg = f"404 (branch '{branch}' or repo not accessible with this token)"
+            print(f"    ! {full}: {msg}")
+            return shas, msg
+        if r.status_code == 403:
+            # Forbidden: SSO not authorized, missing scope, or rate limit exhausted.
+            detail = "SSO not authorized / missing scope / rate limited"
+            print(f"    ! {full}: 403 fetching commits ({detail}). {r.text[:160]}")
+            return shas, f"403 {detail}"
+        if r.status_code != 200:
+            print(f"    ! {full}: HTTP {r.status_code} fetching commits: {r.text[:160]}")
+            return shas, f"HTTP {r.status_code}"
         batch = r.json()
         if not batch:
             break
@@ -294,12 +311,13 @@ def list_commit_shas(owner, repo, branch, since_iso):
         if len(batch) < 100:
             break
         page += 1
-    return shas
+    return shas, None
 
 
 def get_commit_detail(owner, repo, sha):
     r = gh_request("GET", f"{GITHUB_API}/repos/{owner}/{repo}/commits/{sha}")
     if r.status_code != 200:
+        print(f"    ! {owner}/{repo}@{sha[:7]}: HTTP {r.status_code} fetching commit detail")
         return None
     return r.json()
 
@@ -374,8 +392,12 @@ def main():
     default_since = (datetime.now(timezone.utc) - timedelta(days=DAYS_LOOKBACK)).isoformat()
 
     print(f"Discovering repos for {USERNAME}...")
+    if EXCLUDE_REPOS:
+        print(f"Excluding repos: {', '.join(sorted(EXCLUDE_REPOS))}")
     repos = list_accessible_repos()
-    print(f"Found {len(repos)} writable repos.")
+    print(f"Found {len(repos)} writable repos (looking back {DAYS_LOOKBACK} days).")
+
+    fetch_errors = []  # (repo, reason) for repos we couldn't fully collect
 
     for repo in repos:
         full = repo["nameWithOwner"]
@@ -389,7 +411,15 @@ def main():
         first_seen = full not in state["processed_shas"]
         since_iso = default_since if first_seen else (state.get("last_run") or default_since)
 
-        shas = list_commit_shas(owner, name, branch, since_iso)
+        try:
+            shas, err = list_commit_shas(owner, name, branch, since_iso)
+        except Exception as e:  # noqa: BLE001 - never let one repo kill the run
+            print(f"    ! {full}: unexpected error listing commits: {e}")
+            fetch_errors.append((full, f"list commits: {e}"))
+            continue
+        if err:
+            fetch_errors.append((full, err))
+
         new_shas = [s for s in shas if s not in processed]
         if not new_shas:
             continue
@@ -399,8 +429,14 @@ def main():
         state["processed_shas"].setdefault(full, [])
 
         for sha in new_shas:
-            detail = get_commit_detail(owner, name, sha)
+            try:
+                detail = get_commit_detail(owner, name, sha)
+            except Exception as e:  # noqa: BLE001
+                print(f"    ! {full}@{sha[:7]}: unexpected error: {e}")
+                fetch_errors.append((full, f"commit {sha[:7]}: {e}"))
+                continue
             if not detail:
+                fetch_errors.append((full, f"commit {sha[:7]}: detail unavailable"))
                 continue
             # Mark as processed regardless, so we never re-fetch this SHA.
             state["processed_shas"][full].append(sha)
@@ -462,6 +498,13 @@ def main():
     STATS_FILE.write_text(json.dumps(stats, indent=2))
     write_readme(stats)
     write_html_report(stats)
+
+    if fetch_errors:
+        print(f"\n{len(fetch_errors)} fetch issue(s) to debug:")
+        for full, reason in fetch_errors:
+            print(f"  - {full}: {reason}")
+        print("Tip: 403 usually means the PAT isn't SSO-authorized for that org, "
+              "or is missing the `repo`/`read:org` scopes.")
     print("Done.")
 
 

@@ -25,7 +25,7 @@ jobs:
         env:
           STATS_PAT: ${{ secrets.STATS_PAT }}
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
-          DAYS_LOOKBACK: '490'
+          DAYS_LOOKBACK: '365'   # look back one year
           # INCLUDE_ORGS: 'altconvey,GetKnowbie'
           # EXCLUDE_REPOS: 'someone/huge-repo'
         run: python scripts/collect_stats.py
