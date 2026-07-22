@@ -9,10 +9,13 @@ Env vars:
   GH_USERNAME     - Your GitHub login. Required.
   DAYS_LOOKBACK   - On first run, how far back to look. Default 90.
   INCLUDE_ORGS    - Comma-separated org logins to restrict to (optional, default: all).
-  EXCLUDE_REPOS   - Comma-separated "owner/repo" to skip (optional).
+  EXCLUDE_REPOS   - Comma-separated "owner/repo" to skip (optional). Merged with the
+                    in-script EXCLUDE_REPOS_DEFAULT set below.
 
 State is kept in data/state.json so re-runs are incremental (only new
-commits since the last processed SHA per repo are fetched).
+commits since the last processed SHA per repo are fetched). Repos that
+are discovered for the first time (e.g. a newly SSO-authorized org) get a
+full DAYS_LOOKBACK backfill instead of only "since last run".
 """
 import os
 import re
@@ -37,7 +40,17 @@ TOKEN = os.environ.get("STATS_PAT")
 USERNAME = os.environ.get("GH_USERNAME")
 DAYS_LOOKBACK = int(os.environ.get("DAYS_LOOKBACK", "90"))
 INCLUDE_ORGS = {o.strip() for o in os.environ.get("INCLUDE_ORGS", "").split(",") if o.strip()}
-EXCLUDE_REPOS = {r.strip() for r in os.environ.get("EXCLUDE_REPOS", "").split(",") if r.strip()}
+
+# --- Repos to exclude from the analysis -------------------------------------
+# Add "owner/repo" entries here to permanently skip a repo (e.g. a repo full of
+# generated/vendored files that drowns out your real work). This in-script list
+# is merged with anything passed via the EXCLUDE_REPOS env var.
+EXCLUDE_REPOS_DEFAULT = {
+    "Arpnik/RExploit",
+}
+EXCLUDE_REPOS = EXCLUDE_REPOS_DEFAULT | {
+    r.strip() for r in os.environ.get("EXCLUDE_REPOS", "").split(",") if r.strip()
+}
 
 session = requests.Session()
 session.headers.update({
@@ -340,6 +353,20 @@ def main():
     # Ensure key exists when loading older stats files.
     stats.setdefault("by_repo_language", {})
 
+    # If a now-excluded repo already contributed to the accumulated aggregates,
+    # we can't cleanly subtract it from every breakdown (by_category / by_week
+    # aren't stored per-repo), so recompute everything from scratch this once.
+    polluted = sorted(r for r in EXCLUDE_REPOS if r in stats.get("by_repo", {}))
+    if polluted:
+        print(f"Excluded repo(s) already present in stats: {', '.join(polluted)}.")
+        print("Resetting state + stats to recompute clean totals (full backfill this run).")
+        state = {"processed_shas": {}, "last_run": None}
+        stats = {
+            "totals": {"commits": 0, "additions": 0, "deletions": 0},
+            "by_repo": {}, "by_language": {}, "by_category": {}, "by_week": {},
+            "by_repo_language": {},
+        }
+
     processed = set()
     for repo_shas in state["processed_shas"].values():
         processed.update(repo_shas)
@@ -354,13 +381,20 @@ def main():
         full = repo["nameWithOwner"]
         owner, name = full.split("/")
         branch = repo["defaultBranchRef"]["name"]
-        since_iso = state.get("last_run") or default_since
+        # New repos (never processed before) need a FULL look-back; already-seen
+        # repos only need commits since the last successful run. Using the global
+        # last_run for everything meant freshly-discovered repos — e.g. a newly
+        # SSO-authorized org like `altconvey` — were never backfilled and so
+        # showed zero stats even though they were detected.
+        first_seen = full not in state["processed_shas"]
+        since_iso = default_since if first_seen else (state.get("last_run") or default_since)
 
         shas = list_commit_shas(owner, name, branch, since_iso)
         new_shas = [s for s in shas if s not in processed]
         if not new_shas:
             continue
-        print(f"  {full}: {len(new_shas)} new commit(s)")
+        print(f"  {full}: {len(new_shas)} new commit(s)"
+              + ("  [backfill]" if first_seen else ""))
 
         state["processed_shas"].setdefault(full, [])
 
@@ -368,8 +402,20 @@ def main():
             detail = get_commit_detail(owner, name, sha)
             if not detail:
                 continue
+            # Mark as processed regardless, so we never re-fetch this SHA.
             state["processed_shas"][full].append(sha)
             processed.add(sha)
+
+            # Count only YOUR commits. The REST `author` filter can be loose for
+            # commits whose email isn't linked, so double-check the resolved
+            # GitHub login and skip anything that clearly isn't you.
+            author = detail.get("author") or {}
+            if author.get("login") and author["login"].lower() != USERNAME.lower():
+                continue
+            # Skip merge commits: their diff re-counts changes already attributed
+            # to the merged commits, massively inflating "lines I changed".
+            if len(detail.get("parents", [])) > 1:
+                continue
 
             commit_date = detail["commit"]["author"]["date"][:10]
             week = (datetime.fromisoformat(commit_date) - timedelta(
