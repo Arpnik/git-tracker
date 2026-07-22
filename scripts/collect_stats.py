@@ -358,8 +358,23 @@ def load_json(path, default):
 
 
 def main():
+    global USERNAME
     if not TOKEN or not USERNAME:
         sys.exit("STATS_PAT and GH_USERNAME must be set")
+
+    # Resolve the ACTUAL login that owns the token and use it for the commit
+    # `author` filter. Repo discovery uses the token's own identity, so if the
+    # GH_USERNAME secret doesn't exactly match your commit-author login, every
+    # repo is found but zero commits match — the "stats still zero" bug.
+    try:
+        token_login = graphql("query { viewer { login } }")["viewer"]["login"]
+        if token_login and token_login.lower() != USERNAME.lower():
+            print(f"NOTE: GH_USERNAME '{USERNAME}' != token login '{token_login}'. "
+                  f"Counting commits by '{token_login}'.")
+        USERNAME = token_login or USERNAME
+    except Exception as e:  # noqa: BLE001 - fall back to GH_USERNAME
+        print(f"Could not resolve token login ({e}); using GH_USERNAME '{USERNAME}'.")
+
     DATA_DIR.mkdir(exist_ok=True)
     config = yaml.safe_load(CONFIG_FILE.read_text())
     state = load_json(STATE_FILE, {"processed_shas": {}, "last_run": None})
