@@ -68,8 +68,11 @@ does not, it's almost always **SSO/SAML authorization**, not a bug:
   those repos, the token is missing the `read:org` scope, or `INCLUDE_ORGS`
   is set and excludes the org.
 
-- First run looks back `DAYS_LOOKBACK` days (default 90) — bump this in
-  the workflow env if you want more history, but expect more API calls
-  on that first run.
+- First run looks back `DAYS_LOOKBACK` days (default **365**, i.e. one year) —
+  bump this in the workflow env if you want more history, but expect more API
+  calls on that first run.
+- Per-repo fetch problems (403 SSO, 404 no-access, rate limits, etc.) are
+  printed inline while running and summarised at the end of the log, so you
+  can see exactly which repos failed and why.
 - Rate limits: a PAT gets 5,000 REST calls/hour and a separate GraphQL
   budget, which is generous for this after the first backfill.# git-tracker
