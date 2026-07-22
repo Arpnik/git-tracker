@@ -25,7 +25,7 @@ jobs:
         env:
           STATS_PAT: ${{ secrets.STATS_PAT }}
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
-          DAYS_LOOKBACK: '365'   # look back one year
+          DAYS_LOOKBACK: '730'   # look back two years
           # INCLUDE_ORGS: 'altconvey,GetKnowbie'
           # EXCLUDE_REPOS: 'someone/huge-repo'
         run: python scripts/collect_stats.py
@@ -34,6 +34,6 @@ jobs:
         run: |
           git config user.name "dev-stats-bot"
           git config user.email "dev-stats-bot@users.noreply.github.com"
-          git add data/ README_STATS.md README_STATS.html
+          git add data/ README_STATS.md README_STATS.html dashboard/wordcloud.html
           git diff --staged --quiet || git commit -m "chore: update dev stats [skip ci]"
           git push

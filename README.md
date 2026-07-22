@@ -12,16 +12,30 @@ you're a collaborator on, and org repos.
    - list every repo you can push to (GraphQL, `viewer.repositories`)
    - list your commits on each repo's default branch since the last run (REST `/commits`)
    - pull the per-file diff stats for each new commit (REST `/commits/{sha}`)
-   - classify each changed file by language (extension) and category
-     (regex patterns in `config/categories.yaml`)
+   - classify each changed file by language (extension), category
+     (regex patterns in `config/categories.yaml`) and **development tag**
+     (`frontend/backend/ai/ml/datascience/other`, logic in `scripts/dev_tags.py`)
 3. Results are written to `data/stats.json` (raw), `README_STATS.md`
-   (human-readable tables **incl. per-repo language detail**), and
+   (human-readable tables **incl. per-repo language detail + dev-tag stats**), and
    `README_STATS.html` (a self-contained HTML summary with charts +
    language-level tables), then committed back to this repo.
 4. `dashboard/index.html` reads `data/stats.json` and renders charts —
    open it locally, or serve it via GitHub Pages. `README_STATS.html`
    is the same summary but fully self-contained (data embedded inline),
    so it works on GitHub Pages with no fetch.
+5. `dashboard/wordcloud.html` is a **D3 word cloud** of the languages you've
+   worked in (word size ∝ lines of code), masked into the shape of an image
+   pulled from your **`my_face`** repo — "a picture of you, made of your
+   languages". The face image is embedded as a data URI, so the file is
+   self-contained. Open it locally or via GitHub Pages.
+
+## Language word cloud
+
+[`dashboard/wordcloud.html`](./dashboard/wordcloud.html) renders a live D3
+(+ d3-cloud) word cloud where each word is a language, sized by the lines of
+code you've changed in it, and the whole cloud is masked to the silhouette of
+the first image found in your `my_face` repo. (GitHub can't run the JS inline
+in this README, so open the file or serve the `dashboard/` folder via Pages.)
 
 ## Setup
 
@@ -68,7 +82,7 @@ does not, it's almost always **SSO/SAML authorization**, not a bug:
   those repos, the token is missing the `read:org` scope, or `INCLUDE_ORGS`
   is set and excludes the org.
 
-- First run looks back `DAYS_LOOKBACK` days (default **365**, i.e. one year) —
+- First run looks back `DAYS_LOOKBACK` days (default **730**, i.e. two years) —
   bump this in the workflow env if you want more history, but expect more API
   calls on that first run.
 - Per-repo fetch problems (403 SSO, 404 no-access, rate limits, etc.) are

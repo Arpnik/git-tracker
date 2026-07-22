@@ -7,7 +7,7 @@ language and by category (frontend/backend/UI/infra/etc.).
 Env vars:
   STATS_PAT       - GitHub PAT (classic) with `repo` + `read:org` scopes. Required.
   GH_USERNAME     - Your GitHub login. Required.
-  DAYS_LOOKBACK   - On first run, how far back to look. Default 365 (one year).
+  DAYS_LOOKBACK   - On first run, how far back to look. Default 730 (two years).
   INCLUDE_ORGS    - Comma-separated org logins to restrict to (optional, default: all).
   EXCLUDE_REPOS   - Comma-separated "owner/repo" to skip (optional). Merged with the
                     in-script EXCLUDE_REPOS_DEFAULT set below.
@@ -27,6 +27,9 @@ import requests
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+from dev_tags import tag_for
+from wordcloud import render_language_wordcloud
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 STATE_FILE = DATA_DIR / "state.json"
@@ -38,7 +41,7 @@ GRAPHQL_API = "https://api.github.com/graphql"
 
 TOKEN = os.environ.get("STATS_PAT")
 USERNAME = os.environ.get("GH_USERNAME")
-DAYS_LOOKBACK = int(os.environ.get("DAYS_LOOKBACK", "365"))
+DAYS_LOOKBACK = int(os.environ.get("DAYS_LOOKBACK", "730"))
 INCLUDE_ORGS = {o.strip() for o in os.environ.get("INCLUDE_ORGS", "").split(",") if o.strip()}
 
 # --- Repos to exclude from the analysis -------------------------------------
@@ -381,10 +384,11 @@ def main():
     stats = load_json(STATS_FILE, {
         "totals": {"commits": 0, "additions": 0, "deletions": 0},
         "by_repo": {}, "by_language": {}, "by_category": {}, "by_week": {},
-        "by_repo_language": {},
+        "by_repo_language": {}, "by_tag": {},
     })
     # Ensure key exists when loading older stats files.
     stats.setdefault("by_repo_language", {})
+    stats.setdefault("by_tag", {})
 
     # If a now-excluded repo already contributed to the accumulated aggregates,
     # we can't cleanly subtract it from every breakdown (by_category / by_week
@@ -397,7 +401,7 @@ def main():
         stats = {
             "totals": {"commits": 0, "additions": 0, "deletions": 0},
             "by_repo": {}, "by_language": {}, "by_category": {}, "by_week": {},
-            "by_repo_language": {},
+            "by_repo_language": {}, "by_tag": {},
         }
 
     processed = set()
@@ -506,6 +510,13 @@ def main():
                 cstat["deletions"] += dele
                 cstat["files"] += 1
 
+                # Development-area tag (frontend/backend/ai/ml/datascience/other).
+                tag = tag_for(f["filename"], lang)
+                tstat = stats["by_tag"].setdefault(tag, {"additions": 0, "deletions": 0, "files": 0})
+                tstat["additions"] += add
+                tstat["deletions"] += dele
+                tstat["files"] += 1
+
     state["last_run"] = datetime.now(timezone.utc).isoformat()
     stats["generated_at"] = state["last_run"]
 
@@ -513,6 +524,11 @@ def main():
     STATS_FILE.write_text(json.dumps(stats, indent=2))
     write_readme(stats)
     write_html_report(stats)
+    try:
+        render_language_wordcloud(stats, session, GITHUB_API, USERNAME,
+                                  ROOT / "dashboard" / "wordcloud.html")
+    except Exception as e:  # noqa: BLE001 - word cloud is a nice-to-have
+        print(f"  ! word cloud generation failed: {e}")
 
     if fetch_errors:
         print(f"\n{len(fetch_errors)} fetch issue(s) to debug:")
@@ -526,11 +542,19 @@ def main():
 def write_readme(stats):
     lines = ["# Dev Stats\n", f"_Last updated: {stats['generated_at']}_\n"]
     lines.append("> 📊 Rendered HTML version with charts: "
-                 "[`README_STATS.html`](./README_STATS.html)\n")
+                 "[`README_STATS.html`](./README_STATS.html)")
+    lines.append("> 🎨 Language word cloud (D3, shaped by your `my_face` image): "
+                 "[`dashboard/wordcloud.html`](./dashboard/wordcloud.html)\n")
     t = stats["totals"]
     lines.append(f"**Totals:** {t['commits']} commits · +{t['additions']} / -{t['deletions']} lines\n")
 
-    lines.append("## By category\n")
+    lines.append("## By development tag\n")
+    lines.append("| Tag | + | - | Files touched |")
+    lines.append("|---|---|---|---|")
+    for tag, s in sorted(stats.get("by_tag", {}).items(), key=lambda x: -x[1]["additions"]):
+        lines.append(f"| {tag} | {s['additions']} | {s['deletions']} | {s['files']} |")
+
+    lines.append("\n## By category\n")
     lines.append("| Category | + | - | Files touched |")
     lines.append("|---|---|---|---|")
     for cat, s in sorted(stats["by_category"].items(), key=lambda x: -x[1]["additions"]):
@@ -630,6 +654,12 @@ function render(){
 
   app.appendChild(el('div','card','<h2>by category</h2><canvas id="catChart"></canvas>'));
   app.appendChild(el('div','card','<h2>by language</h2><canvas id="langChart"></canvas>'));
+
+  // Development-area tags.
+  const tagRows = Object.entries(stats.by_tag || {})
+    .sort((a,b)=>b[1].additions-a[1].additions)
+    .map(([t,s])=>'<tr><td>'+t+'</td><td class="add">+'+s.additions+'</td><td class="del">-'+s.deletions+'</td><td>'+s.files+'</td></tr>').join('');
+  app.appendChild(el('div','card full','<h2>by development tag</h2><table><tr><th>tag</th><th>added</th><th>removed</th><th>files</th></tr>'+tagRows+'</table>'));
 
   // Language table (full detail, not just top-N chart).
   const langRows = Object.entries(stats.by_language)

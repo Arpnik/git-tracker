@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Language word cloud</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body{margin:0;background:#0d1117;color:#c9d1d9;font-family:system-ui,-apple-system,sans-serif;text-align:center}
+  h1{font-size:15px;font-weight:600;padding:18px 16px 4px;letter-spacing:.2px}
+  .sub{color:#6e7681;font-size:12px;padding-bottom:12px}
+  #cloud{max-width:840px;margin:0 auto}
+  svg{width:100%;height:auto}
+</style>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.7/d3.layout.cloud.min.js"></script>
+</head>
+<body>
+<h1>languages i've been working on — a picture made of words</h1>
+<div class="sub">word size ∝ lines of code changed in that language</div>
+<div id="cloud"></div>
+<script>
+const WORDS = [{"text": "JavaScript", "size": 17385}, {"text": "JSON", "size": 97793}, {"text": "Dotenv", "size": 182}, {"text": "CSV", "size": 22}, {"text": "CSS", "size": 179}, {"text": "Markdown", "size": 2887}, {"text": "Lock", "size": 29140}, {"text": "Image", "size": 6}, {"text": "Config", "size": 1307}, {"text": "TypeScript", "size": 304}, {"text": "Other", "size": 38}, {"text": "Iml", "size": 9}, {"text": "XML", "size": 106}, {"text": "Dart", "size": 6687}, {"text": "YAML", "size": 738}, {"text": "Gradle", "size": 35}, {"text": "Entitlements", "size": 2}, {"text": "Pbxproj", "size": 51}, {"text": "Plist", "size": 246}, {"text": "Old", "size": 140}, {"text": "Properties", "size": 4}, {"text": "Swift", "size": 4}, {"text": "Xcscheme", "size": 1}, {"text": "Python", "size": 26742}, {"text": "Jupyter Notebook", "size": 230422}, {"text": "TOML", "size": 142}, {"text": "Text", "size": 30590}, {"text": "Solidity", "size": 10049}, {"text": "Java", "size": 7467}, {"text": "Docker", "size": 39}, {"text": "HTML", "size": 238}, {"text": "SCSS", "size": 6}, {"text": "Shell", "size": 179}, {"text": "Makefile", "size": 104}];
+const IMAGE = "";
+const W = 840, H = 840;
+const total = d3.sum(WORDS, d => d.size) || 1;
+const maxSize = d3.max(WORDS, d => d.size) || 1;
+const fontScale = d3.scaleSqrt().domain([0, maxSize]).range([12, 120]);
+const color = d3.scaleOrdinal(d3.schemeTableau10);
+
+d3.layout.cloud()
+  .size([W, H])
+  .words(WORDS.map(d => ({
+    text: d.text, size: fontScale(d.size), loc: d.size, pct: d.size / total * 100
+  })))
+  .padding(2)
+  .rotate(() => (Math.random() < 0.5 ? 0 : 90))
+  .font("Impact")
+  .fontSize(d => d.size)
+  .on("end", draw)
+  .start();
+
+function draw(words) {
+  const svg = d3.select("#cloud").append("svg").attr("viewBox", `0 0 ${W} ${H}`);
+  const defs = svg.append("defs");
+
+  if (IMAGE) {
+    // Luminance mask: words only show where the face image is bright.
+    const mask = defs.append("mask").attr("id", "face")
+      .attr("maskUnits", "userSpaceOnUse")
+      .attr("x", 0).attr("y", 0).attr("width", W).attr("height", H);
+    mask.append("rect").attr("width", W).attr("height", H).attr("fill", "black");
+    mask.append("image").attr("href", IMAGE).attr("x", 0).attr("y", 0)
+      .attr("width", W).attr("height", H)
+      .attr("preserveAspectRatio", "xMidYMid slice");
+    // Faint ghost of the image so the shape is readable behind the words.
+    svg.append("image").attr("href", IMAGE)
+      .attr("width", W).attr("height", H)
+      .attr("preserveAspectRatio", "xMidYMid slice").attr("opacity", 0.06);
+  }
+
+  const g = svg.append("g");
+  if (IMAGE) g.attr("mask", "url(#face)");
+
+  const text = g.selectAll("text").data(words).enter().append("text")
+    .style("font-size", d => d.size + "px")
+    .style("font-family", "Impact")
+    .attr("fill", d => color(d.text))
+    .attr("text-anchor", "middle")
+    .attr("transform", d => `translate(${d.x + W / 2},${d.y + H / 2}) rotate(${d.rotate})`)
+    .text(d => d.text);
+  text.append("title").text(d => `${d.text}: ${d.loc.toLocaleString()} lines (${d.pct.toFixed(1)}%)`);
+}
+</script>
+</body>
+</html>
