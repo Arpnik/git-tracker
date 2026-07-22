@@ -1,8 +1,8 @@
 {
   "totals": {
-    "commits": 559,
-    "additions": 416105,
-    "deletions": 47139
+    "commits": 688,
+    "additions": 455796,
+    "deletions": 58634
   },
   "by_repo": {
     "GetKnowbie/Operators": {
@@ -86,9 +86,9 @@
       "deletions": 375
     },
     "Arpnik/git-tracker": {
-      "commits": 11,
-      "additions": 1376,
-      "deletions": 47
+      "commits": 12,
+      "additions": 1735,
+      "deletions": 60
     },
     "altconvey/acy-ui": {
       "commits": 23,
@@ -109,18 +109,58 @@
       "commits": 11,
       "additions": 22282,
       "deletions": 174
+    },
+    "Fall2024-MLProjects/SignLanguage": {
+      "commits": 10,
+      "additions": 16965,
+      "deletions": 3742
+    },
+    "anubhavm101/SOEN-6441--TubeLytics": {
+      "commits": 64,
+      "additions": 6173,
+      "deletions": 6973
+    },
+    "GetKnowbie/knowbie-cms": {
+      "commits": 3,
+      "additions": 5069,
+      "deletions": 426
+    },
+    "Arpnik/LinkedInQueenGame": {
+      "commits": 12,
+      "additions": 595,
+      "deletions": 13
+    },
+    "Arpnik/COMP-6481-Assignment-2": {
+      "commits": 16,
+      "additions": 1531,
+      "deletions": 244
+    },
+    "Arpnik/COMP-6481-Assignment-3": {
+      "commits": 9,
+      "additions": 614,
+      "deletions": 53
+    },
+    "Arpnik/speech-pd-detection": {
+      "commits": 12,
+      "additions": 5430,
+      "deletions": 31
+    },
+    "Arpnik/Recommender-Systems": {
+      "commits": 2,
+      "additions": 2955,
+      "deletions": 0
     }
   },
   "by_language": {
     "JavaScript": {
-      "additions": 10530,
+      "additions": 10584,
       "deletions": 6855,
-      "files": 438
+      "files": 441
     },
     "JSON": {
-      "additions": 89567,
-      "deletions": 8226,
-      "files": 103
+      "additions": 89569,
+      "deletions": 8227,
+      "files": 105
     },
     "Dotenv": {
       "additions": 95,
@@ -128,19 +168,19 @@
       "files": 44
     },
     "CSV": {
-      "additions": 12,
+      "additions": 13,
       "deletions": 10,
-      "files": 6
+      "files": 7
     },
     "CSS": {
       "additions": 119,
       "deletions": 60,
-      "files": 4
+      "files": 6
     },
     "Markdown": {
-      "additions": 2538,
-      "deletions": 349,
-      "files": 53
+      "additions": 2750,
+      "deletions": 393,
+      "files": 82
     },
     "Lock": {
       "additions": 14455,
@@ -148,14 +188,14 @@
       "files": 17
     },
     "Image": {
-      "additions": 6,
+      "additions": 22,
       "deletions": 0,
-      "files": 28
+      "files": 49
     },
     "Config": {
-      "additions": 1291,
-      "deletions": 16,
-      "files": 20
+      "additions": 1747,
+      "deletions": 17,
+      "files": 29
     },
     "TypeScript": {
       "additions": 165,
@@ -173,19 +213,19 @@
       "files": 4
     },
     "Other": {
-      "additions": 37,
-      "deletions": 1,
-      "files": 8
+      "additions": 310,
+      "deletions": 176,
+      "files": 142
     },
     "Iml": {
       "additions": 0,
-      "deletions": 9,
-      "files": 1
+      "deletions": 21,
+      "files": 2
     },
     "XML": {
-      "additions": 44,
-      "deletions": 62,
-      "files": 4
+      "additions": 50,
+      "deletions": 112,
+      "files": 6
     },
     "P12": {
       "additions": 0,
@@ -203,9 +243,9 @@
       "files": 118
     },
     "YAML": {
-      "additions": 566,
-      "deletions": 172,
-      "files": 53
+      "additions": 688,
+      "deletions": 177,
+      "files": 58
     },
     "Gradle": {
       "additions": 23,
@@ -248,14 +288,14 @@
       "files": 1
     },
     "Python": {
-      "additions": 21192,
-      "deletions": 5550,
-      "files": 486
+      "additions": 30923,
+      "deletions": 5589,
+      "files": 560
     },
     "Jupyter Notebook": {
-      "additions": 229220,
-      "deletions": 1202,
-      "files": 10
+      "additions": 249883,
+      "deletions": 5345,
+      "files": 20
     },
     "TOML": {
       "additions": 135,
@@ -288,9 +328,9 @@
       "files": 30
     },
     "Java": {
-      "additions": 5961,
-      "deletions": 1506,
-      "files": 163
+      "additions": 12037,
+      "deletions": 4498,
+      "files": 399
     },
     "Db": {
       "additions": 0,
@@ -303,9 +343,9 @@
       "files": 2
     },
     "HTML": {
-      "additions": 238,
-      "deletions": 0,
-      "files": 2
+      "additions": 896,
+      "deletions": 373,
+      "files": 25
     },
     "SCSS": {
       "additions": 3,
@@ -313,51 +353,106 @@
       "files": 1
     },
     "Shell": {
-      "additions": 61,
+      "additions": 65,
       "deletions": 118,
-      "files": 1
+      "files": 3
     },
     "Makefile": {
       "additions": 73,
       "deletions": 31,
       "files": 4
+    },
+    "Dev": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 2
+    },
+    "Test": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 2
+    },
+    "Train": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 2
+    },
+    "Ph14t": {
+      "additions": 2,
+      "deletions": 0,
+      "files": 4
+    },
+    "Conf": {
+      "additions": 11,
+      "deletions": 16,
+      "files": 12
+    },
+    "Scala": {
+      "additions": 1375,
+      "deletions": 1602,
+      "files": 33
+    },
+    "Log": {
+      "additions": 16,
+      "deletions": 2017,
+      "files": 15
+    },
+    "Class": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 78
+    },
+    "Cache": {
+      "additions": 0,
+      "deletions": 23,
+      "files": 23
+    },
+    "Zip": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 1
+    },
+    "Sbt": {
+      "additions": 13,
+      "deletions": 2,
+      "files": 3
     }
   },
   "by_category": {
     "frontend": {
-      "additions": 23294,
+      "additions": 23348,
       "deletions": 18308,
-      "files": 499
+      "files": 508
     },
     "other": {
-      "additions": 133133,
-      "deletions": 19887,
-      "files": 356
+      "additions": 135371,
+      "deletions": 23785,
+      "files": 675
     },
     "docs": {
-      "additions": 2538,
-      "deletions": 349,
-      "files": 53
+      "additions": 2750,
+      "deletions": 393,
+      "files": 82
     },
     "ui_design": {
-      "additions": 242,
-      "deletions": 3,
-      "files": 30
+      "additions": 916,
+      "deletions": 377,
+      "files": 71
     },
     "infra": {
-      "additions": 605,
-      "deletions": 172,
-      "files": 55
+      "additions": 727,
+      "deletions": 177,
+      "files": 60
     },
     "backend": {
-      "additions": 27062,
-      "deletions": 7084,
-      "files": 642
+      "additions": 42790,
+      "deletions": 10115,
+      "files": 951
     },
     "data_ml": {
-      "additions": 229231,
-      "deletions": 1336,
-      "files": 14
+      "additions": 249894,
+      "deletions": 5479,
+      "files": 31
     }
   },
   "by_week": {
@@ -502,9 +597,9 @@
       "deletions": 10
     },
     "2026-07-20": {
-      "commits": 11,
-      "additions": 602,
-      "deletions": 58
+      "commits": 12,
+      "additions": 961,
+      "deletions": 71
     },
     "2025-09-08": {
       "commits": 1,
@@ -610,6 +705,96 @@
       "commits": 1,
       "additions": 4,
       "deletions": 2
+    },
+    "2024-12-02": {
+      "commits": 10,
+      "additions": 16965,
+      "deletions": 3742
+    },
+    "2025-01-13": {
+      "commits": 1,
+      "additions": 2,
+      "deletions": 1
+    },
+    "2024-12-09": {
+      "commits": 2,
+      "additions": 34,
+      "deletions": 3
+    },
+    "2024-11-25": {
+      "commits": 23,
+      "additions": 3349,
+      "deletions": 2584
+    },
+    "2024-11-18": {
+      "commits": 1,
+      "additions": 2,
+      "deletions": 0
+    },
+    "2024-11-11": {
+      "commits": 3,
+      "additions": 116,
+      "deletions": 91
+    },
+    "2024-11-04": {
+      "commits": 34,
+      "additions": 2670,
+      "deletions": 4294
+    },
+    "2025-07-07": {
+      "commits": 1,
+      "additions": 3903,
+      "deletions": 423
+    },
+    "2025-06-16": {
+      "commits": 2,
+      "additions": 1166,
+      "deletions": 3
+    },
+    "2025-03-17": {
+      "commits": 17,
+      "additions": 811,
+      "deletions": 60
+    },
+    "2025-02-10": {
+      "commits": 1,
+      "additions": 173,
+      "deletions": 0
+    },
+    "2025-03-10": {
+      "commits": 7,
+      "additions": 564,
+      "deletions": 59
+    },
+    "2025-03-03": {
+      "commits": 8,
+      "additions": 942,
+      "deletions": 185
+    },
+    "2025-02-24": {
+      "commits": 1,
+      "additions": 25,
+      "deletions": 0
+    },
+    "2025-04-14": {
+      "commits": 2,
+      "additions": 191,
+      "deletions": 4
+    },
+    "2025-03-31": {
+      "commits": 1,
+      "additions": 34,
+      "deletions": 2
+    },
+    "2025-05-19": {
+      "commits": 12,
+      "additions": 5430,
+      "deletions": 31
+    },
+    "2025-07-14": {
+      "commits": 2,
+      "additions": 2955,
+      "deletions": 0
     }
   },
   "by_repo_language": {
@@ -1152,24 +1337,24 @@
     },
     "Arpnik/git-tracker": {
       "Python": {
-        "additions": 713,
-        "deletions": 35,
-        "files": 6
+        "additions": 964,
+        "deletions": 41,
+        "files": 9
       },
       "Markdown": {
-        "additions": 90,
-        "deletions": 7,
-        "files": 5
+        "additions": 114,
+        "deletions": 11,
+        "files": 7
       },
       "YAML": {
-        "additions": 114,
-        "deletions": 5,
-        "files": 5
+        "additions": 116,
+        "deletions": 7,
+        "files": 6
       },
       "HTML": {
-        "additions": 238,
-        "deletions": 0,
-        "files": 2
+        "additions": 320,
+        "deletions": 1,
+        "files": 4
       },
       "Config": {
         "additions": 221,
@@ -1239,7 +1424,290 @@
         "deletions": 143,
         "files": 29
       }
+    },
+    "Fall2024-MLProjects/SignLanguage": {
+      "Jupyter Notebook": {
+        "additions": 7474,
+        "deletions": 3715,
+        "files": 3
+      },
+      "YAML": {
+        "additions": 120,
+        "deletions": 3,
+        "files": 4
+      },
+      "Python": {
+        "additions": 9109,
+        "deletions": 24,
+        "files": 55
+      },
+      "Other": {
+        "additions": 201,
+        "deletions": 0,
+        "files": 2
+      },
+      "Markdown": {
+        "additions": 19,
+        "deletions": 0,
+        "files": 4
+      },
+      "Dev": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 2
+      },
+      "Test": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 2
+      },
+      "Train": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 2
+      },
+      "Shell": {
+        "additions": 4,
+        "deletions": 0,
+        "files": 2
+      },
+      "Ph14t": {
+        "additions": 2,
+        "deletions": 0,
+        "files": 4
+      },
+      "Config": {
+        "additions": 36,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "anubhavm101/SOEN-6441--TubeLytics": {
+      "Markdown": {
+        "additions": 36,
+        "deletions": 4,
+        "files": 3
+      },
+      "Java": {
+        "additions": 3975,
+        "deletions": 2698,
+        "files": 167
+      },
+      "Conf": {
+        "additions": 11,
+        "deletions": 16,
+        "files": 12
+      },
+      "Scala": {
+        "additions": 1375,
+        "deletions": 1602,
+        "files": 33
+      },
+      "HTML": {
+        "additions": 576,
+        "deletions": 372,
+        "files": 21
+      },
+      "Other": {
+        "additions": 72,
+        "deletions": 175,
+        "files": 132
+      },
+      "JSON": {
+        "additions": 2,
+        "deletions": 1,
+        "files": 2
+      },
+      "JavaScript": {
+        "additions": 54,
+        "deletions": 0,
+        "files": 3
+      },
+      "Config": {
+        "additions": 43,
+        "deletions": 1,
+        "files": 4
+      },
+      "Log": {
+        "additions": 16,
+        "deletions": 2017,
+        "files": 15
+      },
+      "Class": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 78
+      },
+      "Cache": {
+        "additions": 0,
+        "deletions": 23,
+        "files": 23
+      },
+      "XML": {
+        "additions": 0,
+        "deletions": 50,
+        "files": 1
+      },
+      "Zip": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      },
+      "Image": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 5
+      },
+      "CSS": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 2
+      },
+      "Iml": {
+        "additions": 0,
+        "deletions": 12,
+        "files": 1
+      },
+      "Sbt": {
+        "additions": 13,
+        "deletions": 2,
+        "files": 3
+      }
+    },
+    "GetKnowbie/knowbie-cms": {
+      "Jupyter Notebook": {
+        "additions": 5069,
+        "deletions": 426,
+        "files": 3
+      }
+    },
+    "Arpnik/LinkedInQueenGame": {
+      "Image": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 11
+      },
+      "Markdown": {
+        "additions": 53,
+        "deletions": 4,
+        "files": 4
+      },
+      "Python": {
+        "additions": 371,
+        "deletions": 9,
+        "files": 16
+      },
+      "Config": {
+        "additions": 171,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/COMP-6481-Assignment-2": {
+      "Java": {
+        "additions": 1491,
+        "deletions": 244,
+        "files": 53
+      },
+      "Config": {
+        "additions": 32,
+        "deletions": 0,
+        "files": 2
+      },
+      "XML": {
+        "additions": 6,
+        "deletions": 0,
+        "files": 1
+      },
+      "CSV": {
+        "additions": 1,
+        "deletions": 0,
+        "files": 1
+      },
+      "Markdown": {
+        "additions": 1,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/COMP-6481-Assignment-3": {
+      "Java": {
+        "additions": 610,
+        "deletions": 50,
+        "files": 16
+      },
+      "Markdown": {
+        "additions": 4,
+        "deletions": 3,
+        "files": 2
+      }
+    },
+    "Arpnik/speech-pd-detection": {
+      "Markdown": {
+        "additions": 74,
+        "deletions": 29,
+        "files": 12
+      },
+      "Image": {
+        "additions": 16,
+        "deletions": 0,
+        "files": 5
+      },
+      "Jupyter Notebook": {
+        "additions": 5166,
+        "deletions": 2,
+        "files": 2
+      },
+      "Config": {
+        "additions": 174,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/Recommender-Systems": {
+      "Jupyter Notebook": {
+        "additions": 2954,
+        "deletions": 0,
+        "files": 2
+      },
+      "Markdown": {
+        "additions": 1,
+        "deletions": 0,
+        "files": 1
+      }
     }
   },
-  "generated_at": "2026-07-22T17:37:11.507812+00:00"
+  "generated_at": "2026-07-22T18:18:49.238190+00:00",
+  "by_tag": {
+    "datascience": {
+      "additions": 17024,
+      "deletions": 4143,
+      "files": 11
+    },
+    "ai": {
+      "additions": 4274,
+      "deletions": 27,
+      "files": 47
+    },
+    "other": {
+      "additions": 1129,
+      "deletions": 2341,
+      "files": 311
+    },
+    "ml": {
+      "additions": 3303,
+      "deletions": 879,
+      "files": 87
+    },
+    "backend": {
+      "additions": 13249,
+      "deletions": 3732,
+      "files": 241
+    },
+    "frontend": {
+      "additions": 712,
+      "deletions": 373,
+      "files": 32
+    }
+  }
 }

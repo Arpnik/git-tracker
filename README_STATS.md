@@ -1,53 +1,59 @@
 # Dev Stats
 
-_Last updated: 2026-07-22T17:37:11.507812+00:00_
+_Last updated: 2026-07-22T18:18:49.238190+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 559 commits · +416105 / -47139 lines
+**Totals:** 688 commits · +455796 / -58634 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
+| datascience | 17024 | 4143 | 11 |
+| backend | 13249 | 3732 | 241 |
+| ai | 4274 | 27 | 47 |
+| ml | 3303 | 879 | 87 |
+| other | 1129 | 2341 | 311 |
+| frontend | 712 | 373 | 32 |
 
 ## By category
 
 | Category | + | - | Files touched |
 |---|---|---|---|
-| data_ml | 229231 | 1336 | 14 |
-| other | 133133 | 19887 | 356 |
-| backend | 27062 | 7084 | 642 |
-| frontend | 23294 | 18308 | 499 |
-| docs | 2538 | 349 | 53 |
-| infra | 605 | 172 | 55 |
-| ui_design | 242 | 3 | 30 |
+| data_ml | 249894 | 5479 | 31 |
+| other | 135371 | 23785 | 675 |
+| backend | 42790 | 10115 | 951 |
+| frontend | 23348 | 18308 | 508 |
+| docs | 2750 | 393 | 82 |
+| ui_design | 916 | 377 | 71 |
+| infra | 727 | 177 | 60 |
 
 ## By language
 
 | Language | + | - | Files touched |
 |---|---|---|---|
-| Jupyter Notebook | 229220 | 1202 | 10 |
-| JSON | 89567 | 8226 | 103 |
+| Jupyter Notebook | 249883 | 5345 | 20 |
+| JSON | 89569 | 8227 | 105 |
+| Python | 30923 | 5589 | 560 |
 | Text | 30529 | 61 | 4 |
-| Python | 21192 | 5550 | 486 |
 | Lock | 14455 | 14685 | 17 |
-| JavaScript | 10530 | 6855 | 438 |
-| Java | 5961 | 1506 | 163 |
+| Java | 12037 | 4498 | 399 |
+| JavaScript | 10584 | 6855 | 441 |
 | Solidity | 5197 | 4852 | 30 |
 | Dart | 3849 | 2838 | 118 |
-| Markdown | 2538 | 349 | 53 |
-| Config | 1291 | 16 | 20 |
-| YAML | 566 | 172 | 53 |
-| HTML | 238 | 0 | 2 |
+| Markdown | 2750 | 393 | 82 |
+| Config | 1747 | 17 | 29 |
+| Scala | 1375 | 1602 | 33 |
+| HTML | 896 | 373 | 25 |
+| YAML | 688 | 177 | 58 |
+| Other | 310 | 176 | 142 |
 | TypeScript | 165 | 139 | 12 |
 | TOML | 135 | 7 | 7 |
 | Plist | 124 | 122 | 2 |
-| CSS | 119 | 60 | 4 |
+| CSS | 119 | 60 | 6 |
 | Dotenv | 95 | 87 | 44 |
-| Makefile | 73 | 31 | 4 |
-| Shell | 61 | 118 | 1 |
 
 ## By repository
 
@@ -57,20 +63,28 @@ _Last updated: 2026-07-22T17:37:11.507812+00:00_
 | altconvey/acy-materials | 11 | 22282 | 174 |
 | Arpnik/DISRPT-Segmenter | 20 | 22034 | 930 |
 | Arpnik/home_assessment | 7 | 19121 | 375 |
+| Fall2024-MLProjects/SignLanguage | 10 | 16965 | 3742 |
 | GetKnowbie/AdminV2 | 14 | 14438 | 14266 |
 | GetKnowbie/Operators | 89 | 11124 | 9518 |
 | GetKnowbie/knowbie-back | 27 | 9403 | 4152 |
+| anubhavm101/SOEN-6441--TubeLytics | 64 | 6173 | 6973 |
 | Arpnik/test-jest | 3 | 5947 | 0 |
+| Arpnik/speech-pd-detection | 12 | 5430 | 31 |
 | aysha8665/rexploit-dataset | 4 | 5226 | 4942 |
+| GetKnowbie/knowbie-cms | 3 | 5069 | 426 |
 | GetKnowbie/end-user | 60 | 4690 | 3980 |
 | Arpnik/NL2SQL | 39 | 4247 | 526 |
 | altconvey/acy-ui | 23 | 3817 | 1202 |
 | Arpnik/neetcode-submissions | 48 | 3783 | 0 |
 | altconvey/acy-ai | 42 | 3389 | 900 |
+| Arpnik/Recommender-Systems | 2 | 2955 | 0 |
 | altconvey/acy-rest | 15 | 2473 | 1711 |
 | Arpnik/FedBN | 20 | 2259 | 843 |
-| Arpnik/git-tracker | 11 | 1376 | 47 |
+| Arpnik/git-tracker | 12 | 1735 | 60 |
+| Arpnik/COMP-6481-Assignment-2 | 16 | 1531 | 244 |
 | Arpnik/taskd-technical-challenge | 33 | 1324 | 586 |
+| Arpnik/COMP-6481-Assignment-3 | 9 | 614 | 53 |
+| Arpnik/LinkedInQueenGame | 12 | 595 | 13 |
 | FrancescoBonzi/twin-transformer | 24 | 344 | 226 |
 | Arpnik/SOEN-341 | 25 | 242 | 24 |
 | toyosi12/fs-agent | 3 | 159 | 20 |
@@ -134,6 +148,24 @@ _Last updated: 2026-07-22T17:37:11.507812+00:00_
 
 </details>
 
+<details><summary><strong>Fall2024-MLProjects/SignLanguage</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Python | 9109 | 24 | 55 |
+| Jupyter Notebook | 7474 | 3715 | 3 |
+| Other | 201 | 0 | 2 |
+| YAML | 120 | 3 | 4 |
+| Config | 36 | 0 | 1 |
+| Markdown | 19 | 0 | 4 |
+| Shell | 4 | 0 | 2 |
+| Ph14t | 2 | 0 | 4 |
+| Dev | 0 | 0 | 2 |
+| Test | 0 | 0 | 2 |
+| Train | 0 | 0 | 2 |
+
+</details>
+
 <details><summary><strong>GetKnowbie/AdminV2</strong></summary>
 
 | Language | + | - | Files touched |
@@ -183,6 +215,31 @@ _Last updated: 2026-07-22T17:37:11.507812+00:00_
 
 </details>
 
+<details><summary><strong>anubhavm101/SOEN-6441--TubeLytics</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Java | 3975 | 2698 | 167 |
+| Scala | 1375 | 1602 | 33 |
+| HTML | 576 | 372 | 21 |
+| Other | 72 | 175 | 132 |
+| JavaScript | 54 | 0 | 3 |
+| Config | 43 | 1 | 4 |
+| Markdown | 36 | 4 | 3 |
+| Log | 16 | 2017 | 15 |
+| Sbt | 13 | 2 | 3 |
+| Conf | 11 | 16 | 12 |
+| JSON | 2 | 1 | 2 |
+| Class | 0 | 0 | 78 |
+| Cache | 0 | 23 | 23 |
+| XML | 0 | 50 | 1 |
+| Zip | 0 | 0 | 1 |
+| Image | 0 | 0 | 5 |
+| CSS | 0 | 0 | 2 |
+| Iml | 0 | 12 | 1 |
+
+</details>
+
 <details><summary><strong>Arpnik/test-jest</strong></summary>
 
 | Language | + | - | Files touched |
@@ -193,6 +250,17 @@ _Last updated: 2026-07-22T17:37:11.507812+00:00_
 
 </details>
 
+<details><summary><strong>Arpnik/speech-pd-detection</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Jupyter Notebook | 5166 | 2 | 2 |
+| Config | 174 | 0 | 1 |
+| Markdown | 74 | 29 | 12 |
+| Image | 16 | 0 | 5 |
+
+</details>
+
 <details><summary><strong>aysha8665/rexploit-dataset</strong></summary>
 
 | Language | + | - | Files touched |
@@ -200,6 +268,14 @@ _Last updated: 2026-07-22T17:37:11.507812+00:00_
 | Solidity | 5197 | 4852 | 30 |
 | JSON | 29 | 29 | 11 |
 | Text | 0 | 61 | 2 |
+
+</details>
+
+<details><summary><strong>GetKnowbie/knowbie-cms</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Jupyter Notebook | 5069 | 426 | 3 |
 
 </details>
 
@@ -267,6 +343,15 @@ _Last updated: 2026-07-22T17:37:11.507812+00:00_
 
 </details>
 
+<details><summary><strong>Arpnik/Recommender-Systems</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Jupyter Notebook | 2954 | 0 | 2 |
+| Markdown | 1 | 0 | 1 |
+
+</details>
+
 <details><summary><strong>altconvey/acy-rest</strong></summary>
 
 | Language | + | - | Files touched |
@@ -295,11 +380,23 @@ _Last updated: 2026-07-22T17:37:11.507812+00:00_
 
 | Language | + | - | Files touched |
 |---|---|---|---|
-| Python | 713 | 35 | 6 |
-| HTML | 238 | 0 | 2 |
+| Python | 964 | 41 | 9 |
+| HTML | 320 | 1 | 4 |
 | Config | 221 | 0 | 2 |
-| YAML | 114 | 5 | 5 |
-| Markdown | 90 | 7 | 5 |
+| YAML | 116 | 7 | 6 |
+| Markdown | 114 | 11 | 7 |
+
+</details>
+
+<details><summary><strong>Arpnik/COMP-6481-Assignment-2</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Java | 1491 | 244 | 53 |
+| Config | 32 | 0 | 2 |
+| XML | 6 | 0 | 1 |
+| CSV | 1 | 0 | 1 |
+| Markdown | 1 | 0 | 1 |
 
 </details>
 
@@ -310,6 +407,26 @@ _Last updated: 2026-07-22T17:37:11.507812+00:00_
 | Python | 1178 | 545 | 33 |
 | Markdown | 146 | 41 | 6 |
 | Image | 0 | 0 | 1 |
+
+</details>
+
+<details><summary><strong>Arpnik/COMP-6481-Assignment-3</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Java | 610 | 50 | 16 |
+| Markdown | 4 | 3 | 2 |
+
+</details>
+
+<details><summary><strong>Arpnik/LinkedInQueenGame</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Python | 371 | 9 | 16 |
+| Config | 171 | 0 | 1 |
+| Markdown | 53 | 4 | 4 |
+| Image | 0 | 0 | 11 |
 
 </details>
 
