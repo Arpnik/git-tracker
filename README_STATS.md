@@ -2,6 +2,8 @@
 
 _Last updated: 2026-07-22T05:46:41.146282+00:00_
 
+> 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
+
 **Totals:** 128 commits · +582949 / -8022 lines
 
 ## By category
@@ -49,3 +51,6 @@ _Last updated: 2026-07-22T05:46:41.146282+00:00_
 | Arpnik/git-tracker | 2 | 803 | 1 |
 | GetKnowbie/AdminV2 | 4 | 34 | 48 |
 | GetKnowbie/Operators | 4 | 21 | 59 |
+
+## Language detail by repository
+
