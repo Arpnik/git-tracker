@@ -1,8 +1,8 @@
 {
   "totals": {
-    "commits": 691,
-    "additions": 455949,
-    "deletions": 58652
+    "commits": 692,
+    "additions": 457930,
+    "deletions": 58924
   },
   "by_repo": {
     "GetKnowbie/Operators": {
@@ -96,9 +96,9 @@
       "deletions": 1202
     },
     "altconvey/acy-rest": {
-      "commits": 15,
-      "additions": 2473,
-      "deletions": 1711
+      "commits": 16,
+      "additions": 4454,
+      "deletions": 1983
     },
     "altconvey/acy-ai": {
       "commits": 42,
@@ -178,9 +178,9 @@
       "files": 6
     },
     "Markdown": {
-      "additions": 2894,
-      "deletions": 398,
-      "files": 84
+      "additions": 2921,
+      "deletions": 404,
+      "files": 85
     },
     "Lock": {
       "additions": 14455,
@@ -243,9 +243,9 @@
       "files": 118
     },
     "YAML": {
-      "additions": 688,
-      "deletions": 177,
-      "files": 58
+      "additions": 696,
+      "deletions": 180,
+      "files": 59
     },
     "Gradle": {
       "additions": 23,
@@ -273,9 +273,9 @@
       "files": 1
     },
     "Properties": {
-      "additions": 3,
+      "additions": 7,
       "deletions": 1,
-      "files": 2
+      "files": 3
     },
     "Swift": {
       "additions": 4,
@@ -328,9 +328,9 @@
       "files": 30
     },
     "Java": {
-      "additions": 12037,
-      "deletions": 4498,
-      "files": 399
+      "additions": 13849,
+      "deletions": 4733,
+      "files": 401
     },
     "Db": {
       "additions": 0,
@@ -353,9 +353,9 @@
       "files": 1
     },
     "Shell": {
-      "additions": 65,
-      "deletions": 118,
-      "files": 3
+      "additions": 195,
+      "deletions": 146,
+      "files": 4
     },
     "Makefile": {
       "additions": 73,
@@ -425,14 +425,14 @@
       "files": 508
     },
     "other": {
-      "additions": 135371,
-      "deletions": 23785,
-      "files": 675
+      "additions": 135501,
+      "deletions": 23813,
+      "files": 676
     },
     "docs": {
-      "additions": 2894,
-      "deletions": 398,
-      "files": 84
+      "additions": 2921,
+      "deletions": 404,
+      "files": 85
     },
     "ui_design": {
       "additions": 916,
@@ -440,19 +440,24 @@
       "files": 71
     },
     "infra": {
-      "additions": 727,
-      "deletions": 177,
-      "files": 60
+      "additions": 735,
+      "deletions": 180,
+      "files": 61
     },
     "backend": {
-      "additions": 42799,
-      "deletions": 10128,
-      "files": 961
+      "additions": 44611,
+      "deletions": 10363,
+      "files": 963
     },
     "data_ml": {
       "additions": 249894,
       "deletions": 5479,
       "files": 31
+    },
+    "tests": {
+      "additions": 4,
+      "deletions": 0,
+      "files": 1
     }
   },
   "by_week": {
@@ -597,9 +602,9 @@
       "deletions": 10
     },
     "2026-07-20": {
-      "commits": 12,
-      "additions": 961,
-      "deletions": 71
+      "commits": 13,
+      "additions": 2942,
+      "deletions": 343
     },
     "2025-09-08": {
       "commits": 1,
@@ -1376,19 +1381,19 @@
     },
     "altconvey/acy-rest": {
       "Java": {
-        "additions": 2250,
-        "deletions": 1506,
-        "files": 66
+        "additions": 4062,
+        "deletions": 1741,
+        "files": 68
       },
       "Shell": {
-        "additions": 61,
-        "deletions": 118,
-        "files": 1
+        "additions": 191,
+        "deletions": 146,
+        "files": 2
       },
       "YAML": {
-        "additions": 71,
-        "deletions": 45,
-        "files": 4
+        "additions": 79,
+        "deletions": 48,
+        "files": 5
       },
       "Config": {
         "additions": 1,
@@ -1401,7 +1406,12 @@
         "files": 1
       },
       "Markdown": {
-        "additions": 46,
+        "additions": 73,
+        "deletions": 6,
+        "files": 2
+      },
+      "Properties": {
+        "additions": 4,
         "deletions": 0,
         "files": 1
       }
@@ -1677,7 +1687,7 @@
       }
     }
   },
-  "generated_at": "2026-07-24T05:47:48.767369+00:00",
+  "generated_at": "2026-07-25T05:41:18.679867+00:00",
   "by_tag": {
     "datascience": {
       "additions": 17024,
@@ -1690,9 +1700,9 @@
       "files": 51
     },
     "other": {
-      "additions": 1273,
-      "deletions": 2346,
-      "files": 313
+      "additions": 1442,
+      "deletions": 2383,
+      "files": 317
     },
     "ml": {
       "additions": 3303,
@@ -1700,9 +1710,9 @@
       "files": 87
     },
     "backend": {
-      "additions": 13254,
-      "deletions": 3739,
-      "files": 246
+      "additions": 15066,
+      "deletions": 3974,
+      "files": 248
     },
     "frontend": {
       "additions": 712,

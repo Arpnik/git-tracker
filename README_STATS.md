@@ -1,21 +1,21 @@
 # Dev Stats
 
-_Last updated: 2026-07-24T05:47:48.767369+00:00_
+_Last updated: 2026-07-25T05:41:18.679867+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 691 commits · +455949 / -58652 lines
+**Totals:** 692 commits · +457930 / -58924 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
 | datascience | 17024 | 4144 | 12 |
-| backend | 13254 | 3739 | 246 |
+| backend | 15066 | 3974 | 248 |
 | ai | 4278 | 32 | 51 |
 | ml | 3303 | 879 | 87 |
-| other | 1273 | 2346 | 313 |
+| other | 1442 | 2383 | 317 |
 | frontend | 712 | 373 | 32 |
 
 ## By category
@@ -23,12 +23,13 @@ _Last updated: 2026-07-24T05:47:48.767369+00:00_
 | Category | + | - | Files touched |
 |---|---|---|---|
 | data_ml | 249894 | 5479 | 31 |
-| other | 135371 | 23785 | 675 |
-| backend | 42799 | 10128 | 961 |
+| other | 135501 | 23813 | 676 |
+| backend | 44611 | 10363 | 963 |
 | frontend | 23348 | 18308 | 508 |
-| docs | 2894 | 398 | 84 |
+| docs | 2921 | 404 | 85 |
 | ui_design | 916 | 377 | 71 |
-| infra | 727 | 177 | 60 |
+| infra | 735 | 180 | 61 |
+| tests | 4 | 0 | 1 |
 
 ## By language
 
@@ -39,21 +40,21 @@ _Last updated: 2026-07-24T05:47:48.767369+00:00_
 | Python | 30932 | 5602 | 570 |
 | Text | 30529 | 61 | 4 |
 | Lock | 14455 | 14685 | 17 |
-| Java | 12037 | 4498 | 399 |
+| Java | 13849 | 4733 | 401 |
 | JavaScript | 10584 | 6855 | 441 |
 | Solidity | 5197 | 4852 | 30 |
 | Dart | 3849 | 2838 | 118 |
-| Markdown | 2894 | 398 | 84 |
+| Markdown | 2921 | 404 | 85 |
 | Config | 1747 | 17 | 29 |
 | Scala | 1375 | 1602 | 33 |
 | HTML | 896 | 373 | 25 |
-| YAML | 688 | 177 | 58 |
+| YAML | 696 | 180 | 59 |
 | Other | 310 | 176 | 142 |
+| Shell | 195 | 146 | 4 |
 | TypeScript | 165 | 139 | 12 |
 | TOML | 135 | 7 | 7 |
 | Plist | 124 | 122 | 2 |
 | CSS | 119 | 60 | 6 |
-| Dotenv | 95 | 87 | 44 |
 
 ## By repository
 
@@ -73,12 +74,12 @@ _Last updated: 2026-07-24T05:47:48.767369+00:00_
 | aysha8665/rexploit-dataset | 4 | 5226 | 4942 |
 | GetKnowbie/knowbie-cms | 3 | 5069 | 426 |
 | GetKnowbie/end-user | 60 | 4690 | 3980 |
+| altconvey/acy-rest | 16 | 4454 | 1983 |
 | Arpnik/NL2SQL | 39 | 4247 | 526 |
 | altconvey/acy-ui | 23 | 3817 | 1202 |
 | Arpnik/neetcode-submissions | 48 | 3783 | 0 |
 | altconvey/acy-ai | 42 | 3389 | 900 |
 | Arpnik/Recommender-Systems | 2 | 2955 | 0 |
-| altconvey/acy-rest | 15 | 2473 | 1711 |
 | Arpnik/FedBN | 20 | 2259 | 843 |
 | Arpnik/git-tracker | 12 | 1735 | 60 |
 | Arpnik/COMP-6481-Assignment-2 | 16 | 1531 | 244 |
@@ -301,6 +302,20 @@ _Last updated: 2026-07-24T05:47:48.767369+00:00_
 
 </details>
 
+<details><summary><strong>altconvey/acy-rest</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Java | 4062 | 1741 | 68 |
+| Shell | 191 | 146 | 2 |
+| YAML | 79 | 48 | 5 |
+| Markdown | 73 | 6 | 2 |
+| XML | 44 | 42 | 1 |
+| Properties | 4 | 0 | 1 |
+| Config | 1 | 0 | 1 |
+
+</details>
+
 <details><summary><strong>Arpnik/NL2SQL</strong></summary>
 
 | Language | + | - | Files touched |
@@ -349,19 +364,6 @@ _Last updated: 2026-07-24T05:47:48.767369+00:00_
 |---|---|---|---|
 | Jupyter Notebook | 2954 | 0 | 2 |
 | Markdown | 1 | 0 | 1 |
-
-</details>
-
-<details><summary><strong>altconvey/acy-rest</strong></summary>
-
-| Language | + | - | Files touched |
-|---|---|---|---|
-| Java | 2250 | 1506 | 66 |
-| YAML | 71 | 45 | 4 |
-| Shell | 61 | 118 | 1 |
-| Markdown | 46 | 0 | 1 |
-| XML | 44 | 42 | 1 |
-| Config | 1 | 0 | 1 |
 
 </details>
 
