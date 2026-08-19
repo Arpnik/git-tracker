@@ -1,21 +1,21 @@
 # Dev Stats
 
-_Last updated: 2026-08-18T03:41:01.361429+00:00_
+_Last updated: 2026-08-19T03:43:10.466102+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 695 commits · +458229 / -59018 lines
+**Totals:** 696 commits · +458464 / -59020 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
 | datascience | 17024 | 4144 | 12 |
-| backend | 15066 | 3974 | 248 |
+| backend | 15299 | 3975 | 249 |
 | ai | 4278 | 32 | 51 |
 | ml | 3311 | 879 | 88 |
-| other | 1442 | 2383 | 317 |
+| other | 1444 | 2384 | 318 |
 | frontend | 1003 | 467 | 38 |
 
 ## By category
@@ -24,9 +24,9 @@ _Last updated: 2026-08-18T03:41:01.361429+00:00_
 |---|---|---|---|
 | data_ml | 249894 | 5479 | 31 |
 | other | 135501 | 23813 | 676 |
-| backend | 44619 | 10363 | 964 |
+| backend | 44852 | 10364 | 965 |
 | frontend | 23639 | 18402 | 514 |
-| docs | 2921 | 404 | 85 |
+| docs | 2923 | 405 | 86 |
 | ui_design | 916 | 377 | 71 |
 | infra | 735 | 180 | 61 |
 | tests | 4 | 0 | 1 |
@@ -40,11 +40,11 @@ _Last updated: 2026-08-18T03:41:01.361429+00:00_
 | Python | 30932 | 5602 | 570 |
 | Text | 30529 | 61 | 4 |
 | Lock | 14455 | 14685 | 17 |
-| Java | 13857 | 4733 | 402 |
+| Java | 14090 | 4734 | 403 |
 | JavaScript | 10875 | 6949 | 447 |
 | Solidity | 5197 | 4852 | 30 |
 | Dart | 3849 | 2838 | 118 |
-| Markdown | 2921 | 404 | 85 |
+| Markdown | 2923 | 405 | 86 |
 | Config | 1747 | 17 | 29 |
 | Scala | 1375 | 1602 | 33 |
 | HTML | 896 | 373 | 25 |
@@ -73,8 +73,8 @@ _Last updated: 2026-08-18T03:41:01.361429+00:00_
 | Arpnik/speech-pd-detection | 12 | 5430 | 31 |
 | aysha8665/rexploit-dataset | 4 | 5226 | 4942 |
 | GetKnowbie/knowbie-cms | 3 | 5069 | 426 |
+| altconvey/acy-rest | 18 | 4697 | 1985 |
 | GetKnowbie/end-user | 60 | 4690 | 3980 |
-| altconvey/acy-rest | 17 | 4462 | 1983 |
 | Arpnik/NL2SQL | 39 | 4247 | 526 |
 | altconvey/acy-ui | 25 | 4108 | 1296 |
 | Arpnik/neetcode-submissions | 48 | 3783 | 0 |
@@ -280,6 +280,20 @@ _Last updated: 2026-08-18T03:41:01.361429+00:00_
 
 </details>
 
+<details><summary><strong>altconvey/acy-rest</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Java | 4303 | 1742 | 70 |
+| Shell | 191 | 146 | 2 |
+| YAML | 79 | 48 | 5 |
+| Markdown | 75 | 7 | 3 |
+| XML | 44 | 42 | 1 |
+| Properties | 4 | 0 | 1 |
+| Config | 1 | 0 | 1 |
+
+</details>
+
 <details><summary><strong>GetKnowbie/end-user</strong></summary>
 
 | Language | + | - | Files touched |
@@ -299,20 +313,6 @@ _Last updated: 2026-08-18T03:41:01.361429+00:00_
 | Image | 1 | 0 | 15 |
 | Xcscheme | 1 | 0 | 1 |
 | Old | 0 | 140 | 1 |
-
-</details>
-
-<details><summary><strong>altconvey/acy-rest</strong></summary>
-
-| Language | + | - | Files touched |
-|---|---|---|---|
-| Java | 4070 | 1741 | 69 |
-| Shell | 191 | 146 | 2 |
-| YAML | 79 | 48 | 5 |
-| Markdown | 73 | 6 | 2 |
-| XML | 44 | 42 | 1 |
-| Properties | 4 | 0 | 1 |
-| Config | 1 | 0 | 1 |
 
 </details>
 
