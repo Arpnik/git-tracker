@@ -1,31 +1,31 @@
 # Dev Stats
 
-_Last updated: 2026-08-24T03:51:43.360069+00:00_
+_Last updated: 2026-08-25T03:45:12.445710+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 696 commits · +458464 / -59020 lines
+**Totals:** 700 commits · +461397 / -59305 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
 | datascience | 17024 | 4144 | 12 |
-| backend | 15299 | 3975 | 249 |
+| backend | 15770 | 3975 | 255 |
 | ai | 4278 | 32 | 51 |
-| ml | 3311 | 879 | 88 |
-| other | 1444 | 2384 | 318 |
-| frontend | 1003 | 467 | 38 |
+| other | 3593 | 2663 | 322 |
+| ml | 3415 | 879 | 90 |
+| frontend | 1212 | 473 | 41 |
 
 ## By category
 
 | Category | + | - | Files touched |
 |---|---|---|---|
 | data_ml | 249894 | 5479 | 31 |
-| other | 135501 | 23813 | 676 |
-| backend | 44852 | 10364 | 965 |
-| frontend | 23639 | 18402 | 514 |
+| other | 137650 | 24092 | 680 |
+| backend | 45396 | 10364 | 972 |
+| frontend | 23879 | 18408 | 518 |
 | docs | 2923 | 405 | 86 |
 | ui_design | 916 | 377 | 71 |
 | infra | 735 | 180 | 61 |
@@ -36,12 +36,12 @@ _Last updated: 2026-08-24T03:51:43.360069+00:00_
 | Language | + | - | Files touched |
 |---|---|---|---|
 | Jupyter Notebook | 249883 | 5345 | 20 |
-| JSON | 89569 | 8227 | 105 |
+| JSON | 91718 | 8506 | 109 |
 | Python | 30932 | 5602 | 570 |
 | Text | 30529 | 61 | 4 |
+| Java | 14634 | 4734 | 410 |
 | Lock | 14455 | 14685 | 17 |
-| Java | 14090 | 4734 | 403 |
-| JavaScript | 10875 | 6949 | 447 |
+| JavaScript | 11115 | 6955 | 451 |
 | Solidity | 5197 | 4852 | 30 |
 | Dart | 3849 | 2838 | 118 |
 | Markdown | 2923 | 405 | 86 |
@@ -61,7 +61,7 @@ _Last updated: 2026-08-24T03:51:43.360069+00:00_
 | Repo | Commits | + | - |
 |---|---|---|---|
 | Arpnik/EDU-Chunking-RAG | 41 | 278427 | 2717 |
-| altconvey/acy-materials | 11 | 22282 | 174 |
+| altconvey/acy-materials | 12 | 24431 | 453 |
 | Arpnik/DISRPT-Segmenter | 20 | 22034 | 930 |
 | Arpnik/home_assessment | 7 | 19121 | 375 |
 | Fall2024-MLProjects/SignLanguage | 10 | 16965 | 3742 |
@@ -71,12 +71,12 @@ _Last updated: 2026-08-24T03:51:43.360069+00:00_
 | anubhavm101/SOEN-6441--TubeLytics | 64 | 6173 | 6973 |
 | Arpnik/test-jest | 3 | 5947 | 0 |
 | Arpnik/speech-pd-detection | 12 | 5430 | 31 |
+| altconvey/acy-rest | 19 | 5241 | 1985 |
 | aysha8665/rexploit-dataset | 4 | 5226 | 4942 |
 | GetKnowbie/knowbie-cms | 3 | 5069 | 426 |
-| altconvey/acy-rest | 18 | 4697 | 1985 |
 | GetKnowbie/end-user | 60 | 4690 | 3980 |
+| altconvey/acy-ui | 27 | 4348 | 1302 |
 | Arpnik/NL2SQL | 39 | 4247 | 526 |
-| altconvey/acy-ui | 25 | 4108 | 1296 |
 | Arpnik/neetcode-submissions | 48 | 3783 | 0 |
 | altconvey/acy-ai | 42 | 3389 | 900 |
 | Arpnik/Recommender-Systems | 2 | 2955 | 0 |
@@ -116,7 +116,7 @@ _Last updated: 2026-08-24T03:51:43.360069+00:00_
 
 | Language | + | - | Files touched |
 |---|---|---|---|
-| JSON | 22209 | 143 | 29 |
+| JSON | 24358 | 422 | 33 |
 | Makefile | 73 | 31 | 4 |
 
 </details>
@@ -262,6 +262,20 @@ _Last updated: 2026-08-24T03:51:43.360069+00:00_
 
 </details>
 
+<details><summary><strong>altconvey/acy-rest</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Java | 4847 | 1742 | 77 |
+| Shell | 191 | 146 | 2 |
+| YAML | 79 | 48 | 5 |
+| Markdown | 75 | 7 | 3 |
+| XML | 44 | 42 | 1 |
+| Properties | 4 | 0 | 1 |
+| Config | 1 | 0 | 1 |
+
+</details>
+
 <details><summary><strong>aysha8665/rexploit-dataset</strong></summary>
 
 | Language | + | - | Files touched |
@@ -277,20 +291,6 @@ _Last updated: 2026-08-24T03:51:43.360069+00:00_
 | Language | + | - | Files touched |
 |---|---|---|---|
 | Jupyter Notebook | 5069 | 426 | 3 |
-
-</details>
-
-<details><summary><strong>altconvey/acy-rest</strong></summary>
-
-| Language | + | - | Files touched |
-|---|---|---|---|
-| Java | 4303 | 1742 | 70 |
-| Shell | 191 | 146 | 2 |
-| YAML | 79 | 48 | 5 |
-| Markdown | 75 | 7 | 3 |
-| XML | 44 | 42 | 1 |
-| Properties | 4 | 0 | 1 |
-| Config | 1 | 0 | 1 |
 
 </details>
 
@@ -316,6 +316,15 @@ _Last updated: 2026-08-24T03:51:43.360069+00:00_
 
 </details>
 
+<details><summary><strong>altconvey/acy-ui</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| JavaScript | 4345 | 1299 | 113 |
+| SCSS | 3 | 3 | 1 |
+
+</details>
+
 <details><summary><strong>Arpnik/NL2SQL</strong></summary>
 
 | Language | + | - | Files touched |
@@ -329,15 +338,6 @@ _Last updated: 2026-08-24T03:51:43.360069+00:00_
 | Docker | 28 | 0 | 1 |
 | Image | 0 | 0 | 3 |
 | Db | 0 | 0 | 4 |
-
-</details>
-
-<details><summary><strong>altconvey/acy-ui</strong></summary>
-
-| Language | + | - | Files touched |
-|---|---|---|---|
-| JavaScript | 4105 | 1293 | 109 |
-| SCSS | 3 | 3 | 1 |
 
 </details>
 
