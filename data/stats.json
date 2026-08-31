@@ -1,8 +1,8 @@
 {
   "totals": {
-    "commits": 703,
-    "additions": 461470,
-    "deletions": 59325
+    "commits": 713,
+    "additions": 465407,
+    "deletions": 59589
   },
   "by_repo": {
     "GetKnowbie/Operators": {
@@ -149,6 +149,11 @@
       "commits": 2,
       "additions": 2955,
       "deletions": 0
+    },
+    "Arpnik/web-crawler": {
+      "commits": 10,
+      "additions": 3937,
+      "deletions": 264
     }
   },
   "by_language": {
@@ -178,14 +183,14 @@
       "files": 6
     },
     "Markdown": {
-      "additions": 2923,
-      "deletions": 405,
-      "files": 86
+      "additions": 2982,
+      "deletions": 406,
+      "files": 88
     },
     "Lock": {
-      "additions": 14455,
+      "additions": 15186,
       "deletions": 14685,
-      "files": 17
+      "files": 19
     },
     "Image": {
       "additions": 22,
@@ -193,9 +198,9 @@
       "files": 49
     },
     "Config": {
-      "additions": 1747,
+      "additions": 1965,
       "deletions": 17,
-      "files": 29
+      "files": 30
     },
     "TypeScript": {
       "additions": 165,
@@ -288,9 +293,9 @@
       "files": 1
     },
     "Python": {
-      "additions": 30932,
-      "deletions": 5602,
-      "files": 570
+      "additions": 33834,
+      "deletions": 5864,
+      "files": 632
     },
     "Jupyter Notebook": {
       "additions": 249883,
@@ -298,9 +303,9 @@
       "files": 20
     },
     "TOML": {
-      "additions": 135,
-      "deletions": 7,
-      "files": 7
+      "additions": 162,
+      "deletions": 8,
+      "files": 9
     },
     "Text": {
       "additions": 30529,
@@ -425,14 +430,14 @@
       "files": 521
     },
     "other": {
-      "additions": 137650,
-      "deletions": 24092,
-      "files": 680
+      "additions": 138626,
+      "deletions": 24093,
+      "files": 685
     },
     "docs": {
-      "additions": 2923,
-      "deletions": 405,
-      "files": 86
+      "additions": 2982,
+      "deletions": 406,
+      "files": 88
     },
     "ui_design": {
       "additions": 916,
@@ -445,9 +450,9 @@
       "files": 61
     },
     "backend": {
-      "additions": 45453,
-      "deletions": 10379,
-      "files": 976
+      "additions": 48355,
+      "deletions": 10641,
+      "files": 1038
     },
     "data_ml": {
       "additions": 249894,
@@ -812,9 +817,9 @@
       "deletions": 2
     },
     "2026-08-24": {
-      "commits": 7,
-      "additions": 3006,
-      "deletions": 305
+      "commits": 17,
+      "additions": 6943,
+      "deletions": 569
     }
   },
   "by_repo_language": {
@@ -1700,9 +1705,36 @@
         "deletions": 0,
         "files": 1
       }
+    },
+    "Arpnik/web-crawler": {
+      "Python": {
+        "additions": 2902,
+        "deletions": 262,
+        "files": 62
+      },
+      "TOML": {
+        "additions": 27,
+        "deletions": 1,
+        "files": 2
+      },
+      "Lock": {
+        "additions": 731,
+        "deletions": 0,
+        "files": 2
+      },
+      "Markdown": {
+        "additions": 59,
+        "deletions": 1,
+        "files": 2
+      },
+      "Config": {
+        "additions": 218,
+        "deletions": 0,
+        "files": 1
+      }
     }
   },
-  "generated_at": "2026-08-30T08:53:51.124754+00:00",
+  "generated_at": "2026-08-31T09:17:35.269621+00:00",
   "by_tag": {
     "datascience": {
       "additions": 17024,
@@ -1715,19 +1747,19 @@
       "files": 51
     },
     "other": {
-      "additions": 3593,
-      "deletions": 2663,
-      "files": 322
+      "additions": 4628,
+      "deletions": 2665,
+      "files": 329
     },
     "ml": {
-      "additions": 3425,
-      "deletions": 880,
-      "files": 91
+      "additions": 3507,
+      "deletions": 881,
+      "files": 96
     },
     "backend": {
-      "additions": 15817,
-      "deletions": 3989,
-      "files": 258
+      "additions": 18637,
+      "deletions": 4250,
+      "files": 315
     },
     "frontend": {
       "additions": 1228,
