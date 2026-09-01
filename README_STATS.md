@@ -1,11 +1,11 @@
 # Dev Stats
 
-_Last updated: 2026-08-31T09:17:35.269621+00:00_
+_Last updated: 2026-09-01T08:16:27.284807+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 713 commits · +465407 / -59589 lines
+**Totals:** 715 commits · +465438 / -59595 lines
 
 ## By development tag
 
@@ -13,7 +13,7 @@ _Last updated: 2026-08-31T09:17:35.269621+00:00_
 |---|---|---|---|
 | backend | 18637 | 4250 | 315 |
 | datascience | 17024 | 4144 | 12 |
-| other | 4628 | 2665 | 329 |
+| other | 4659 | 2671 | 333 |
 | ai | 4278 | 32 | 51 |
 | ml | 3507 | 881 | 96 |
 | frontend | 1228 | 478 | 44 |
@@ -23,10 +23,10 @@ _Last updated: 2026-08-31T09:17:35.269621+00:00_
 | Category | + | - | Files touched |
 |---|---|---|---|
 | data_ml | 249894 | 5479 | 31 |
-| other | 138626 | 24093 | 685 |
+| other | 138628 | 24095 | 687 |
 | backend | 48355 | 10641 | 1038 |
 | frontend | 23895 | 18413 | 521 |
-| docs | 2982 | 406 | 88 |
+| docs | 3011 | 410 | 90 |
 | ui_design | 916 | 377 | 71 |
 | infra | 735 | 180 | 61 |
 | tests | 4 | 0 | 1 |
@@ -39,12 +39,12 @@ _Last updated: 2026-08-31T09:17:35.269621+00:00_
 | JSON | 91718 | 8506 | 109 |
 | Python | 33834 | 5864 | 632 |
 | Text | 30529 | 61 | 4 |
-| Lock | 15186 | 14685 | 19 |
+| Lock | 15187 | 14686 | 20 |
 | Java | 14691 | 4749 | 414 |
 | JavaScript | 11131 | 6960 | 454 |
 | Solidity | 5197 | 4852 | 30 |
 | Dart | 3849 | 2838 | 118 |
-| Markdown | 2982 | 406 | 88 |
+| Markdown | 3011 | 410 | 90 |
 | Config | 1965 | 17 | 30 |
 | Scala | 1375 | 1602 | 33 |
 | HTML | 896 | 373 | 25 |
@@ -52,7 +52,7 @@ _Last updated: 2026-08-31T09:17:35.269621+00:00_
 | Other | 310 | 176 | 142 |
 | Shell | 195 | 146 | 4 |
 | TypeScript | 165 | 139 | 12 |
-| TOML | 162 | 8 | 9 |
+| TOML | 163 | 9 | 10 |
 | Plist | 124 | 122 | 2 |
 | CSS | 119 | 60 | 6 |
 
@@ -77,7 +77,7 @@ _Last updated: 2026-08-31T09:17:35.269621+00:00_
 | GetKnowbie/end-user | 60 | 4690 | 3980 |
 | altconvey/acy-ui | 29 | 4364 | 1307 |
 | Arpnik/NL2SQL | 39 | 4247 | 526 |
-| Arpnik/web-crawler | 10 | 3937 | 264 |
+| Arpnik/web-crawler | 11 | 3967 | 269 |
 | Arpnik/neetcode-submissions | 48 | 3783 | 0 |
 | altconvey/acy-ai | 42 | 3389 | 900 |
 | Arpnik/Recommender-Systems | 2 | 2955 | 0 |
@@ -90,6 +90,7 @@ _Last updated: 2026-08-31T09:17:35.269621+00:00_
 | FrancescoBonzi/twin-transformer | 24 | 344 | 226 |
 | toyosi12/fs-agent | 6 | 312 | 38 |
 | Arpnik/SOEN-341 | 25 | 242 | 24 |
+| Arpnik/ProgramSynth | 1 | 1 | 1 |
 
 ## Language detail by repository
 
@@ -347,10 +348,10 @@ _Last updated: 2026-08-31T09:17:35.269621+00:00_
 | Language | + | - | Files touched |
 |---|---|---|---|
 | Python | 2902 | 262 | 62 |
-| Lock | 731 | 0 | 2 |
+| Lock | 732 | 1 | 3 |
 | Config | 218 | 0 | 1 |
-| Markdown | 59 | 1 | 2 |
-| TOML | 27 | 1 | 2 |
+| Markdown | 87 | 4 | 3 |
+| TOML | 28 | 2 | 3 |
 
 </details>
 
@@ -471,5 +472,13 @@ _Last updated: 2026-08-31T09:17:35.269621+00:00_
 |---|---|---|---|
 | Config | 207 | 0 | 1 |
 | Python | 35 | 24 | 24 |
+
+</details>
+
+<details><summary><strong>Arpnik/ProgramSynth</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Markdown | 1 | 1 | 1 |
 
 </details>
