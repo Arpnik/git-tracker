@@ -1,34 +1,34 @@
 # Dev Stats
 
-_Last updated: 2026-09-02T07:35:37.434051+00:00_
+_Last updated: 2026-09-03T07:45:08.309699+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 715 commits · +465438 / -59595 lines
+**Totals:** 748 commits · +491983 / -73263 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
-| backend | 18637 | 4250 | 315 |
+| backend | 26001 | 4710 | 394 |
+| other | 17581 | 14850 | 410 |
 | datascience | 17024 | 4144 | 12 |
-| other | 4659 | 2671 | 333 |
-| ai | 4278 | 32 | 51 |
-| ml | 3507 | 881 | 96 |
-| frontend | 1228 | 478 | 44 |
+| ai | 6460 | 117 | 65 |
+| frontend | 5293 | 1421 | 72 |
+| ml | 3519 | 882 | 98 |
 
 ## By category
 
 | Category | + | - | Files touched |
 |---|---|---|---|
 | data_ml | 249894 | 5479 | 31 |
-| other | 138628 | 24095 | 687 |
-| backend | 48355 | 10641 | 1038 |
-| frontend | 23895 | 18413 | 521 |
-| docs | 3011 | 410 | 90 |
-| ui_design | 916 | 377 | 71 |
-| infra | 735 | 180 | 61 |
+| other | 147368 | 35353 | 712 |
+| backend | 57681 | 11123 | 1126 |
+| frontend | 27886 | 19420 | 549 |
+| docs | 5073 | 1249 | 109 |
+| infra | 2963 | 262 | 98 |
+| ui_design | 1114 | 377 | 74 |
 | tests | 4 | 0 | 1 |
 
 ## By language
@@ -36,25 +36,25 @@ _Last updated: 2026-09-02T07:35:37.434051+00:00_
 | Language | + | - | Files touched |
 |---|---|---|---|
 | Jupyter Notebook | 249883 | 5345 | 20 |
-| JSON | 91718 | 8506 | 109 |
-| Python | 33834 | 5864 | 632 |
+| JSON | 99489 | 19746 | 119 |
+| Python | 41672 | 6087 | 707 |
 | Text | 30529 | 61 | 4 |
+| Java | 16188 | 5008 | 430 |
 | Lock | 15187 | 14686 | 20 |
-| Java | 14691 | 4749 | 414 |
-| JavaScript | 11131 | 6960 | 454 |
+| JavaScript | 14753 | 7921 | 478 |
+| Markdown | 5263 | 1249 | 110 |
 | Solidity | 5197 | 4852 | 30 |
 | Dart | 3849 | 2838 | 118 |
-| Markdown | 3011 | 410 | 90 |
-| Config | 1965 | 17 | 30 |
+| Config | 2056 | 29 | 37 |
+| Terraform | 1808 | 36 | 21 |
 | Scala | 1375 | 1602 | 33 |
+| Shell | 1213 | 148 | 12 |
 | HTML | 896 | 373 | 25 |
 | YAML | 696 | 180 | 59 |
-| Other | 310 | 176 | 142 |
-| Shell | 195 | 146 | 4 |
-| TypeScript | 165 | 139 | 12 |
+| SCSS | 561 | 40 | 5 |
+| Other | 317 | 182 | 149 |
+| TypeScript | 174 | 148 | 14 |
 | TOML | 163 | 9 | 10 |
-| Plist | 124 | 122 | 2 |
-| CSS | 119 | 60 | 6 |
 
 ## By repository
 
@@ -64,18 +64,19 @@ _Last updated: 2026-09-02T07:35:37.434051+00:00_
 | altconvey/acy-materials | 12 | 24431 | 453 |
 | Arpnik/DISRPT-Segmenter | 20 | 22034 | 930 |
 | Arpnik/home_assessment | 7 | 19121 | 375 |
+| altconvey/acy-ai-contract | 31 | 17761 | 5843 |
 | Fall2024-MLProjects/SignLanguage | 10 | 16965 | 3742 |
 | GetKnowbie/AdminV2 | 14 | 14438 | 14266 |
+| altconvey/acy-ui | 30 | 11643 | 8873 |
 | GetKnowbie/Operators | 89 | 11124 | 9518 |
 | GetKnowbie/knowbie-back | 27 | 9403 | 4152 |
+| altconvey/acy-rest | 21 | 6803 | 2259 |
 | anubhavm101/SOEN-6441--TubeLytics | 64 | 6173 | 6973 |
 | Arpnik/test-jest | 3 | 5947 | 0 |
 | Arpnik/speech-pd-detection | 12 | 5430 | 31 |
-| altconvey/acy-rest | 20 | 5298 | 2000 |
 | aysha8665/rexploit-dataset | 4 | 5226 | 4942 |
 | GetKnowbie/knowbie-cms | 3 | 5069 | 426 |
 | GetKnowbie/end-user | 60 | 4690 | 3980 |
-| altconvey/acy-ui | 29 | 4364 | 1307 |
 | Arpnik/NL2SQL | 39 | 4247 | 526 |
 | Arpnik/web-crawler | 11 | 3967 | 269 |
 | Arpnik/neetcode-submissions | 48 | 3783 | 0 |
@@ -151,6 +152,26 @@ _Last updated: 2026-09-02T07:35:37.434051+00:00_
 
 </details>
 
+<details><summary><strong>altconvey/acy-ai-contract</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Python | 7838 | 223 | 75 |
+| JSON | 4664 | 4664 | 8 |
+| Markdown | 2252 | 839 | 20 |
+| Terraform | 1808 | 36 | 21 |
+| Shell | 1018 | 2 | 8 |
+| Config | 83 | 12 | 6 |
+| PowerShell | 44 | 44 | 3 |
+| Example | 26 | 0 | 1 |
+| TypeScript | 9 | 9 | 2 |
+| JavaScript | 8 | 8 | 2 |
+| Other | 7 | 6 | 7 |
+| Docker | 4 | 0 | 1 |
+| Image | 0 | 0 | 1 |
+
+</details>
+
 <details><summary><strong>Fall2024-MLProjects/SignLanguage</strong></summary>
 
 | Language | + | - | Files touched |
@@ -185,6 +206,16 @@ _Last updated: 2026-09-02T07:35:37.434051+00:00_
 
 </details>
 
+<details><summary><strong>altconvey/acy-ui</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| JavaScript | 7975 | 2257 | 138 |
+| JSON | 3107 | 6576 | 2 |
+| SCSS | 561 | 40 | 5 |
+
+</details>
+
 <details><summary><strong>GetKnowbie/Operators</strong></summary>
 
 | Language | + | - | Files touched |
@@ -215,6 +246,20 @@ _Last updated: 2026-09-02T07:35:37.434051+00:00_
 | P12 | 0 | 0 | 1 |
 | Image | 0 | 0 | 3 |
 | Mp4 | 0 | 0 | 1 |
+
+</details>
+
+<details><summary><strong>altconvey/acy-rest</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Java | 6401 | 2016 | 97 |
+| Shell | 191 | 146 | 2 |
+| YAML | 79 | 48 | 5 |
+| Markdown | 75 | 7 | 3 |
+| XML | 44 | 42 | 1 |
+| Config | 9 | 0 | 2 |
+| Properties | 4 | 0 | 1 |
 
 </details>
 
@@ -264,20 +309,6 @@ _Last updated: 2026-09-02T07:35:37.434051+00:00_
 
 </details>
 
-<details><summary><strong>altconvey/acy-rest</strong></summary>
-
-| Language | + | - | Files touched |
-|---|---|---|---|
-| Java | 4904 | 1757 | 81 |
-| Shell | 191 | 146 | 2 |
-| YAML | 79 | 48 | 5 |
-| Markdown | 75 | 7 | 3 |
-| XML | 44 | 42 | 1 |
-| Properties | 4 | 0 | 1 |
-| Config | 1 | 0 | 1 |
-
-</details>
-
 <details><summary><strong>aysha8665/rexploit-dataset</strong></summary>
 
 | Language | + | - | Files touched |
@@ -315,15 +346,6 @@ _Last updated: 2026-09-02T07:35:37.434051+00:00_
 | Image | 1 | 0 | 15 |
 | Xcscheme | 1 | 0 | 1 |
 | Old | 0 | 140 | 1 |
-
-</details>
-
-<details><summary><strong>altconvey/acy-ui</strong></summary>
-
-| Language | + | - | Files touched |
-|---|---|---|---|
-| JavaScript | 4361 | 1304 | 116 |
-| SCSS | 3 | 3 | 1 |
 
 </details>
 
