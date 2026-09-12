@@ -1,18 +1,18 @@
 # Dev Stats
 
-_Last updated: 2026-09-11T07:46:07.184382+00:00_
+_Last updated: 2026-09-12T07:40:05.211627+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 765 commits · +492519 / -73662 lines
+**Totals:** 766 commits · +492520 / -73663 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
 | backend | 26294 | 4731 | 403 |
-| other | 17823 | 15227 | 435 |
+| other | 17824 | 15228 | 436 |
 | datascience | 17024 | 4144 | 12 |
 | ai | 6460 | 117 | 65 |
 | frontend | 5294 | 1422 | 73 |
@@ -27,7 +27,7 @@ _Last updated: 2026-09-11T07:46:07.184382+00:00_
 | backend | 57972 | 11144 | 1134 |
 | frontend | 27887 | 19421 | 550 |
 | docs | 5078 | 1255 | 112 |
-| infra | 3024 | 277 | 115 |
+| infra | 3025 | 278 | 116 |
 | ui_design | 1114 | 377 | 74 |
 | tests | 4 | 0 | 1 |
 
@@ -50,7 +50,7 @@ _Last updated: 2026-09-11T07:46:07.184382+00:00_
 | Scala | 1375 | 1602 | 33 |
 | Shell | 1213 | 148 | 12 |
 | HTML | 896 | 373 | 25 |
-| YAML | 735 | 181 | 61 |
+| YAML | 736 | 182 | 62 |
 | SCSS | 561 | 40 | 5 |
 | Other | 317 | 182 | 152 |
 | TypeScript | 174 | 148 | 14 |
@@ -76,7 +76,7 @@ _Last updated: 2026-09-11T07:46:07.184382+00:00_
 | Arpnik/speech-pd-detection | 12 | 5430 | 31 |
 | aysha8665/rexploit-dataset | 4 | 5226 | 4942 |
 | GetKnowbie/knowbie-cms | 3 | 5069 | 426 |
-| GetKnowbie/end-user | 61 | 4691 | 3981 |
+| GetKnowbie/end-user | 62 | 4692 | 3982 |
 | Arpnik/NL2SQL | 39 | 4247 | 526 |
 | Arpnik/web-crawler | 11 | 3967 | 269 |
 | Arpnik/neetcode-submissions | 48 | 3783 | 0 |
@@ -336,7 +336,7 @@ _Last updated: 2026-09-11T07:46:07.184382+00:00_
 | Dart | 3849 | 2838 | 118 |
 | Lock | 597 | 789 | 11 |
 | Plist | 124 | 122 | 2 |
-| YAML | 34 | 28 | 15 |
+| YAML | 35 | 29 | 16 |
 | Pbxproj | 27 | 24 | 3 |
 | Dotenv | 24 | 25 | 8 |
 | Gradle | 23 | 12 | 3 |
