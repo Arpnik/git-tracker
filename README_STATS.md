@@ -1,22 +1,22 @@
 # Dev Stats
 
-_Last updated: 2026-09-30T09:17:10.384089+00:00_
+_Last updated: 2026-10-01T09:44:39.444850+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 772 commits · +494728 / -75627 lines
+**Totals:** 776 commits · +496674 / -75770 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
-| backend | 26434 | 4772 | 407 |
-| other | 17824 | 15228 | 436 |
+| backend | 27605 | 4894 | 421 |
+| other | 17827 | 15228 | 439 |
 | datascience | 17024 | 4144 | 12 |
-| frontend | 7362 | 3345 | 80 |
+| frontend | 8046 | 3355 | 90 |
 | ai | 6460 | 117 | 65 |
-| ml | 3519 | 882 | 98 |
+| ml | 3607 | 893 | 101 |
 
 ## By category
 
@@ -24,10 +24,10 @@ _Last updated: 2026-09-30T09:17:10.384089+00:00_
 |---|---|---|---|
 | data_ml | 249894 | 5479 | 31 |
 | other | 147546 | 35709 | 718 |
-| backend | 57985 | 11146 | 1136 |
-| frontend | 30082 | 21383 | 559 |
+| backend | 59074 | 11279 | 1151 |
+| frontend | 30936 | 21393 | 571 |
 | docs | 5078 | 1255 | 112 |
-| infra | 3025 | 278 | 116 |
+| infra | 3028 | 278 | 119 |
 | ui_design | 1114 | 377 | 74 |
 | tests | 4 | 0 | 1 |
 
@@ -37,20 +37,20 @@ _Last updated: 2026-09-30T09:17:10.384089+00:00_
 |---|---|---|---|
 | Jupyter Notebook | 249883 | 5345 | 20 |
 | JSON | 99644 | 20101 | 123 |
-| Python | 41946 | 6095 | 715 |
+| Python | 41970 | 6106 | 717 |
 | Text | 30529 | 61 | 4 |
-| JavaScript | 16941 | 9880 | 485 |
-| Java | 16226 | 5025 | 434 |
+| JavaScript | 17795 | 9890 | 497 |
+| Java | 17291 | 5147 | 447 |
 | Lock | 15187 | 14686 | 20 |
 | Markdown | 5268 | 1255 | 113 |
 | Solidity | 5197 | 4852 | 30 |
 | Dart | 3849 | 2838 | 118 |
 | Config | 2056 | 29 | 37 |
-| Terraform | 1825 | 45 | 30 |
+| Terraform | 1826 | 45 | 31 |
 | Scala | 1375 | 1602 | 33 |
 | Shell | 1213 | 148 | 12 |
 | HTML | 896 | 373 | 25 |
-| YAML | 736 | 182 | 62 |
+| YAML | 737 | 182 | 63 |
 | SCSS | 561 | 40 | 5 |
 | Other | 317 | 182 | 152 |
 | TypeScript | 174 | 148 | 14 |
@@ -64,13 +64,13 @@ _Last updated: 2026-09-30T09:17:10.384089+00:00_
 | altconvey/acy-materials | 13 | 24911 | 809 |
 | Arpnik/DISRPT-Segmenter | 20 | 22034 | 930 |
 | Arpnik/home_assessment | 7 | 19121 | 375 |
-| altconvey/acy-ai-contract | 44 | 17796 | 5871 |
+| altconvey/acy-ai-contract | 45 | 17822 | 5882 |
 | Fall2024-MLProjects/SignLanguage | 10 | 16965 | 3742 |
 | GetKnowbie/AdminV2 | 14 | 14438 | 14266 |
 | GetKnowbie/Operators | 94 | 13313 | 11478 |
-| altconvey/acy-ui | 31 | 11644 | 8874 |
+| altconvey/acy-ui | 33 | 12498 | 8884 |
 | GetKnowbie/knowbie-back | 27 | 9403 | 4152 |
-| altconvey/acy-rest | 23 | 6841 | 2276 |
+| altconvey/acy-rest | 24 | 7907 | 2398 |
 | anubhavm101/SOEN-6441--TubeLytics | 64 | 6173 | 6973 |
 | Arpnik/test-jest | 3 | 5947 | 0 |
 | Arpnik/speech-pd-detection | 12 | 5430 | 31 |
@@ -158,10 +158,10 @@ _Last updated: 2026-09-30T09:17:10.384089+00:00_
 
 | Language | + | - | Files touched |
 |---|---|---|---|
-| Python | 7846 | 231 | 81 |
+| Python | 7870 | 242 | 83 |
 | JSON | 4664 | 4664 | 8 |
 | Markdown | 2257 | 845 | 23 |
-| Terraform | 1825 | 45 | 30 |
+| Terraform | 1826 | 45 | 31 |
 | Shell | 1018 | 2 | 8 |
 | Config | 83 | 12 | 6 |
 | PowerShell | 44 | 44 | 3 |
@@ -169,7 +169,7 @@ _Last updated: 2026-09-30T09:17:10.384089+00:00_
 | TypeScript | 9 | 9 | 2 |
 | JavaScript | 8 | 8 | 2 |
 | Other | 7 | 6 | 10 |
-| Docker | 4 | 0 | 1 |
+| Docker | 5 | 0 | 2 |
 | Image | 0 | 0 | 1 |
 
 </details>
@@ -228,7 +228,7 @@ _Last updated: 2026-09-30T09:17:10.384089+00:00_
 
 | Language | + | - | Files touched |
 |---|---|---|---|
-| JavaScript | 7976 | 2258 | 139 |
+| JavaScript | 8830 | 2268 | 151 |
 | JSON | 3107 | 6576 | 2 |
 | SCSS | 561 | 40 | 5 |
 
@@ -256,9 +256,9 @@ _Last updated: 2026-09-30T09:17:10.384089+00:00_
 
 | Language | + | - | Files touched |
 |---|---|---|---|
-| Java | 6439 | 2033 | 101 |
+| Java | 7504 | 2155 | 114 |
 | Shell | 191 | 146 | 2 |
-| YAML | 79 | 48 | 5 |
+| YAML | 80 | 48 | 6 |
 | Markdown | 75 | 7 | 3 |
 | XML | 44 | 42 | 1 |
 | Config | 9 | 0 | 2 |
