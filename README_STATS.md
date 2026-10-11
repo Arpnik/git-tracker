@@ -1,33 +1,33 @@
 # Dev Stats
 
-_Last updated: 2026-10-10T09:21:38.295208+00:00_
+_Last updated: 2026-10-11T09:38:41.544388+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 783 commits · +497329 / -75901 lines
+**Totals:** 789 commits · +505024 / -76164 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
-| backend | 28066 | 4959 | 437 |
-| other | 17828 | 15229 | 440 |
+| backend | 28160 | 4959 | 438 |
+| other | 20737 | 15439 | 468 |
 | datascience | 17024 | 4144 | 12 |
-| frontend | 8239 | 3420 | 97 |
-| ai | 6460 | 117 | 65 |
-| ml | 3607 | 893 | 101 |
+| frontend | 11504 | 3420 | 130 |
+| ai | 7367 | 133 | 73 |
+| ml | 4127 | 930 | 108 |
 
 ## By category
 
 | Category | + | - | Files touched |
 |---|---|---|---|
 | data_ml | 249894 | 5479 | 31 |
-| other | 147547 | 35710 | 719 |
+| other | 150134 | 35918 | 732 |
 | backend | 59375 | 11326 | 1162 |
-| frontend | 31289 | 21476 | 583 |
-| docs | 5078 | 1255 | 112 |
-| infra | 3028 | 278 | 119 |
+| frontend | 36075 | 21529 | 632 |
+| docs | 5308 | 1255 | 123 |
+| infra | 3120 | 280 | 123 |
 | ui_design | 1114 | 377 | 74 |
 | tests | 4 | 0 | 1 |
 
@@ -36,23 +36,23 @@ _Last updated: 2026-10-10T09:21:38.295208+00:00_
 | Language | + | - | Files touched |
 |---|---|---|---|
 | Jupyter Notebook | 249883 | 5345 | 20 |
-| JSON | 99645 | 20102 | 124 |
+| JSON | 101870 | 20103 | 133 |
 | Python | 41970 | 6106 | 717 |
 | Text | 30529 | 61 | 4 |
-| JavaScript | 18148 | 9973 | 509 |
+| JavaScript | 22934 | 10026 | 558 |
 | Java | 17592 | 5194 | 458 |
 | Lock | 15187 | 14686 | 20 |
-| Markdown | 5268 | 1255 | 113 |
+| Markdown | 5498 | 1255 | 124 |
 | Solidity | 5197 | 4852 | 30 |
 | Dart | 3849 | 2838 | 118 |
-| Config | 2056 | 29 | 37 |
+| Config | 2405 | 236 | 39 |
 | Terraform | 1826 | 45 | 31 |
 | Scala | 1375 | 1602 | 33 |
 | Shell | 1213 | 148 | 12 |
 | HTML | 896 | 373 | 25 |
-| YAML | 737 | 182 | 63 |
+| YAML | 805 | 184 | 66 |
 | SCSS | 561 | 40 | 5 |
-| Other | 317 | 182 | 152 |
+| Other | 330 | 182 | 154 |
 | TypeScript | 174 | 148 | 14 |
 | TOML | 163 | 9 | 10 |
 
@@ -71,6 +71,7 @@ _Last updated: 2026-10-10T09:21:38.295208+00:00_
 | altconvey/acy-ui | 34 | 12736 | 8943 |
 | GetKnowbie/knowbie-back | 27 | 9403 | 4152 |
 | altconvey/acy-rest | 27 | 8208 | 2445 |
+| Arpnik/agentic-assistant | 6 | 7695 | 263 |
 | anubhavm101/SOEN-6441--TubeLytics | 64 | 6173 | 6973 |
 | Arpnik/test-jest | 3 | 5947 | 0 |
 | Arpnik/speech-pd-detection | 12 | 5430 | 31 |
@@ -263,6 +264,20 @@ _Last updated: 2026-10-10T09:21:38.295208+00:00_
 | XML | 44 | 42 | 1 |
 | Config | 9 | 0 | 2 |
 | Properties | 4 | 0 | 1 |
+
+</details>
+
+<details><summary><strong>Arpnik/agentic-assistant</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| JavaScript | 4786 | 53 | 49 |
+| JSON | 2225 | 1 | 9 |
+| Config | 349 | 207 | 2 |
+| Markdown | 230 | 0 | 11 |
+| YAML | 68 | 2 | 3 |
+| Docker | 24 | 0 | 1 |
+| Other | 13 | 0 | 2 |
 
 </details>
 

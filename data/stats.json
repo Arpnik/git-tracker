@@ -1,8 +1,8 @@
 {
   "totals": {
-    "commits": 783,
-    "additions": 497329,
-    "deletions": 75901
+    "commits": 789,
+    "additions": 505024,
+    "deletions": 76164
   },
   "by_repo": {
     "GetKnowbie/Operators": {
@@ -164,18 +164,23 @@
       "commits": 45,
       "additions": 17822,
       "deletions": 5882
+    },
+    "Arpnik/agentic-assistant": {
+      "commits": 6,
+      "additions": 7695,
+      "deletions": 263
     }
   },
   "by_language": {
     "JavaScript": {
-      "additions": 18148,
-      "deletions": 9973,
-      "files": 509
+      "additions": 22934,
+      "deletions": 10026,
+      "files": 558
     },
     "JSON": {
-      "additions": 99645,
-      "deletions": 20102,
-      "files": 124
+      "additions": 101870,
+      "deletions": 20103,
+      "files": 133
     },
     "Dotenv": {
       "additions": 96,
@@ -193,9 +198,9 @@
       "files": 6
     },
     "Markdown": {
-      "additions": 5268,
+      "additions": 5498,
       "deletions": 1255,
-      "files": 113
+      "files": 124
     },
     "Lock": {
       "additions": 15187,
@@ -208,9 +213,9 @@
       "files": 50
     },
     "Config": {
-      "additions": 2056,
-      "deletions": 29,
-      "files": 37
+      "additions": 2405,
+      "deletions": 236,
+      "files": 39
     },
     "TypeScript": {
       "additions": 174,
@@ -228,9 +233,9 @@
       "files": 4
     },
     "Other": {
-      "additions": 317,
+      "additions": 330,
       "deletions": 182,
-      "files": 152
+      "files": 154
     },
     "Iml": {
       "additions": 0,
@@ -258,9 +263,9 @@
       "files": 118
     },
     "YAML": {
-      "additions": 737,
-      "deletions": 182,
-      "files": 63
+      "additions": 805,
+      "deletions": 184,
+      "files": 66
     },
     "Gradle": {
       "additions": 23,
@@ -353,9 +358,9 @@
       "files": 4
     },
     "Docker": {
-      "additions": 44,
+      "additions": 68,
       "deletions": 0,
-      "files": 4
+      "files": 5
     },
     "HTML": {
       "additions": 896,
@@ -455,19 +460,19 @@
   },
   "by_category": {
     "frontend": {
-      "additions": 31289,
-      "deletions": 21476,
-      "files": 583
+      "additions": 36075,
+      "deletions": 21529,
+      "files": 632
     },
     "other": {
-      "additions": 147547,
-      "deletions": 35710,
-      "files": 719
+      "additions": 150134,
+      "deletions": 35918,
+      "files": 732
     },
     "docs": {
-      "additions": 5078,
+      "additions": 5308,
       "deletions": 1255,
-      "files": 112
+      "files": 123
     },
     "ui_design": {
       "additions": 1114,
@@ -475,9 +480,9 @@
       "files": 74
     },
     "infra": {
-      "additions": 3028,
-      "deletions": 278,
-      "files": 119
+      "additions": 3120,
+      "deletions": 280,
+      "files": 123
     },
     "backend": {
       "additions": 59375,
@@ -872,9 +877,9 @@
       "deletions": 170
     },
     "2026-10-05": {
-      "commits": 3,
-      "additions": 535,
-      "deletions": 104
+      "commits": 9,
+      "additions": 8230,
+      "deletions": 367
     }
   },
   "by_repo_language": {
@@ -1881,9 +1886,46 @@
         "deletions": 5,
         "files": 4
       }
+    },
+    "Arpnik/agentic-assistant": {
+      "YAML": {
+        "additions": 68,
+        "deletions": 2,
+        "files": 3
+      },
+      "JSON": {
+        "additions": 2225,
+        "deletions": 1,
+        "files": 9
+      },
+      "Docker": {
+        "additions": 24,
+        "deletions": 0,
+        "files": 1
+      },
+      "Markdown": {
+        "additions": 230,
+        "deletions": 0,
+        "files": 11
+      },
+      "JavaScript": {
+        "additions": 4786,
+        "deletions": 53,
+        "files": 49
+      },
+      "Other": {
+        "additions": 13,
+        "deletions": 0,
+        "files": 2
+      },
+      "Config": {
+        "additions": 349,
+        "deletions": 207,
+        "files": 2
+      }
     }
   },
-  "generated_at": "2026-10-10T09:21:38.295208+00:00",
+  "generated_at": "2026-10-11T09:38:41.544388+00:00",
   "by_tag": {
     "datascience": {
       "additions": 17024,
@@ -1891,29 +1933,29 @@
       "files": 12
     },
     "ai": {
-      "additions": 6460,
-      "deletions": 117,
-      "files": 65
+      "additions": 7367,
+      "deletions": 133,
+      "files": 73
     },
     "other": {
-      "additions": 17828,
-      "deletions": 15229,
-      "files": 440
+      "additions": 20737,
+      "deletions": 15439,
+      "files": 468
     },
     "ml": {
-      "additions": 3607,
-      "deletions": 893,
-      "files": 101
+      "additions": 4127,
+      "deletions": 930,
+      "files": 108
     },
     "backend": {
-      "additions": 28066,
+      "additions": 28160,
       "deletions": 4959,
-      "files": 437
+      "files": 438
     },
     "frontend": {
-      "additions": 8239,
+      "additions": 11504,
       "deletions": 3420,
-      "files": 97
+      "files": 130
     }
   }
 }
