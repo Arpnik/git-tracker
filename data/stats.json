@@ -1,8 +1,8 @@
 {
   "totals": {
-    "commits": 789,
-    "additions": 505024,
-    "deletions": 76164
+    "commits": 791,
+    "additions": 505682,
+    "deletions": 76199
   },
   "by_repo": {
     "GetKnowbie/Operators": {
@@ -166,16 +166,16 @@
       "deletions": 5882
     },
     "Arpnik/agentic-assistant": {
-      "commits": 6,
-      "additions": 7695,
-      "deletions": 263
+      "commits": 8,
+      "additions": 8353,
+      "deletions": 298
     }
   },
   "by_language": {
     "JavaScript": {
-      "additions": 22934,
-      "deletions": 10026,
-      "files": 558
+      "additions": 23592,
+      "deletions": 10061,
+      "files": 569
     },
     "JSON": {
       "additions": 101870,
@@ -460,9 +460,9 @@
   },
   "by_category": {
     "frontend": {
-      "additions": 36075,
-      "deletions": 21529,
-      "files": 632
+      "additions": 36733,
+      "deletions": 21564,
+      "files": 643
     },
     "other": {
       "additions": 150134,
@@ -877,9 +877,9 @@
       "deletions": 170
     },
     "2026-10-05": {
-      "commits": 9,
-      "additions": 8230,
-      "deletions": 367
+      "commits": 11,
+      "additions": 8888,
+      "deletions": 402
     }
   },
   "by_repo_language": {
@@ -1909,9 +1909,9 @@
         "files": 11
       },
       "JavaScript": {
-        "additions": 4786,
-        "deletions": 53,
-        "files": 49
+        "additions": 5444,
+        "deletions": 88,
+        "files": 60
       },
       "Other": {
         "additions": 13,
@@ -1925,7 +1925,7 @@
       }
     }
   },
-  "generated_at": "2026-10-11T09:38:41.544388+00:00",
+  "generated_at": "2026-10-12T10:11:08.439906+00:00",
   "by_tag": {
     "datascience": {
       "additions": 17024,
@@ -1933,9 +1933,9 @@
       "files": 12
     },
     "ai": {
-      "additions": 7367,
-      "deletions": 133,
-      "files": 73
+      "additions": 7424,
+      "deletions": 142,
+      "files": 76
     },
     "other": {
       "additions": 20737,
@@ -1943,9 +1943,9 @@
       "files": 468
     },
     "ml": {
-      "additions": 4127,
-      "deletions": 930,
-      "files": 108
+      "additions": 4198,
+      "deletions": 945,
+      "files": 109
     },
     "backend": {
       "additions": 28160,
@@ -1953,9 +1953,9 @@
       "files": 438
     },
     "frontend": {
-      "additions": 11504,
-      "deletions": 3420,
-      "files": 130
+      "additions": 12034,
+      "deletions": 3431,
+      "files": 137
     }
   }
 }

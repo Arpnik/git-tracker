@@ -1,11 +1,11 @@
 # Dev Stats
 
-_Last updated: 2026-10-11T09:38:41.544388+00:00_
+_Last updated: 2026-10-12T10:11:08.439906+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 789 commits · +505024 / -76164 lines
+**Totals:** 791 commits · +505682 / -76199 lines
 
 ## By development tag
 
@@ -14,9 +14,9 @@ _Last updated: 2026-10-11T09:38:41.544388+00:00_
 | backend | 28160 | 4959 | 438 |
 | other | 20737 | 15439 | 468 |
 | datascience | 17024 | 4144 | 12 |
-| frontend | 11504 | 3420 | 130 |
-| ai | 7367 | 133 | 73 |
-| ml | 4127 | 930 | 108 |
+| frontend | 12034 | 3431 | 137 |
+| ai | 7424 | 142 | 76 |
+| ml | 4198 | 945 | 109 |
 
 ## By category
 
@@ -25,7 +25,7 @@ _Last updated: 2026-10-11T09:38:41.544388+00:00_
 | data_ml | 249894 | 5479 | 31 |
 | other | 150134 | 35918 | 732 |
 | backend | 59375 | 11326 | 1162 |
-| frontend | 36075 | 21529 | 632 |
+| frontend | 36733 | 21564 | 643 |
 | docs | 5308 | 1255 | 123 |
 | infra | 3120 | 280 | 123 |
 | ui_design | 1114 | 377 | 74 |
@@ -39,7 +39,7 @@ _Last updated: 2026-10-11T09:38:41.544388+00:00_
 | JSON | 101870 | 20103 | 133 |
 | Python | 41970 | 6106 | 717 |
 | Text | 30529 | 61 | 4 |
-| JavaScript | 22934 | 10026 | 558 |
+| JavaScript | 23592 | 10061 | 569 |
 | Java | 17592 | 5194 | 458 |
 | Lock | 15187 | 14686 | 20 |
 | Markdown | 5498 | 1255 | 124 |
@@ -70,8 +70,8 @@ _Last updated: 2026-10-11T09:38:41.544388+00:00_
 | GetKnowbie/Operators | 97 | 13429 | 11503 |
 | altconvey/acy-ui | 34 | 12736 | 8943 |
 | GetKnowbie/knowbie-back | 27 | 9403 | 4152 |
+| Arpnik/agentic-assistant | 8 | 8353 | 298 |
 | altconvey/acy-rest | 27 | 8208 | 2445 |
-| Arpnik/agentic-assistant | 6 | 7695 | 263 |
 | anubhavm101/SOEN-6441--TubeLytics | 64 | 6173 | 6973 |
 | Arpnik/test-jest | 3 | 5947 | 0 |
 | Arpnik/speech-pd-detection | 12 | 5430 | 31 |
@@ -253,6 +253,20 @@ _Last updated: 2026-10-11T09:38:41.544388+00:00_
 
 </details>
 
+<details><summary><strong>Arpnik/agentic-assistant</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| JavaScript | 5444 | 88 | 60 |
+| JSON | 2225 | 1 | 9 |
+| Config | 349 | 207 | 2 |
+| Markdown | 230 | 0 | 11 |
+| YAML | 68 | 2 | 3 |
+| Docker | 24 | 0 | 1 |
+| Other | 13 | 0 | 2 |
+
+</details>
+
 <details><summary><strong>altconvey/acy-rest</strong></summary>
 
 | Language | + | - | Files touched |
@@ -264,20 +278,6 @@ _Last updated: 2026-10-11T09:38:41.544388+00:00_
 | XML | 44 | 42 | 1 |
 | Config | 9 | 0 | 2 |
 | Properties | 4 | 0 | 1 |
-
-</details>
-
-<details><summary><strong>Arpnik/agentic-assistant</strong></summary>
-
-| Language | + | - | Files touched |
-|---|---|---|---|
-| JavaScript | 4786 | 53 | 49 |
-| JSON | 2225 | 1 | 9 |
-| Config | 349 | 207 | 2 |
-| Markdown | 230 | 0 | 11 |
-| YAML | 68 | 2 | 3 |
-| Docker | 24 | 0 | 1 |
-| Other | 13 | 0 | 2 |
 
 </details>
 
