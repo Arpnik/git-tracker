@@ -1,11 +1,11 @@
 # Dev Stats
 
-_Last updated: 2026-10-14T08:21:56.718589+00:00_
+_Last updated: 2026-10-15T07:58:33.976585+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 795 commits · +507036 / -76599 lines
+**Totals:** 796 commits · +508275 / -77324 lines
 
 ## By development tag
 
@@ -14,8 +14,8 @@ _Last updated: 2026-10-14T08:21:56.718589+00:00_
 | backend | 28947 | 4980 | 446 |
 | other | 20937 | 15529 | 472 |
 | datascience | 17024 | 4144 | 12 |
-| frontend | 12392 | 3440 | 151 |
-| ai | 7433 | 211 | 80 |
+| frontend | 13630 | 4165 | 171 |
+| ai | 7434 | 211 | 81 |
 | ml | 4198 | 1156 | 111 |
 
 ## By category
@@ -25,10 +25,10 @@ _Last updated: 2026-10-14T08:21:56.718589+00:00_
 | data_ml | 249894 | 5479 | 31 |
 | other | 150134 | 35918 | 732 |
 | backend | 60142 | 11347 | 1169 |
-| frontend | 37120 | 21853 | 664 |
+| frontend | 38352 | 22578 | 684 |
 | docs | 5508 | 1293 | 125 |
 | infra | 3120 | 332 | 125 |
-| ui_design | 1114 | 377 | 74 |
+| ui_design | 1121 | 377 | 75 |
 | tests | 4 | 0 | 1 |
 
 ## By language
@@ -39,7 +39,7 @@ _Last updated: 2026-10-14T08:21:56.718589+00:00_
 | JSON | 101870 | 20103 | 133 |
 | Python | 41970 | 6106 | 717 |
 | Text | 30529 | 61 | 4 |
-| JavaScript | 23979 | 10350 | 590 |
+| JavaScript | 25211 | 11075 | 610 |
 | Java | 18359 | 5215 | 465 |
 | Lock | 15187 | 14686 | 20 |
 | Markdown | 5698 | 1293 | 126 |
@@ -51,7 +51,7 @@ _Last updated: 2026-10-14T08:21:56.718589+00:00_
 | Shell | 1213 | 148 | 12 |
 | HTML | 896 | 373 | 25 |
 | YAML | 805 | 212 | 67 |
-| SCSS | 561 | 40 | 5 |
+| SCSS | 568 | 40 | 6 |
 | Other | 330 | 182 | 154 |
 | TypeScript | 174 | 148 | 14 |
 | TOML | 163 | 9 | 10 |
@@ -67,8 +67,8 @@ _Last updated: 2026-10-14T08:21:56.718589+00:00_
 | altconvey/acy-ai-contract | 45 | 17822 | 5882 |
 | Fall2024-MLProjects/SignLanguage | 10 | 16965 | 3742 |
 | GetKnowbie/AdminV2 | 14 | 14438 | 14266 |
+| altconvey/acy-ui | 36 | 14362 | 9677 |
 | GetKnowbie/Operators | 97 | 13429 | 11503 |
-| altconvey/acy-ui | 35 | 13123 | 8952 |
 | GetKnowbie/knowbie-back | 27 | 9403 | 4152 |
 | altconvey/acy-rest | 28 | 8975 | 2466 |
 | Arpnik/agentic-assistant | 10 | 8553 | 668 |
@@ -209,6 +209,16 @@ _Last updated: 2026-10-14T08:21:56.718589+00:00_
 
 </details>
 
+<details><summary><strong>altconvey/acy-ui</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| JavaScript | 10687 | 3061 | 196 |
+| JSON | 3107 | 6576 | 2 |
+| SCSS | 568 | 40 | 6 |
+
+</details>
+
 <details><summary><strong>GetKnowbie/Operators</strong></summary>
 
 | Language | + | - | Files touched |
@@ -222,16 +232,6 @@ _Last updated: 2026-10-14T08:21:56.718589+00:00_
 | Markdown | 3 | 13 | 1 |
 | Production | 1 | 1 | 1 |
 | Lock | 0 | 0 | 1 |
-
-</details>
-
-<details><summary><strong>altconvey/acy-ui</strong></summary>
-
-| Language | + | - | Files touched |
-|---|---|---|---|
-| JavaScript | 9455 | 2336 | 176 |
-| JSON | 3107 | 6576 | 2 |
-| SCSS | 561 | 40 | 5 |
 
 </details>
 
