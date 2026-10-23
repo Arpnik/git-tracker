@@ -1,20 +1,20 @@
 # Dev Stats
 
-_Last updated: 2026-10-22T08:16:46.948781+00:00_
+_Last updated: 2026-10-23T08:13:39.815541+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 799 commits · +509179 / -77335 lines
+**Totals:** 805 commits · +509624 / -77551 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
-| backend | 28950 | 4981 | 447 |
-| other | 21838 | 15539 | 475 |
+| backend | 28993 | 5098 | 450 |
+| other | 21841 | 15548 | 478 |
 | datascience | 17024 | 4144 | 12 |
-| frontend | 13630 | 4165 | 171 |
+| frontend | 14029 | 4255 | 180 |
 | ai | 7434 | 211 | 81 |
 | ml | 4198 | 1156 | 111 |
 
@@ -23,11 +23,11 @@ _Last updated: 2026-10-22T08:16:46.948781+00:00_
 | Category | + | - | Files touched |
 |---|---|---|---|
 | data_ml | 249894 | 5479 | 31 |
-| other | 150807 | 35918 | 734 |
+| other | 150812 | 36034 | 736 |
 | backend | 60145 | 11348 | 1170 |
-| frontend | 38352 | 22578 | 684 |
+| frontend | 38790 | 22670 | 695 |
 | docs | 5736 | 1303 | 126 |
-| infra | 3120 | 332 | 125 |
+| infra | 3122 | 340 | 127 |
 | ui_design | 1121 | 377 | 75 |
 | tests | 4 | 0 | 1 |
 
@@ -39,18 +39,18 @@ _Last updated: 2026-10-22T08:16:46.948781+00:00_
 | JSON | 102543 | 20103 | 135 |
 | Python | 41970 | 6106 | 717 |
 | Text | 30529 | 61 | 4 |
-| JavaScript | 25211 | 11075 | 610 |
+| JavaScript | 25649 | 11167 | 621 |
 | Java | 18362 | 5216 | 466 |
 | Lock | 15187 | 14686 | 20 |
 | Markdown | 5926 | 1303 | 127 |
 | Solidity | 5197 | 4852 | 30 |
-| Dart | 3849 | 2838 | 118 |
+| Dart | 3854 | 2954 | 120 |
 | Config | 2405 | 236 | 39 |
 | Terraform | 1826 | 45 | 31 |
 | Scala | 1375 | 1602 | 33 |
 | Shell | 1213 | 148 | 12 |
 | HTML | 896 | 373 | 25 |
-| YAML | 805 | 212 | 67 |
+| YAML | 807 | 220 | 69 |
 | SCSS | 568 | 40 | 6 |
 | Other | 330 | 182 | 154 |
 | TypeScript | 174 | 148 | 14 |
@@ -66,8 +66,8 @@ _Last updated: 2026-10-22T08:16:46.948781+00:00_
 | Arpnik/home_assessment | 7 | 19121 | 375 |
 | altconvey/acy-ai-contract | 45 | 17822 | 5882 |
 | Fall2024-MLProjects/SignLanguage | 10 | 16965 | 3742 |
+| altconvey/acy-ui | 38 | 14800 | 9769 |
 | GetKnowbie/AdminV2 | 14 | 14438 | 14266 |
-| altconvey/acy-ui | 36 | 14362 | 9677 |
 | GetKnowbie/Operators | 97 | 13429 | 11503 |
 | Arpnik/agentic-assistant | 12 | 9454 | 678 |
 | GetKnowbie/knowbie-back | 27 | 9403 | 4152 |
@@ -77,7 +77,7 @@ _Last updated: 2026-10-22T08:16:46.948781+00:00_
 | Arpnik/speech-pd-detection | 12 | 5430 | 31 |
 | aysha8665/rexploit-dataset | 4 | 5226 | 4942 |
 | GetKnowbie/knowbie-cms | 3 | 5069 | 426 |
-| GetKnowbie/end-user | 62 | 4692 | 3982 |
+| GetKnowbie/end-user | 66 | 4699 | 4106 |
 | Arpnik/NL2SQL | 39 | 4247 | 526 |
 | Arpnik/web-crawler | 11 | 3967 | 269 |
 | Arpnik/neetcode-submissions | 48 | 3783 | 0 |
@@ -193,6 +193,16 @@ _Last updated: 2026-10-22T08:16:46.948781+00:00_
 
 </details>
 
+<details><summary><strong>altconvey/acy-ui</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| JavaScript | 11125 | 3153 | 207 |
+| JSON | 3107 | 6576 | 2 |
+| SCSS | 568 | 40 | 6 |
+
+</details>
+
 <details><summary><strong>GetKnowbie/AdminV2</strong></summary>
 
 | Language | + | - | Files touched |
@@ -206,16 +216,6 @@ _Last updated: 2026-10-22T08:16:46.948781+00:00_
 | Markdown | 1 | 1 | 1 |
 | Realm | 0 | 0 | 2 |
 | Mx | 0 | 0 | 4 |
-
-</details>
-
-<details><summary><strong>altconvey/acy-ui</strong></summary>
-
-| Language | + | - | Files touched |
-|---|---|---|---|
-| JavaScript | 10687 | 3061 | 196 |
-| JSON | 3107 | 6576 | 2 |
-| SCSS | 568 | 40 | 6 |
 
 </details>
 
@@ -349,10 +349,10 @@ _Last updated: 2026-10-22T08:16:46.948781+00:00_
 
 | Language | + | - | Files touched |
 |---|---|---|---|
-| Dart | 3849 | 2838 | 118 |
+| Dart | 3854 | 2954 | 120 |
 | Lock | 597 | 789 | 11 |
 | Plist | 124 | 122 | 2 |
-| YAML | 35 | 29 | 16 |
+| YAML | 37 | 37 | 18 |
 | Pbxproj | 27 | 24 | 3 |
 | Dotenv | 24 | 25 | 8 |
 | Gradle | 23 | 12 | 3 |
