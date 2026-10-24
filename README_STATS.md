@@ -1,18 +1,18 @@
 # Dev Stats
 
-_Last updated: 2026-10-23T08:13:39.815541+00:00_
+_Last updated: 2026-10-24T07:52:01.850796+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 805 commits · +509624 / -77551 lines
+**Totals:** 807 commits · +510446 / -77566 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
-| backend | 28993 | 5098 | 450 |
-| other | 21841 | 15548 | 478 |
+| backend | 29710 | 5113 | 461 |
+| other | 21946 | 15548 | 479 |
 | datascience | 17024 | 4144 | 12 |
 | frontend | 14029 | 4255 | 180 |
 | ai | 7434 | 211 | 81 |
@@ -24,10 +24,10 @@ _Last updated: 2026-10-23T08:13:39.815541+00:00_
 |---|---|---|---|
 | data_ml | 249894 | 5479 | 31 |
 | other | 150812 | 36034 | 736 |
-| backend | 60145 | 11348 | 1170 |
+| backend | 60862 | 11363 | 1181 |
 | frontend | 38790 | 22670 | 695 |
 | docs | 5736 | 1303 | 126 |
-| infra | 3122 | 340 | 127 |
+| infra | 3227 | 340 | 128 |
 | ui_design | 1121 | 377 | 75 |
 | tests | 4 | 0 | 1 |
 
@@ -37,10 +37,10 @@ _Last updated: 2026-10-23T08:13:39.815541+00:00_
 |---|---|---|---|
 | Jupyter Notebook | 249883 | 5345 | 20 |
 | JSON | 102543 | 20103 | 135 |
-| Python | 41970 | 6106 | 717 |
+| Python | 41974 | 6108 | 718 |
 | Text | 30529 | 61 | 4 |
 | JavaScript | 25649 | 11167 | 621 |
-| Java | 18362 | 5216 | 466 |
+| Java | 19075 | 5229 | 476 |
 | Lock | 15187 | 14686 | 20 |
 | Markdown | 5926 | 1303 | 127 |
 | Solidity | 5197 | 4852 | 30 |
@@ -49,8 +49,8 @@ _Last updated: 2026-10-23T08:13:39.815541+00:00_
 | Terraform | 1826 | 45 | 31 |
 | Scala | 1375 | 1602 | 33 |
 | Shell | 1213 | 148 | 12 |
+| YAML | 912 | 220 | 70 |
 | HTML | 896 | 373 | 25 |
-| YAML | 807 | 220 | 69 |
 | SCSS | 568 | 40 | 6 |
 | Other | 330 | 182 | 154 |
 | TypeScript | 174 | 148 | 14 |
@@ -61,7 +61,7 @@ _Last updated: 2026-10-23T08:13:39.815541+00:00_
 | Repo | Commits | + | - |
 |---|---|---|---|
 | Arpnik/EDU-Chunking-RAG | 41 | 278427 | 2717 |
-| altconvey/acy-materials | 13 | 24911 | 809 |
+| altconvey/acy-materials | 14 | 25020 | 811 |
 | Arpnik/DISRPT-Segmenter | 20 | 22034 | 930 |
 | Arpnik/home_assessment | 7 | 19121 | 375 |
 | altconvey/acy-ai-contract | 45 | 17822 | 5882 |
@@ -69,9 +69,9 @@ _Last updated: 2026-10-23T08:13:39.815541+00:00_
 | altconvey/acy-ui | 38 | 14800 | 9769 |
 | GetKnowbie/AdminV2 | 14 | 14438 | 14266 |
 | GetKnowbie/Operators | 97 | 13429 | 11503 |
+| altconvey/acy-rest | 30 | 9691 | 2480 |
 | Arpnik/agentic-assistant | 12 | 9454 | 678 |
 | GetKnowbie/knowbie-back | 27 | 9403 | 4152 |
-| altconvey/acy-rest | 29 | 8978 | 2467 |
 | anubhavm101/SOEN-6441--TubeLytics | 64 | 6173 | 6973 |
 | Arpnik/test-jest | 3 | 5947 | 0 |
 | Arpnik/speech-pd-detection | 12 | 5430 | 31 |
@@ -121,9 +121,9 @@ _Last updated: 2026-10-23T08:13:39.815541+00:00_
 | Language | + | - | Files touched |
 |---|---|---|---|
 | JSON | 24513 | 777 | 37 |
-| Python | 266 | 0 | 2 |
+| Python | 270 | 2 | 3 |
+| YAML | 143 | 0 | 2 |
 | Makefile | 94 | 32 | 5 |
-| YAML | 38 | 0 | 1 |
 
 </details>
 
@@ -235,6 +235,20 @@ _Last updated: 2026-10-23T08:13:39.815541+00:00_
 
 </details>
 
+<details><summary><strong>altconvey/acy-rest</strong></summary>
+
+| Language | + | - | Files touched |
+|---|---|---|---|
+| Java | 9288 | 2237 | 143 |
+| Shell | 191 | 146 | 2 |
+| YAML | 80 | 48 | 6 |
+| Markdown | 75 | 7 | 3 |
+| XML | 44 | 42 | 1 |
+| Config | 9 | 0 | 2 |
+| Properties | 4 | 0 | 1 |
+
+</details>
+
 <details><summary><strong>Arpnik/agentic-assistant</strong></summary>
 
 | Language | + | - | Files touched |
@@ -264,20 +278,6 @@ _Last updated: 2026-10-23T08:13:39.815541+00:00_
 | P12 | 0 | 0 | 1 |
 | Image | 0 | 0 | 3 |
 | Mp4 | 0 | 0 | 1 |
-
-</details>
-
-<details><summary><strong>altconvey/acy-rest</strong></summary>
-
-| Language | + | - | Files touched |
-|---|---|---|---|
-| Java | 8575 | 2224 | 133 |
-| Shell | 191 | 146 | 2 |
-| YAML | 80 | 48 | 6 |
-| Markdown | 75 | 7 | 3 |
-| XML | 44 | 42 | 1 |
-| Config | 9 | 0 | 2 |
-| Properties | 4 | 0 | 1 |
 
 </details>
 
