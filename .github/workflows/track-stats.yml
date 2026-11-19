@@ -1,18 +1,26 @@
+
 name: Track Dev Stats
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # daily at 03:00 UTC
-  workflow_dispatch: {}    # allows manual "Run workflow" trigger
+    - cron: '0 3 * * *'
+  workflow_dispatch: {}
 
 permissions:
   contents: write
+
+# Prevent simultaneous runs from pushing to main.
+concurrency:
+  group: dev-stats-update
+  cancel-in-progress: false
 
 jobs:
   collect:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -25,7 +33,7 @@ jobs:
         env:
           STATS_PAT: ${{ secrets.STATS_PAT }}
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
-          DAYS_LOOKBACK: '730'   # look back two years
+          DAYS_LOOKBACK: '730'
           # INCLUDE_ORGS: 'altconvey,GetKnowbie'
           # EXCLUDE_REPOS: 'someone/huge-repo'
         run: python scripts/collect_stats.py
@@ -34,6 +42,19 @@ jobs:
         run: |
           git config user.name "dev-stats-bot"
           git config user.email "dev-stats-bot@users.noreply.github.com"
+
           git add data/ README_STATS.md README_STATS.html dashboard/wordcloud.html
-          git diff --staged --quiet || git commit -m "chore: update dev stats [skip ci]"
-          git push
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update dev stats [skip ci]"
+
+          # Fetch latest remote changes and replay our commit on top.
+          git fetch origin main
+          git rebase origin/main
+
+          # Push updated history.
+          git push origin main
