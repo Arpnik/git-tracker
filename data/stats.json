@@ -1,8 +1,8 @@
 {
   "totals": {
-    "commits": 822,
-    "additions": 515269,
-    "deletions": 78956
+    "commits": 824,
+    "additions": 525788,
+    "deletions": 81867
   },
   "by_repo": {
     "GetKnowbie/Operators": {
@@ -91,14 +91,14 @@
       "deletions": 65
     },
     "altconvey/acy-ui": {
-      "commits": 42,
-      "additions": 17665,
-      "deletions": 10943
+      "commits": 43,
+      "additions": 23621,
+      "deletions": 12197
     },
     "altconvey/acy-rest": {
-      "commits": 35,
-      "additions": 11399,
-      "deletions": 2665
+      "commits": 36,
+      "additions": 15962,
+      "deletions": 4322
     },
     "altconvey/acy-ai": {
       "commits": 42,
@@ -173,14 +173,14 @@
   },
   "by_language": {
     "JavaScript": {
-      "additions": 27739,
-      "deletions": 11312,
-      "files": 645
+      "additions": 32329,
+      "deletions": 12552,
+      "files": 685
     },
     "JSON": {
-      "additions": 103388,
-      "deletions": 21161,
-      "files": 143
+      "additions": 104407,
+      "deletions": 21168,
+      "files": 145
     },
     "Dotenv": {
       "additions": 96,
@@ -198,9 +198,9 @@
       "files": 6
     },
     "Markdown": {
-      "additions": 5926,
+      "additions": 6173,
       "deletions": 1303,
-      "files": 127
+      "files": 128
     },
     "Lock": {
       "additions": 15187,
@@ -213,9 +213,9 @@
       "files": 50
     },
     "Config": {
-      "additions": 2405,
-      "deletions": 236,
-      "files": 39
+      "additions": 2406,
+      "deletions": 237,
+      "files": 40
     },
     "TypeScript": {
       "additions": 174,
@@ -348,9 +348,9 @@
       "files": 30
     },
     "Java": {
-      "additions": 20743,
-      "deletions": 5383,
-      "files": 505
+      "additions": 25305,
+      "deletions": 7039,
+      "files": 545
     },
     "Db": {
       "additions": 0,
@@ -368,9 +368,9 @@
       "files": 25
     },
     "SCSS": {
-      "additions": 701,
-      "deletions": 40,
-      "files": 9
+      "additions": 801,
+      "deletions": 47,
+      "files": 11
     },
     "Shell": {
       "additions": 1213,
@@ -460,24 +460,24 @@
   },
   "by_category": {
     "frontend": {
-      "additions": 40886,
-      "deletions": 22821,
-      "files": 720
+      "additions": 45527,
+      "deletions": 24061,
+      "files": 761
     },
     "other": {
-      "additions": 151658,
-      "deletions": 37093,
-      "files": 745
+      "additions": 152678,
+      "deletions": 37101,
+      "files": 748
     },
     "docs": {
-      "additions": 5736,
+      "additions": 5983,
       "deletions": 1303,
-      "files": 126
+      "files": 127
     },
     "ui_design": {
-      "additions": 1254,
-      "deletions": 377,
-      "files": 78
+      "additions": 1303,
+      "deletions": 384,
+      "files": 79
     },
     "infra": {
       "additions": 3313,
@@ -485,9 +485,9 @@
       "files": 136
     },
     "backend": {
-      "additions": 62524,
-      "deletions": 11511,
-      "files": 1209
+      "additions": 67086,
+      "deletions": 13167,
+      "files": 1249
     },
     "data_ml": {
       "additions": 249894,
@@ -897,9 +897,9 @@
       "deletions": 1256
     },
     "2026-11-16": {
-      "commits": 5,
-      "additions": 825,
-      "deletions": 134
+      "commits": 7,
+      "additions": 11344,
+      "deletions": 3045
     }
   },
   "by_repo_language": {
@@ -1474,26 +1474,31 @@
     },
     "altconvey/acy-ui": {
       "JavaScript": {
-        "additions": 13215,
-        "deletions": 3298,
-        "files": 231
+        "additions": 17805,
+        "deletions": 4538,
+        "files": 271
       },
       "SCSS": {
-        "additions": 701,
-        "deletions": 40,
-        "files": 9
+        "additions": 801,
+        "deletions": 47,
+        "files": 11
       },
       "JSON": {
-        "additions": 3749,
-        "deletions": 7605,
-        "files": 4
+        "additions": 4768,
+        "deletions": 7612,
+        "files": 6
+      },
+      "Markdown": {
+        "additions": 247,
+        "deletions": 0,
+        "files": 1
       }
     },
     "altconvey/acy-rest": {
       "Java": {
-        "additions": 10956,
-        "deletions": 2391,
-        "files": 172
+        "additions": 15518,
+        "deletions": 4047,
+        "files": 212
       },
       "Shell": {
         "additions": 191,
@@ -1506,9 +1511,9 @@
         "files": 7
       },
       "Config": {
-        "additions": 9,
-        "deletions": 0,
-        "files": 2
+        "additions": 10,
+        "deletions": 1,
+        "files": 3
       },
       "XML": {
         "additions": 45,
@@ -1955,7 +1960,7 @@
       }
     }
   },
-  "generated_at": "2026-11-20T10:52:59.730964+00:00",
+  "generated_at": "2026-11-21T10:37:13.757115+00:00",
   "by_tag": {
     "datascience": {
       "additions": 17040,
@@ -1968,24 +1973,24 @@
       "files": 82
     },
     "other": {
-      "additions": 22878,
-      "deletions": 16639,
-      "files": 496
+      "additions": 24145,
+      "deletions": 16647,
+      "files": 500
     },
     "ml": {
-      "additions": 4236,
+      "additions": 4720,
       "deletions": 1161,
-      "files": 115
+      "files": 123
     },
     "backend": {
-      "additions": 31483,
-      "deletions": 5258,
-      "files": 487
+      "additions": 36022,
+      "deletions": 6980,
+      "files": 523
     },
     "frontend": {
-      "additions": 15936,
-      "deletions": 4404,
-      "files": 204
+      "additions": 20165,
+      "deletions": 5585,
+      "files": 242
     }
   }
 }
