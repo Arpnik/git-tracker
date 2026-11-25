@@ -1,19 +1,19 @@
 # Dev Stats
 
-_Last updated: 2026-11-24T13:14:49.354311+00:00_
+_Last updated: 2026-11-25T12:04:20.778837+00:00_
 
 > 📊 Rendered HTML version with charts: [`README_STATS.html`](./README_STATS.html)
 > 🎨 Language word cloud (D3, shaped by your `my_face` image): [`dashboard/wordcloud.html`](./dashboard/wordcloud.html)
 
-**Totals:** 824 commits · +525788 / -81867 lines
+**Totals:** 825 commits · +525989 / -81949 lines
 
 ## By development tag
 
 | Tag | + | - | Files touched |
 |---|---|---|---|
-| backend | 36022 | 6980 | 523 |
+| backend | 36190 | 7062 | 525 |
 | other | 24145 | 16647 | 500 |
-| frontend | 20165 | 5585 | 242 |
+| frontend | 20198 | 5585 | 243 |
 | datascience | 17040 | 4144 | 13 |
 | ai | 7591 | 211 | 82 |
 | ml | 4720 | 1161 | 123 |
@@ -25,7 +25,7 @@ _Last updated: 2026-11-24T13:14:49.354311+00:00_
 | data_ml | 249894 | 5479 | 31 |
 | other | 152678 | 37101 | 748 |
 | backend | 67086 | 13167 | 1249 |
-| frontend | 45527 | 24061 | 761 |
+| frontend | 45728 | 24143 | 764 |
 | docs | 5983 | 1303 | 127 |
 | infra | 3313 | 372 | 136 |
 | ui_design | 1303 | 384 | 79 |
@@ -38,7 +38,7 @@ _Last updated: 2026-11-24T13:14:49.354311+00:00_
 | Jupyter Notebook | 249883 | 5345 | 20 |
 | JSON | 104407 | 21168 | 145 |
 | Python | 41974 | 6108 | 718 |
-| JavaScript | 32329 | 12552 | 685 |
+| JavaScript | 32530 | 12634 | 688 |
 | Text | 30529 | 61 | 4 |
 | Java | 25305 | 7039 | 545 |
 | Lock | 15187 | 14686 | 20 |
@@ -69,7 +69,7 @@ _Last updated: 2026-11-24T13:14:49.354311+00:00_
 | Fall2024-MLProjects/SignLanguage | 10 | 16965 | 3742 |
 | altconvey/acy-rest | 36 | 15962 | 4322 |
 | GetKnowbie/AdminV2 | 14 | 14438 | 14266 |
-| GetKnowbie/Operators | 97 | 13429 | 11503 |
+| GetKnowbie/Operators | 98 | 13630 | 11585 |
 | Arpnik/agentic-assistant | 12 | 9454 | 678 |
 | GetKnowbie/knowbie-back | 27 | 9403 | 4152 |
 | anubhavm101/SOEN-6441--TubeLytics | 64 | 6173 | 6973 |
@@ -240,7 +240,7 @@ _Last updated: 2026-11-24T13:14:49.354311+00:00_
 
 | Language | + | - | Files touched |
 |---|---|---|---|
-| JavaScript | 7742 | 6374 | 190 |
+| JavaScript | 7943 | 6456 | 193 |
 | JSON | 5495 | 4990 | 33 |
 | CSS | 119 | 60 | 4 |
 | Dotenv | 52 | 55 | 30 |
