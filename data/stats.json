@@ -1,114 +1,39 @@
 {
   "totals": {
-    "commits": 825,
-    "additions": 525989,
-    "deletions": 81949
+    "commits": 980,
+    "additions": 562406,
+    "deletions": 96645
   },
   "by_repo": {
     "GetKnowbie/Operators": {
-      "commits": 98,
-      "additions": 13630,
-      "deletions": 11585
+      "commits": 117,
+      "additions": 14616,
+      "deletions": 12171
     },
     "GetKnowbie/AdminV2": {
-      "commits": 14,
-      "additions": 14438,
-      "deletions": 14266
+      "commits": 24,
+      "additions": 15233,
+      "deletions": 14517
     },
     "GetKnowbie/knowbie-back": {
-      "commits": 27,
-      "additions": 9403,
-      "deletions": 4152
+      "commits": 48,
+      "additions": 10176,
+      "deletions": 5217
     },
     "GetKnowbie/end-user": {
-      "commits": 66,
-      "additions": 4699,
-      "deletions": 4106
+      "commits": 73,
+      "additions": 5107,
+      "deletions": 4298
     },
-    "FrancescoBonzi/twin-transformer": {
-      "commits": 24,
-      "additions": 344,
-      "deletions": 226
-    },
-    "Arpnik/taskd-technical-challenge": {
-      "commits": 33,
-      "additions": 1324,
-      "deletions": 586
-    },
-    "Arpnik/DISRPT-Segmenter": {
-      "commits": 20,
-      "additions": 22034,
-      "deletions": 930
-    },
-    "Arpnik/EDU-Chunking-RAG": {
-      "commits": 41,
-      "additions": 278427,
-      "deletions": 2717
-    },
-    "Arpnik/FedBN": {
-      "commits": 20,
-      "additions": 2259,
-      "deletions": 843
-    },
-    "Arpnik/SOEN-341": {
-      "commits": 25,
-      "additions": 242,
-      "deletions": 24
-    },
-    "Arpnik/test-jest": {
-      "commits": 3,
-      "additions": 5947,
+    "Arpnik/tech-salary-analysis": {
+      "commits": 2,
+      "additions": 366,
       "deletions": 0
     },
-    "toyosi12/fs-agent": {
-      "commits": 6,
-      "additions": 312,
-      "deletions": 38
-    },
-    "aysha8665/rexploit-dataset": {
-      "commits": 4,
-      "additions": 5226,
-      "deletions": 4942
-    },
-    "Arpnik/neetcode-submissions": {
-      "commits": 48,
-      "additions": 3783,
+    "Arpnik/llm-zoomcamp": {
+      "commits": 1,
+      "additions": 365,
       "deletions": 0
-    },
-    "Arpnik/NL2SQL": {
-      "commits": 39,
-      "additions": 4247,
-      "deletions": 526
-    },
-    "Arpnik/home_assessment": {
-      "commits": 7,
-      "additions": 19121,
-      "deletions": 375
-    },
-    "Arpnik/git-tracker": {
-      "commits": 13,
-      "additions": 1761,
-      "deletions": 65
-    },
-    "altconvey/acy-ui": {
-      "commits": 43,
-      "additions": 23621,
-      "deletions": 12197
-    },
-    "altconvey/acy-rest": {
-      "commits": 36,
-      "additions": 15962,
-      "deletions": 4322
-    },
-    "altconvey/acy-ai": {
-      "commits": 42,
-      "additions": 3389,
-      "deletions": 900
-    },
-    "altconvey/acy-materials": {
-      "commits": 18,
-      "additions": 25231,
-      "deletions": 837
     },
     "Fall2024-MLProjects/SignLanguage": {
       "commits": 10,
@@ -150,37 +75,122 @@
       "additions": 2955,
       "deletions": 0
     },
+    "FrancescoBonzi/twin-transformer": {
+      "commits": 24,
+      "additions": 344,
+      "deletions": 226
+    },
+    "Arpnik/taskd-technical-challenge": {
+      "commits": 33,
+      "additions": 1324,
+      "deletions": 586
+    },
+    "Arpnik/DISRPT-Segmenter": {
+      "commits": 20,
+      "additions": 22034,
+      "deletions": 930
+    },
+    "Arpnik/EDU-Chunking-RAG": {
+      "commits": 41,
+      "additions": 278427,
+      "deletions": 2717
+    },
+    "Arpnik/FedBN": {
+      "commits": 20,
+      "additions": 2259,
+      "deletions": 843
+    },
+    "Arpnik/SOEN-341": {
+      "commits": 25,
+      "additions": 242,
+      "deletions": 24
+    },
+    "Arpnik/test-jest": {
+      "commits": 3,
+      "additions": 5947,
+      "deletions": 0
+    },
+    "toyosi12/fs-agent": {
+      "commits": 3,
+      "additions": 153,
+      "deletions": 18
+    },
+    "Aisha8665/rexploit-dataset": {
+      "commits": 4,
+      "additions": 5226,
+      "deletions": 4942
+    },
+    "Arpnik/neetcode-submissions": {
+      "commits": 48,
+      "additions": 3783,
+      "deletions": 0
+    },
+    "Arpnik/SafeNL2SQL": {
+      "commits": 39,
+      "additions": 4247,
+      "deletions": 526
+    },
+    "Arpnik/ProgramSynth": {
+      "commits": 8,
+      "additions": 19122,
+      "deletions": 376
+    },
+    "Arpnik/git-tracker": {
+      "commits": 14,
+      "additions": 3959,
+      "deletions": 994
+    },
     "Arpnik/web-crawler": {
       "commits": 11,
       "additions": 3967,
       "deletions": 269
     },
-    "Arpnik/ProgramSynth": {
-      "commits": 1,
-      "additions": 1,
-      "deletions": 1
+    "Arpnik/agentic-assistant": {
+      "commits": 15,
+      "additions": 12565,
+      "deletions": 1349
+    },
+    "altconvey/acy-ui": {
+      "commits": 44,
+      "additions": 24758,
+      "deletions": 12270
+    },
+    "altconvey/acy-rest": {
+      "commits": 37,
+      "additions": 16659,
+      "deletions": 4383
+    },
+    "altconvey/acy-ai": {
+      "commits": 50,
+      "additions": 4555,
+      "deletions": 1278
+    },
+    "altconvey/acy-materials": {
+      "commits": 19,
+      "additions": 29655,
+      "deletions": 1037
     },
     "altconvey/acy-ai-contract": {
-      "commits": 46,
-      "additions": 17835,
-      "deletions": 5882
-    },
-    "Arpnik/agentic-assistant": {
-      "commits": 12,
-      "additions": 9454,
-      "deletions": 678
+      "commits": 129,
+      "additions": 37985,
+      "deletions": 16192
     }
   },
   "by_language": {
     "JavaScript": {
-      "additions": 32530,
-      "deletions": 12634,
-      "files": 688
+      "additions": 39250,
+      "deletions": 15263,
+      "files": 816
     },
     "JSON": {
-      "additions": 104407,
-      "deletions": 21168,
-      "files": 145
+      "additions": 109540,
+      "deletions": 21429,
+      "files": 197
+    },
+    "Production": {
+      "additions": 1,
+      "deletions": 1,
+      "files": 1
     },
     "Dotenv": {
       "additions": 96,
@@ -193,34 +203,34 @@
       "files": 7
     },
     "CSS": {
-      "additions": 119,
-      "deletions": 60,
-      "files": 6
+      "additions": 125,
+      "deletions": 62,
+      "files": 8
     },
     "Markdown": {
-      "additions": 6173,
-      "deletions": 1303,
-      "files": 128
+      "additions": 10605,
+      "deletions": 5535,
+      "files": 191
     },
     "Lock": {
-      "additions": 15187,
-      "deletions": 14686,
-      "files": 20
+      "additions": 15312,
+      "deletions": 14815,
+      "files": 22
     },
     "Image": {
-      "additions": 22,
+      "additions": 143,
       "deletions": 0,
-      "files": 50
+      "files": 54
     },
     "Config": {
-      "additions": 2406,
-      "deletions": 237,
-      "files": 40
+      "additions": 2737,
+      "deletions": 238,
+      "files": 47
     },
     "TypeScript": {
-      "additions": 174,
-      "deletions": 148,
-      "files": 14
+      "additions": 245,
+      "deletions": 161,
+      "files": 21
     },
     "Realm": {
       "additions": 0,
@@ -232,10 +242,15 @@
       "deletions": 0,
       "files": 4
     },
+    "P12": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 2
+    },
     "Other": {
-      "additions": 330,
-      "deletions": 182,
-      "files": 154
+      "additions": 749,
+      "deletions": 183,
+      "files": 203
     },
     "Iml": {
       "additions": 0,
@@ -243,29 +258,29 @@
       "files": 2
     },
     "XML": {
-      "additions": 51,
-      "deletions": 113,
-      "files": 7
-    },
-    "P12": {
-      "additions": 0,
-      "deletions": 0,
-      "files": 1
+      "additions": 1588,
+      "deletions": 319,
+      "files": 57
     },
     "Mp4": {
       "additions": 0,
       "deletions": 0,
       "files": 1
     },
-    "Dart": {
-      "additions": 3854,
-      "deletions": 2954,
-      "files": 120
-    },
     "YAML": {
-      "additions": 998,
-      "deletions": 252,
-      "files": 78
+      "additions": 1165,
+      "deletions": 264,
+      "files": 85
+    },
+    "Dart": {
+      "additions": 4100,
+      "deletions": 2999,
+      "files": 126
+    },
+    "Pbxproj": {
+      "additions": 41,
+      "deletions": 30,
+      "files": 4
     },
     "Gradle": {
       "additions": 23,
@@ -273,14 +288,9 @@
       "files": 3
     },
     "Entitlements": {
-      "additions": 1,
-      "deletions": 1,
-      "files": 1
-    },
-    "Pbxproj": {
-      "additions": 27,
-      "deletions": 24,
-      "files": 3
+      "additions": 2,
+      "deletions": 2,
+      "files": 2
     },
     "Plist": {
       "additions": 124,
@@ -303,84 +313,19 @@
       "files": 1
     },
     "Xcscheme": {
-      "additions": 1,
+      "additions": 2,
       "deletions": 0,
-      "files": 1
-    },
-    "Python": {
-      "additions": 41974,
-      "deletions": 6108,
-      "files": 718
+      "files": 2
     },
     "Jupyter Notebook": {
       "additions": 249883,
       "deletions": 5345,
       "files": 20
     },
-    "TOML": {
-      "additions": 163,
-      "deletions": 9,
-      "files": 10
-    },
-    "Text": {
-      "additions": 30529,
-      "deletions": 61,
-      "files": 4
-    },
-    "PDF": {
-      "additions": 0,
-      "deletions": 0,
-      "files": 2
-    },
-    "Safetensors": {
-      "additions": 0,
-      "deletions": 0,
-      "files": 1
-    },
-    "Bin": {
-      "additions": 0,
-      "deletions": 0,
-      "files": 1
-    },
-    "Solidity": {
-      "additions": 5197,
-      "deletions": 4852,
-      "files": 30
-    },
-    "Java": {
-      "additions": 25305,
-      "deletions": 7039,
-      "files": 545
-    },
-    "Db": {
-      "additions": 0,
-      "deletions": 0,
-      "files": 4
-    },
-    "Docker": {
-      "additions": 68,
-      "deletions": 24,
-      "files": 6
-    },
-    "HTML": {
-      "additions": 896,
-      "deletions": 373,
-      "files": 25
-    },
-    "SCSS": {
-      "additions": 801,
-      "deletions": 47,
-      "files": 11
-    },
-    "Shell": {
-      "additions": 1213,
-      "deletions": 148,
-      "files": 12
-    },
-    "Makefile": {
-      "additions": 94,
-      "deletions": 32,
-      "files": 5
+    "Python": {
+      "additions": 55221,
+      "deletions": 12144,
+      "files": 906
     },
     "Dev": {
       "additions": 0,
@@ -397,10 +342,20 @@
       "deletions": 0,
       "files": 2
     },
+    "Shell": {
+      "additions": 1255,
+      "deletions": 149,
+      "files": 14
+    },
     "Ph14t": {
       "additions": 2,
       "deletions": 0,
       "files": 4
+    },
+    "Java": {
+      "additions": 26002,
+      "deletions": 7100,
+      "files": 572
     },
     "Conf": {
       "additions": 11,
@@ -411,6 +366,11 @@
       "additions": 1375,
       "deletions": 1602,
       "files": 33
+    },
+    "HTML": {
+      "additions": 1700,
+      "deletions": 692,
+      "files": 30
     },
     "Log": {
       "additions": 16,
@@ -437,57 +397,112 @@
       "deletions": 2,
       "files": 3
     },
+    "TOML": {
+      "additions": 162,
+      "deletions": 9,
+      "files": 9
+    },
+    "Text": {
+      "additions": 30529,
+      "deletions": 61,
+      "files": 4
+    },
+    "PDF": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 2
+    },
+    "Safetensors": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 1
+    },
+    "Bin": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 1
+    },
+    "Solidity": {
+      "additions": 5197,
+      "deletions": 4852,
+      "files": 30
+    },
+    "Db": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 4
+    },
+    "Docker": {
+      "additions": 142,
+      "deletions": 80,
+      "files": 9
+    },
+    "SCSS": {
+      "additions": 801,
+      "deletions": 47,
+      "files": 11
+    },
+    "Makefile": {
+      "additions": 110,
+      "deletions": 32,
+      "files": 6
+    },
     "Terraform": {
-      "additions": 1826,
-      "deletions": 45,
-      "files": 31
+      "additions": 3971,
+      "deletions": 726,
+      "files": 106
+    },
+    "Docx": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 55
+    },
+    "Base": {
+      "additions": 44,
+      "deletions": 0,
+      "files": 3
+    },
+    "Example": {
+      "additions": 56,
+      "deletions": 9,
+      "files": 9
     },
     "PowerShell": {
       "additions": 44,
       "deletions": 44,
       "files": 3
-    },
-    "Example": {
-      "additions": 31,
-      "deletions": 5,
-      "files": 4
-    },
-    "Production": {
-      "additions": 1,
-      "deletions": 1,
-      "files": 1
     }
   },
   "by_category": {
     "frontend": {
-      "additions": 45728,
-      "deletions": 24143,
-      "files": 764
+      "additions": 52527,
+      "deletions": 26789,
+      "files": 902
     },
     "other": {
-      "additions": 152678,
-      "deletions": 37101,
-      "files": 748
+      "additions": 158269,
+      "deletions": 37489,
+      "files": 789
     },
     "docs": {
-      "additions": 5983,
-      "deletions": 1303,
-      "files": 127
+      "additions": 10113,
+      "deletions": 5219,
+      "files": 183
     },
     "ui_design": {
-      "additions": 1303,
-      "deletions": 384,
-      "files": 79
+      "additions": 2228,
+      "deletions": 703,
+      "files": 88
     },
     "infra": {
-      "additions": 3313,
-      "deletions": 372,
-      "files": 136
+      "additions": 6179,
+      "deletions": 1442,
+      "files": 284
     },
     "backend": {
-      "additions": 67086,
-      "deletions": 13167,
-      "files": 1249
+      "additions": 80951,
+      "deletions": 19259,
+      "files": 1458
     },
     "data_ml": {
       "additions": 249894,
@@ -495,12 +510,27 @@
       "files": 31
     },
     "tests": {
-      "additions": 4,
-      "deletions": 0,
-      "files": 1
+      "additions": 2245,
+      "deletions": 265,
+      "files": 144
     }
   },
   "by_week": {
+    "2026-11-23": {
+      "commits": 5,
+      "additions": 8657,
+      "deletions": 1345
+    },
+    "2026-09-28": {
+      "commits": 10,
+      "additions": 2197,
+      "deletions": 190
+    },
+    "2026-09-07": {
+      "commits": 29,
+      "additions": 3459,
+      "deletions": 2770
+    },
     "2026-05-18": {
       "commits": 2,
       "additions": 45,
@@ -616,6 +646,31 @@
       "additions": 1929,
       "deletions": 2434
     },
+    "2025-07-07": {
+      "commits": 11,
+      "additions": 4069,
+      "deletions": 552
+    },
+    "2025-06-23": {
+      "commits": 2,
+      "additions": 7,
+      "deletions": 1
+    },
+    "2025-06-09": {
+      "commits": 6,
+      "additions": 233,
+      "deletions": 110
+    },
+    "2025-06-02": {
+      "commits": 7,
+      "additions": 102,
+      "deletions": 18
+    },
+    "2025-05-26": {
+      "commits": 4,
+      "additions": 353,
+      "deletions": 310
+    },
     "2026-04-27": {
       "commits": 8,
       "additions": 276,
@@ -631,6 +686,16 @@
       "additions": 1626,
       "deletions": 745
     },
+    "2025-05-19": {
+      "commits": 29,
+      "additions": 6289,
+      "deletions": 298
+    },
+    "2026-10-19": {
+      "commits": 17,
+      "additions": 3185,
+      "deletions": 1395
+    },
     "2026-02-09": {
       "commits": 17,
       "additions": 35,
@@ -640,6 +705,11 @@
       "commits": 2,
       "additions": 68,
       "deletions": 10
+    },
+    "2025-07-21": {
+      "commits": 6,
+      "additions": 235,
+      "deletions": 75
     },
     "2026-07-20": {
       "commits": 13,
@@ -651,105 +721,25 @@
       "additions": 201,
       "deletions": 205
     },
-    "2025-07-21": {
-      "commits": 5,
-      "additions": 234,
-      "deletions": 74
+    "2025-07-14": {
+      "commits": 3,
+      "additions": 2986,
+      "deletions": 9
     },
-    "2025-11-24": {
-      "commits": 21,
-      "additions": 110542,
-      "deletions": 325
-    },
-    "2025-11-17": {
-      "commits": 30,
-      "additions": 9118,
-      "deletions": 2270
-    },
-    "2026-03-16": {
+    "2025-06-30": {
       "commits": 2,
-      "additions": 1,
-      "deletions": 1
+      "additions": 24,
+      "deletions": 21
     },
-    "2025-12-22": {
-      "commits": 11,
-      "additions": 613,
-      "deletions": 259
-    },
-    "2026-01-26": {
-      "commits": 17,
-      "additions": 378,
-      "deletions": 134
-    },
-    "2026-01-19": {
-      "commits": 14,
-      "additions": 2058,
-      "deletions": 639
-    },
-    "2026-03-09": {
-      "commits": 7,
-      "additions": 539,
-      "deletions": 162
-    },
-    "2026-04-20": {
-      "commits": 24,
-      "additions": 6325,
-      "deletions": 4961
-    },
-    "2026-05-11": {
-      "commits": 25,
-      "additions": 19744,
-      "deletions": 382
-    },
-    "2026-04-13": {
-      "commits": 35,
-      "additions": 4392,
-      "deletions": 560
-    },
-    "2026-03-30": {
+    "2024-05-06": {
       "commits": 2,
-      "additions": 1983,
+      "additions": 366,
       "deletions": 0
     },
-    "2026-07-06": {
-      "commits": 11,
-      "additions": 2022,
-      "deletions": 207
-    },
-    "2026-07-13": {
-      "commits": 5,
-      "additions": 22150,
-      "deletions": 191
-    },
-    "2026-06-29": {
-      "commits": 5,
-      "additions": 624,
-      "deletions": 424
-    },
-    "2026-06-15": {
-      "commits": 6,
-      "additions": 1347,
-      "deletions": 320
-    },
-    "2026-04-06": {
-      "commits": 2,
-      "additions": 141,
-      "deletions": 51
-    },
-    "2026-03-23": {
+    "2024-06-17": {
       "commits": 1,
-      "additions": 23,
-      "deletions": 6
-    },
-    "2026-06-22": {
-      "commits": 2,
-      "additions": 257,
-      "deletions": 141
-    },
-    "2026-03-02": {
-      "commits": 1,
-      "additions": 4,
-      "deletions": 2
+      "additions": 365,
+      "deletions": 0
     },
     "2024-12-02": {
       "commits": 10,
@@ -785,11 +775,6 @@
       "commits": 34,
       "additions": 2670,
       "deletions": 4294
-    },
-    "2025-07-07": {
-      "commits": 1,
-      "additions": 3903,
-      "deletions": 423
     },
     "2025-06-16": {
       "commits": 2,
@@ -831,93 +816,178 @@
       "additions": 34,
       "deletions": 2
     },
-    "2025-05-19": {
-      "commits": 12,
-      "additions": 5430,
-      "deletions": 31
+    "2025-11-24": {
+      "commits": 21,
+      "additions": 110542,
+      "deletions": 325
     },
-    "2025-07-14": {
+    "2025-11-17": {
+      "commits": 30,
+      "additions": 9118,
+      "deletions": 2270
+    },
+    "2026-03-16": {
       "commits": 2,
-      "additions": 2955,
+      "additions": 1,
+      "deletions": 1
+    },
+    "2025-12-22": {
+      "commits": 11,
+      "additions": 613,
+      "deletions": 259
+    },
+    "2026-01-26": {
+      "commits": 17,
+      "additions": 378,
+      "deletions": 134
+    },
+    "2026-01-19": {
+      "commits": 14,
+      "additions": 2058,
+      "deletions": 639
+    },
+    "2026-03-09": {
+      "commits": 4,
+      "additions": 380,
+      "deletions": 142
+    },
+    "2026-04-20": {
+      "commits": 24,
+      "additions": 6325,
+      "deletions": 4961
+    },
+    "2026-05-11": {
+      "commits": 25,
+      "additions": 19744,
+      "deletions": 382
+    },
+    "2026-04-13": {
+      "commits": 35,
+      "additions": 4392,
+      "deletions": 560
+    },
+    "2026-03-30": {
+      "commits": 2,
+      "additions": 1983,
       "deletions": 0
     },
-    "2026-07-27": {
-      "commits": 3,
-      "additions": 299,
-      "deletions": 94
+    "2026-08-31": {
+      "commits": 39,
+      "additions": 12676,
+      "deletions": 15324
     },
-    "2026-08-17": {
-      "commits": 1,
-      "additions": 235,
-      "deletions": 2
+    "2026-11-16": {
+      "commits": 16,
+      "additions": 12326,
+      "deletions": 5505
+    },
+    "2026-07-06": {
+      "commits": 11,
+      "additions": 2022,
+      "deletions": 207
     },
     "2026-08-24": {
       "commits": 41,
       "additions": 24691,
       "deletions": 1648
     },
-    "2026-08-31": {
-      "commits": 13,
-      "additions": 8848,
-      "deletions": 12609
-    },
-    "2026-09-07": {
-      "commits": 21,
-      "additions": 2706,
-      "deletions": 2346
-    },
-    "2026-09-21": {
-      "commits": 1,
-      "additions": 19,
-      "deletions": 4
-    },
-    "2026-09-28": {
-      "commits": 8,
-      "additions": 2066,
-      "deletions": 170
-    },
-    "2026-10-05": {
-      "commits": 11,
-      "additions": 8888,
-      "deletions": 402
-    },
     "2026-10-12": {
       "commits": 5,
       "additions": 2593,
       "deletions": 1125
     },
-    "2026-10-19": {
-      "commits": 11,
-      "additions": 2171,
-      "deletions": 242
+    "2026-10-05": {
+      "commits": 17,
+      "additions": 12340,
+      "deletions": 1138
     },
     "2026-10-26": {
-      "commits": 10,
-      "additions": 3998,
-      "deletions": 1256
+      "commits": 20,
+      "additions": 6416,
+      "deletions": 2906
     },
-    "2026-11-16": {
-      "commits": 7,
-      "additions": 11344,
-      "deletions": 3045
+    "2026-07-27": {
+      "commits": 11,
+      "additions": 1465,
+      "deletions": 472
     },
-    "2026-11-23": {
+    "2026-07-13": {
+      "commits": 5,
+      "additions": 22150,
+      "deletions": 191
+    },
+    "2026-06-29": {
+      "commits": 5,
+      "additions": 624,
+      "deletions": 424
+    },
+    "2026-06-15": {
+      "commits": 6,
+      "additions": 1347,
+      "deletions": 320
+    },
+    "2026-04-06": {
+      "commits": 2,
+      "additions": 141,
+      "deletions": 51
+    },
+    "2026-03-23": {
       "commits": 1,
-      "additions": 201,
-      "deletions": 82
+      "additions": 23,
+      "deletions": 6
+    },
+    "2026-09-21": {
+      "commits": 8,
+      "additions": 3112,
+      "deletions": 172
+    },
+    "2026-08-17": {
+      "commits": 1,
+      "additions": 235,
+      "deletions": 2
+    },
+    "2026-06-22": {
+      "commits": 2,
+      "additions": 257,
+      "deletions": 141
+    },
+    "2026-03-02": {
+      "commits": 1,
+      "additions": 4,
+      "deletions": 2
+    },
+    "2026-11-09": {
+      "commits": 6,
+      "additions": 2380,
+      "deletions": 1441
+    },
+    "2026-11-02": {
+      "commits": 8,
+      "additions": 6271,
+      "deletions": 1287
+    },
+    "2026-09-14": {
+      "commits": 5,
+      "additions": 125,
+      "deletions": 155
     }
   },
   "by_repo_language": {
     "GetKnowbie/Operators": {
       "JavaScript": {
-        "additions": 7943,
-        "deletions": 6456,
-        "files": 193
+        "additions": 8918,
+        "deletions": 7038,
+        "files": 216
       },
       "JSON": {
-        "additions": 5495,
-        "deletions": 4990,
-        "files": 33
+        "additions": 5500,
+        "deletions": 4992,
+        "files": 35
+      },
+      "Production": {
+        "additions": 1,
+        "deletions": 1,
+        "files": 1
       },
       "Dotenv": {
         "additions": 52,
@@ -930,9 +1000,9 @@
         "files": 6
       },
       "CSS": {
-        "additions": 119,
-        "deletions": 60,
-        "files": 4
+        "additions": 125,
+        "deletions": 62,
+        "files": 6
       },
       "Markdown": {
         "additions": 3,
@@ -948,11 +1018,6 @@
         "additions": 5,
         "deletions": 0,
         "files": 1
-      },
-      "Production": {
-        "additions": 1,
-        "deletions": 1,
-        "files": 1
       }
     },
     "GetKnowbie/AdminV2": {
@@ -962,9 +1027,9 @@
         "files": 6
       },
       "JavaScript": {
-        "additions": 355,
-        "deletions": 192,
-        "files": 16
+        "additions": 1079,
+        "deletions": 430,
+        "files": 29
       },
       "JSON": {
         "additions": 41,
@@ -972,9 +1037,9 @@
         "files": 6
       },
       "TypeScript": {
-        "additions": 165,
-        "deletions": 139,
-        "files": 12
+        "additions": 236,
+        "deletions": 152,
+        "files": 19
       },
       "Dotenv": {
         "additions": 1,
@@ -1004,9 +1069,14 @@
     },
     "GetKnowbie/knowbie-back": {
       "JavaScript": {
-        "additions": 898,
-        "deletions": 1072,
-        "files": 137
+        "additions": 1671,
+        "deletions": 2137,
+        "files": 167
+      },
+      "P12": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 2
       },
       "Dotenv": {
         "additions": 19,
@@ -1043,11 +1113,6 @@
         "deletions": 0,
         "files": 1
       },
-      "P12": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 1
-      },
       "Image": {
         "additions": 0,
         "deletions": 0,
@@ -1060,20 +1125,35 @@
       }
     },
     "GetKnowbie/end-user": {
+      "YAML": {
+        "additions": 55,
+        "deletions": 47,
+        "files": 21
+      },
       "Dart": {
-        "additions": 3854,
-        "deletions": 2954,
-        "files": 120
+        "additions": 4100,
+        "deletions": 2999,
+        "files": 126
+      },
+      "Other": {
+        "additions": 2,
+        "deletions": 2,
+        "files": 2
+      },
+      "Lock": {
+        "additions": 722,
+        "deletions": 918,
+        "files": 13
+      },
+      "Pbxproj": {
+        "additions": 41,
+        "deletions": 30,
+        "files": 4
       },
       "Dotenv": {
         "additions": 24,
         "deletions": 25,
         "files": 8
-      },
-      "YAML": {
-        "additions": 37,
-        "deletions": 37,
-        "files": 18
       },
       "Gradle": {
         "additions": 23,
@@ -1081,14 +1161,9 @@
         "files": 3
       },
       "Entitlements": {
-        "additions": 1,
-        "deletions": 1,
-        "files": 1
-      },
-      "Pbxproj": {
-        "additions": 27,
-        "deletions": 24,
-        "files": 3
+        "additions": 2,
+        "deletions": 2,
+        "files": 2
       },
       "Plist": {
         "additions": 124,
@@ -1099,16 +1174,6 @@
         "additions": 0,
         "deletions": 140,
         "files": 1
-      },
-      "Other": {
-        "additions": 1,
-        "deletions": 1,
-        "files": 1
-      },
-      "Lock": {
-        "additions": 597,
-        "deletions": 789,
-        "files": 11
       },
       "Properties": {
         "additions": 3,
@@ -1126,448 +1191,48 @@
         "files": 1
       },
       "Config": {
+        "additions": 4,
+        "deletions": 0,
+        "files": 2
+      },
+      "Xcscheme": {
+        "additions": 2,
+        "deletions": 0,
+        "files": 2
+      }
+    },
+    "Arpnik/tech-salary-analysis": {
+      "Config": {
+        "additions": 163,
+        "deletions": 0,
+        "files": 2
+      },
+      "Other": {
+        "additions": 201,
+        "deletions": 0,
+        "files": 1
+      },
+      "Markdown": {
         "additions": 2,
         "deletions": 0,
         "files": 1
-      },
-      "Xcscheme": {
-        "additions": 1,
-        "deletions": 0,
-        "files": 1
       }
     },
-    "FrancescoBonzi/twin-transformer": {
-      "Markdown": {
-        "additions": 16,
-        "deletions": 1,
-        "files": 2
-      },
-      "YAML": {
-        "additions": 229,
-        "deletions": 73,
-        "files": 18
-      },
-      "Python": {
-        "additions": 99,
-        "deletions": 152,
-        "files": 14
-      }
-    },
-    "Arpnik/taskd-technical-challenge": {
-      "Markdown": {
-        "additions": 146,
-        "deletions": 41,
-        "files": 6
-      },
-      "Image": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 1
-      },
-      "Python": {
-        "additions": 1178,
-        "deletions": 545,
-        "files": 33
-      }
-    },
-    "Arpnik/DISRPT-Segmenter": {
-      "Jupyter Notebook": {
-        "additions": 18437,
-        "deletions": 0,
-        "files": 2
-      },
-      "Markdown": {
-        "additions": 331,
-        "deletions": 85,
-        "files": 6
-      },
-      "Image": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 1
-      },
-      "Python": {
-        "additions": 3025,
-        "deletions": 845,
-        "files": 50
-      },
-      "TOML": {
-        "additions": 27,
-        "deletions": 0,
-        "files": 2
-      },
-      "Text": {
-        "additions": 7,
-        "deletions": 0,
-        "files": 1
-      },
+    "Arpnik/llm-zoomcamp": {
       "Config": {
-        "additions": 207,
+        "additions": 162,
         "deletions": 0,
         "files": 1
-      }
-    },
-    "Arpnik/EDU-Chunking-RAG": {
-      "Markdown": {
-        "additions": 662,
-        "deletions": 30,
-        "files": 11
-      },
-      "PDF": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 1
-      },
-      "Python": {
-        "additions": 5402,
-        "deletions": 1464,
-        "files": 119
-      },
-      "Jupyter Notebook": {
-        "additions": 210783,
-        "deletions": 1202,
-        "files": 8
-      },
-      "JSON": {
-        "additions": 30783,
-        "deletions": 0,
-        "files": 5
-      },
-      "Safetensors": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 1
-      },
-      "Bin": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 1
-      },
-      "Text": {
-        "additions": 30522,
-        "deletions": 0,
-        "files": 1
-      },
-      "Image": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 1
-      },
-      "TOML": {
-        "additions": 36,
-        "deletions": 4,
-        "files": 2
-      },
-      "YAML": {
-        "additions": 32,
-        "deletions": 17,
-        "files": 4
-      },
-      "Config": {
-        "additions": 207,
-        "deletions": 0,
-        "files": 1
-      }
-    },
-    "Arpnik/FedBN": {
-      "Markdown": {
-        "additions": 269,
-        "deletions": 148,
-        "files": 7
-      },
-      "Image": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 3
-      },
-      "PDF": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 1
-      },
-      "Python": {
-        "additions": 1990,
-        "deletions": 695,
-        "files": 33
-      }
-    },
-    "Arpnik/SOEN-341": {
-      "Python": {
-        "additions": 35,
-        "deletions": 24,
-        "files": 24
-      },
-      "Config": {
-        "additions": 207,
-        "deletions": 0,
-        "files": 1
-      }
-    },
-    "Arpnik/test-jest": {
-      "YAML": {
-        "additions": 17,
-        "deletions": 0,
-        "files": 1
-      },
-      "JavaScript": {
-        "additions": 23,
-        "deletions": 0,
-        "files": 3
-      },
-      "JSON": {
-        "additions": 5907,
-        "deletions": 0,
-        "files": 2
-      }
-    },
-    "toyosi12/fs-agent": {
-      "Markdown": {
-        "additions": 288,
-        "deletions": 10,
-        "files": 4
-      },
-      "Python": {
-        "additions": 23,
-        "deletions": 28,
-        "files": 21
-      },
-      "TOML": {
-        "additions": 1,
-        "deletions": 0,
-        "files": 1
-      }
-    },
-    "aysha8665/rexploit-dataset": {
-      "Solidity": {
-        "additions": 5197,
-        "deletions": 4852,
-        "files": 30
-      },
-      "Text": {
-        "additions": 0,
-        "deletions": 61,
-        "files": 2
-      },
-      "JSON": {
-        "additions": 29,
-        "deletions": 29,
-        "files": 11
-      }
-    },
-    "Arpnik/neetcode-submissions": {
-      "Java": {
-        "additions": 3711,
-        "deletions": 0,
-        "files": 97
-      },
-      "Markdown": {
-        "additions": 72,
-        "deletions": 0,
-        "files": 1
-      }
-    },
-    "Arpnik/NL2SQL": {
-      "Markdown": {
-        "additions": 306,
-        "deletions": 17,
-        "files": 6
-      },
-      "Image": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 3
-      },
-      "YAML": {
-        "additions": 53,
-        "deletions": 5,
-        "files": 6
-      },
-      "Python": {
-        "additions": 3552,
-        "deletions": 501,
-        "files": 111
-      },
-      "Db": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 4
-      },
-      "Docker": {
-        "additions": 28,
-        "deletions": 0,
-        "files": 1
-      },
-      "Config": {
-        "additions": 208,
-        "deletions": 0,
-        "files": 2
-      },
-      "TOML": {
-        "additions": 71,
-        "deletions": 3,
-        "files": 2
       },
       "Other": {
-        "additions": 29,
+        "additions": 201,
         "deletions": 0,
         "files": 1
-      }
-    },
-    "Arpnik/home_assessment": {
-      "Markdown": {
-        "additions": 452,
-        "deletions": 1,
-        "files": 3
-      },
-      "Python": {
-        "additions": 1795,
-        "deletions": 374,
-        "files": 17
-      },
-      "Other": {
-        "additions": 7,
-        "deletions": 0,
-        "files": 1
-      },
-      "Config": {
-        "additions": 221,
-        "deletions": 0,
-        "files": 2
-      },
-      "Docker": {
-        "additions": 11,
-        "deletions": 0,
-        "files": 1
-      },
-      "YAML": {
-        "additions": 17,
-        "deletions": 0,
-        "files": 1
-      },
-      "JSON": {
-        "additions": 16618,
-        "deletions": 0,
-        "files": 10
-      }
-    },
-    "Arpnik/git-tracker": {
-      "Python": {
-        "additions": 964,
-        "deletions": 41,
-        "files": 9
       },
       "Markdown": {
-        "additions": 114,
-        "deletions": 11,
-        "files": 7
-      },
-      "YAML": {
-        "additions": 142,
-        "deletions": 12,
-        "files": 7
-      },
-      "HTML": {
-        "additions": 320,
-        "deletions": 1,
-        "files": 4
-      },
-      "Config": {
-        "additions": 221,
-        "deletions": 0,
-        "files": 2
-      }
-    },
-    "altconvey/acy-ui": {
-      "JavaScript": {
-        "additions": 17805,
-        "deletions": 4538,
-        "files": 271
-      },
-      "SCSS": {
-        "additions": 801,
-        "deletions": 47,
-        "files": 11
-      },
-      "JSON": {
-        "additions": 4768,
-        "deletions": 7612,
-        "files": 6
-      },
-      "Markdown": {
-        "additions": 247,
+        "additions": 2,
         "deletions": 0,
         "files": 1
-      }
-    },
-    "altconvey/acy-rest": {
-      "Java": {
-        "additions": 15518,
-        "deletions": 4047,
-        "files": 212
-      },
-      "Shell": {
-        "additions": 191,
-        "deletions": 146,
-        "files": 2
-      },
-      "YAML": {
-        "additions": 81,
-        "deletions": 51,
-        "files": 7
-      },
-      "Config": {
-        "additions": 10,
-        "deletions": 1,
-        "files": 3
-      },
-      "XML": {
-        "additions": 45,
-        "deletions": 43,
-        "files": 2
-      },
-      "Markdown": {
-        "additions": 75,
-        "deletions": 7,
-        "files": 3
-      },
-      "Properties": {
-        "additions": 4,
-        "deletions": 0,
-        "files": 1
-      },
-      "JSON": {
-        "additions": 38,
-        "deletions": 27,
-        "files": 2
-      }
-    },
-    "altconvey/acy-ai": {
-      "Python": {
-        "additions": 3389,
-        "deletions": 900,
-        "files": 68
-      }
-    },
-    "altconvey/acy-materials": {
-      "Makefile": {
-        "additions": 94,
-        "deletions": 32,
-        "files": 5
-      },
-      "JSON": {
-        "additions": 24678,
-        "deletions": 779,
-        "files": 41
-      },
-      "YAML": {
-        "additions": 189,
-        "deletions": 24,
-        "files": 7
-      },
-      "Python": {
-        "additions": 270,
-        "deletions": 2,
-        "files": 3
       }
     },
     "Fall2024-MLProjects/SignLanguage": {
@@ -1821,11 +1486,352 @@
         "files": 1
       }
     },
-    "Arpnik/web-crawler": {
+    "FrancescoBonzi/twin-transformer": {
+      "Markdown": {
+        "additions": 16,
+        "deletions": 1,
+        "files": 2
+      },
+      "YAML": {
+        "additions": 229,
+        "deletions": 73,
+        "files": 18
+      },
       "Python": {
-        "additions": 2902,
-        "deletions": 262,
-        "files": 62
+        "additions": 99,
+        "deletions": 152,
+        "files": 14
+      }
+    },
+    "Arpnik/taskd-technical-challenge": {
+      "Markdown": {
+        "additions": 146,
+        "deletions": 41,
+        "files": 6
+      },
+      "Image": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      },
+      "Python": {
+        "additions": 1178,
+        "deletions": 545,
+        "files": 33
+      }
+    },
+    "Arpnik/DISRPT-Segmenter": {
+      "Jupyter Notebook": {
+        "additions": 18437,
+        "deletions": 0,
+        "files": 2
+      },
+      "Markdown": {
+        "additions": 331,
+        "deletions": 85,
+        "files": 6
+      },
+      "Image": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      },
+      "Python": {
+        "additions": 3025,
+        "deletions": 845,
+        "files": 50
+      },
+      "TOML": {
+        "additions": 27,
+        "deletions": 0,
+        "files": 2
+      },
+      "Text": {
+        "additions": 7,
+        "deletions": 0,
+        "files": 1
+      },
+      "Config": {
+        "additions": 207,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/EDU-Chunking-RAG": {
+      "Markdown": {
+        "additions": 662,
+        "deletions": 30,
+        "files": 11
+      },
+      "PDF": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      },
+      "Python": {
+        "additions": 5402,
+        "deletions": 1464,
+        "files": 119
+      },
+      "Jupyter Notebook": {
+        "additions": 210783,
+        "deletions": 1202,
+        "files": 8
+      },
+      "JSON": {
+        "additions": 30783,
+        "deletions": 0,
+        "files": 5
+      },
+      "Safetensors": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      },
+      "Bin": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      },
+      "Text": {
+        "additions": 30522,
+        "deletions": 0,
+        "files": 1
+      },
+      "Image": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      },
+      "TOML": {
+        "additions": 36,
+        "deletions": 4,
+        "files": 2
+      },
+      "YAML": {
+        "additions": 32,
+        "deletions": 17,
+        "files": 4
+      },
+      "Config": {
+        "additions": 207,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/FedBN": {
+      "Markdown": {
+        "additions": 269,
+        "deletions": 148,
+        "files": 7
+      },
+      "Image": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 3
+      },
+      "PDF": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      },
+      "Python": {
+        "additions": 1990,
+        "deletions": 695,
+        "files": 33
+      }
+    },
+    "Arpnik/SOEN-341": {
+      "Python": {
+        "additions": 35,
+        "deletions": 24,
+        "files": 24
+      },
+      "Config": {
+        "additions": 207,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/test-jest": {
+      "YAML": {
+        "additions": 17,
+        "deletions": 0,
+        "files": 1
+      },
+      "JavaScript": {
+        "additions": 23,
+        "deletions": 0,
+        "files": 3
+      },
+      "JSON": {
+        "additions": 5907,
+        "deletions": 0,
+        "files": 2
+      }
+    },
+    "toyosi12/fs-agent": {
+      "Markdown": {
+        "additions": 144,
+        "deletions": 5,
+        "files": 2
+      },
+      "Python": {
+        "additions": 9,
+        "deletions": 13,
+        "files": 10
+      }
+    },
+    "Aisha8665/rexploit-dataset": {
+      "Solidity": {
+        "additions": 5197,
+        "deletions": 4852,
+        "files": 30
+      },
+      "Text": {
+        "additions": 0,
+        "deletions": 61,
+        "files": 2
+      },
+      "JSON": {
+        "additions": 29,
+        "deletions": 29,
+        "files": 11
+      }
+    },
+    "Arpnik/neetcode-submissions": {
+      "Java": {
+        "additions": 3711,
+        "deletions": 0,
+        "files": 97
+      },
+      "Markdown": {
+        "additions": 72,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/SafeNL2SQL": {
+      "Markdown": {
+        "additions": 306,
+        "deletions": 17,
+        "files": 6
+      },
+      "Image": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 3
+      },
+      "YAML": {
+        "additions": 53,
+        "deletions": 5,
+        "files": 6
+      },
+      "Python": {
+        "additions": 3552,
+        "deletions": 501,
+        "files": 111
+      },
+      "Db": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 4
+      },
+      "Docker": {
+        "additions": 28,
+        "deletions": 0,
+        "files": 1
+      },
+      "Config": {
+        "additions": 208,
+        "deletions": 0,
+        "files": 2
+      },
+      "TOML": {
+        "additions": 71,
+        "deletions": 3,
+        "files": 2
+      },
+      "Other": {
+        "additions": 29,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/ProgramSynth": {
+      "Markdown": {
+        "additions": 453,
+        "deletions": 2,
+        "files": 4
+      },
+      "Python": {
+        "additions": 1795,
+        "deletions": 374,
+        "files": 17
+      },
+      "Other": {
+        "additions": 7,
+        "deletions": 0,
+        "files": 1
+      },
+      "Config": {
+        "additions": 221,
+        "deletions": 0,
+        "files": 2
+      },
+      "Docker": {
+        "additions": 11,
+        "deletions": 0,
+        "files": 1
+      },
+      "YAML": {
+        "additions": 17,
+        "deletions": 0,
+        "files": 1
+      },
+      "JSON": {
+        "additions": 16618,
+        "deletions": 0,
+        "files": 10
+      }
+    },
+    "Arpnik/git-tracker": {
+      "YAML": {
+        "additions": 244,
+        "deletions": 14,
+        "files": 9
+      },
+      "Config": {
+        "additions": 224,
+        "deletions": 0,
+        "files": 3
+      },
+      "Markdown": {
+        "additions": 450,
+        "deletions": 254,
+        "files": 10
+      },
+      "HTML": {
+        "additions": 1124,
+        "deletions": 320,
+        "files": 9
+      },
+      "Image": {
+        "additions": 121,
+        "deletions": 0,
+        "files": 4
+      },
+      "Python": {
+        "additions": 1796,
+        "deletions": 406,
+        "files": 13
+      }
+    },
+    "Arpnik/web-crawler": {
+      "Markdown": {
+        "additions": 87,
+        "deletions": 4,
+        "files": 3
       },
       "TOML": {
         "additions": 28,
@@ -1837,10 +1843,10 @@
         "deletions": 1,
         "files": 3
       },
-      "Markdown": {
-        "additions": 87,
-        "deletions": 4,
-        "files": 3
+      "Python": {
+        "additions": 2902,
+        "deletions": 262,
+        "files": 62
       },
       "Config": {
         "additions": 218,
@@ -1848,90 +1854,11 @@
         "files": 1
       }
     },
-    "Arpnik/ProgramSynth": {
-      "Markdown": {
-        "additions": 1,
-        "deletions": 1,
-        "files": 1
-      }
-    },
-    "altconvey/acy-ai-contract": {
-      "Python": {
-        "additions": 7870,
-        "deletions": 242,
-        "files": 83
-      },
-      "Markdown": {
-        "additions": 2257,
-        "deletions": 845,
-        "files": 23
-      },
-      "Terraform": {
-        "additions": 1826,
-        "deletions": 45,
-        "files": 31
-      },
-      "PowerShell": {
-        "additions": 44,
-        "deletions": 44,
-        "files": 3
-      },
-      "Shell": {
-        "additions": 1018,
-        "deletions": 2,
-        "files": 8
-      },
-      "Config": {
-        "additions": 83,
-        "deletions": 12,
-        "files": 6
-      },
-      "Other": {
-        "additions": 7,
-        "deletions": 6,
-        "files": 10
-      },
-      "TypeScript": {
-        "additions": 9,
-        "deletions": 9,
-        "files": 2
-      },
-      "JSON": {
-        "additions": 4664,
-        "deletions": 4664,
-        "files": 8
-      },
-      "JavaScript": {
-        "additions": 8,
-        "deletions": 8,
-        "files": 2
-      },
-      "Image": {
-        "additions": 0,
-        "deletions": 0,
-        "files": 1
-      },
-      "Docker": {
-        "additions": 5,
-        "deletions": 0,
-        "files": 2
-      },
-      "Example": {
-        "additions": 31,
-        "deletions": 5,
-        "files": 4
-      },
-      "YAML": {
-        "additions": 13,
-        "deletions": 0,
-        "files": 1
-      }
-    },
     "Arpnik/agentic-assistant": {
-      "YAML": {
-        "additions": 68,
-        "deletions": 30,
-        "files": 4
+      "Markdown": {
+        "additions": 658,
+        "deletions": 48,
+        "files": 14
       },
       "JSON": {
         "additions": 2898,
@@ -1943,15 +1870,15 @@
         "deletions": 24,
         "files": 2
       },
-      "Markdown": {
-        "additions": 658,
-        "deletions": 48,
-        "files": 14
+      "YAML": {
+        "additions": 68,
+        "deletions": 30,
+        "files": 4
       },
       "JavaScript": {
-        "additions": 5444,
-        "deletions": 368,
-        "files": 63
+        "additions": 8555,
+        "deletions": 1039,
+        "files": 99
       },
       "Other": {
         "additions": 13,
@@ -1963,39 +1890,1879 @@
         "deletions": 207,
         "files": 2
       }
+    },
+    "altconvey/acy-ui": {
+      "JavaScript": {
+        "additions": 18942,
+        "deletions": 4611,
+        "files": 297
+      },
+      "Markdown": {
+        "additions": 247,
+        "deletions": 0,
+        "files": 1
+      },
+      "JSON": {
+        "additions": 4768,
+        "deletions": 7612,
+        "files": 6
+      },
+      "SCSS": {
+        "additions": 801,
+        "deletions": 47,
+        "files": 11
+      }
+    },
+    "altconvey/acy-rest": {
+      "Java": {
+        "additions": 16215,
+        "deletions": 4108,
+        "files": 239
+      },
+      "Config": {
+        "additions": 10,
+        "deletions": 1,
+        "files": 3
+      },
+      "YAML": {
+        "additions": 81,
+        "deletions": 51,
+        "files": 7
+      },
+      "XML": {
+        "additions": 45,
+        "deletions": 43,
+        "files": 2
+      },
+      "JSON": {
+        "additions": 38,
+        "deletions": 27,
+        "files": 2
+      },
+      "Markdown": {
+        "additions": 75,
+        "deletions": 7,
+        "files": 3
+      },
+      "Shell": {
+        "additions": 191,
+        "deletions": 146,
+        "files": 2
+      },
+      "Properties": {
+        "additions": 4,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "altconvey/acy-ai": {
+      "Python": {
+        "additions": 4555,
+        "deletions": 1278,
+        "files": 81
+      }
+    },
+    "altconvey/acy-materials": {
+      "JSON": {
+        "additions": 29102,
+        "deletions": 979,
+        "files": 53
+      },
+      "YAML": {
+        "additions": 189,
+        "deletions": 24,
+        "files": 7
+      },
+      "Python": {
+        "additions": 270,
+        "deletions": 2,
+        "files": 3
+      },
+      "Makefile": {
+        "additions": 94,
+        "deletions": 32,
+        "files": 5
+      }
+    },
+    "altconvey/acy-ai-contract": {
+      "Markdown": {
+        "additions": 6493,
+        "deletions": 4839,
+        "files": 83
+      },
+      "Python": {
+        "additions": 19133,
+        "deletions": 5550,
+        "files": 265
+      },
+      "Other": {
+        "additions": 23,
+        "deletions": 6,
+        "files": 56
+      },
+      "JSON": {
+        "additions": 5368,
+        "deletions": 4723,
+        "files": 46
+      },
+      "Terraform": {
+        "additions": 3971,
+        "deletions": 726,
+        "files": 106
+      },
+      "XML": {
+        "additions": 1537,
+        "deletions": 206,
+        "files": 50
+      },
+      "Docx": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 55
+      },
+      "Config": {
+        "additions": 84,
+        "deletions": 13,
+        "files": 8
+      },
+      "Makefile": {
+        "additions": 16,
+        "deletions": 0,
+        "files": 1
+      },
+      "Base": {
+        "additions": 44,
+        "deletions": 0,
+        "files": 3
+      },
+      "YAML": {
+        "additions": 60,
+        "deletions": 0,
+        "files": 3
+      },
+      "Docker": {
+        "additions": 79,
+        "deletions": 56,
+        "files": 5
+      },
+      "Example": {
+        "additions": 56,
+        "deletions": 9,
+        "files": 9
+      },
+      "Shell": {
+        "additions": 1060,
+        "deletions": 3,
+        "files": 10
+      },
+      "PowerShell": {
+        "additions": 44,
+        "deletions": 44,
+        "files": 3
+      },
+      "TypeScript": {
+        "additions": 9,
+        "deletions": 9,
+        "files": 2
+      },
+      "JavaScript": {
+        "additions": 8,
+        "deletions": 8,
+        "files": 2
+      },
+      "Image": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      }
     }
   },
-  "generated_at": "2026-11-26T11:51:34.062343+00:00",
-  "by_tag": {
-    "datascience": {
-      "additions": 17040,
-      "deletions": 4144,
-      "files": 13
-    },
-    "ai": {
-      "additions": 7591,
-      "deletions": 211,
-      "files": 82
+  "by_area": {
+    "frontend": {
+      "additions": 35027,
+      "deletions": 14991,
+      "files": 798
     },
     "other": {
-      "additions": 24145,
-      "deletions": 16647,
-      "files": 500
-    },
-    "ml": {
-      "additions": 4720,
-      "deletions": 1161,
-      "files": 123
+      "additions": 44951,
+      "deletions": 14920,
+      "files": 981
     },
     "backend": {
-      "additions": 36190,
-      "deletions": 7062,
-      "files": 525
+      "additions": 38724,
+      "deletions": 14930,
+      "files": 1038
     },
-    "frontend": {
-      "additions": 20198,
-      "deletions": 5585,
-      "files": 243
+    "devops": {
+      "additions": 8293,
+      "deletions": 1738,
+      "files": 262
+    },
+    "ai": {
+      "additions": 64226,
+      "deletions": 11625,
+      "files": 800
     }
-  }
+  },
+  "by_repo_area": {
+    "GetKnowbie/Operators": {
+      "frontend": {
+        "additions": 8007,
+        "deletions": 6100,
+        "files": 255
+      },
+      "other": {
+        "additions": 2064,
+        "deletions": 853,
+        "files": 42
+      }
+    },
+    "GetKnowbie/AdminV2": {
+      "other": {
+        "additions": 1003,
+        "deletions": 825,
+        "files": 20
+      },
+      "frontend": {
+        "additions": 1343,
+        "deletions": 596,
+        "files": 53
+      }
+    },
+    "GetKnowbie/knowbie-back": {
+      "backend": {
+        "additions": 1671,
+        "deletions": 2137,
+        "files": 169
+      },
+      "other": {
+        "additions": 715,
+        "deletions": 930,
+        "files": 30
+      },
+      "devops": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "GetKnowbie/end-user": {
+      "other": {
+        "additions": 1003,
+        "deletions": 1299,
+        "files": 77
+      },
+      "frontend": {
+        "additions": 4104,
+        "deletions": 2999,
+        "files": 127
+      }
+    },
+    "Arpnik/tech-salary-analysis": {
+      "other": {
+        "additions": 366,
+        "deletions": 0,
+        "files": 4
+      }
+    },
+    "Arpnik/llm-zoomcamp": {
+      "other": {
+        "additions": 365,
+        "deletions": 0,
+        "files": 3
+      }
+    },
+    "Fall2024-MLProjects/SignLanguage": {
+      "ai": {
+        "additions": 8038,
+        "deletions": 426,
+        "files": 64
+      },
+      "other": {
+        "additions": 451,
+        "deletions": 0,
+        "files": 15
+      },
+      "devops": {
+        "additions": 4,
+        "deletions": 0,
+        "files": 2
+      }
+    },
+    "anubhavm101/SOEN-6441--TubeLytics": {
+      "other": {
+        "additions": 192,
+        "deletions": 2298,
+        "files": 249
+      },
+      "backend": {
+        "additions": 5405,
+        "deletions": 4302,
+        "files": 221
+      },
+      "frontend": {
+        "additions": 576,
+        "deletions": 373,
+        "files": 36
+      }
+    },
+    "GetKnowbie/knowbie-cms": {
+      "ai": {
+        "additions": 1525,
+        "deletions": 81,
+        "files": 3
+      }
+    },
+    "Arpnik/LinkedInQueenGame": {
+      "other": {
+        "additions": 227,
+        "deletions": 4,
+        "files": 17
+      },
+      "backend": {
+        "additions": 368,
+        "deletions": 9,
+        "files": 15
+      }
+    },
+    "Arpnik/COMP-6481-Assignment-2": {
+      "backend": {
+        "additions": 1491,
+        "deletions": 244,
+        "files": 53
+      },
+      "other": {
+        "additions": 40,
+        "deletions": 0,
+        "files": 5
+      }
+    },
+    "Arpnik/COMP-6481-Assignment-3": {
+      "backend": {
+        "additions": 610,
+        "deletions": 50,
+        "files": 16
+      },
+      "other": {
+        "additions": 4,
+        "deletions": 3,
+        "files": 2
+      }
+    },
+    "Arpnik/speech-pd-detection": {
+      "other": {
+        "additions": 264,
+        "deletions": 29,
+        "files": 18
+      },
+      "ai": {
+        "additions": 801,
+        "deletions": 2,
+        "files": 2
+      }
+    },
+    "Arpnik/Recommender-Systems": {
+      "ai": {
+        "additions": 1600,
+        "deletions": 0,
+        "files": 2
+      },
+      "other": {
+        "additions": 1,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "FrancescoBonzi/twin-transformer": {
+      "other": {
+        "additions": 245,
+        "deletions": 74,
+        "files": 20
+      },
+      "ai": {
+        "additions": 99,
+        "deletions": 152,
+        "files": 14
+      }
+    },
+    "Arpnik/taskd-technical-challenge": {
+      "other": {
+        "additions": 170,
+        "deletions": 41,
+        "files": 8
+      },
+      "backend": {
+        "additions": 896,
+        "deletions": 384,
+        "files": 26
+      },
+      "ai": {
+        "additions": 258,
+        "deletions": 161,
+        "files": 6
+      }
+    },
+    "Arpnik/DISRPT-Segmenter": {
+      "ai": {
+        "additions": 4625,
+        "deletions": 845,
+        "files": 52
+      },
+      "other": {
+        "additions": 572,
+        "deletions": 85,
+        "files": 11
+      }
+    },
+    "Arpnik/EDU-Chunking-RAG": {
+      "other": {
+        "additions": 2616,
+        "deletions": 34,
+        "files": 22
+      },
+      "ai": {
+        "additions": 10072,
+        "deletions": 1628,
+        "files": 132
+      },
+      "devops": {
+        "additions": 15,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/FedBN": {
+      "other": {
+        "additions": 283,
+        "deletions": 158,
+        "files": 15
+      },
+      "ai": {
+        "additions": 1976,
+        "deletions": 685,
+        "files": 29
+      }
+    },
+    "Arpnik/SOEN-341": {
+      "backend": {
+        "additions": 35,
+        "deletions": 24,
+        "files": 24
+      },
+      "other": {
+        "additions": 207,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/test-jest": {
+      "devops": {
+        "additions": 17,
+        "deletions": 0,
+        "files": 1
+      },
+      "frontend": {
+        "additions": 23,
+        "deletions": 0,
+        "files": 3
+      },
+      "other": {
+        "additions": 815,
+        "deletions": 0,
+        "files": 2
+      }
+    },
+    "toyosi12/fs-agent": {
+      "other": {
+        "additions": 144,
+        "deletions": 5,
+        "files": 2
+      },
+      "ai": {
+        "additions": 9,
+        "deletions": 13,
+        "files": 10
+      }
+    },
+    "Aisha8665/rexploit-dataset": {
+      "backend": {
+        "additions": 3521,
+        "deletions": 3097,
+        "files": 30
+      },
+      "other": {
+        "additions": 29,
+        "deletions": 90,
+        "files": 12
+      },
+      "ai": {
+        "additions": 0,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/neetcode-submissions": {
+      "backend": {
+        "additions": 3628,
+        "deletions": 0,
+        "files": 95
+      },
+      "frontend": {
+        "additions": 83,
+        "deletions": 0,
+        "files": 2
+      },
+      "other": {
+        "additions": 72,
+        "deletions": 0,
+        "files": 1
+      }
+    },
+    "Arpnik/SafeNL2SQL": {
+      "other": {
+        "additions": 585,
+        "deletions": 20,
+        "files": 17
+      },
+      "devops": {
+        "additions": 110,
+        "deletions": 5,
+        "files": 8
+      },
+      "backend": {
+        "additions": 2888,
+        "deletions": 359,
+        "files": 91
+      },
+      "ai": {
+        "additions": 664,
+        "deletions": 142,
+        "files": 20
+      }
+    },
+    "Arpnik/ProgramSynth": {
+      "other": {
+        "additions": 7988,
+        "deletions": 2,
+        "files": 17
+      },
+      "ai": {
+        "additions": 1793,
+        "deletions": 374,
+        "files": 16
+      },
+      "devops": {
+        "additions": 35,
+        "deletions": 0,
+        "files": 3
+      }
+    },
+    "Arpnik/git-tracker": {
+      "devops": {
+        "additions": 1888,
+        "deletions": 420,
+        "files": 19
+      },
+      "other": {
+        "additions": 947,
+        "deletions": 254,
+        "files": 20
+      },
+      "frontend": {
+        "additions": 1124,
+        "deletions": 320,
+        "files": 9
+      }
+    },
+    "Arpnik/web-crawler": {
+      "other": {
+        "additions": 1065,
+        "deletions": 7,
+        "files": 10
+      },
+      "backend": {
+        "additions": 2902,
+        "deletions": 262,
+        "files": 62
+      }
+    },
+    "Arpnik/agentic-assistant": {
+      "other": {
+        "additions": 3044,
+        "deletions": 256,
+        "files": 29
+      },
+      "devops": {
+        "additions": 92,
+        "deletions": 54,
+        "files": 6
+      },
+      "ai": {
+        "additions": 8555,
+        "deletions": 1039,
+        "files": 99
+      }
+    },
+    "altconvey/acy-ui": {
+      "frontend": {
+        "additions": 19641,
+        "deletions": 4603,
+        "files": 308
+      },
+      "other": {
+        "additions": 1629,
+        "deletions": 1051,
+        "files": 7
+      }
+    },
+    "altconvey/acy-rest": {
+      "backend": {
+        "additions": 15309,
+        "deletions": 4062,
+        "files": 236
+      },
+      "other": {
+        "additions": 176,
+        "deletions": 78,
+        "files": 15
+      },
+      "devops": {
+        "additions": 268,
+        "deletions": 197,
+        "files": 5
+      },
+      "ai": {
+        "additions": 65,
+        "deletions": 0,
+        "files": 3
+      }
+    },
+    "altconvey/acy-ai": {
+      "ai": {
+        "additions": 4161,
+        "deletions": 1251,
+        "files": 80
+      },
+      "other": {
+        "additions": 3,
+        "deletions": 1,
+        "files": 1
+      }
+    },
+    "altconvey/acy-materials": {
+      "other": {
+        "additions": 8532,
+        "deletions": 976,
+        "files": 49
+      },
+      "ai": {
+        "additions": 2684,
+        "deletions": 5,
+        "files": 7
+      },
+      "devops": {
+        "additions": 283,
+        "deletions": 56,
+        "files": 12
+      }
+    },
+    "altconvey/acy-ai-contract": {
+      "other": {
+        "additions": 9134,
+        "deletions": 5547,
+        "files": 239
+      },
+      "ai": {
+        "additions": 17301,
+        "deletions": 4821,
+        "files": 260
+      },
+      "devops": {
+        "additions": 5581,
+        "deletions": 1006,
+        "files": 204
+      },
+      "frontend": {
+        "additions": 126,
+        "deletions": 0,
+        "files": 5
+      }
+    }
+  },
+  "by_repo_week": {
+    "GetKnowbie/Operators": {
+      "2026-11-23": 1,
+      "2026-09-28": 3,
+      "2026-09-07": 6,
+      "2026-05-18": 1,
+      "2026-05-04": 2,
+      "2026-02-23": 1,
+      "2026-02-16": 5,
+      "2026-02-02": 6,
+      "2026-01-12": 3,
+      "2026-01-05": 1,
+      "2025-12-08": 5,
+      "2025-12-01": 1,
+      "2025-11-10": 1,
+      "2025-11-03": 20,
+      "2025-10-27": 4,
+      "2025-10-20": 2,
+      "2025-10-06": 1,
+      "2025-09-29": 4,
+      "2025-09-22": 6,
+      "2025-09-15": 1,
+      "2025-09-01": 5,
+      "2025-08-25": 5,
+      "2025-08-18": 4,
+      "2025-08-11": 3,
+      "2025-08-04": 6,
+      "2025-07-28": 2,
+      "2025-07-07": 4,
+      "2025-06-23": 1,
+      "2025-06-09": 4,
+      "2025-06-02": 7,
+      "2025-05-26": 2
+    },
+    "GetKnowbie/AdminV2": {
+      "2026-04-27": 3,
+      "2025-12-15": 6,
+      "2025-10-13": 3,
+      "2025-10-06": 2,
+      "2025-05-19": 10
+    },
+    "GetKnowbie/knowbie-back": {
+      "2026-10-19": 5,
+      "2026-02-09": 4,
+      "2026-02-02": 1,
+      "2026-01-12": 3,
+      "2026-01-05": 4,
+      "2025-12-29": 2,
+      "2025-12-15": 3,
+      "2025-11-10": 1,
+      "2025-09-29": 2,
+      "2025-09-22": 1,
+      "2025-09-01": 1,
+      "2025-08-18": 1,
+      "2025-08-11": 1,
+      "2025-08-04": 3,
+      "2025-07-21": 1,
+      "2025-07-07": 4,
+      "2025-06-09": 2,
+      "2025-05-26": 2,
+      "2025-05-19": 7
+    },
+    "GetKnowbie/end-user": {
+      "2026-10-19": 5,
+      "2026-09-07": 2,
+      "2026-07-20": 2,
+      "2026-02-16": 1,
+      "2026-02-09": 1,
+      "2026-02-02": 3,
+      "2026-01-12": 1,
+      "2026-01-05": 1,
+      "2025-12-08": 2,
+      "2025-11-10": 1,
+      "2025-09-29": 3,
+      "2025-09-22": 4,
+      "2025-09-15": 2,
+      "2025-09-08": 1,
+      "2025-09-01": 2,
+      "2025-08-18": 7,
+      "2025-08-11": 11,
+      "2025-08-04": 4,
+      "2025-07-28": 9,
+      "2025-07-21": 5,
+      "2025-07-14": 1,
+      "2025-07-07": 2,
+      "2025-06-30": 2,
+      "2025-06-23": 1
+    },
+    "Arpnik/tech-salary-analysis": {
+      "2024-05-06": 2
+    },
+    "Arpnik/llm-zoomcamp": {
+      "2024-06-17": 1
+    },
+    "Fall2024-MLProjects/SignLanguage": {
+      "2024-12-02": 10
+    },
+    "anubhavm101/SOEN-6441--TubeLytics": {
+      "2025-01-13": 1,
+      "2024-12-09": 2,
+      "2024-11-25": 23,
+      "2024-11-18": 1,
+      "2024-11-11": 3,
+      "2024-11-04": 34
+    },
+    "GetKnowbie/knowbie-cms": {
+      "2025-07-07": 1,
+      "2025-06-16": 2
+    },
+    "Arpnik/LinkedInQueenGame": {
+      "2025-03-17": 11,
+      "2025-02-10": 1
+    },
+    "Arpnik/COMP-6481-Assignment-2": {
+      "2025-03-10": 7,
+      "2025-03-03": 8,
+      "2025-02-24": 1
+    },
+    "Arpnik/COMP-6481-Assignment-3": {
+      "2025-04-14": 2,
+      "2025-03-31": 1,
+      "2025-03-17": 6
+    },
+    "Arpnik/speech-pd-detection": {
+      "2025-05-19": 12
+    },
+    "Arpnik/Recommender-Systems": {
+      "2025-07-14": 2
+    },
+    "FrancescoBonzi/twin-transformer": {
+      "2025-12-01": 1,
+      "2025-11-24": 8,
+      "2025-11-17": 4,
+      "2025-11-10": 1,
+      "2025-10-27": 1,
+      "2025-10-20": 9
+    },
+    "Arpnik/taskd-technical-challenge": {
+      "2025-11-03": 6,
+      "2025-10-13": 27
+    },
+    "Arpnik/DISRPT-Segmenter": {
+      "2025-11-24": 2,
+      "2025-11-17": 6,
+      "2025-11-10": 4,
+      "2025-11-03": 2,
+      "2025-10-27": 6
+    },
+    "Arpnik/EDU-Chunking-RAG": {
+      "2026-03-16": 2,
+      "2025-12-22": 2,
+      "2025-11-24": 11,
+      "2025-11-17": 20,
+      "2025-11-10": 5,
+      "2025-11-03": 1
+    },
+    "Arpnik/FedBN": {
+      "2025-12-22": 9,
+      "2025-12-15": 1,
+      "2025-12-08": 10
+    },
+    "Arpnik/SOEN-341": {
+      "2026-02-09": 9,
+      "2026-01-26": 14,
+      "2026-01-19": 2
+    },
+    "Arpnik/test-jest": {
+      "2026-02-16": 3
+    },
+    "toyosi12/fs-agent": {
+      "2026-03-09": 3
+    },
+    "Aisha8665/rexploit-dataset": {
+      "2026-04-20": 4
+    },
+    "Arpnik/neetcode-submissions": {
+      "2026-05-18": 1,
+      "2026-05-11": 17,
+      "2026-05-04": 8,
+      "2026-04-27": 5,
+      "2026-04-20": 11,
+      "2026-04-13": 4,
+      "2026-03-30": 2
+    },
+    "Arpnik/SafeNL2SQL": {
+      "2026-05-11": 1,
+      "2026-04-20": 9,
+      "2026-04-13": 29
+    },
+    "Arpnik/ProgramSynth": {
+      "2026-08-31": 1,
+      "2026-05-11": 7
+    },
+    "Arpnik/git-tracker": {
+      "2026-11-23": 1,
+      "2026-11-16": 1,
+      "2026-07-20": 9,
+      "2026-07-06": 3
+    },
+    "Arpnik/web-crawler": {
+      "2026-08-31": 1,
+      "2026-08-24": 10
+    },
+    "Arpnik/agentic-assistant": {
+      "2026-10-19": 2,
+      "2026-10-12": 2,
+      "2026-10-05": 11
+    },
+    "altconvey/acy-ui": {
+      "2026-11-23": 1,
+      "2026-11-16": 2,
+      "2026-10-26": 3,
+      "2026-10-19": 2,
+      "2026-10-12": 2,
+      "2026-10-05": 1,
+      "2026-09-28": 2,
+      "2026-08-31": 2,
+      "2026-08-24": 4,
+      "2026-07-27": 2,
+      "2026-07-13": 2,
+      "2026-07-06": 4,
+      "2026-06-29": 2,
+      "2026-06-15": 3,
+      "2026-04-13": 2,
+      "2026-04-06": 1,
+      "2026-03-23": 1,
+      "2026-03-09": 1,
+      "2026-02-23": 1,
+      "2026-02-16": 4,
+      "2026-02-02": 1,
+      "2026-01-26": 1
+    },
+    "altconvey/acy-rest": {
+      "2026-11-23": 1,
+      "2026-11-16": 2,
+      "2026-10-26": 4,
+      "2026-10-19": 2,
+      "2026-10-12": 1,
+      "2026-10-05": 2,
+      "2026-09-28": 2,
+      "2026-09-21": 1,
+      "2026-08-31": 2,
+      "2026-08-24": 2,
+      "2026-08-17": 1,
+      "2026-07-27": 1,
+      "2026-07-20": 1,
+      "2026-07-13": 2,
+      "2026-07-06": 4,
+      "2026-06-29": 1,
+      "2026-06-22": 1,
+      "2026-06-15": 2,
+      "2026-05-04": 1,
+      "2026-04-06": 1,
+      "2026-02-16": 1,
+      "2026-02-02": 1,
+      "2026-01-26": 1
+    },
+    "altconvey/acy-ai": {
+      "2026-07-27": 8,
+      "2026-02-09": 3,
+      "2026-01-19": 11,
+      "2026-01-12": 20,
+      "2026-01-05": 8
+    },
+    "altconvey/acy-materials": {
+      "2026-11-23": 1,
+      "2026-11-16": 2,
+      "2026-10-26": 2,
+      "2026-10-19": 1,
+      "2026-09-07": 1,
+      "2026-08-24": 1,
+      "2026-07-20": 1,
+      "2026-07-13": 1,
+      "2026-06-29": 2,
+      "2026-06-22": 1,
+      "2026-06-15": 1,
+      "2026-05-04": 2,
+      "2026-03-02": 1,
+      "2026-01-26": 1,
+      "2026-01-19": 1
+    },
+    "altconvey/acy-ai-contract": {
+      "2026-11-16": 9,
+      "2026-11-09": 6,
+      "2026-11-02": 8,
+      "2026-10-26": 11,
+      "2026-10-05": 3,
+      "2026-09-28": 3,
+      "2026-09-21": 7,
+      "2026-09-14": 5,
+      "2026-09-07": 20,
+      "2026-08-31": 33,
+      "2026-08-24": 24
+    }
+  },
+  "recent": [
+    {
+      "repo": "Arpnik/git-tracker",
+      "sha": "5edd226",
+      "date": "2026-11-26T22:00:59Z",
+      "message": "updated github workflow for main profile",
+      "areas": {
+        "devops": 1222,
+        "other": 782,
+        "frontend": 1123
+      }
+    },
+    {
+      "repo": "altconvey/acy-ui",
+      "sha": "a7adc73",
+      "date": "2026-11-26T21:36:28Z",
+      "message": "AC-704: Fund formation part I (#180)",
+      "areas": {
+        "frontend": 1210
+      }
+    },
+    {
+      "repo": "altconvey/acy-rest",
+      "sha": "f61f7e8",
+      "date": "2026-11-26T21:17:29Z",
+      "message": "AC-704: Fund formation part I (#115)",
+      "areas": {
+        "backend": 758
+      }
+    },
+    {
+      "repo": "altconvey/acy-materials",
+      "sha": "034436f",
+      "date": "2026-11-26T21:09:57Z",
+      "message": "AC-704: Fund formation part I (#55)",
+      "areas": {
+        "other": 2272,
+        "ai": 1600
+      }
+    },
+    {
+      "repo": "GetKnowbie/Operators",
+      "sha": "dbd2fa7",
+      "date": "2026-11-24T17:07:26Z",
+      "message": "reverted email since that is not configured in aws",
+      "areas": {
+        "frontend": 283
+      }
+    },
+    {
+      "repo": "altconvey/acy-rest",
+      "sha": "497486a",
+      "date": "2026-11-20T21:45:07Z",
+      "message": "AC-696: New paragraph suggestion (#114)",
+      "areas": {
+        "other": 2,
+        "backend": 5778
+      }
+    },
+    {
+      "repo": "altconvey/acy-ui",
+      "sha": "75f972a",
+      "date": "2026-11-20T20:26:41Z",
+      "message": "AC-696: New paragraph suggestion (#179)",
+      "areas": {
+        "other": 1055,
+        "frontend": 5780
+      }
+    },
+    {
+      "repo": "Arpnik/git-tracker",
+      "sha": "493e85e",
+      "date": "2026-11-19T22:33:11Z",
+      "message": "Update track-stats.yml",
+      "areas": {
+        "devops": 31
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "633d3f6",
+      "date": "2026-11-19T17:07:48Z",
+      "message": "updated staging bucket name",
+      "areas": {
+        "other": 2
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "9ce3ae7",
+      "date": "2026-11-18T21:19:51Z",
+      "message": "fixed docs",
+      "areas": {
+        "other": 19
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "343a174",
+      "date": "2026-11-18T19:29:33Z",
+      "message": "fixed row numbering for suggestions cross multiple points",
+      "areas": {
+        "ai": 52,
+        "devops": 0,
+        "other": 4
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "a2998bd",
+      "date": "2026-11-18T17:28:17Z",
+      "message": "updated prompts to not just favor insertion but also modification",
+      "areas": {
+        "ai": 99,
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "b366c88",
+      "date": "2026-11-18T16:28:17Z",
+      "message": "updated terraform dev plan",
+      "areas": {
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "0d75ea8",
+      "date": "2026-11-18T16:26:13Z",
+      "message": "fixed tests and fixtures",
+      "areas": {
+        "other": 8
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "2283176",
+      "date": "2026-11-18T16:18:01Z",
+      "message": "updated documentation and comments",
+      "areas": {
+        "other": 4,
+        "ai": 10
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "81ed3ec",
+      "date": "2026-11-18T15:24:23Z",
+      "message": "updated documentation",
+      "areas": {
+        "other": 19,
+        "devops": 2
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "214c2b9",
+      "date": "2026-11-18T15:23:49Z",
+      "message": "updated documentation and fixed issue with rejection of a newly added clause",
+      "areas": {
+        "other": 3147,
+        "ai": 76
+      }
+    },
+    {
+      "repo": "altconvey/acy-materials",
+      "sha": "2d414d5",
+      "date": "2026-11-17T15:35:27Z",
+      "message": "AC-705: DB Rebuild (#54)",
+      "areas": {
+        "devops": 60
+      }
+    },
+    {
+      "repo": "altconvey/acy-materials",
+      "sha": "587018f",
+      "date": "2026-11-16T16:43:44Z",
+      "message": "Bugfix/Debug Clean up Job Failure (#53)",
+      "areas": {
+        "devops": 8
+      }
+    },
+    {
+      "repo": "altconvey/acy-ui",
+      "sha": "2612e18",
+      "date": "2026-11-16T16:37:41Z",
+      "message": "AC-695: Document Classification (#178)",
+      "areas": {
+        "frontend": 576
+      }
+    },
+    {
+      "repo": "altconvey/acy-rest",
+      "sha": "572f10b",
+      "date": "2026-11-16T16:36:30Z",
+      "message": "AC-695: Document Classification (#113)",
+      "areas": {
+        "backend": 284
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "8e3b4dd",
+      "date": "2026-11-12T16:01:29Z",
+      "message": "updated documentation",
+      "areas": {
+        "other": 852
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "c0b06b7",
+      "date": "2026-11-12T15:33:47Z",
+      "message": "fixed alignment issue",
+      "areas": {
+        "ai": 37,
+        "devops": 0,
+        "other": 8
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "06392c3",
+      "date": "2026-11-10T18:03:42Z",
+      "message": "fixed bookmark alignment issue",
+      "areas": {
+        "other": 5,
+        "ai": 129
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "aad216d",
+      "date": "2026-11-10T16:21:02Z",
+      "message": "fixed style issue",
+      "areas": {
+        "other": 145,
+        "ai": 317,
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "671f247",
+      "date": "2026-11-09T16:14:16Z",
+      "message": "fixed fragment error",
+      "areas": {
+        "ai": 3,
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "b439a39",
+      "date": "2026-11-09T16:05:20Z",
+      "message": "removed tracked chanegs form docx and handeld only bookmarks",
+      "areas": {
+        "other": 1307,
+        "ai": 444,
+        "devops": 0,
+        "frontend": 126
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "10143f5",
+      "date": "2026-11-04T18:54:04Z",
+      "message": "updated terraform plan",
+      "areas": {
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "c933d2d",
+      "date": "2026-11-04T18:53:14Z",
+      "message": "fixed issue iwht unmatched orignal text",
+      "areas": {
+        "ai": 49,
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "b9260b3",
+      "date": "2026-11-04T18:20:53Z",
+      "message": "added back tf plan",
+      "areas": {
+        "other": 1,
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "e846ce5",
+      "date": "2026-11-04T18:17:03Z",
+      "message": "refactored code",
+      "areas": {
+        "other": 1201,
+        "devops": 16,
+        "ai": 490
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "9d0f96a",
+      "date": "2026-11-04T18:16:31Z",
+      "message": "updated styling logic and added tests. removed previosu sync logic for accepting a sugegstion since backend will handle ",
+      "areas": {
+        "other": 210,
+        "ai": 1249,
+        "devops": 180
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "ee2a458",
+      "date": "2026-11-04T16:53:28Z",
+      "message": "asking llm to generate the styling as well",
+      "areas": {
+        "other": 894,
+        "ai": 2296,
+        "devops": 230
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "99006ac",
+      "date": "2026-11-03T17:42:27Z",
+      "message": "updated dev terraform",
+      "areas": {
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "31975e2",
+      "date": "2026-11-03T17:42:04Z",
+      "message": "configured w:in and w:del to make sure indentation and stlyling for suggestioons are same",
+      "areas": {
+        "other": 7,
+        "ai": 444
+      }
+    },
+    {
+      "repo": "altconvey/acy-materials",
+      "sha": "dcaefad",
+      "date": "2026-10-30T19:11:52Z",
+      "message": "AC-663: AI document processing (#52)",
+      "areas": {
+        "devops": 2,
+        "other": 8
+      }
+    },
+    {
+      "repo": "altconvey/acy-ui",
+      "sha": "56b133c",
+      "date": "2026-10-30T19:11:16Z",
+      "message": "AC-663: AI document processing (#177)",
+      "areas": {
+        "frontend": 837
+      }
+    },
+    {
+      "repo": "altconvey/acy-rest",
+      "sha": "dc1c173",
+      "date": "2026-10-30T18:43:45Z",
+      "message": "AC-663: AI document processing (#112)",
+      "areas": {
+        "backend": 1037
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "f1591c1",
+      "date": "2026-10-30T14:02:18Z",
+      "message": "added a pr.yml file",
+      "areas": {
+        "devops": 13
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "d5cb4e8",
+      "date": "2026-10-29T16:55:48Z",
+      "message": "added a workflow to run tests when pushed on main",
+      "areas": {
+        "devops": 39
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "fce9a32",
+      "date": "2026-10-29T16:52:54Z",
+      "message": "added check for failure to update the mongodb status",
+      "areas": {
+        "ai": 18,
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "ec4b639",
+      "date": "2026-10-28T15:32:24Z",
+      "message": "updated docker file and merged with main",
+      "areas": {
+        "devops": 43,
+        "other": 405
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "d2357e4",
+      "date": "2026-10-27T20:36:39Z",
+      "message": "added auto assign yaml file",
+      "areas": {
+        "devops": 8
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "e892940",
+      "date": "2026-10-27T20:31:51Z",
+      "message": "updated plan",
+      "areas": {
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "233a057",
+      "date": "2026-10-27T19:38:33Z",
+      "message": "updated plan and lambda.tf file for different envs",
+      "areas": {
+        "devops": 84
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "6e84dee",
+      "date": "2026-10-27T19:07:56Z",
+      "message": "updated plan and readme file for different envs",
+      "areas": {
+        "other": 138,
+        "devops": 0
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "e71a6b6",
+      "date": "2026-10-27T18:49:32Z",
+      "message": "made the endpoint for pdf fill similar to that of redlining",
+      "areas": {
+        "other": 12,
+        "ai": 25,
+        "devops": 65
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "40798d8",
+      "date": "2026-10-27T18:37:47Z",
+      "message": "added functiniality to support ocr pdf using aws texttract",
+      "areas": {
+        "other": 20,
+        "ai": 2406,
+        "devops": 160
+      }
+    },
+    {
+      "repo": "altconvey/acy-ai-contract",
+      "sha": "81c2471",
+      "date": "2026-10-27T17:30:18Z",
+      "message": "added github copilot instructions",
+      "areas": {
+        "other": 290
+      }
+    },
+    {
+      "repo": "altconvey/acy-rest",
+      "sha": "1f02262",
+      "date": "2026-10-27T17:19:42Z",
+      "message": "AC-701: Fix Integeration Tests with updated screens (#111)",
+      "areas": {
+        "backend": 102
+      }
+    },
+    {
+      "repo": "altconvey/acy-materials",
+      "sha": "d173019",
+      "date": "2026-10-27T15:21:59Z",
+      "message": "AC-675: Playbook Upgrade (#51)",
+      "areas": {
+        "other": 159
+      }
+    },
+    {
+      "repo": "altconvey/acy-ui",
+      "sha": "d0cc8cd",
+      "date": "2026-10-27T15:17:12Z",
+      "message": "AC-675: Playbook upgrade (#173)",
+      "areas": {
+        "frontend": 955
+      }
+    },
+    {
+      "repo": "altconvey/acy-rest",
+      "sha": "dd0ea9e",
+      "date": "2026-10-27T15:10:45Z",
+      "message": "AC-675: Playbook Upgrade (#109)",
+      "areas": {
+        "backend": 399
+      }
+    },
+    {
+      "repo": "altconvey/acy-rest",
+      "sha": "210c330",
+      "date": "2026-10-27T13:52:40Z",
+      "message": "AC-693: REST repo fix all critical and high vulnerabilities (#110)",
+      "areas": {
+        "devops": 4,
+        "other": 67
+      }
+    },
+    {
+      "repo": "altconvey/acy-ui",
+      "sha": "1027d8e",
+      "date": "2026-10-26T19:24:50Z",
+      "message": "Feature/AC-692 (#176)",
+      "areas": {
+        "other": 821
+      }
+    },
+    {
+      "repo": "GetKnowbie/knowbie-back",
+      "sha": "7d8c870",
+      "date": "2026-10-23T19:27:25Z",
+      "message": "removed server decice controller",
+      "areas": {
+        "backend": 2
+      }
+    },
+    {
+      "repo": "altconvey/acy-materials",
+      "sha": "5aaf909",
+      "date": "2026-10-23T18:59:15Z",
+      "message": "Feature/AC-663: staging db clean up nightly job (#50)",
+      "areas": {
+        "devops": 105,
+        "ai": 6
+      }
+    },
+    {
+      "repo": "GetKnowbie/knowbie-back",
+      "sha": "ed1a814",
+      "date": "2026-10-23T18:31:47Z",
+      "message": "updated version for force update",
+      "areas": {
+        "backend": 6
+      }
+    },
+    {
+      "repo": "GetKnowbie/knowbie-back",
+      "sha": "85fd755",
+      "date": "2026-10-23T18:28:39Z",
+      "message": "removed extra code and fixed tests",
+      "areas": {
+        "backend": 436
+      }
+    },
+    {
+      "repo": "altconvey/acy-rest",
+      "sha": "e1061d6",
+      "date": "2026-10-23T14:21:23Z",
+      "message": "AC-674: Daily summary activation (#107)",
+      "areas": {
+        "backend": 726
+      }
+    }
+  ],
+  "schema_version": 2,
+  "classifier": "1e89d98cdd1363be",
+  "repo_meta": {
+    "Arpnik/Hello-world": {
+      "description": "",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/py4e": {
+      "description": "Web site for www.py4e.com and source to the Python 3.0 textbook",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/Image-Watermarking-matlab": {
+      "description": "Image Watermarking (Spatial bit Manipulation for gray images in MATLAB )",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/Gradient-Descent-Python": {
+      "description": "",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/Decision-Tree-Classifier": {
+      "description": "self implemented decision tree classifier",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/pos": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "Arpnik/ToyAssure": {
+      "description": "",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/spring-test": {
+      "description": "testing java spring",
+      "private": false,
+      "stars": 0
+    },
+    "GetKnowbie/Operators": {
+      "description": "",
+      "private": true,
+      "stars": 2
+    },
+    "GetKnowbie/AdminV2": {
+      "description": "",
+      "private": true,
+      "stars": 1
+    },
+    "Arpnik/dropbox-scraping": {
+      "description": "To login and download content from dropbox",
+      "private": true,
+      "stars": 0
+    },
+    "GetKnowbie/knowbie-back": {
+      "description": "",
+      "private": true,
+      "stars": 1
+    },
+    "rupanshi-chawda/increff-pos": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "shivamp296/POS": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "GetKnowbie/end-user": {
+      "description": "",
+      "private": true,
+      "stars": 1
+    },
+    "Arpnik/logseq": {
+      "description": "To sync daily notes",
+      "private": true,
+      "stars": 0
+    },
+    "Arpnik/Logseq-Git-Sync-101": {
+      "description": "This repo aims to help Logseq users to sync their data with Git and GitHub.",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/tech-salary-analysis": {
+      "description": "Analysis earning and purchasing power of developers using stack overflow dev. survey",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/llm-zoomcamp": {
+      "description": "To play around with LLMs",
+      "private": false,
+      "stars": 0
+    },
+    "Fall2024-MLProjects/SignLanguage": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "anubhavm101/SOEN-6441--TubeLytics": {
+      "description": "",
+      "private": false,
+      "stars": 0
+    },
+    "GetKnowbie/knowbie-cms": {
+      "description": "",
+      "private": true,
+      "stars": 1
+    },
+    "Arpnik/LinkedInQueenGame": {
+      "description": "To solve LinkedIn Queen Problem using Computer Vision and Backtracking",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/COMP-6481-Assignment-2": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "Arpnik/COMP-6481-Assignment-3": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "GetKnowbie/new_dash_op": {
+      "description": "",
+      "private": true,
+      "stars": 1
+    },
+    "Arpnik/speech-pd-detection": {
+      "description": "",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/CSFIntershipAssessment2025": {
+      "description": "2025 Update to the CSF Internship Assessment",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/Recommender-Systems": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "Cernous/Clankers-SOEN341_Project_F25": {
+      "description": "Clankahhhhhh",
+      "private": false,
+      "stars": 2
+    },
+    "FrancescoBonzi/twin-transformer": {
+      "description": "",
+      "private": true,
+      "stars": 1
+    },
+    "AbderrahmaneBoulmalf/Group_A-SOEN341_Project_F25": {
+      "description": "Event_Organizer",
+      "private": false,
+      "stars": 2
+    },
+    "sbruzz/MONDAY_FK-X-SOEN341_PROJECT_F25": {
+      "description": "A campus events organizational tool with integrated ticketing system.",
+      "private": false,
+      "stars": 0
+    },
+    "HW925/soen6441-project-fall2025": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "Arpnik/taskd-technical-challenge": {
+      "description": "",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/DISRPT-Segmenter": {
+      "description": "Segmenter for changing english sentence to EDUs",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/EDU-Chunking-RAG": {
+      "description": "Enhancing RAG retrieval with discourse-segmented chunks instead of fixed-length tokens for factual verification",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/FedBN": {
+      "description": "Critically Analyze FedBN: Federated Learning on Non-IID Features via Local Batch Normalization",
+      "private": false,
+      "stars": 0
+    },
+    "altconvey/lab-revstar": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "FrancescoBonzi/SPARE": {
+      "description": "SPARE: Enhancing audio reasoning via semantic summary prediction",
+      "private": false,
+      "stars": 3
+    },
+    "Arpnik/CS336-assignment1-basics": {
+      "description": "Student version of Assignment 1 for Stanford CS336 - Language Modeling From Scratch",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/SOEN-341": {
+      "description": "",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/test-jest": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "toyosi12/fs-agent": {
+      "description": "",
+      "private": false,
+      "stars": 1
+    },
+    "Aisha8665/rexploit-dataset": {
+      "description": "",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/neetcode-submissions": {
+      "description": "My NeetCode.io problem submissions",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/SafeNL2SQL": {
+      "description": "A simple approach to use AI-powered agents that translate natural language into data queries",
+      "private": true,
+      "stars": 0
+    },
+    "Arpnik/ProgramSynth": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "Arpnik/git-tracker": {
+      "description": "",
+      "private": false,
+      "stars": 0
+    },
+    "Arpnik/web-crawler": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "Arpnik/agentic-assistant": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "GetKnowbie/iOS": {
+      "description": "",
+      "private": true,
+      "stars": 1
+    },
+    "GetKnowbie/server-web-app": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "GetKnowbie/landing": {
+      "description": "",
+      "private": true,
+      "stars": 1
+    },
+    "altconvey/acy-ui": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "altconvey/acy-rest": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "altconvey/acy-ai": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "altconvey/acy-materials": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    },
+    "altconvey/acy-ai-contract": {
+      "description": "",
+      "private": true,
+      "stars": 0
+    }
+  },
+  "generated_at": "2026-11-26T22:07:03.420350+00:00"
 }
