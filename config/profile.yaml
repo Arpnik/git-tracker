@@ -5,8 +5,8 @@ name: Arpnik Singh
 headline: Software engineer · AI systems, backend, DevOps & frontend
 # Short bullets under your name on the profile page. Keep each in quotes.
 about:
-  - "💼 Building production products at **Knowbie** and **AltConvey**: Node.js & Java APIs, React and Flutter apps, AI services, Terraform infra."
-  - "🧠 AI / NLP work: RAG with discourse-unit chunking, discourse segmentation, NL→SQL, agentic assistants."
+  - "💼 Built production products at **Knowbie** and **AltConvey**:, AI services, Terraform infra, Node.js & Java APIs, React and Flutter mobile apps."
+  - "🧠 AI / NLP work: RAG with discourse-unit chunking, discourse segmentation, NL→SQL, agentic assistants, Multi-Agent Systems."
   - "🎓 Concordia University, Montréal."
 links:
   GitHub: https://github.com/Arpnik
@@ -16,16 +16,16 @@ links:
 
 # Repos owned by these GitHub orgs are PROFESSIONAL; everything else is PERSONAL.
 professional_orgs:
-  GetKnowbie:
-    display: Knowbie
-    role: Software Engineer            # edit to your real title
-    summary: Operator & admin web apps, Flutter end-user app, Node.js backend and CMS.
-    url: https://github.com/GetKnowbie
   altconvey:
     display: AltConvey
-    role: Software Engineer            # edit to your real title
+    role: Software Engineer
     summary: React UI, Java REST API, Python AI services and Terraform-managed infrastructure.
     url: https://github.com/altconvey
+  GetKnowbie:
+    display: Knowbie
+    role: Lead Software Engineer
+    summary: Operator & admin web apps, Flutter end-user app, Node.js backend and CMS.
+    url: https://github.com/GetKnowbie
 
 # Main discipline of each repo: ai | backend | devops | frontend.
 # It decides files that don't speak for themselves (e.g. a plain .js or .py file).
@@ -41,9 +41,9 @@ repo_areas:
   altconvey/acy-ui: frontend
   altconvey/acy-rest: backend            # Java REST API
   altconvey/acy-ai: ai
-  altconvey/acy-ai-contract: ai          # Python service + Terraform — CHECK (backend?)
-  altconvey/acy-materials: ai            # CHECK
-  Arpnik/agentic-assistant: ai           # JS — CHECK (frontend for an AI app?)
+  altconvey/acy-ai-contract: ai
+  altconvey/acy-materials: backend
+  Arpnik/agentic-assistant: ai
   Arpnik/NL2SQL: ai
   Arpnik/EDU-Chunking-RAG: ai
   Arpnik/DISRPT-Segmenter: ai
@@ -51,14 +51,14 @@ repo_areas:
   Arpnik/speech-pd-detection: ai
   Arpnik/Recommender-Systems: ai
   Arpnik/ProgramSynth: ai
-  Arpnik/taskd-technical-challenge: backend
-  Arpnik/home_assessment: backend
+  Arpnik/taskd-technical-challenge: ai
+  Arpnik/home_assessment: ai
   Arpnik/web-crawler: backend
   Arpnik/git-tracker: devops
   FrancescoBonzi/twin-transformer: ai
   Fall2024-MLProjects/SignLanguage: ai
   toyosi12/fs-agent: ai
-  anubhavm101/SOEN-6441--TubeLytics: backend   # Play / Java / Scala
+  anubhavm101/SOEN-6441--TubeLytics: backend
 
 # Personal repos to highlight first on the profile page (owner/repo: one-liner).
 featured:
