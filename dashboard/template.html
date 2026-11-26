@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Engineering Work Dashboard</title>
-<meta name="description" content="Live breakdown of professional and personal engineering work across AI, backend, DevOps and frontend — updated daily from GitHub.">
+<meta name="description" content="Live breakdown of industry and personal engineering work across AI, backend, DevOps and frontend — updated daily from GitHub.">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root{
@@ -126,7 +126,7 @@
   <div class="controls">
     <div class="seg" role="group" aria-label="Work scope" id="scope">
       <button data-scope="all" aria-pressed="true">Both</button>
-      <button data-scope="professional" aria-pressed="false">Professional</button>
+      <button data-scope="professional" aria-pressed="false">Industry</button>
       <button data-scope="personal" aria-pressed="false">Personal</button>
     </div>
     <div class="chips" id="chips" role="group" aria-label="Work areas shown in chart"></div>
@@ -153,7 +153,7 @@
     </section>
 
     <section class="card span-12" id="orgCard">
-      <h2>Professional experience</h2>
+      <h2>Industry experience</h2>
       <p class="hint">Production codebases in company organizations.</p>
       <div class="orgs" id="orgs"></div>
     </section>
@@ -166,7 +166,7 @@
 
     <section class="card span-12">
       <h2>Repositories</h2>
-      <p class="hint">Every repository I've committed to, tagged professional or personal.</p>
+      <p class="hint">Every repository I've committed to, tagged industry or personal.</p>
       <div class="filter-note" id="filterNote" hidden></div>
       <div class="table-wrap"><table id="repoTable"></table></div>
     </section>
@@ -305,7 +305,7 @@ function renderKpis() {
   const lines = rs.reduce((s, [, r]) => s + r.additions + r.deletions, 0);
   const pro = rs.filter(([, r]) => r.scope === "professional").length;
   document.getElementById("kpis").innerHTML = [
-    [rs.length, state.scope === "all" ? `repositories · ${pro} professional` : "repositories"],
+    [rs.length, state.scope === "all" ? `repositories · ${pro} industry` : "repositories"],
     [nf.format(commits), "commits"],
     [short(lines), "lines changed"],
   ].map(([n, l]) => `<div class="kpi"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
@@ -337,7 +337,7 @@ function renderOrgs() {
         ${areaBar(areas)}
         <div class="meta">${list.length} repos · ${nf.format(commits)} commits${top ? " · " + esc(top) : ""}</div>
       </div>`;
-    }).join("") || `<p class="hint">No professional repos yet — add orgs in config/profile.yaml.</p>`;
+    }).join("") || `<p class="hint">No industry repos yet — add orgs in config/profile.yaml.</p>`;
 }
 
 function renderLangs() {
@@ -368,7 +368,7 @@ function renderTable() {
       const pro = r.scope === "professional";
       const link = pro || r.private ? esc(name) : `<a href="https://github.com/${esc(name)}" target="_blank" rel="noopener">${esc(name)}</a>`;
       return `<tr><td><span class="repo">${link}</span></td>
-        <td><span class="badge ${pro ? "pro" : "per"}">${pro ? "Professional · " + esc(r.org) : "Personal"}</span></td>
+        <td><span class="badge ${pro ? "pro" : "per"}">${pro ? "Industry · " + esc(r.org) : "Personal"}</span></td>
         <td>${esc(DATA.areas[primaryArea(r)].label)}</td>
         <td><div class="mini">${areaBar(r.areas)}</div></td>
         <td class="num">${nf.format(r.commits)}</td><td class="num">${short(r.additions + r.deletions)}</td></tr>`;
@@ -378,7 +378,8 @@ function renderTable() {
 function safe(fn) { try { fn(); } catch (e) { console.error(fn.name, e); } }
 function readHash() {
   const h = new URLSearchParams(location.hash.slice(1));
-  if (["all","professional","personal"].includes(h.get("scope"))) state.scope = h.get("scope");
+  const sc = h.get("scope") === "industry" ? "professional" : h.get("scope");
+  if (["all","professional","personal"].includes(sc)) state.scope = sc;
   const a = h.get("area");
   if (AREA_ORDER.includes(a)) { state.shown.add(a); state.focus = a; }
   document.querySelectorAll("#scope button").forEach(x => x.setAttribute("aria-pressed", x.dataset.scope === state.scope));

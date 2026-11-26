@@ -45,6 +45,8 @@ GRAPHQL_API = "https://api.github.com/graphql"
 SCHEMA_VERSION = 2
 # Max lines a single file in a single commit adds to the work-area split.
 AREA_FILE_CAP = int(os.environ.get("AREA_FILE_CAP", "800"))
+# Commits kept per repo for the "Recently" feed.
+RECENT_PER_REPO = 15
 
 TOKEN = os.environ.get("STATS_PAT")
 USERNAME = os.environ.get("GH_USERNAME")
@@ -414,6 +416,7 @@ def main():
         "rules": (Path(__file__).parent / "dev_tags.py").read_text(),
         "repo_areas": repo_areas,
         "cap": AREA_FILE_CAP,
+        "recent_per_repo": RECENT_PER_REPO,
     }, sort_keys=True).encode()).hexdigest()[:16]
     needs_reset = stats.get("classifier") != fingerprint
     if needs_reset:
@@ -577,8 +580,14 @@ def main():
 
             stats["recent"].append(recent)
 
-    # Keep only the newest commits for the activity feed.
-    stats["recent"] = sorted(stats["recent"], key=lambda c: c["date"], reverse=True)[:60]
+    # Keep the newest commits *per repo* for the activity feed, so filtering out
+    # industry repos on the profile page still leaves plenty of personal history.
+    recent, per_repo = [], {}
+    for c in sorted(stats["recent"], key=lambda c: c["date"], reverse=True):
+        per_repo[c["repo"]] = per_repo.get(c["repo"], 0) + 1
+        if per_repo[c["repo"]] <= RECENT_PER_REPO:
+            recent.append(c)
+    stats["recent"] = recent
 
     state["last_run"] = datetime.now(timezone.utc).isoformat()
     stats["generated_at"] = state["last_run"]

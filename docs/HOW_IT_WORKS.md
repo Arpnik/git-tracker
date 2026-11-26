@@ -34,7 +34,7 @@ GitHub API ──► collect_stats.py ──► data/stats.json ──► render
    Each file contributes at most **800 lines per commit** to the work split
    (`AREA_FILE_CAP`), so notebook outputs and generated files can't swamp real work.
    Raw line totals elsewhere are uncapped.
-4. **Scope**: repos owned by `professional_orgs` are **Professional**, everything else
+4. **Scope**: repos owned by `professional_orgs` are **Industry** work, everything else
    **Personal**.
 5. **Render**: [`scripts/render.py`](../scripts/render.py) writes the README, the donut and
    activity SVGs, `README_STATS.md` and `index.html`.
@@ -75,6 +75,6 @@ python scripts/render.py     # then open README.md / index.html
 - **A repo is classified wrong**: set it in `repo_areas` in `profile.yaml`.
 - **Skip a noisy repo**: add it to `EXCLUDE_REPOS_DEFAULT` in `collect_stats.py` or the
   `EXCLUDE_REPOS` env var.
-- **Confidentiality**: private professional repos show by name (no link). Commit messages
-  from them are hidden unless `activity.show_professional_messages` is `true`.
+- **Confidentiality**: private industry repos show by name (no link). Their commits are left
+  out of the "Recently" feed unless `activity.include_professional` is `true`.
 - Rate limits: 5,000 REST calls/hour. A full recompute is roughly one call per commit.

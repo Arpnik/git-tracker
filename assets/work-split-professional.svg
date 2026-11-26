@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="460" height="240" viewBox="0 0 460 240" role="img" aria-label="Professional — work split">
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="240" viewBox="0 0 460 240" role="img" aria-label="Industry — work split">
 <style>.t{font:600 15px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#1f2328}.st,.lv,.ax{font:12px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#59636e}.ln{font:500 13px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#1f2328}.c{font:600 18px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#1f2328}.grid{stroke:#eaeef2}.gap{stroke:#ffffff}.bg{fill:#ffffff;stroke:#d1d9e0}.s-ai{fill:#257de0}.s-backend{fill:#f47230}.s-devops{fill:#00b894}.s-frontend{fill:#f2a600}.s-other{fill:#9c9c9c}.k-professional{fill:#1f2328}.k-personal{fill:#8c959f}@media (prefers-color-scheme:dark){.t,.ln,.c{fill:#e6edf3}.st,.lv,.ax{fill:#9198a1}.grid{stroke:#212830}.gap{stroke:#151b23}.bg{fill:#151b23;stroke:#30363d}.s-ai{fill:#338ced}.s-backend{fill:#e76624}.s-devops{fill:#00a888}.s-frontend{fill:#d28e05}.s-other{fill:#6b6b6b}.k-professional{fill:#e6edf3}.k-personal{fill:#656c76}}</style>
 <rect class="bg" x="0.5" y="0.5" width="459" height="239" rx="12"/>
-<text class="t" x="16" y="28">Professional — work split</text>
+<text class="t" x="16" y="28">Industry — work split</text>
 <text class="st" x="16" y="46">10 repos · 544 commits · excludes docs/lockfiles</text>
 <path class="s-ai gap" stroke-width="2" d="M110.00,66.00 A80,80 0 0 1 187.49,165.89 L159.40,158.68 A51,51 0 0 0 110.00,95.00 Z"/>
 <path class="s-backend gap" stroke-width="2" d="M187.49,165.89 A80,80 0 0 1 109.63,226.00 L109.76,197.00 A51,51 0 0 0 159.40,158.68 Z"/>

@@ -7,15 +7,15 @@
   <a href="https://arpnik.github.io/git-tracker/"><img alt="Dashboard" src="https://img.shields.io/badge/Dashboard-open%20interactive%20view-257de0?style=for-the-badge"></a>
 </p>
 
-- 💼 Building production products at **Knowbie** and **AltConvey**: Node.js & Java APIs, React and Flutter apps, AI services, Terraform infra.
-- 🧠 AI / NLP work: RAG with discourse-unit chunking, discourse segmentation, NL→SQL, agentic assistants.
+- 💼 Built production products at **Knowbie** and **AltConvey**:, AI services, Terraform infra, Node.js & Java APIs, React and Flutter mobile apps.
+- 🧠 AI / NLP work: RAG with discourse-unit chunking, discourse segmentation, NL→SQL, agentic assistants, Multi-Agent Systems.
 - 🎓 Concordia University, Montréal.
 
-> **980 commits** across **34 repositories**: 10 professional, 24 personal · **35 commits in the last 4 weeks**
+> **980 commits** across **34 repositories**: 10 industry, 24 personal · **35 commits in the last 4 weeks**
 
 ## 🧭 What I work on
 
-Every changed file in my commits is classified as **AI / ML**, **Backend**, **DevOps** or **Frontend**, then split by **professional** (company orgs) vs **personal** work. Expand a view below, or [open the interactive dashboard](https://arpnik.github.io/git-tracker/) to toggle areas and click into repos.
+Every changed file in my commits is classified as **AI / ML**, **Backend**, **DevOps** or **Frontend**, then split into **industry** work (production code at companies) vs **personal** projects. Expand a view below, or [open the interactive dashboard](https://arpnik.github.io/git-tracker/) to toggle areas and click into repos.
 
 <details open>
 <summary><b>🌐 Both</b> · 34 repos · 980 commits · AI / ML 40% · Backend 28% · Frontend 26%</summary>
@@ -33,10 +33,10 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 </details>
 
 <details>
-<summary><b>💼 Professional</b> · 10 repos · 544 commits · Frontend 43% · AI / ML 29% · Backend 21%</summary>
+<summary><b>💼 Industry</b> · 10 repos · 544 commits · Frontend 43% · AI / ML 29% · Backend 21%</summary>
 <br>
 
-<img src="./assets/work-split-professional.svg" alt="Professional work split" width="460">
+<img src="./assets/work-split-professional.svg" alt="Industry work split" width="460">
 
 | Area | Share | Lines changed | |
 |---|--:|--:|---|
@@ -69,15 +69,9 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 **Recently**
 
 - **Nov 26** · [`Arpnik/git-tracker`](https://github.com/Arpnik/git-tracker) · 1 commit · “updated github workflow for main profile” · 🚀 DevOps
-- **Nov 26** · 💼 **AltConvey** · `acy-ui` · 1 commit · 🎨 Frontend
-- **Nov 26** · 💼 **AltConvey** · `acy-rest` · 1 commit · ⚙️ Backend
-- **Nov 26** · 💼 **AltConvey** · `acy-materials` · 1 commit · 🧠 AI / ML
-- **Nov 24** · 💼 **Knowbie** · `Operators` · 1 commit · 🎨 Frontend
-- **Nov 20** · 💼 **AltConvey** · `acy-rest` · 1 commit · ⚙️ Backend
-- **Nov 20** · 💼 **AltConvey** · `acy-ui` · 1 commit · 🎨 Frontend
 - **Nov 19** · [`Arpnik/git-tracker`](https://github.com/Arpnik/git-tracker) · 1 commit · “Update track-stats.yml” · 🚀 DevOps
 
-## 💼 Professional experience
+## 💼 Industry experience
 
 ### AltConvey · Software Engineer
 React UI, Java REST API, Python AI services and Terraform-managed infrastructure.  
@@ -91,7 +85,7 @@ React UI, Java REST API, Python AI services and Terraform-managed infrastructure
 | `acy-rest` | ⚙️ Backend | 37 | 21,042 |
 | `acy-materials` | 🧠 AI / ML | 19 | 30,692 |
 
-### Knowbie · Software Engineer
+### Knowbie · Lead Software Engineer
 Operator & admin web apps, Flutter end-user app, Node.js backend and CMS.  
 <sub>5 repos · 265 commits · Frontend 81% · Backend 13% · AI / ML 6%</sub>
 

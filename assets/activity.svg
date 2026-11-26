@@ -5,8 +5,8 @@
 <text class="st" x="16" y="46">280 commits</text>
 <text class="ln" x="904" y="32" text-anchor="end">Personal</text>
 <rect class="k-personal" x="826" y="22" width="12" height="12" rx="3"/>
-<text class="ln" x="808" y="32" text-anchor="end">Professional</text>
-<rect class="k-professional" x="702" y="22" width="12" height="12" rx="3"/>
+<text class="ln" x="808" y="32" text-anchor="end">Industry</text>
+<rect class="k-professional" x="730" y="22" width="12" height="12" rx="3"/>
 <line class="grid" x1="44" x2="904" y1="196.0" y2="196.0"/>
 <text class="ax" x="36" y="200.0" text-anchor="end">0</text>
 <line class="grid" x1="44" x2="904" y1="130.0" y2="130.0"/>

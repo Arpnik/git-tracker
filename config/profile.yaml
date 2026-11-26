@@ -14,7 +14,8 @@ links:
   # LinkedIn: https://www.linkedin.com/in/<your-handle>
   # Email: mailto:you@example.com
 
-# Repos owned by these GitHub orgs are PROFESSIONAL; everything else is PERSONAL.
+# Repos owned by these GitHub orgs are INDUSTRY work (shown as "Industry");
+# everything else is PERSONAL.
 professional_orgs:
   altconvey:
     display: AltConvey
@@ -68,9 +69,11 @@ featured:
   Arpnik/agentic-assistant: Agentic AI assistant.
   Arpnik/FedBN: Federated learning with local batch normalization.
 
-# Recent-activity feed. Commit messages from professional (private) repos are
-# hidden by default; only "N commits to <Company>" is shown.
+# Recent-activity feed. Industry (company) commits are left out entirely by
+# default; set include_professional: true to list them as "N commits to <Company>"
+# (messages stay hidden unless show_professional_messages is also true).
 activity:
+  include_professional: false
   show_professional_messages: false
   items: 8
 

@@ -31,7 +31,7 @@ ASSETS = ROOT / "assets"
 REPO_URL = "https://github.com/Arpnik/git-tracker"
 
 SCOPES = ["all", "professional", "personal"]
-SCOPE_LABELS = {"all": "All work", "professional": "Professional", "personal": "Personal"}
+SCOPE_LABELS = {"all": "All work", "professional": "Industry", "personal": "Personal"}
 PIE_AREAS = [a for a in AREAS if a != "other"]
 AREA_EMOJI = {"ai": "🧠", "backend": "⚙️", "devops": "🚀", "frontend": "🎨", "other": "📦"}
 
@@ -335,8 +335,11 @@ LINK_STYLE = {
 
 def recent_activity(stats, profile, n):
     show_msgs = profile["activity"].get("show_professional_messages", False)
+    include_pro = profile["activity"].get("include_professional", False)
     groups = []
     for c in stats.get("recent", []):
+        if not include_pro and repo_scope(c["repo"], profile) == "professional":
+            continue
         day = c["date"][:10]
         if groups and groups[-1]["day"] == day and groups[-1]["repo"] == c["repo"]:
             g = groups[-1]
@@ -397,7 +400,7 @@ def readme(stats, profile):
     weeks, _ = weekly_by_scope(stats, profile, 4)
     last4 = sum(p + q for _, p, q in weeks)
     o.append(f"> **{allm['commits']:,} commits** across **{allm['repos']} repositories**: "
-             f"{prom['repos']} professional, {perm['repos']} personal · "
+             f"{prom['repos']} industry, {perm['repos']} personal · "
              f"**{last4} commits in the last 4 weeks**")
     o.append("")
 
@@ -405,7 +408,7 @@ def readme(stats, profile):
     o.append("## 🧭 What I work on")
     o.append("")
     o.append("Every changed file in my commits is classified as **AI / ML**, **Backend**, **DevOps** or "
-             "**Frontend**, then split by **professional** (company orgs) vs **personal** work. "
+             "**Frontend**, then split into **industry** work (production code at companies) vs **personal** projects. "
              "Expand a view below" + (f", or [open the interactive dashboard]({dash}) to toggle areas "
                                       "and click into repos." if dash else "."))
     o.append("")
@@ -447,15 +450,15 @@ def readme(stats, profile):
         o.append("<sub>The recent-commit feed fills in after the next scheduled run.</sub>")
     o.append("")
 
-    # --- Professional experience
-    o.append("## 💼 Professional experience")
+    # --- Industry experience
+    o.append("## 💼 Industry experience")
     o.append("")
     by_org = {}
     for repo in stats["by_repo"]:
         if repo_scope(repo, profile) == "professional":
             by_org.setdefault(repo.split("/")[0], []).append(repo)
     if not by_org:
-        o.append("_No professional repos detected yet. Add your company orgs in `config/profile.yaml`._")
+        o.append("_No industry repos detected yet. Add your company orgs in `config/profile.yaml`._")
     for owner, repos in sorted(by_org.items(),
                                key=lambda kv: -sum(stats["by_repo"][r]["commits"] for r in kv[1])):
         org, meta = org_meta(owner, profile)
@@ -518,7 +521,7 @@ def write_stats_md(stats, profile):
     out.append(f"**Totals:** {t['commits']:,} commits · +{t['additions']:,} / -{t['deletions']:,} lines\n")
 
     out.append("## By work area\n")
-    out.append("| Area | Professional | Personal | All |")
+    out.append("| Area | Industry | Personal | All |")
     out.append("|---|--:|--:|--:|")
     tots = {s: area_totals(stats, profile, s) for s in SCOPES}
     for a in AREAS:
@@ -535,7 +538,7 @@ def write_stats_md(stats, profile):
     out.append("| Repo | Type | Discipline | Commits | + | - |")
     out.append("|---|---|---|--:|--:|--:|")
     for repo, s in sorted(stats["by_repo"].items(), key=lambda x: -x[1]["commits"]):
-        kind = "💼 Professional" if repo_scope(repo, profile) == "professional" else "Personal"
+        kind = "💼 Industry" if repo_scope(repo, profile) == "professional" else "Personal"
         out.append(f"| {repo} | {kind} | {AREA_LABELS[primary_area(stats, repo)]} "
                    f"| {s['commits']:,} | {s['additions']:,} | {s['deletions']:,} |")
 

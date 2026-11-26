@@ -8,7 +8,7 @@ _Last updated: 2026-11-26T22:07:03.420350+00:00_
 
 ## By work area
 
-| Area | Professional | Personal | All |
+| Area | Industry | Personal | All |
 |---|--:|--:|--:|
 | AI / ML | 31,894 | 43,957 | 75,851 |
 | Backend | 23,179 | 30,475 | 53,654 |
@@ -50,24 +50,24 @@ _Last updated: 2026-11-26T22:07:03.420350+00:00_
 
 | Repo | Type | Discipline | Commits | + | - |
 |---|---|---|--:|--:|--:|
-| altconvey/acy-ai-contract | 💼 Professional | AI / ML | 129 | 37,985 | 16,192 |
-| GetKnowbie/Operators | 💼 Professional | Frontend | 117 | 14,616 | 12,171 |
-| GetKnowbie/end-user | 💼 Professional | Frontend | 73 | 5,107 | 4,298 |
+| altconvey/acy-ai-contract | 💼 Industry | AI / ML | 129 | 37,985 | 16,192 |
+| GetKnowbie/Operators | 💼 Industry | Frontend | 117 | 14,616 | 12,171 |
+| GetKnowbie/end-user | 💼 Industry | Frontend | 73 | 5,107 | 4,298 |
 | anubhavm101/SOEN-6441--TubeLytics | Personal | Backend | 64 | 6,173 | 6,973 |
-| altconvey/acy-ai | 💼 Professional | AI / ML | 50 | 4,555 | 1,278 |
-| GetKnowbie/knowbie-back | 💼 Professional | Backend | 48 | 10,176 | 5,217 |
+| altconvey/acy-ai | 💼 Industry | AI / ML | 50 | 4,555 | 1,278 |
+| GetKnowbie/knowbie-back | 💼 Industry | Backend | 48 | 10,176 | 5,217 |
 | Arpnik/neetcode-submissions | Personal | Backend | 48 | 3,783 | 0 |
-| altconvey/acy-ui | 💼 Professional | Frontend | 44 | 24,758 | 12,270 |
+| altconvey/acy-ui | 💼 Industry | Frontend | 44 | 24,758 | 12,270 |
 | Arpnik/EDU-Chunking-RAG | Personal | AI / ML | 41 | 278,427 | 2,717 |
 | Arpnik/SafeNL2SQL | Personal | Backend | 39 | 4,247 | 526 |
-| altconvey/acy-rest | 💼 Professional | Backend | 37 | 16,659 | 4,383 |
+| altconvey/acy-rest | 💼 Industry | Backend | 37 | 16,659 | 4,383 |
 | Arpnik/taskd-technical-challenge | Personal | Backend | 33 | 1,324 | 586 |
 | Arpnik/SOEN-341 | Personal | Backend | 25 | 242 | 24 |
-| GetKnowbie/AdminV2 | 💼 Professional | Frontend | 24 | 15,233 | 14,517 |
+| GetKnowbie/AdminV2 | 💼 Industry | Frontend | 24 | 15,233 | 14,517 |
 | FrancescoBonzi/twin-transformer | Personal | AI / ML | 24 | 344 | 226 |
 | Arpnik/DISRPT-Segmenter | Personal | AI / ML | 20 | 22,034 | 930 |
 | Arpnik/FedBN | Personal | AI / ML | 20 | 2,259 | 843 |
-| altconvey/acy-materials | 💼 Professional | AI / ML | 19 | 29,655 | 1,037 |
+| altconvey/acy-materials | 💼 Industry | AI / ML | 19 | 29,655 | 1,037 |
 | Arpnik/COMP-6481-Assignment-2 | Personal | Backend | 16 | 1,531 | 244 |
 | Arpnik/agentic-assistant | Personal | AI / ML | 15 | 12,565 | 1,349 |
 | Arpnik/git-tracker | Personal | DevOps | 14 | 3,959 | 994 |
@@ -78,7 +78,7 @@ _Last updated: 2026-11-26T22:07:03.420350+00:00_
 | Arpnik/COMP-6481-Assignment-3 | Personal | Backend | 9 | 614 | 53 |
 | Arpnik/ProgramSynth | Personal | AI / ML | 8 | 19,122 | 376 |
 | Aisha8665/rexploit-dataset | Personal | Backend | 4 | 5,226 | 4,942 |
-| GetKnowbie/knowbie-cms | 💼 Professional | AI / ML | 3 | 5,069 | 426 |
+| GetKnowbie/knowbie-cms | 💼 Industry | AI / ML | 3 | 5,069 | 426 |
 | Arpnik/test-jest | Personal | Frontend | 3 | 5,947 | 0 |
 | toyosi12/fs-agent | Personal | AI / ML | 3 | 153 | 18 |
 | Arpnik/tech-salary-analysis | Personal | Other | 2 | 366 | 0 |
