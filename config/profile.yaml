@@ -1,0 +1,79 @@
+# Who you are + how your work is grouped. Drives the profile README,
+# the interactive dashboard and the auto-generated charts.
+
+name: Arpnik Singh
+headline: Software engineer · AI systems, backend, DevOps & frontend
+# Short bullets under your name on the profile page. Keep each in quotes.
+about:
+  - "💼 Building production products at **Knowbie** and **AltConvey**: Node.js & Java APIs, React and Flutter apps, AI services, Terraform infra."
+  - "🧠 AI / NLP work: RAG with discourse-unit chunking, discourse segmentation, NL→SQL, agentic assistants."
+  - "🎓 Concordia University, Montréal."
+links:
+  GitHub: https://github.com/Arpnik
+  Dashboard: https://arpnik.github.io/git-tracker/
+  # LinkedIn: https://www.linkedin.com/in/<your-handle>
+  # Email: mailto:you@example.com
+
+# Repos owned by these GitHub orgs are PROFESSIONAL; everything else is PERSONAL.
+professional_orgs:
+  GetKnowbie:
+    display: Knowbie
+    role: Software Engineer            # edit to your real title
+    summary: Operator & admin web apps, Flutter end-user app, Node.js backend and CMS.
+    url: https://github.com/GetKnowbie
+  altconvey:
+    display: AltConvey
+    role: Software Engineer            # edit to your real title
+    summary: React UI, Java REST API, Python AI services and Terraform-managed infrastructure.
+    url: https://github.com/altconvey
+
+# Main discipline of each repo: ai | backend | devops | frontend.
+# It decides files that don't speak for themselves (e.g. a plain .js or .py file).
+# Clear file signals still win: Dockerfiles/Terraform/CI -> devops, .tsx/.css -> frontend,
+# notebooks -> ai, SQL/migrations -> backend, LLM/embedding code -> ai.
+# Repos not listed fall back to name hints (…-back, …-api, …-ui, …-ai, …).
+repo_areas:
+  GetKnowbie/knowbie-back: backend       # Node.js API
+  GetKnowbie/Operators: frontend         # operators web app (JS)
+  GetKnowbie/AdminV2: frontend           # admin panel (JS/TS)
+  GetKnowbie/end-user: frontend          # Flutter app
+  GetKnowbie/knowbie-cms: ai             # notebooks — CHECK
+  altconvey/acy-ui: frontend
+  altconvey/acy-rest: backend            # Java REST API
+  altconvey/acy-ai: ai
+  altconvey/acy-ai-contract: ai          # Python service + Terraform — CHECK (backend?)
+  altconvey/acy-materials: ai            # CHECK
+  Arpnik/agentic-assistant: ai           # JS — CHECK (frontend for an AI app?)
+  Arpnik/NL2SQL: ai
+  Arpnik/EDU-Chunking-RAG: ai
+  Arpnik/DISRPT-Segmenter: ai
+  Arpnik/FedBN: ai
+  Arpnik/speech-pd-detection: ai
+  Arpnik/Recommender-Systems: ai
+  Arpnik/ProgramSynth: ai
+  Arpnik/taskd-technical-challenge: backend
+  Arpnik/home_assessment: backend
+  Arpnik/web-crawler: backend
+  Arpnik/git-tracker: devops
+  FrancescoBonzi/twin-transformer: ai
+  Fall2024-MLProjects/SignLanguage: ai
+  toyosi12/fs-agent: ai
+  anubhavm101/SOEN-6441--TubeLytics: backend   # Play / Java / Scala
+
+# Personal repos to highlight first on the profile page (owner/repo: one-liner).
+featured:
+  Arpnik/EDU-Chunking-RAG: Retrieval-augmented generation using elementary-discourse-unit chunking.
+  Arpnik/DISRPT-Segmenter: Discourse unit segmentation for the DISRPT shared task.
+  Arpnik/NL2SQL: Natural-language to SQL with LLMs.
+  Arpnik/agentic-assistant: Agentic AI assistant.
+  Arpnik/FedBN: Federated learning with local batch normalization.
+
+# Recent-activity feed. Commit messages from professional (private) repos are
+# hidden by default; only "N commits to <Company>" is shown.
+activity:
+  show_professional_messages: false
+  items: 8
+
+# Individual repos (owner/repo) to force into a bucket regardless of owner.
+# professional_repos: []
+# personal_repos: []

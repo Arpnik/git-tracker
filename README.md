@@ -1,92 +1,115 @@
-# git-tracker
+<h1>Hi, I'm Arpnik Singh 👋</h1>
 
-Tracks your commit activity — lines added/removed, by language, by
-category (frontend / backend / UI / infra / etc.) — across **every
-repo you have write access to**: your own, other people's repos
-you're a collaborator on, and org repos.
+**Software engineer · AI systems, backend, DevOps & frontend**
 
-## How it works
+<p>
+  <a href="https://github.com/Arpnik"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-Arpnik-181717?style=for-the-badge&logo=github&logoColor=white"></a>
+  <a href="https://arpnik.github.io/git-tracker/"><img alt="Dashboard" src="https://img.shields.io/badge/Dashboard-open%20interactive%20view-257de0?style=for-the-badge"></a>
+</p>
 
-1. A scheduled GitHub Action (`.github/workflows/track-stats.yml`) runs daily.
-2. `scripts/collect_stats.py` uses the GitHub API to:
-   - list every repo you can push to (GraphQL, `viewer.repositories`)
-   - list your commits on each repo's default branch since the last run (REST `/commits`)
-   - pull the per-file diff stats for each new commit (REST `/commits/{sha}`)
-   - classify each changed file by language (extension), category
-     (regex patterns in `config/categories.yaml`) and **development tag**
-     (`frontend/backend/ai/ml/datascience/other`, logic in `scripts/dev_tags.py`)
-3. Results are written to `data/stats.json` (raw), `README_STATS.md`
-   (human-readable tables **incl. per-repo language detail + dev-tag stats**), and
-   `README_STATS.html` (a self-contained HTML summary with charts +
-   language-level tables), then committed back to this repo.
-4. `dashboard/index.html` reads `data/stats.json` and renders charts —
-   open it locally, or serve it via GitHub Pages. `README_STATS.html`
-   is the same summary but fully self-contained (data embedded inline),
-   so it works on GitHub Pages with no fetch.
-5. `dashboard/wordcloud.html` is a **D3 word cloud** of the languages you've
-   worked in (word size ∝ lines of code), masked into the shape of an image
-   pulled from your **`my_face`** repo — "a picture of you, made of your
-   languages". The face image is embedded as a data URI, so the file is
-   self-contained. Open it locally or via GitHub Pages.
+- 💼 Building production products at **Knowbie** and **AltConvey**: Node.js & Java APIs, React and Flutter apps, AI services, Terraform infra.
+- 🧠 AI / NLP work: RAG with discourse-unit chunking, discourse segmentation, NL→SQL, agentic assistants.
+- 🎓 Concordia University, Montréal.
 
-## Language word cloud
+> **825 commits** across **33 repositories**: 10 professional, 23 personal · **8 commits in the last 4 weeks**
 
-[`dashboard/wordcloud.html`](./dashboard/wordcloud.html) renders a live D3
-(+ d3-cloud) word cloud where each word is a language, sized by the lines of
-code you've changed in it, and the whole cloud is masked to the silhouette of
-the first image found in your `my_face` repo. (GitHub can't run the JS inline
-in this README, so open the file or serve the `dashboard/` folder via Pages.)
+## 🧭 What I work on
 
-## Setup
+Every changed file in my commits is classified as **AI / ML**, **Backend**, **DevOps** or **Frontend**, then split by **professional** (company orgs) vs **personal** work. Expand a view below, or [open the interactive dashboard](https://arpnik.github.io/git-tracker/) to toggle areas and click into repos.
 
-1. Create this repo (private is recommended, since it lists other repos' names).
-2. Create a **classic** Personal Access Token: GitHub → Settings → Developer
-   settings → Personal access tokens → Tokens (classic).
-   Scopes needed: `repo`, `read:org`.
-   (A fine-grained PAT works too, but you'd have to approve it per-org, which
-   defeats the "see everything I have access to" goal.)
-3. In this repo's Settings → Secrets and variables → Actions, add:
-   - `STATS_PAT` — the token from step 2
-   - `GH_USERNAME` — your GitHub username
-4. Push. The workflow runs on its schedule, or trigger it manually from
-   the Actions tab (`workflow_dispatch`).
-5. Optional: enable GitHub Pages on the `dashboard/` folder (or a
-   `gh-pages` branch you deploy it to) to get a hosted chart view.
+<details open>
+<summary><b>🌐 Both</b> · 33 repos · 825 commits · AI / ML 37% · Backend 33% · Frontend 28%</summary>
+<br>
 
-## Customizing categories
+<img src="./assets/work-split-all.svg" alt="Both work split" width="460">
 
-Edit `config/categories.yaml`. Each category is a list of regexes
-tested against the file path; first match wins, so put more specific
-categories above catch-alls.
+| Area | Share | Lines changed | |
+|---|--:|--:|---|
+| 🧠 AI / ML | 37% | 61,428 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=ai) |
+| ⚙️ Backend | 33% | 54,889 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=backend) |
+| 🚀 DevOps | 3% | 4,543 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=devops) |
+| 🎨 Frontend | 28% | 46,724 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=frontend) |
 
-## Notes / limits
+</details>
 
-- Only counts commits authored by `GH_USERNAME` on each repo's **default
-  branch** (extend `list_commit_shas` if you want all branches — costs more API calls).
-  - State is incremental (`data/state.json`), so re-runs are cheap.
+<details>
+<summary><b>💼 Professional</b> · 10 repos · 393 commits · Frontend 53% · Backend 25% · AI / ML 18%</summary>
+<br>
 
-### Why an org's repos might be missing (e.g. `altconvey`)
+<img src="./assets/work-split-professional.svg" alt="Professional work split" width="460">
 
-If some orgs show up (like `GetKnowbie`) but another (like `altconvey`)
-does not, it's almost always **SSO/SAML authorization**, not a bug:
+| Area | Share | Lines changed | |
+|---|--:|--:|---|
+| 🧠 AI / ML | 18% | 15,107 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=ai) |
+| ⚙️ Backend | 25% | 21,535 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=backend) |
+| 🚀 DevOps | 4% | 3,447 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=devops) |
+| 🎨 Frontend | 53% | 45,432 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=frontend) |
 
-- `viewer.repositories(...)` silently omits repos in orgs that enforce SAML
-  SSO unless your **classic PAT is authorized for that org**.
-- Fix: GitHub → Settings → Developer settings → Personal access tokens
-  (classic) → your token → **Configure SSO** → **Authorize** for the org.
-- The collector now also enumerates each org directly
-  (`list_org_repos`) as a fallback and **prints a warning** naming any org
-  it can't see, with the exact SSO step to run. Check the Action logs for
-  lines like `! org 'altconvey': ...`.
-- Other causes it will surface: you only have read/triage (not write) on
-  those repos, the token is missing the `read:org` scope, or `INCLUDE_ORGS`
-  is set and excludes the org.
+</details>
 
-- First run looks back `DAYS_LOOKBACK` days (default **730**, i.e. two years) —
-  bump this in the workflow env if you want more history, but expect more API
-  calls on that first run.
-- Per-repo fetch problems (403 SSO, 404 no-access, rate limits, etc.) are
-  printed inline while running and summarised at the end of the log, so you
-  can see exactly which repos failed and why.
-- Rate limits: a PAT gets 5,000 REST calls/hour and a separate GraphQL
-  budget, which is generous for this after the first backfill.# git-tracker
+<details>
+<summary><b>🧪 Personal</b> · 23 repos · 432 commits · AI / ML 56% · Backend 41% · Frontend 2%</summary>
+<br>
+
+<img src="./assets/work-split-personal.svg" alt="Personal work split" width="460">
+
+| Area | Share | Lines changed | |
+|---|--:|--:|---|
+| 🧠 AI / ML | 56% | 46,321 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=ai) |
+| ⚙️ Backend | 41% | 33,354 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=backend) |
+| 🚀 DevOps | 1% | 1,096 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=devops) |
+| 🎨 Frontend | 2% | 1,292 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=frontend) |
+
+</details>
+
+## 📈 Activity
+
+<img src="./assets/activity.svg" alt="Weekly commit activity" width="100%">
+
+<sub>The recent-commit feed fills in after the next scheduled run.</sub>
+
+## 💼 Professional experience
+
+### Knowbie · Software Engineer
+Operator & admin web apps, Flutter end-user app, Node.js backend and CMS.  
+<sub>5 repos · 208 commits · Frontend 84% · AI / ML 9% · Backend 7%</sub>
+
+| Repository | Discipline | Commits | Lines changed |
+|---|---|--:|--:|
+| `Operators` | 🎨 Frontend | 98 | 25,215 |
+| `end-user` | 🎨 Frontend | 66 | 8,805 |
+| `knowbie-back` | ⚙️ Backend | 27 | 13,555 |
+| `AdminV2` | 🎨 Frontend | 14 | 28,704 |
+| `knowbie-cms` | 🧠 AI / ML | 3 | 5,495 |
+
+### AltConvey · Software Engineer
+React UI, Java REST API, Python AI services and Terraform-managed infrastructure.  
+<sub>5 repos · 185 commits · Frontend 39% · Backend 33% · AI / ML 22% · DevOps 6%</sub>
+
+| Repository | Discipline | Commits | Lines changed |
+|---|---|--:|--:|
+| `acy-ai-contract` | 🧠 AI / ML | 46 | 23,717 |
+| `acy-ui` | 🎨 Frontend | 43 | 35,818 |
+| `acy-ai` | 🧠 AI / ML | 42 | 4,289 |
+| `acy-rest` | ⚙️ Backend | 36 | 20,284 |
+| `acy-materials` | 🧠 AI / ML | 18 | 26,068 |
+
+## 🧪 Projects
+
+| Project | What it is | Discipline | Commits |
+|---|---|---|--:|
+| ⭐ [**EDU-Chunking-RAG**](https://github.com/Arpnik/EDU-Chunking-RAG) | Retrieval-augmented generation using elementary-discourse-unit chunking. | 🧠 AI / ML | 41 |
+| ⭐ [**DISRPT-Segmenter**](https://github.com/Arpnik/DISRPT-Segmenter) | Discourse unit segmentation for the DISRPT shared task. | 🧠 AI / ML | 20 |
+| ⭐ [**NL2SQL**](https://github.com/Arpnik/NL2SQL) | Natural-language to SQL with LLMs. | 🧠 AI / ML | 39 |
+| ⭐ [**agentic-assistant**](https://github.com/Arpnik/agentic-assistant) | Agentic AI assistant. | 🧠 AI / ML | 12 |
+| ⭐ [**FedBN**](https://github.com/Arpnik/FedBN) | Federated learning with local batch normalization. | 🧠 AI / ML | 20 |
+| [**SOEN-6441--TubeLytics**](https://github.com/anubhavm101/SOEN-6441--TubeLytics) <sub>with anubhavm101</sub> | – | ⚙️ Backend | 64 |
+| [**neetcode-submissions**](https://github.com/Arpnik/neetcode-submissions) | – | ⚙️ Backend | 48 |
+| [**taskd-technical-challenge**](https://github.com/Arpnik/taskd-technical-challenge) | – | ⚙️ Backend | 33 |
+| [**SOEN-341**](https://github.com/Arpnik/SOEN-341) | – | ⚙️ Backend | 25 |
+| [**twin-transformer**](https://github.com/FrancescoBonzi/twin-transformer) <sub>with FrancescoBonzi</sub> | – | 🧠 AI / ML | 24 |
+
+<sub>+ 13 more in the [full stats](https://github.com/Arpnik/git-tracker/blob/main/README_STATS.md) and the [dashboard](https://arpnik.github.io/git-tracker/).</sub>
+
+---
+<sub>🤖 This page regenerates daily from my commit history by [git-tracker](https://github.com/Arpnik/git-tracker) ([how it works](https://github.com/Arpnik/git-tracker/blob/main/docs/HOW_IT_WORKS.md)) · last updated Nov 26, 2026 · area split is estimated from languages until the next full run</sub>

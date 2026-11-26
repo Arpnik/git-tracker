@@ -33,7 +33,7 @@ jobs:
         env:
           STATS_PAT: ${{ secrets.STATS_PAT }}
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
-          DAYS_LOOKBACK: '730'
+          DAYS_LOOKBACK: '1095'
           # INCLUDE_ORGS: 'altconvey,GetKnowbie'
           # EXCLUDE_REPOS: 'someone/huge-repo'
         run: python scripts/collect_stats.py
@@ -43,7 +43,7 @@ jobs:
           git config user.name "dev-stats-bot"
           git config user.email "dev-stats-bot@users.noreply.github.com"
 
-          git add data/ README_STATS.md README_STATS.html dashboard/wordcloud.html
+          git add data/ assets/ index.html README.md README_STATS.md
 
           if git diff --staged --quiet; then
             echo "No changes to commit."
@@ -58,3 +58,24 @@ jobs:
 
           # Push updated history.
           git push origin main
+
+      # Mirror the generated README + charts to the profile repo (<user>/<user>)
+      # so it shows on https://github.com/<user>. Skips if the repo doesn't exist.
+      - name: Publish profile README
+        env:
+          STATS_PAT: ${{ secrets.STATS_PAT }}
+          PROFILE_REPO: ${{ vars.PROFILE_REPO || format('{0}/{0}', github.repository_owner) }}
+        run: |
+          if ! git clone --depth 1 "https://x-access-token:${STATS_PAT}@github.com/${PROFILE_REPO}.git" profile-repo 2>/dev/null; then
+            echo "::warning::Profile repo ${PROFILE_REPO} not found or not accessible; skipping."
+            exit 0
+          fi
+          cp README.md profile-repo/README.md
+          rm -rf profile-repo/assets && cp -r assets profile-repo/assets
+          cd profile-repo
+          git config user.name "dev-stats-bot"
+          git config user.email "dev-stats-bot@users.noreply.github.com"
+          git add README.md assets
+          if git diff --staged --quiet; then echo "Profile already up to date."; exit 0; fi
+          git commit -m "chore: refresh profile from git-tracker"
+          git push

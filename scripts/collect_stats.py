@@ -27,8 +27,10 @@ import requests
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from dev_tags import tag_for
-from wordcloud import render_language_wordcloud
+import hashlib
+
+from dev_tags import area_for, repo_default_area
+from render import render_all, load_profile
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
@@ -38,6 +40,11 @@ CONFIG_FILE = ROOT / "config" / "categories.yaml"
 
 GITHUB_API = "https://api.github.com"
 GRAPHQL_API = "https://api.github.com/graphql"
+
+# Bump when stats.json gains fields that need a full recompute.
+SCHEMA_VERSION = 2
+# Max lines a single file in a single commit adds to the work-area split.
+AREA_FILE_CAP = int(os.environ.get("AREA_FILE_CAP", "800"))
 
 TOKEN = os.environ.get("STATS_PAT")
 USERNAME = os.environ.get("GH_USERNAME")
@@ -157,6 +164,9 @@ def list_viewer_repos():
             nameWithOwner
             isArchived
             isFork
+            isPrivate
+            description
+            stargazerCount
             viewerPermission
             defaultBranchRef { name }
             owner { login }
@@ -217,6 +227,9 @@ def list_org_repos(org):
             nameWithOwner
             isArchived
             isFork
+            isPrivate
+            description
+            stargazerCount
             viewerPermission
             defaultBranchRef { name }
             owner { login }
@@ -384,25 +397,47 @@ def main():
     stats = load_json(STATS_FILE, {
         "totals": {"commits": 0, "additions": 0, "deletions": 0},
         "by_repo": {}, "by_language": {}, "by_category": {}, "by_week": {},
-        "by_repo_language": {}, "by_tag": {},
+        "by_repo_language": {}, "by_area": {}, "by_repo_area": {}, "by_repo_week": {},
+        "schema_version": SCHEMA_VERSION,
     })
     # Ensure key exists when loading older stats files.
     stats.setdefault("by_repo_language", {})
-    stats.setdefault("by_tag", {})
+
+    # Schema bump (v2 adds exact per-repo work areas + per-repo weeks, which can't
+    # be derived from older aggregates) -> recompute everything once.
+    profile = load_profile()
+    repo_areas = profile.get("repo_areas") or {}
+    # Fingerprint of everything that affects classification. Editing the rules in
+    # dev_tags.py or `repo_areas` in profile.yaml triggers one full recompute.
+    fingerprint = hashlib.sha256(json.dumps({
+        "schema": SCHEMA_VERSION,
+        "rules": (Path(__file__).parent / "dev_tags.py").read_text(),
+        "repo_areas": repo_areas,
+        "cap": AREA_FILE_CAP,
+    }, sort_keys=True).encode()).hexdigest()[:16]
+    needs_reset = stats.get("classifier") != fingerprint
+    if needs_reset:
+        print(f"Classifier changed ({stats.get('classifier')} -> {fingerprint}): "
+              "full recompute this run.")
 
     # If a now-excluded repo already contributed to the accumulated aggregates,
     # we can't cleanly subtract it from every breakdown (by_category / by_week
     # aren't stored per-repo), so recompute everything from scratch this once.
     polluted = sorted(r for r in EXCLUDE_REPOS if r in stats.get("by_repo", {}))
-    if polluted:
-        print(f"Excluded repo(s) already present in stats: {', '.join(polluted)}.")
+    if polluted or needs_reset:
+        if polluted:
+            print(f"Excluded repo(s) already present in stats: {', '.join(polluted)}.")
         print("Resetting state + stats to recompute clean totals (full backfill this run).")
         state = {"processed_shas": {}, "last_run": None}
         stats = {
             "totals": {"commits": 0, "additions": 0, "deletions": 0},
             "by_repo": {}, "by_language": {}, "by_category": {}, "by_week": {},
-            "by_repo_language": {}, "by_tag": {},
+            "by_repo_language": {}, "by_area": {}, "by_repo_area": {}, "by_repo_week": {},
+            "recent": [],
         }
+    stats["schema_version"] = SCHEMA_VERSION
+    stats["classifier"] = fingerprint
+    stats.setdefault("recent", [])
 
     processed = set()
     for repo_shas in state["processed_shas"].values():
@@ -414,6 +449,14 @@ def main():
     if EXCLUDE_REPOS:
         print(f"Excluding repos: {', '.join(sorted(EXCLUDE_REPOS))}")
     repos = list_accessible_repos()
+    # Public metadata for the profile page (descriptions, visibility, stars).
+    stats["repo_meta"] = {
+        r["nameWithOwner"]: {
+            "description": r.get("description") or "",
+            "private": bool(r.get("isPrivate")),
+            "stars": r.get("stargazerCount", 0),
+        } for r in repos
+    }
     print(f"Found {len(repos)} writable repos (looking back {DAYS_LOOKBACK} days).")
 
     fetch_errors = []  # (repo, reason) for repos we couldn't fully collect
@@ -446,6 +489,7 @@ def main():
               + ("  [backfill]" if first_seen else ""))
 
         state["processed_shas"].setdefault(full, [])
+        repo_area = repo_default_area(full, repo_areas)
 
         for sha in new_shas:
             try:
@@ -481,6 +525,14 @@ def main():
             rstat["commits"] += 1
             wstat = stats["by_week"].setdefault(week, {"commits": 0, "additions": 0, "deletions": 0})
             wstat["commits"] += 1
+            rweeks = stats["by_repo_week"].setdefault(full, {})
+            rweeks[week] = rweeks.get(week, 0) + 1
+            recent = {
+                "repo": full, "sha": sha[:7],
+                "date": detail["commit"]["author"]["date"],
+                "message": (detail["commit"].get("message") or "").split("\n")[0][:120],
+                "areas": {},
+            }
 
             for f in detail.get("files", []):
                 add, dele = f.get("additions", 0), f.get("deletions", 0)
@@ -510,25 +562,30 @@ def main():
                 cstat["deletions"] += dele
                 cstat["files"] += 1
 
-                # Development-area tag (frontend/backend/ai/ml/datascience/other).
-                tag = tag_for(f["filename"], lang)
-                tstat = stats["by_tag"].setdefault(tag, {"additions": 0, "deletions": 0, "files": 0})
-                tstat["additions"] += add
-                tstat["deletions"] += dele
-                tstat["files"] += 1
+                # Work area (ai/backend/devops/frontend/other), overall + per repo.
+                # Cap each file's contribution to the work-split so generated dumps
+                # (notebook outputs, fixtures, vendored code) can't swamp real work.
+                area = area_for(f["filename"], lang, repo_area)
+                scale = min(1.0, AREA_FILE_CAP / max(add + dele, 1))
+                c_add, c_del = round(add * scale), round(dele * scale)
+                recent["areas"][area] = recent["areas"].get(area, 0) + c_add + c_del
+                for bucket in (stats["by_area"], stats["by_repo_area"].setdefault(full, {})):
+                    astat = bucket.setdefault(area, {"additions": 0, "deletions": 0, "files": 0})
+                    astat["additions"] += c_add
+                    astat["deletions"] += c_del
+                    astat["files"] += 1
+
+            stats["recent"].append(recent)
+
+    # Keep only the newest commits for the activity feed.
+    stats["recent"] = sorted(stats["recent"], key=lambda c: c["date"], reverse=True)[:60]
 
     state["last_run"] = datetime.now(timezone.utc).isoformat()
     stats["generated_at"] = state["last_run"]
 
     STATE_FILE.write_text(json.dumps(state, indent=2))
     STATS_FILE.write_text(json.dumps(stats, indent=2))
-    write_readme(stats)
-    write_html_report(stats)
-    try:
-        render_language_wordcloud(stats, session, GITHUB_API, USERNAME,
-                                  ROOT / "dashboard" / "wordcloud.html")
-    except Exception as e:  # noqa: BLE001 - word cloud is a nice-to-have
-        print(f"  ! word cloud generation failed: {e}")
+    render_all(stats)
 
     if fetch_errors:
         print(f"\n{len(fetch_errors)} fetch issue(s) to debug:")
@@ -537,168 +594,6 @@ def main():
         print("Tip: 403 usually means the PAT isn't SSO-authorized for that org, "
               "or is missing the `repo`/`read:org` scopes.")
     print("Done.")
-
-
-def write_readme(stats):
-    lines = ["# Dev Stats\n", f"_Last updated: {stats['generated_at']}_\n"]
-    lines.append("> 📊 Rendered HTML version with charts: "
-                 "[`README_STATS.html`](./README_STATS.html)")
-    lines.append("> 🎨 Language word cloud (D3, shaped by your `my_face` image): "
-                 "[`dashboard/wordcloud.html`](./dashboard/wordcloud.html)\n")
-    t = stats["totals"]
-    lines.append(f"**Totals:** {t['commits']} commits · +{t['additions']} / -{t['deletions']} lines\n")
-
-    lines.append("## By development tag\n")
-    lines.append("| Tag | + | - | Files touched |")
-    lines.append("|---|---|---|---|")
-    for tag, s in sorted(stats.get("by_tag", {}).items(), key=lambda x: -x[1]["additions"]):
-        lines.append(f"| {tag} | {s['additions']} | {s['deletions']} | {s['files']} |")
-
-    lines.append("\n## By category\n")
-    lines.append("| Category | + | - | Files touched |")
-    lines.append("|---|---|---|---|")
-    for cat, s in sorted(stats["by_category"].items(), key=lambda x: -x[1]["additions"]):
-        lines.append(f"| {cat} | {s['additions']} | {s['deletions']} | {s['files']} |")
-
-    lines.append("\n## By language\n")
-    lines.append("| Language | + | - | Files touched |")
-    lines.append("|---|---|---|---|")
-    for lang, s in sorted(stats["by_language"].items(), key=lambda x: -x[1]["additions"])[:20]:
-        lines.append(f"| {lang} | {s['additions']} | {s['deletions']} | {s['files']} |")
-
-    lines.append("\n## By repository\n")
-    lines.append("| Repo | Commits | + | - |")
-    lines.append("|---|---|---|---|")
-    for repo, s in sorted(stats["by_repo"].items(), key=lambda x: -x[1]["additions"]):
-        lines.append(f"| {repo} | {s['commits']} | {s['additions']} | {s['deletions']} |")
-
-    # Language-level detail per repository.
-    lines.append("\n## Language detail by repository\n")
-    for repo, langs in sorted(stats.get("by_repo_language", {}).items(),
-                              key=lambda x: -sum(v["additions"] for v in x[1].values())):
-        lines.append(f"\n<details><summary><strong>{repo}</strong></summary>\n")
-        lines.append("| Language | + | - | Files touched |")
-        lines.append("|---|---|---|---|")
-        for lang, s in sorted(langs.items(), key=lambda x: -x[1]["additions"]):
-            lines.append(f"| {lang} | {s['additions']} | {s['deletions']} | {s['files']} |")
-        lines.append("\n</details>")
-
-    (ROOT / "README_STATS.md").write_text("\n".join(lines) + "\n")
-
-
-def write_html_report(stats):
-    """Write a self-contained HTML summary (charts + tables incl. language detail).
-
-    The stats payload is embedded inline so the file works when opened directly
-    from disk or served via GitHub Pages, with no separate fetch of stats.json.
-    """
-    payload = json.dumps(stats)
-    html = HTML_TEMPLATE.replace("__STATS_JSON__", payload)
-    (ROOT / "README_STATS.html").write_text(html)
-
-
-HTML_TEMPLATE = r"""<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Dev Stats</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
-<style>
-  :root{--bg:#0d1117;--panel:#11161d;--line:#1f2630;--text:#c9d1d9;--dim:#6e7681;
-    --accent:#3fb950;--accent2:#58a6ff;--warn:#e3b341;
-    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--mono);font-size:14px}
-  header{padding:28px 32px 16px;border-bottom:1px solid var(--line)}
-  header .prompt{color:var(--accent)}
-  h1{margin:4px 0 0;font-size:22px;font-weight:600;letter-spacing:-.5px}
-  .sub{color:var(--dim);margin-top:6px}
-  main{padding:24px 32px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px}
-  .card h2{margin:0 0 14px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);font-weight:600}
-  .totals{display:flex;gap:28px;flex-wrap:wrap}
-  .stat .n{font-size:28px;font-weight:700}
-  .stat .l{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
-  .add{color:var(--accent)} .del{color:#f85149}
-  table{width:100%;border-collapse:collapse;font-size:13px}
-  td,th{padding:6px 4px;text-align:left;border-bottom:1px solid var(--line)}
-  th{color:var(--dim);font-weight:500;text-transform:uppercase;font-size:11px}
-  .full{grid-column:1/-1}
-  canvas{max-height:280px}
-  details{margin:8px 0;border:1px solid var(--line);border-radius:6px;padding:8px 12px}
-  summary{cursor:pointer;color:var(--accent2)}
-</style>
-</head>
-<body>
-<header>
-  <div class="prompt">$ dev-stats --report</div>
-  <h1 id="ts">loading...</h1>
-  <div class="sub">summary of code changes across every repo you have write access to</div>
-</header>
-<main id="app"></main>
-<script>
-const stats = __STATS_JSON__;
-function el(tag, cls, html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
-function render(){
-  document.getElementById('ts').textContent = 'updated ' + new Date(stats.generated_at).toLocaleString();
-  const app = document.getElementById('app');
-
-  const totals = el('div','card full',
-    '<h2>totals</h2><div class="totals">'
-    + '<div class="stat"><div class="n">'+stats.totals.commits+'</div><div class="l">commits</div></div>'
-    + '<div class="stat"><div class="n add">+'+stats.totals.additions.toLocaleString()+'</div><div class="l">lines added</div></div>'
-    + '<div class="stat"><div class="n del">-'+stats.totals.deletions.toLocaleString()+'</div><div class="l">lines removed</div></div>'
-    + '</div>');
-  app.appendChild(totals);
-
-  app.appendChild(el('div','card','<h2>by category</h2><canvas id="catChart"></canvas>'));
-  app.appendChild(el('div','card','<h2>by language</h2><canvas id="langChart"></canvas>'));
-
-  // Development-area tags.
-  const tagRows = Object.entries(stats.by_tag || {})
-    .sort((a,b)=>b[1].additions-a[1].additions)
-    .map(([t,s])=>'<tr><td>'+t+'</td><td class="add">+'+s.additions+'</td><td class="del">-'+s.deletions+'</td><td>'+s.files+'</td></tr>').join('');
-  app.appendChild(el('div','card full','<h2>by development tag</h2><table><tr><th>tag</th><th>added</th><th>removed</th><th>files</th></tr>'+tagRows+'</table>'));
-
-  // Language table (full detail, not just top-N chart).
-  const langRows = Object.entries(stats.by_language)
-    .sort((a,b)=>b[1].additions-a[1].additions)
-    .map(([l,s])=>'<tr><td>'+l+'</td><td class="add">+'+s.additions+'</td><td class="del">-'+s.deletions+'</td><td>'+s.files+'</td></tr>').join('');
-  app.appendChild(el('div','card full','<h2>languages (full)</h2><table><tr><th>language</th><th>added</th><th>removed</th><th>files</th></tr>'+langRows+'</table>'));
-
-  // Repo table.
-  const repoRows = Object.entries(stats.by_repo)
-    .sort((a,b)=>b[1].additions-a[1].additions)
-    .map(([r,s])=>'<tr><td>'+r+'</td><td>'+s.commits+'</td><td class="add">+'+s.additions+'</td><td class="del">-'+s.deletions+'</td></tr>').join('');
-  app.appendChild(el('div','card full','<h2>by repository</h2><table><tr><th>repo</th><th>commits</th><th>added</th><th>removed</th></tr>'+repoRows+'</table>'));
-
-  // Language detail per repository.
-  const rl = stats.by_repo_language || {};
-  const detailCard = el('div','card full','<h2>language detail by repository</h2>');
-  Object.entries(rl)
-    .sort((a,b)=>Object.values(b[1]).reduce((t,v)=>t+v.additions,0)-Object.values(a[1]).reduce((t,v)=>t+v.additions,0))
-    .forEach(([repo,langs])=>{
-      const rows = Object.entries(langs).sort((a,b)=>b[1].additions-a[1].additions)
-        .map(([l,s])=>'<tr><td>'+l+'</td><td class="add">+'+s.additions+'</td><td class="del">-'+s.deletions+'</td><td>'+s.files+'</td></tr>').join('');
-      const d = el('details',null,'<summary>'+repo+'</summary><table><tr><th>language</th><th>added</th><th>removed</th><th>files</th></tr>'+rows+'</table>');
-      detailCard.appendChild(d);
-    });
-  app.appendChild(detailCard);
-
-  const palette=['#3fb950','#58a6ff','#e3b341','#f85149','#bc8cff','#39c5cf','#f778ba','#79c0ff'];
-  new Chart(document.getElementById('catChart'),{type:'doughnut',
-    data:{labels:Object.keys(stats.by_category),datasets:[{data:Object.values(stats.by_category).map(v=>v.additions+v.deletions),backgroundColor:palette}]},
-    options:{plugins:{legend:{labels:{color:'#c9d1d9'}}}}});
-  const langs=Object.entries(stats.by_language).sort((a,b)=>(b[1].additions+b[1].deletions)-(a[1].additions+a[1].deletions)).slice(0,10);
-  new Chart(document.getElementById('langChart'),{type:'bar',
-    data:{labels:langs.map(l=>l[0]),datasets:[{label:'lines changed',data:langs.map(l=>l[1].additions+l[1].deletions),backgroundColor:'#58a6ff'}]},
-    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#6e7681'},grid:{color:'#1f2630'}},y:{ticks:{color:'#c9d1d9'},grid:{display:false}}}}});
-}
-render();
-</script>
-</body>
-</html>"""
 
 
 if __name__ == "__main__":

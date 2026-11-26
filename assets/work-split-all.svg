@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="240" viewBox="0 0 460 240" role="img" aria-label="Both — work split">
+<style>.t{font:600 15px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#1f2328}.st,.lv,.ax{font:12px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#59636e}.ln{font:500 13px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#1f2328}.c{font:600 18px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#1f2328}.grid{stroke:#eaeef2}.gap{stroke:#ffffff}.bg{fill:#ffffff;stroke:#d1d9e0}.s-ai{fill:#257de0}.s-backend{fill:#f47230}.s-devops{fill:#00b894}.s-frontend{fill:#f2a600}.s-other{fill:#9c9c9c}.k-professional{fill:#1f2328}.k-personal{fill:#8c959f}@media (prefers-color-scheme:dark){.t,.ln,.c{fill:#e6edf3}.st,.lv,.ax{fill:#9198a1}.grid{stroke:#212830}.gap{stroke:#151b23}.bg{fill:#151b23;stroke:#30363d}.s-ai{fill:#338ced}.s-backend{fill:#e76624}.s-devops{fill:#00a888}.s-frontend{fill:#d28e05}.s-other{fill:#6b6b6b}.k-professional{fill:#e6edf3}.k-personal{fill:#656c76}}</style>
+<rect class="bg" x="0.5" y="0.5" width="459" height="239" rx="12"/>
+<text class="t" x="16" y="28">Both — work split</text>
+<text class="st" x="16" y="46">33 repos · 825 commits · excludes docs/lockfiles</text>
+<path class="s-ai gap" stroke-width="2" d="M110.00,66.00 A80,80 0 0 1 169.49,199.49 L147.93,180.10 A51,51 0 0 0 110.00,95.00 Z"/>
+<path class="s-backend gap" stroke-width="2" d="M169.49,199.49 A80,80 0 0 1 34.89,173.53 L62.12,163.55 A51,51 0 0 0 147.93,180.10 Z"/>
+<path class="s-devops gap" stroke-width="2" d="M34.89,173.53 A80,80 0 0 1 31.31,160.40 L59.83,155.18 A51,51 0 0 0 62.12,163.55 Z"/>
+<path class="s-frontend gap" stroke-width="2" d="M31.31,160.40 A80,80 0 0 1 110.00,66.00 L110.00,95.00 A51,51 0 0 0 59.83,155.18 Z"/>
+<text class="c" x="110" y="148" text-anchor="middle">168k</text>
+<text class="st" x="110" y="164" text-anchor="middle">lines</text>
+<rect class="s-ai" x="236" y="81" width="12" height="12" rx="3"/>
+<text class="ln" x="256" y="92">AI / ML</text>
+<text class="ln" x="440" y="92" text-anchor="end">37%</text>
+<text class="lv" x="256" y="107">61k lines</text>
+<rect class="s-backend" x="236" y="117" width="12" height="12" rx="3"/>
+<text class="ln" x="256" y="128">Backend</text>
+<text class="ln" x="440" y="128" text-anchor="end">33%</text>
+<text class="lv" x="256" y="143">55k lines</text>
+<rect class="s-devops" x="236" y="153" width="12" height="12" rx="3"/>
+<text class="ln" x="256" y="164">DevOps</text>
+<text class="ln" x="440" y="164" text-anchor="end">3%</text>
+<text class="lv" x="256" y="179">4.5k lines</text>
+<rect class="s-frontend" x="236" y="189" width="12" height="12" rx="3"/>
+<text class="ln" x="256" y="200">Frontend</text>
+<text class="ln" x="440" y="200" text-anchor="end">28%</text>
+<text class="lv" x="256" y="215">47k lines</text>
+</svg>

@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engineering Work Dashboard</title>
+<meta name="description" content="Live breakdown of professional and personal engineering work across AI, backend, DevOps and frontend — updated daily from GitHub.">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#f6f8fa; --surface:#ffffff; --line:#d1d9e0; --line-soft:#eaeef2;
+    --text:#1f2328; --text-2:#59636e; --text-3:#818b98;
+    --accent:#1f2328; --accent-ink:#ffffff; --chip:#f0f3f6;
+    --pro-bg:#ddf4ff; --pro-ink:#0550ae; --per-bg:#f0f3f6; --per-ink:#59636e;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --bg:#0d1117; --surface:#151b23; --line:#30363d; --line-soft:#212830;
+      --text:#e6edf3; --text-2:#9198a1; --text-3:#6e7681;
+      --accent:#e6edf3; --accent-ink:#0d1117; --chip:#212830;
+      --pro-bg:#0f2a4a; --pro-ink:#79c0ff; --per-bg:#212830; --per-ink:#9198a1;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --bg:#0d1117; --surface:#151b23; --line:#30363d; --line-soft:#212830;
+    --text:#e6edf3; --text-2:#9198a1; --text-3:#6e7681;
+    --accent:#e6edf3; --accent-ink:#0d1117; --chip:#212830;
+    --pro-bg:#0f2a4a; --pro-ink:#79c0ff; --per-bg:#212830; --per-ink:#9198a1;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 var(--font)}
+  .wrap{max-width:1120px;margin:0 auto;padding:32px 16px 64px}
+  a{color:inherit}
+  header{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+  h1{margin:0;font-size:30px;letter-spacing:-.02em;line-height:1.15}
+  .headline{color:var(--text-2);margin-top:6px;font-size:16px}
+  .links{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;border:1px solid var(--line);
+       background:var(--surface);color:var(--text);font:500 14px var(--font);text-decoration:none;cursor:pointer}
+  .btn:hover{border-color:var(--text-3)}
+  .btn:focus-visible,.seg button:focus-visible,.chip:focus-visible{outline:2px solid var(--pro-ink);outline-offset:2px}
+
+  .controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .seg{display:inline-flex;background:var(--chip);border-radius:10px;padding:3px}
+  .seg button{border:0;background:transparent;color:var(--text-2);font:500 14px var(--font);padding:7px 16px;border-radius:8px;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--surface);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);
+        background:var(--surface);color:var(--text);font:500 13px var(--font);cursor:pointer}
+  .chip .dot{width:10px;height:10px;border-radius:3px;background:var(--c)}
+  .chip[aria-pressed="false"]{color:var(--text-3);border-style:dashed}
+  .chip[aria-pressed="false"] .dot{background:transparent;outline:1.5px solid var(--c);outline-offset:-1.5px}
+
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;min-width:0}
+  .card h2{margin:0 0 4px;font-size:15px}
+  .card .hint{color:var(--text-2);font-size:13px;margin:0 0 14px}
+  .span-12{grid-column:span 12}.span-7{grid-column:span 7}.span-5{grid-column:span 5}.span-6{grid-column:span 6}
+  @media (max-width:860px){.span-7,.span-5,.span-6{grid-column:span 12}}
+
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .kpi .n{font-size:28px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .kpi .l{color:var(--text-2);font-size:13px}
+
+  .pie-wrap{display:grid;grid-template-columns:minmax(180px,260px) 1fr;gap:24px;align-items:center}
+  @media (max-width:520px){.pie-wrap{grid-template-columns:1fr}}
+  .pie-box{position:relative;aspect-ratio:1}
+  .pie-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+  .pie-center .n{font-size:24px;font-weight:600;font-variant-numeric:tabular-nums}
+  .pie-center .l{font-size:12px;color:var(--text-2)}
+  .legend{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+  .legend li{display:grid;grid-template-columns:12px 1fr auto;gap:10px;align-items:center;padding:8px 10px;border-radius:8px;cursor:pointer}
+  .legend li:hover,.legend li.sel{background:var(--chip)}
+  .legend .sw{width:12px;height:12px;border-radius:3px}
+  .legend .nm{font-weight:500}
+  .legend .sub{display:block;color:var(--text-2);font-size:12px;font-weight:400}
+  .legend .pc{font-variant-numeric:tabular-nums;font-weight:600}
+  .legend li.off{opacity:.45}
+
+  .orgs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .org{border:1px solid var(--line);border-radius:10px;padding:16px}
+  .org h3{margin:0;font-size:16px}
+  .org .role{color:var(--text-2);font-size:13px}
+  .org p{margin:8px 0 10px;font-size:14px}
+  .bar{display:flex;height:8px;border-radius:4px;overflow:hidden;gap:2px;background:var(--line-soft)}
+  .bar span{display:block;height:100%}
+  .org .meta{color:var(--text-2);font-size:12px;margin-top:8px}
+
+  .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .badge.pro{background:var(--pro-bg);color:var(--pro-ink)}
+  .badge.per{background:var(--per-bg);color:var(--per-ink)}
+  .table-wrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+  th{color:var(--text-2);font-weight:500;font-size:12px}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  td .repo{font-family:var(--mono);font-size:13px}
+  td .mini{width:120px}
+  .filter-note{font-size:13px;color:var(--text-2);margin:-6px 0 10px}
+  .filter-note button{border:0;background:none;color:var(--pro-ink);cursor:pointer;font:inherit;padding:0}
+  .langs{display:grid;gap:8px}
+  .lang{display:grid;grid-template-columns:120px 1fr 56px;gap:10px;align-items:center;font-size:13px}
+  .lang .track{height:8px;background:var(--line-soft);border-radius:4px;overflow:hidden}
+  .lang .fill{height:100%;background:var(--text-3);border-radius:0 4px 4px 0}
+  .lang .v{text-align:right;color:var(--text-2);font-variant-numeric:tabular-nums}
+  .chart-box{position:relative;height:220px}
+  footer{margin-top:28px;color:var(--text-3);font-size:13px;text-align:center}
+  .warn{font-size:12px;color:var(--text-2);margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 id="name"></h1>
+      <div class="headline" id="headline"></div>
+    </div>
+    <div class="links" id="links"></div>
+  </header>
+
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Work scope" id="scope">
+      <button data-scope="all" aria-pressed="true">Both</button>
+      <button data-scope="professional" aria-pressed="false">Professional</button>
+      <button data-scope="personal" aria-pressed="false">Personal</button>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Work areas shown in chart"></div>
+  </div>
+
+  <div class="grid">
+    <section class="card span-12"><div class="kpis" id="kpis"></div></section>
+
+    <section class="card span-7">
+      <h2>Work split by area</h2>
+      <p class="hint">Lines changed, excluding lockfiles, docs and generated data. Click a slice or row to filter projects.</p>
+      <div class="pie-wrap">
+        <div class="pie-box"><canvas id="pie" aria-label="Work split donut chart" role="img"></canvas>
+          <div class="pie-center"><div class="n" id="pieTotal">–</div><div class="l">lines</div></div></div>
+        <ul class="legend" id="legend"></ul>
+      </div>
+      <div class="warn" id="estimated" hidden>Area split is currently estimated from languages; exact per-file numbers arrive after the next scheduled run.</div>
+    </section>
+
+    <section class="card span-5">
+      <h2>Top languages</h2>
+      <p class="hint" id="langHint">By lines changed in the selected scope.</p>
+      <div class="langs" id="langs"></div>
+    </section>
+
+    <section class="card span-12" id="orgCard">
+      <h2>Professional experience</h2>
+      <p class="hint">Production codebases in company organizations.</p>
+      <div class="orgs" id="orgs"></div>
+    </section>
+
+    <section class="card span-12">
+      <h2>Commit activity</h2>
+      <p class="hint">Commits per week in the selected scope.</p>
+      <div class="chart-box"><canvas id="weeks" aria-label="Weekly commits bar chart" role="img"></canvas></div>
+    </section>
+
+    <section class="card span-12">
+      <h2>Repositories</h2>
+      <p class="hint">Every repository I've committed to, tagged professional or personal.</p>
+      <div class="filter-note" id="filterNote" hidden></div>
+      <div class="table-wrap"><table id="repoTable"></table></div>
+    </section>
+  </div>
+  <footer id="footer"></footer>
+</div>
+
+<script>
+const DATA = /*__STATS_JSON__*/null;
+const AREA_ORDER = ["ai","backend","devops","frontend","other"];
+const state = { scope: "all", shown: new Set(["ai","backend","devops","frontend"]), focus: null };
+const nf = new Intl.NumberFormat();
+const short = n => n >= 1e6 ? (n/1e6).toFixed(1)+"M" : n >= 1e4 ? Math.round(n/1e3)+"k" : n >= 1e3 ? (n/1e3).toFixed(1)+"k" : String(n);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const isDark = () => getComputedStyle(document.documentElement).colorScheme.includes("dark");
+const color = a => DATA.areas[a][isDark() ? "dark" : "light"];
+const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+function inScope(r) { return state.scope === "all" || r.scope === state.scope; }
+function repos() { return Object.entries(DATA.repos).filter(([, r]) => inScope(r)); }
+function primaryArea(r) {
+  let best = "other", v = 0;
+  for (const a of AREA_ORDER) if (a !== "other" && (r.areas[a] || 0) > v) { v = r.areas[a]; best = a; }
+  return best;
+}
+function areaTotals() {
+  const t = Object.fromEntries(AREA_ORDER.map(a => [a, 0]));
+  for (const [, r] of repos()) for (const [a, v] of Object.entries(r.areas)) t[a in t ? a : "other"] += v;
+  return t;
+}
+
+// ---------- static header
+function renderHeader() {
+  const p = DATA.profile;
+  document.getElementById("name").textContent = p.name || "Engineering work";
+  document.getElementById("headline").textContent = p.headline || "";
+  document.title = (p.name ? p.name + " — " : "") + "Engineering Work";
+  document.getElementById("links").innerHTML = Object.entries(p.links || {})
+    .map(([k, v]) => `<a class="btn" href="${esc(v)}" target="_blank" rel="noopener">${esc(k)}</a>`).join("");
+  const when = DATA.generated_at ? new Date(DATA.generated_at).toLocaleDateString(undefined, {year:"numeric",month:"short",day:"numeric"}) : "–";
+  document.getElementById("footer").innerHTML = `Auto-updated daily from GitHub · last run ${esc(when)} · <a href="https://github.com/Arpnik/git-tracker">source</a>`;
+  document.getElementById("estimated").hidden = !DATA.area_estimated;
+}
+
+// ---------- controls
+function renderChips() {
+  const el = document.getElementById("chips");
+  el.innerHTML = AREA_ORDER.map(a => `<button class="chip" data-area="${a}" aria-pressed="${state.shown.has(a)}" style="--c:${color(a)}">
+      <span class="dot"></span>${esc(DATA.areas[a].label)}</button>`).join("");
+  el.querySelectorAll(".chip").forEach(b => b.onclick = () => {
+    const a = b.dataset.area;
+    if (state.shown.has(a)) { if (state.shown.size > 1) state.shown.delete(a); } else state.shown.add(a);
+    if (state.focus && !state.shown.has(state.focus)) state.focus = null;
+    update();
+  });
+}
+document.querySelectorAll("#scope button").forEach(b => b.onclick = () => {
+  state.scope = b.dataset.scope;
+  document.querySelectorAll("#scope button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  update();
+});
+
+// ---------- charts
+let pie, weeks;
+function renderPie() {
+  const t = areaTotals();
+  const areas = AREA_ORDER.filter(a => state.shown.has(a));
+  const total = areas.reduce((s, a) => s + t[a], 0);
+  document.getElementById("pieTotal").textContent = short(total);
+  const ds = {
+    data: areas.map(a => t[a]),
+    backgroundColor: areas.map(a => state.focus && state.focus !== a ? color(a) + "55" : color(a)),
+    borderColor: cssVar("--surface"), borderWidth: 2, hoverOffset: 6, borderRadius: 4,
+  };
+  if (typeof Chart === "undefined") { /* CDN blocked: legend still works */ }
+  else if (!pie) {
+    pie = new Chart(document.getElementById("pie"), {
+      type: "doughnut",
+      data: { labels: areas.map(a => DATA.areas[a].label), datasets: [ds] },
+      options: {
+        cutout: "64%", maintainAspectRatio: false, animation: { duration: 350 },
+        plugins: { legend: { display: false }, tooltip: { callbacks: {
+          label: c => { const sum = c.dataset.data.reduce((s, v) => s + v, 0);
+            return ` ${nf.format(c.raw)} lines · ${sum ? Math.round(100 * c.raw / sum) : 0}%`; } } } },
+        onClick: (_, els) => { if (!els.length) return; focusArea(pie.$areas[els[0].index]); },
+      }
+    });
+  } else if (pie) {
+    pie.data.labels = areas.map(a => DATA.areas[a].label);
+    pie.data.datasets[0] = ds;
+    pie.update();
+  }
+  if (pie) pie.$areas = areas;
+
+  document.getElementById("legend").innerHTML = AREA_ORDER.map(a => {
+    const on = state.shown.has(a), pct = on && total ? Math.round(100 * t[a] / total) + "%" : "–";
+    return `<li data-area="${a}" class="${on ? "" : "off"} ${state.focus === a ? "sel" : ""}">
+      <span class="sw" style="background:${color(a)}"></span>
+      <span class="nm">${esc(DATA.areas[a].label)}<span class="sub">${nf.format(t[a])} lines</span></span>
+      <span class="pc">${pct}</span></li>`;
+  }).join("");
+  document.querySelectorAll("#legend li").forEach(li => li.onclick = () => {
+    const a = li.dataset.area;
+    if (!state.shown.has(a)) state.shown.add(a);
+    focusArea(a);
+  });
+}
+function focusArea(a) { state.focus = state.focus === a ? null : a; update(); }
+
+function renderWeeks() {
+  const counts = {};
+  let hasRepoWeeks = false;
+  for (const [, r] of repos()) for (const [w, c] of Object.entries(r.weeks || {})) { hasRepoWeeks = true; counts[w] = (counts[w] || 0) + c; }
+  if (!hasRepoWeeks && state.scope === "all") for (const [w, s] of Object.entries(DATA.by_week)) counts[w] = s.commits;
+  const keys = Object.keys(counts).sort();
+  const labels = keys, values = keys.map(k => counts[k]);
+  const grid = cssVar("--line-soft"), ink = cssVar("--text-2");
+  const cfg = {
+    type: "bar",
+    data: { labels, datasets: [{ label: "commits", data: values, backgroundColor: cssVar("--text-3"), borderRadius: 4, maxBarThickness: 14 }] },
+    options: { maintainAspectRatio: false, animation: { duration: 300 },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { title: c => "Week of " + c[0].label, label: c => ` ${c.raw} commits` } } },
+      scales: { x: { ticks: { color: ink, maxTicksLimit: 8 }, grid: { display: false } },
+                y: { ticks: { color: ink, precision: 0 }, grid: { color: grid }, border: { display: false } } } }
+  };
+  if (weeks) weeks.destroy();
+  weeks = new Chart(document.getElementById("weeks"), cfg);
+  document.querySelector("#weeks").closest(".card").querySelector(".hint").textContent =
+    !keys.length ? "Per-scope weekly activity appears after the next scheduled run." : "Commits per week in the selected scope.";
+}
+
+// ---------- panels
+function renderKpis() {
+  const rs = repos();
+  const commits = rs.reduce((s, [, r]) => s + r.commits, 0);
+  const lines = rs.reduce((s, [, r]) => s + r.additions + r.deletions, 0);
+  const pro = rs.filter(([, r]) => r.scope === "professional").length;
+  document.getElementById("kpis").innerHTML = [
+    [rs.length, state.scope === "all" ? `repositories · ${pro} professional` : "repositories"],
+    [nf.format(commits), "commits"],
+    [short(lines), "lines changed"],
+  ].map(([n, l]) => `<div class="kpi"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
+}
+
+function areaBar(areas) {
+  const tot = AREA_ORDER.filter(a => a !== "other").reduce((s, a) => s + (areas[a] || 0), 0) || 1;
+  return `<div class="bar">${AREA_ORDER.filter(a => a !== "other" && areas[a])
+    .map(a => `<span title="${esc(DATA.areas[a].label)} ${Math.round(100 * areas[a] / tot)}%" style="width:${100 * areas[a] / tot}%;background:${color(a)}"></span>`).join("")}</div>`;
+}
+
+function renderOrgs() {
+  const card = document.getElementById("orgCard");
+  card.hidden = state.scope === "personal";
+  const groups = {};
+  for (const [name, r] of Object.entries(DATA.repos)) if (r.scope === "professional") (groups[r.org] ||= []).push([name, r]);
+  const orgs = DATA.profile.orgs || {};
+  document.getElementById("orgs").innerHTML = Object.entries(groups)
+    .sort((a, b) => b[1].reduce((s, [, r]) => s + r.commits, 0) - a[1].reduce((s, [, r]) => s + r.commits, 0))
+    .map(([org, list]) => {
+      const meta = orgs[org] || {};
+      const areas = {}; let commits = 0;
+      for (const [, r] of list) { commits += r.commits; for (const [a, v] of Object.entries(r.areas)) areas[a] = (areas[a] || 0) + v; }
+      const top = AREA_ORDER.filter(a => a !== "other" && areas[a]).sort((x, y) => areas[y] - areas[x]).slice(0, 3).map(a => DATA.areas[a].label).join(" · ");
+      return `<div class="org">
+        <h3>${meta.url ? `<a href="${esc(meta.url)}" target="_blank" rel="noopener">${esc(org)}</a>` : esc(org)}</h3>
+        ${meta.role ? `<div class="role">${esc(meta.role)}</div>` : ""}
+        ${meta.summary ? `<p>${esc(meta.summary)}</p>` : ""}
+        ${areaBar(areas)}
+        <div class="meta">${list.length} repos · ${nf.format(commits)} commits${top ? " · " + esc(top) : ""}</div>
+      </div>`;
+    }).join("") || `<p class="hint">No professional repos yet — add orgs in config/profile.yaml.</p>`;
+}
+
+function renderLangs() {
+  const t = {};
+  for (const [, r] of repos()) for (const [l, v] of Object.entries(r.languages || {})) t[l] = (t[l] || 0) + v;
+  const skip = new Set(["JSON","Lock","Markdown","Text","CSV","Image","PDF","Config","Dotenv","JSON Lines"]);
+  const top = Object.entries(t).filter(([l]) => !skip.has(l)).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  const max = top.length ? top[0][1] : 1;
+  document.getElementById("langs").innerHTML = top.map(([l, v]) => `<div class="lang"><span>${esc(l)}</span>
+    <div class="track"><div class="fill" style="width:${100 * v / max}%"></div></div><span class="v">${short(v)}</span></div>`).join("")
+    || `<p class="hint">No data in this scope.</p>`;
+}
+
+function renderTable() {
+  let rs = repos();
+  if (state.focus) rs = rs.filter(([, r]) => (r.areas[state.focus] || 0) > 0)
+    .sort((a, b) => (b[1].areas[state.focus] || 0) - (a[1].areas[state.focus] || 0));
+  else rs.sort((a, b) => b[1].commits - a[1].commits);
+  const note = document.getElementById("filterNote");
+  note.hidden = !state.focus;
+  if (state.focus) {
+    note.innerHTML = `Showing repos with ${esc(DATA.areas[state.focus].label)} work, sorted by lines in that area · <button id="clearFocus">clear filter</button>`;
+    document.getElementById("clearFocus").onclick = () => focusArea(state.focus);
+  }
+  document.getElementById("repoTable").innerHTML = `<thead><tr><th>Repository</th><th>Type</th><th>Focus</th><th>Area mix</th>
+      <th class="num">Commits</th><th class="num">Lines</th></tr></thead><tbody>` +
+    rs.map(([name, r]) => {
+      const pro = r.scope === "professional";
+      const link = pro || r.private ? esc(name) : `<a href="https://github.com/${esc(name)}" target="_blank" rel="noopener">${esc(name)}</a>`;
+      return `<tr><td><span class="repo">${link}</span></td>
+        <td><span class="badge ${pro ? "pro" : "per"}">${pro ? "Professional · " + esc(r.org) : "Personal"}</span></td>
+        <td>${esc(DATA.areas[primaryArea(r)].label)}</td>
+        <td><div class="mini">${areaBar(r.areas)}</div></td>
+        <td class="num">${nf.format(r.commits)}</td><td class="num">${short(r.additions + r.deletions)}</td></tr>`;
+    }).join("") + "</tbody>";
+}
+
+function safe(fn) { try { fn(); } catch (e) { console.error(fn.name, e); } }
+function readHash() {
+  const h = new URLSearchParams(location.hash.slice(1));
+  if (["all","professional","personal"].includes(h.get("scope"))) state.scope = h.get("scope");
+  const a = h.get("area");
+  if (AREA_ORDER.includes(a)) { state.shown.add(a); state.focus = a; }
+  document.querySelectorAll("#scope button").forEach(x => x.setAttribute("aria-pressed", x.dataset.scope === state.scope));
+}
+function writeHash() {
+  const h = new URLSearchParams({ scope: state.scope });
+  if (state.focus) h.set("area", state.focus);
+  history.replaceState(null, "", "#" + h.toString());
+}
+function update() { writeHash(); [renderChips, renderKpis, renderPie, renderLangs, renderOrgs, renderWeeks, renderTable].forEach(safe); }
+
+if (!DATA) {
+  document.querySelector(".wrap").innerHTML = "<p>No data embedded yet — run <code>python scripts/render.py</code>.</p>";
+} else {
+  renderHeader(); readHash(); update();
+  addEventListener("hashchange", () => { readHash(); update(); });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { pie && pie.destroy(); pie = null; update(); });
+}
+</script>
+</body>
+</html>

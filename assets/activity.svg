@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="230" viewBox="0 0 920 230" role="img" aria-label="Weekly commit activity">
+<style>.t{font:600 15px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#1f2328}.st,.lv,.ax{font:12px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#59636e}.ln{font:500 13px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#1f2328}.c{font:600 18px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#1f2328}.grid{stroke:#eaeef2}.gap{stroke:#ffffff}.bg{fill:#ffffff;stroke:#d1d9e0}.s-ai{fill:#257de0}.s-backend{fill:#f47230}.s-devops{fill:#00b894}.s-frontend{fill:#f2a600}.s-other{fill:#9c9c9c}.k-professional{fill:#1f2328}.k-personal{fill:#8c959f}@media (prefers-color-scheme:dark){.t,.ln,.c{fill:#e6edf3}.st,.lv,.ax{fill:#9198a1}.grid{stroke:#212830}.gap{stroke:#151b23}.bg{fill:#151b23;stroke:#30363d}.s-ai{fill:#338ced}.s-backend{fill:#e76624}.s-devops{fill:#00a888}.s-frontend{fill:#d28e05}.s-other{fill:#6b6b6b}.k-professional{fill:#e6edf3}.k-personal{fill:#656c76}}</style>
+<rect class="bg" x="0.5" y="0.5" width="919" height="229" rx="12"/>
+<text class="t" x="16" y="28">Commit activity · last 26 weeks</text>
+<text class="st" x="16" y="46">175 commits</text>
+<line class="grid" x1="44" x2="904" y1="196.0" y2="196.0"/>
+<text class="ax" x="36" y="200.0" text-anchor="end">0</text>
+<line class="grid" x1="44" x2="904" y1="130.0" y2="130.0"/>
+<text class="ax" x="36" y="134.0" text-anchor="end">25</text>
+<line class="grid" x1="44" x2="904" y1="64.0" y2="64.0"/>
+<text class="ax" x="36" y="68.0" text-anchor="end">50</text>
+<text class="ax" x="60.5" y="218" text-anchor="middle">Jun</text>
+<rect class="k-personal" x="115.7" y="180.2" width="22.0" height="14.8" rx="2"/>
+<rect class="k-personal" x="148.8" y="190.7" width="22.0" height="4.3" rx="2"/>
+<rect class="k-personal" x="181.8" y="182.8" width="22.0" height="12.2" rx="2"/>
+<rect class="k-personal" x="214.9" y="167.0" width="22.0" height="28.0" rx="2"/>
+<text class="ax" x="225.9" y="218" text-anchor="middle">Jul</text>
+<rect class="k-personal" x="248.0" y="182.8" width="22.0" height="12.2" rx="2"/>
+<rect class="k-personal" x="281.1" y="161.7" width="22.0" height="33.3" rx="2"/>
+<rect class="k-personal" x="314.2" y="188.1" width="22.0" height="6.9" rx="2"/>
+<text class="ax" x="358.2" y="218" text-anchor="middle">Aug</text>
+<rect class="k-personal" x="413.4" y="193.4" width="22.0" height="1.6" rx="2"/>
+<rect class="k-personal" x="446.5" y="87.8" width="22.0" height="107.2" rx="2"/>
+<rect class="k-personal" x="479.5" y="161.7" width="22.0" height="33.3" rx="2"/>
+<rect class="k-personal" x="512.6" y="140.6" width="22.0" height="54.4" rx="2"/>
+<text class="ax" x="523.6" y="218" text-anchor="middle">Sep</text>
+<rect class="k-personal" x="578.8" y="193.4" width="22.0" height="1.6" rx="2"/>
+<rect class="k-personal" x="611.8" y="174.9" width="22.0" height="20.1" rx="2"/>
+<rect class="k-personal" x="644.9" y="167.0" width="22.0" height="28.0" rx="2"/>
+<text class="ax" x="655.9" y="218" text-anchor="middle">Oct</text>
+<rect class="k-personal" x="678.0" y="182.8" width="22.0" height="12.2" rx="2"/>
+<rect class="k-personal" x="711.1" y="167.0" width="22.0" height="28.0" rx="2"/>
+<rect class="k-personal" x="744.2" y="169.6" width="22.0" height="25.4" rx="2"/>
+<text class="ax" x="788.2" y="218" text-anchor="middle">Nov</text>
+<rect class="k-personal" x="843.4" y="177.5" width="22.0" height="17.5" rx="2"/>
+<rect class="k-personal" x="876.5" y="193.4" width="22.0" height="1.6" rx="2"/>
+</svg>
