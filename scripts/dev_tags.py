@@ -9,7 +9,7 @@ which powers the work-split pie charts:
     backend   APIs, services, databases, server-side languages
     devops    CI/CD, containers, IaC, deployment & build tooling
     frontend  UI code, styles, components, mobile UI
-    other     docs, lockfiles, generated data, assets — excluded from the pie by default
+    other     docs, lockfiles, data files, assets — excluded from the pie by default
 
 Detection is heuristic: path keywords are checked in priority order (so a
 Dockerfile in `backend/` is DevOps, and a Python training script is AI, not
@@ -24,7 +24,7 @@ AREA_LABELS = {
     "backend": "Backend",
     "devops": "DevOps",
     "frontend": "Frontend",
-    "other": "Other",
+    "other": "Docs & data",
 }
 
 # Noise that should never count as "real" work in any area.
@@ -32,8 +32,20 @@ _NOISE = [
     r"(^|/)package-lock\.json$", r"(^|/)yarn\.lock$", r"(^|/)pnpm-lock\.yaml$",
     r"\.lock$", r"(^|/)go\.sum$", r"\.min\.(js|css)$", r"(^|/)dist/", r"(^|/)build/",
     r"\.(png|jpe?g|gif|svg|webp|ico|pdf|mp4|woff2?|ttf)$", r"\.(md|mdx|rst|txt)$",
-    r"(^|/)license", r"\.(csv|tsv|parquet|jsonl)$",
+    r"(^|/)license", r"\.(csv|tsv|parquet|jsonl|ndjson|log)$", r"(^|/)go\.sum$",
+    # Data-like JSON/YAML: datasets, fixtures, translations, snapshots, recordings.
+    r"(^|/)(data|datasets?|fixtures?|samples?|mocks?|seeds?|snapshots?|locales?|i18n|"
+    r"lang|translations?|outputs?|results?|logs?)/.*\.(json|ya?ml|xml)$",
+    r"\.(snap|lottie)$", r"(^|/)__snapshots__/",
 ]
+
+# Config / manifest formats. They carry no area of their own, so they take on the
+# repo's discipline (package.json in a React app is frontend work, application.yml
+# in a Spring API is backend work). Without a known discipline they are "other".
+_CONFIG_LANGS = {
+    "JSON", "YAML", "TOML", "XML", "INI", "Config", "Dotenv", "Properties", "Gradle",
+    "Groovy", "Plist", "Pbxproj", "Iml",
+}
 
 # STRONG signals: the file itself says what it is, regardless of which repo it
 # lives in (a Dockerfile in a backend repo is still DevOps work).
@@ -157,7 +169,7 @@ def area_for(filename, language=None, repo_area=None):
     if language in _LANG_FIXED:
         return _LANG_FIXED[language]
     code_lang = language in _LANG_FALLBACK
-    if repo_area and code_lang:
+    if repo_area and (code_lang or language in _CONFIG_LANGS):
         return repo_area
     for area, patterns in _WEAK:
         if any(p.search(path) for p in patterns):
@@ -173,8 +185,71 @@ def area_for_language(language, repo_area=None):
         return _LANG_FIXED[language]
     if language in _LANG_FALLBACK:
         return repo_area or _LANG_FALLBACK[language]
+    if language in _CONFIG_LANGS and repo_area:
+        return repo_area
     return "other"
 
 
 # Backwards-compatible alias.
 tag_for = area_for
+
+
+# ---------------------------------------------------------------- tests
+
+_TEST_RE = re.compile(
+    r"(^|/)(tests?|__tests__|specs?|e2e|cypress|playwright|integration[-_]?tests?|testing)/"
+    r"|\.(test|spec|e2e)\.[a-z0-9]+$"
+    r"|(^|/)test_[^/]+\.py$|_test\.(py|go|dart|exs?)$"
+    r"|tests?\.(java|kt|cs|swift|scala)$|_spec\.rb$|(^|/)conftest\.py$"
+)
+
+
+def is_test(filename):
+    """True for test code (unit, integration, e2e, fixtures setup)."""
+    return bool(_TEST_RE.search(filename.lower()))
+
+
+# ---------------------------------------------------------------- commit types
+
+COMMIT_TYPES = ["feature", "fix", "refactor", "test", "docs", "chore"]
+COMMIT_TYPE_LABELS = {
+    "feature": "Features & changes", "fix": "Bug fixes", "refactor": "Refactoring",
+    "test": "Tests", "docs": "Docs", "chore": "Build, CI & deps",
+}
+_CONVENTIONAL = re.compile(r"^\s*([a-z]+)(\([^)]*\))?!?:", re.I)
+_CONV_MAP = {
+    "feat": "feature", "feature": "feature", "fix": "fix", "bugfix": "fix", "hotfix": "fix",
+    "refactor": "refactor", "perf": "refactor", "style": "refactor", "cleanup": "refactor",
+    "test": "test", "tests": "test", "docs": "docs", "doc": "docs",
+    "chore": "chore", "build": "chore", "ci": "chore", "deps": "chore", "revert": "chore",
+    "release": "chore",
+}
+_KEYWORDS = [
+    ("fix", r"\b(fix(e[sd])?|bug|hot-?fix|resolve[sd]?|patch(ed)?|crash|issue|broken|error)\b"),
+    ("refactor", r"\b(refactor\w*|clean(ed)?[- ]?up|restructur\w*|renam\w*|simplif\w*|"
+                 r"reorgani[sz]\w*|extract\w*|optimi[sz]\w*|perf(ormance)?)\b"),
+    ("test", r"\b(tests?|testing|unit[- ]?tests?|coverage|spec)\b"),
+    ("docs", r"\b(docs?|documentation|readme|comments?)\b"),
+    ("chore", r"\b(bump\w*|upgrad\w*|dependenc\w*|deps|ci|workflow|pipeline|docker\w*|"
+              r"deploy\w*|release|version|lint\w*|format\w*|config\w*|merge)\b"),
+]
+_KEYWORDS_RE = [(t, re.compile(p, re.I)) for t, p in _KEYWORDS]
+
+
+def commit_type(message, test_lines=0, code_lines=0, docs_only=False):
+    """Classify a commit as feature/fix/refactor/test/docs/chore.
+
+    Conventional-commit prefixes win, then what the diff touched (only tests /
+    only docs), then message keywords. Anything else counts as feature work.
+    """
+    m = _CONVENTIONAL.match(message or "")
+    if m and m.group(1).lower() in _CONV_MAP:
+        return _CONV_MAP[m.group(1).lower()]
+    if test_lines and not code_lines:
+        return "test"
+    if docs_only:
+        return "docs"
+    for t, rx in _KEYWORDS_RE:
+        if rx.search(message or ""):
+            return t
+    return "feature"

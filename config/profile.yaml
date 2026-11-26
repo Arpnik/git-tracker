@@ -14,6 +14,13 @@ links:
   # LinkedIn: https://www.linkedin.com/in/<your-handle>
   # Email: mailto:you@example.com
 
+# Your local timezone, for streaks and the "when I code" heatmap.
+timezone: America/Toronto
+# Extra emails you've committed with that aren't linked to your GitHub account
+# (e.g. an old laptop or work email). Commits by these are counted too.
+commit_emails: []
+#  - you@company.com
+
 # Repos owned by these GitHub orgs are INDUSTRY work (shown as "Industry");
 # everything else is PERSONAL.
 professional_orgs:

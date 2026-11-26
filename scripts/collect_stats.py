@@ -29,7 +29,9 @@ from pathlib import Path
 
 import hashlib
 
-from dev_tags import area_for, repo_default_area
+from zoneinfo import ZoneInfo
+
+from dev_tags import area_for, repo_default_area, is_test, commit_type
 from render import render_all, load_profile
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -47,6 +49,8 @@ SCHEMA_VERSION = 2
 AREA_FILE_CAP = int(os.environ.get("AREA_FILE_CAP", "800"))
 # Commits kept per repo for the "Recently" feed.
 RECENT_PER_REPO = 15
+# Extra commit-author emails, filled from profile.yaml at runtime.
+COMMIT_EMAILS = []
 
 TOKEN = os.environ.get("STATS_PAT")
 USERNAME = os.environ.get("GH_USERNAME")
@@ -143,9 +147,10 @@ def graphql(query, variables=None):
 
 def _repo_is_usable(n):
     """Shared filtering for a repo node from either discovery path."""
-    if n["isArchived"] or not n["defaultBranchRef"]:
+    if not n["defaultBranchRef"]:
         return False
-    if n["viewerPermission"] not in ("WRITE", "ADMIN", "MAINTAIN"):
+    # Archived repos are read-only but still hold years of history: keep them.
+    if not n["isArchived"] and n["viewerPermission"] not in ("WRITE", "ADMIN", "MAINTAIN"):
         return False
     if n["nameWithOwner"] in EXCLUDE_REPOS:
         return False
@@ -259,8 +264,49 @@ def list_org_repos(org):
     return repos, None
 
 
+REPO_FIELDS = """
+    nameWithOwner isArchived isFork isPrivate description stargazerCount
+    viewerPermission defaultBranchRef { name } owner { login }
+"""
+
+
+def list_contributed_repos(days):
+    """Repos you committed to, year by year, from your contribution history.
+
+    Catches what permission-based discovery can't see: open-source repos, old
+    collaborations and org repos where you no longer have write access.
+    """
+    query = """
+    query($from: DateTime!, $to: DateTime!) {
+      viewer {
+        contributionsCollection(from: $from, to: $to) {
+          commitContributionsByRepository(maxRepositories: 100) {
+            repository { %s }
+          }
+        }
+      }
+    }
+    """ % REPO_FIELDS
+    found = {}
+    end = datetime.now(timezone.utc)
+    start_limit = end - timedelta(days=days)
+    while end > start_limit:
+        start = max(end - timedelta(days=365), start_limit)
+        try:
+            data = graphql(query, {"from": start.isoformat(), "to": end.isoformat()})
+            for c in data["viewer"]["contributionsCollection"]["commitContributionsByRepository"]:
+                n = c["repository"]
+                if n["defaultBranchRef"] and n["nameWithOwner"] not in EXCLUDE_REPOS \
+                        and (not INCLUDE_ORGS or n["owner"]["login"] in INCLUDE_ORGS):
+                    found[n["nameWithOwner"]] = n
+        except Exception as e:  # noqa: BLE001 - discovery is best-effort
+            print(f"  ! contribution history {start.date()}..{end.date()}: {e}")
+        end = start
+    return found
+
+
 def list_accessible_repos():
-    """Merge viewer-level and per-org discovery, deduped by nameWithOwner."""
+    """Merge viewer-level, per-org and contribution-history discovery."""
     by_name = {n["nameWithOwner"]: n for n in list_viewer_repos()}
     viewer_names = set(by_name)
 
@@ -286,8 +332,16 @@ def list_accessible_repos():
         elif added:
             print(f"  + org '{org}': {added} repo(s) not seen via viewer.repositories.")
 
+    contributed = list_contributed_repos(DAYS_LOOKBACK)
+    new_from_history = sorted(set(contributed) - set(by_name))
+    for name in new_from_history:
+        by_name[name] = contributed[name]
+    if new_from_history:
+        print(f"Contribution history added {len(new_from_history)} repo(s): "
+              f"{', '.join(new_from_history)}")
+
     # Report anything that only org-discovery found (the altconvey-style gap).
-    extra = set(by_name) - viewer_names
+    extra = set(by_name) - viewer_names - set(new_from_history)
     if extra:
         print(f"Recovered {len(extra)} repo(s) missed by viewer.repositories: "
               f"{', '.join(sorted(extra))}")
@@ -296,7 +350,22 @@ def list_accessible_repos():
 
 
 def list_commit_shas(owner, repo, branch, since_iso):
-    """List SHAs authored by USERNAME on `branch` since `since_iso`.
+    """List SHAs authored by you on `branch` since `since_iso`: by GitHub login,
+    plus any extra `commit_emails` from profile.yaml (commits made with an email
+    that isn't linked to your account). Returns (shas, error)."""
+    seen, out, err = set(), [], None
+    for author in [USERNAME] + COMMIT_EMAILS:
+        shas, e = _list_commit_shas(owner, repo, branch, since_iso, author)
+        err = err or e
+        for sha in shas:
+            if sha not in seen:
+                seen.add(sha)
+                out.append(sha)
+    return out, err
+
+
+def _list_commit_shas(owner, repo, branch, since_iso, author):
+    """List SHAs by one author (login or email) on `branch` since `since_iso`.
 
     Returns (shas, error). On any fetch problem we print a debuggable message
     and return whatever we have plus a short error string (None on success).
@@ -305,7 +374,7 @@ def list_commit_shas(owner, repo, branch, since_iso):
     shas, page = [], 1
     while True:
         r = gh_request("GET", f"{GITHUB_API}/repos/{owner}/{repo}/commits", params={
-            "sha": branch, "author": USERNAME, "since": since_iso,
+            "sha": branch, "author": author, "since": since_iso,
             "per_page": 100, "page": page,
         })
         if r.status_code == 409:  # empty repository — nothing to do, not an error
@@ -330,6 +399,28 @@ def list_commit_shas(owner, repo, branch, since_iso):
             break
         page += 1
     return shas, None
+
+
+def search_count(q):
+    r = gh_request("GET", f"{GITHUB_API}/search/issues", params={"q": q, "per_page": 1})
+    if r.status_code != 200:
+        return None
+    return r.json().get("total_count")
+
+
+def collect_pull_requests(orgs, since):
+    """Pull requests opened / merged / reviewed: overall and per company org."""
+    def counts(extra=""):
+        base = f"is:pr created:>={since} {extra}".strip()
+        return {
+            "opened": search_count(f"{base} author:{USERNAME}"),
+            "merged": search_count(f"{base} author:{USERNAME} is:merged"),
+            "reviewed": search_count(f"{base} reviewed-by:{USERNAME} -author:{USERNAME}"),
+        }
+    out = {"since": since, "all": counts(), "orgs": {}}
+    for org in orgs:
+        out["orgs"][org] = counts(f"org:{org}")
+    return out
 
 
 def get_commit_detail(owner, repo, sha):
@@ -409,6 +500,9 @@ def main():
     # be derived from older aggregates) -> recompute everything once.
     profile = load_profile()
     repo_areas = profile.get("repo_areas") or {}
+    global COMMIT_EMAILS
+    COMMIT_EMAILS = [e for e in (profile.get("commit_emails") or []) if e]
+    tz = ZoneInfo(profile.get("timezone") or "UTC")
     # Fingerprint of everything that affects classification. Editing the rules in
     # dev_tags.py or `repo_areas` in profile.yaml triggers one full recompute.
     fingerprint = hashlib.sha256(json.dumps({
@@ -417,6 +511,9 @@ def main():
         "repo_areas": repo_areas,
         "cap": AREA_FILE_CAP,
         "recent_per_repo": RECENT_PER_REPO,
+        "emails": COMMIT_EMAILS,
+        "timezone": str(tz),
+        "lookback": DAYS_LOOKBACK,
     }, sort_keys=True).encode()).hexdigest()[:16]
     needs_reset = stats.get("classifier") != fingerprint
     if needs_reset:
@@ -436,11 +533,12 @@ def main():
             "totals": {"commits": 0, "additions": 0, "deletions": 0},
             "by_repo": {}, "by_language": {}, "by_category": {}, "by_week": {},
             "by_repo_language": {}, "by_area": {}, "by_repo_area": {}, "by_repo_week": {},
-            "recent": [],
+            "recent": [], "by_repo_habits": {},
         }
     stats["schema_version"] = SCHEMA_VERSION
     stats["classifier"] = fingerprint
     stats.setdefault("recent", [])
+    stats.setdefault("by_repo_habits", {})
 
     processed = set()
     for repo_shas in state["processed_shas"].values():
@@ -519,9 +617,11 @@ def main():
             if len(detail.get("parents", [])) > 1:
                 continue
 
-            commit_date = detail["commit"]["author"]["date"][:10]
-            week = (datetime.fromisoformat(commit_date) - timedelta(
-                days=datetime.fromisoformat(commit_date).weekday())).strftime("%Y-%m-%d")
+            # Local time (profile timezone) for days, weeks and the time-of-day heatmap.
+            when = datetime.fromisoformat(
+                detail["commit"]["author"]["date"].replace("Z", "+00:00")).astimezone(tz)
+            commit_date = when.date().isoformat()
+            week = (when.date() - timedelta(days=when.weekday())).isoformat()
 
             stats["totals"]["commits"] += 1
             rstat = stats["by_repo"].setdefault(full, {"commits": 0, "additions": 0, "deletions": 0})
@@ -536,6 +636,13 @@ def main():
                 "message": (detail["commit"].get("message") or "").split("\n")[0][:120],
                 "areas": {},
             }
+            habit = stats["by_repo_habits"].setdefault(full, {
+                "tests": {"test": 0, "code": 0}, "types": {}, "sizes": [],
+                "days": {}, "slots": {}, "lang_months": {},
+            })
+            month = commit_date[:7]
+            c_test = c_code = c_size = 0
+            docs_only = True
 
             for f in detail.get("files", []):
                 add, dele = f.get("additions", 0), f.get("deletions", 0)
@@ -572,12 +679,32 @@ def main():
                 scale = min(1.0, AREA_FILE_CAP / max(add + dele, 1))
                 c_add, c_del = round(add * scale), round(dele * scale)
                 recent["areas"][area] = recent["areas"].get(area, 0) + c_add + c_del
+                if area != "other":
+                    docs_only = False
+                    c_size += c_add + c_del
+                    if is_test(f["filename"]):
+                        c_test += c_add + c_del
+                    else:
+                        c_code += c_add + c_del
+                    lm = habit["lang_months"].setdefault(lang, {})
+                    lm[month] = lm.get(month, 0) + c_add + c_del
+                elif not re.search(r"\.(md|mdx|rst|txt)$|(^|/)docs?/", f["filename"], re.I):
+                    docs_only = False
                 for bucket in (stats["by_area"], stats["by_repo_area"].setdefault(full, {})):
                     astat = bucket.setdefault(area, {"additions": 0, "deletions": 0, "files": 0})
                     astat["additions"] += c_add
                     astat["deletions"] += c_del
                     astat["files"] += 1
 
+            ctype = commit_type(recent["message"], c_test, c_code, docs_only and bool(detail.get("files")))
+            recent["type"] = ctype
+            habit["types"][ctype] = habit["types"].get(ctype, 0) + 1
+            habit["tests"]["test"] += c_test
+            habit["tests"]["code"] += c_code
+            habit["sizes"].append(c_size)
+            habit["days"][commit_date] = habit["days"].get(commit_date, 0) + 1
+            slot = f"{when.weekday()}-{when.hour}"
+            habit["slots"][slot] = habit["slots"].get(slot, 0) + 1
             stats["recent"].append(recent)
 
     # Keep the newest commits *per repo* for the activity feed, so filtering out
@@ -588,6 +715,13 @@ def main():
         if per_repo[c["repo"]] <= RECENT_PER_REPO:
             recent.append(c)
     stats["recent"] = recent
+
+    # Pull-request counts (a handful of search calls; refreshed every run).
+    try:
+        since = (datetime.now(timezone.utc) - timedelta(days=DAYS_LOOKBACK)).date().isoformat()
+        stats["pull_requests"] = collect_pull_requests(list(profile["professional_orgs"]), since)
+    except Exception as e:  # noqa: BLE001 - optional metric
+        print(f"  ! pull request counts failed: {e}")
 
     state["last_run"] = datetime.now(timezone.utc).isoformat()
     stats["generated_at"] = state["last_run"]

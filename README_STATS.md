@@ -14,7 +14,7 @@ _Last updated: 2026-11-26T22:07:03.420350+00:00_
 | Backend | 23,179 | 30,475 | 53,654 |
 | DevOps | 7,391 | 2,640 | 10,031 |
 | Frontend | 47,519 | 2,499 | 50,018 |
-| Other | 35,819 | 24,052 | 59,871 |
+| Docs & data | 35,819 | 24,052 | 59,871 |
 
 ## By language
 
@@ -81,9 +81,9 @@ _Last updated: 2026-11-26T22:07:03.420350+00:00_
 | GetKnowbie/knowbie-cms | 💼 Industry | AI / ML | 3 | 5,069 | 426 |
 | Arpnik/test-jest | Personal | Frontend | 3 | 5,947 | 0 |
 | toyosi12/fs-agent | Personal | AI / ML | 3 | 153 | 18 |
-| Arpnik/tech-salary-analysis | Personal | Other | 2 | 366 | 0 |
+| Arpnik/tech-salary-analysis | Personal | Docs & data | 2 | 366 | 0 |
 | Arpnik/Recommender-Systems | Personal | AI / ML | 2 | 2,955 | 0 |
-| Arpnik/llm-zoomcamp | Personal | Other | 1 | 365 | 0 |
+| Arpnik/llm-zoomcamp | Personal | Docs & data | 1 | 365 | 0 |
 
 ## Language detail by repository
 

@@ -21,7 +21,8 @@ from urllib.parse import quote
 
 import yaml
 
-from dev_tags import AREAS, AREA_LABELS, area_for_language, repo_default_area
+from dev_tags import (AREAS, AREA_LABELS, COMMIT_TYPES, COMMIT_TYPE_LABELS,
+                      area_for_language, repo_default_area)
 
 ROOT = Path(__file__).resolve().parent.parent
 STATS_FILE = ROOT / "data" / "stats.json"
@@ -47,8 +48,8 @@ AREA_COLORS = {
 SCOPE_COLORS = {"professional": ("#1f2328", "#e6edf3"), "personal": ("#8c959f", "#656c76")}
 
 # Languages that aren't "real" code when estimating areas from language totals.
-_NOISE_LANGS = {"JSON", "Lock", "Markdown", "Text", "CSV", "Image", "PDF", "Config",
-                "Dotenv", "YAML", "TOML", "INI", "XML", "JSON Lines", "reStructuredText"}
+_NOISE_LANGS = {"Lock", "Markdown", "Text", "CSV", "Image", "PDF", "JSON Lines",
+                "reStructuredText", "Log"}
 
 FONT = "-apple-system,Segoe UI,Helvetica,Arial,sans-serif"
 
@@ -113,7 +114,9 @@ def lines(s):
     return s.get("additions", 0) + s.get("deletions", 0)
 
 
-def area_totals(stats, profile, scope, repos=None):
+def area_totals(stats, profile, scope, repos=None, metric="changed"):
+    val = {"changed": lines, "added": lambda s: s.get("additions", 0),
+           "deleted": lambda s: s.get("deletions", 0)}[metric]
     out = {a: 0 for a in AREAS}
     for repo, areas in stats.get("by_repo_area", {}).items():
         if repos is not None and repo not in repos:
@@ -121,7 +124,7 @@ def area_totals(stats, profile, scope, repos=None):
         if scope != "all" and repo_scope(repo, profile) != scope:
             continue
         for a, s in areas.items():
-            out[a if a in out else "other"] += lines(s)
+            out[a if a in out else "other"] += val(s)
     return out
 
 
@@ -131,6 +134,8 @@ def scope_summary(stats, profile, scope):
         "repos": len(repos),
         "commits": sum(stats["by_repo"][r]["commits"] for r in repos),
         "lines": sum(lines(stats["by_repo"][r]) for r in repos),
+        "added": sum(stats["by_repo"][r]["additions"] for r in repos),
+        "deleted": sum(stats["by_repo"][r]["deletions"] for r in repos),
     }
 
 
@@ -194,6 +199,131 @@ def weekly_by_scope(stats, profile, n_weeks=26):
             if w in per:
                 per[w] += s.get("commits", 0)
     return [(w, pro[w], per[w]) for w in weeks], split
+
+
+# ---------------------------------------------------------------- habits
+
+WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+# Config formats aren't "languages I work in" for the recent-languages list.
+_HIDE_LANGS = _NOISE_LANGS | {"JSON", "YAML", "TOML", "XML", "INI", "Config", "Dotenv",
+                              "Properties", "Plist", "Pbxproj", "Iml", "Other"}
+TYPE_SHORT = {"feature": "Features", "fix": "Fixes", "refactor": "Refactors",
+              "test": "Tests", "docs": "Docs", "chore": "Build/CI"}
+
+
+def _median(xs):
+    xs = sorted(xs)
+    if not xs:
+        return 0
+    m = len(xs) // 2
+    return xs[m] if len(xs) % 2 else (xs[m - 1] + xs[m]) / 2
+
+
+def _streaks(days, today):
+    """(longest streak, current streak) in consecutive active days."""
+    ds = sorted(datetime.fromisoformat(d).date() for d in days)
+    longest = run = 0
+    prev = None
+    for d in ds:
+        run = run + 1 if prev and (d - prev).days == 1 else 1
+        longest = max(longest, run)
+        prev = d
+    current = 0
+    if ds and (today - ds[-1]).days <= 1:
+        current = 1
+        for a, b in zip(reversed(ds[:-1]), reversed(ds[1:])):
+            if (b - a).days != 1:
+                break
+            current += 1
+    return longest, current
+
+
+def habits(stats, profile, scope):
+    """Engineering-habit metrics for a scope, or None before the data exists."""
+    hs = {r: h for r, h in stats.get("by_repo_habits", {}).items()
+          if scope == "all" or repo_scope(r, profile) == scope}
+    if not hs:
+        return None
+    today = now_of(stats).date()
+    tests = sum(h["tests"]["test"] for h in hs.values())
+    code = sum(h["tests"]["code"] for h in hs.values())
+    sizes = [x for h in hs.values() for x in h["sizes"] if x > 0]
+    types = {t: 0 for t in COMMIT_TYPES}
+    days, slots, langs = {}, {}, {}
+    cutoff = (today - timedelta(days=90)).isoformat()[:7]
+    for h in hs.values():
+        for t, n in h["types"].items():
+            types[t] = types.get(t, 0) + n
+        for d, n in h["days"].items():
+            days[d] = days.get(d, 0) + n
+        for k, n in h["slots"].items():
+            slots[k] = slots.get(k, 0) + n
+        for lang, months in h["lang_months"].items():
+            v = sum(n for m, n in months.items() if m >= cutoff)
+            if v and lang not in _HIDE_LANGS:
+                langs[lang] = langs.get(lang, 0) + v
+    area_add = area_del = 0
+    for r in hs:
+        for a, v in stats.get("by_repo_area", {}).get(r, {}).items():
+            if a != "other":
+                area_add += v.get("additions", 0)
+                area_del += v.get("deletions", 0)
+    year_ago = (today - timedelta(days=365)).isoformat()
+    longest, current = _streaks(days, today)
+    n_types = sum(types.values()) or 1
+    by_day = [sum(n for k, n in slots.items() if k.startswith(f"{d}-")) for d in range(7)]
+    by_hour = [sum(n for k, n in slots.items() if k.endswith(f"-{h}")) for h in range(24)]
+    peak_hour = max(range(24), key=lambda h: sum(by_hour[(h + i) % 24] for i in range(3))) if slots else None
+    return {
+        "test_share": tests / (tests + code) if tests + code else 0,
+        "median_size": _median(sizes),
+        "small_share": sum(1 for x in sizes if x <= 200) / len(sizes) if sizes else 0,
+        "types": {t: types[t] / n_types for t in COMMIT_TYPES},
+        "refactor_ratio": area_del / area_add if area_add else 0,
+        "active_days_year": sum(1 for d in days if d >= year_ago),
+        "longest_streak": longest,
+        "current_streak": current,
+        "busiest_day": WEEKDAYS[max(range(7), key=by_day.__getitem__)] if slots else None,
+        "peak_hours": (f"{peak_hour:02d}:00–{(peak_hour + 3) % 24:02d}:00"
+                       if peak_hour is not None else None),
+        "recent_langs": [l for l, _ in sorted(langs.items(), key=lambda x: -x[1])[:5]],
+    }
+
+
+def habits_section(stats, profile):
+    hb = {s: habits(stats, profile, s) for s in ("professional", "personal", "all")}
+    if not hb["all"]:
+        return ["## 🛠️ Engineering habits", "",
+                "<sub>Test share, commit mix, commit size and streaks appear after the next "
+                "scheduled run.</sub>", ""]
+    pct = lambda x: f"{round(100 * x)}%"  # noqa: E731
+    def mix(h):
+        top = sorted(h["types"].items(), key=lambda x: -x[1])[:3]
+        return " · ".join(f"{TYPE_SHORT[t]} {pct(v)}" for t, v in top if v)
+    rows = [
+        ("🧪 Test code share", lambda h: pct(h["test_share"])),
+        ("📏 Median commit size", lambda h: f"{round(h['median_size'])} lines"),
+        ("✂️ Small commits (≤ 200 lines)", lambda h: pct(h["small_share"])),
+        ("🧩 Commit mix", mix),
+        ("♻️ Lines deleted per 100 added", lambda h: f"{round(100 * h['refactor_ratio'])}"),
+        ("📅 Active days, last 12 months", lambda h: f"{h['active_days_year']}"),
+        ("🔥 Longest streak", lambda h: f"{h['longest_streak']} days"),
+        ("🕒 Most active", lambda h: f"{h['busiest_day']}s, {h['peak_hours']}" if h["busiest_day"] else "–"),
+        ("🗣️ Languages, last 90 days", lambda h: ", ".join(h["recent_langs"][:4]) or "–"),
+    ]
+    o = ["## 🛠️ Engineering habits", "",
+         "| | 💼 Industry | 🧪 Personal | Both |", "|---|---|---|---|"]
+    for label, fn in rows:
+        o.append(f"| {label} | " + " | ".join(fn(hb[s]) if hb[s] else "–"
+                                               for s in ("professional", "personal", "all")) + " |")
+    o.append("")
+    pr = stats.get("pull_requests", {}).get("all")
+    if pr and pr.get("opened") is not None:
+        since = datetime.fromisoformat(stats["pull_requests"]["since"]).strftime("%b %Y")
+        o.append(f"<sub>Pull requests since {since}: {pr['opened']:,} opened · "
+                 f"{pr['merged'] or 0:,} merged · {pr['reviewed'] or 0:,} reviewed</sub>")
+        o.append("")
+    return o
 
 
 # ---------------------------------------------------------------- SVGs
@@ -399,9 +529,16 @@ def readme(stats, profile):
     allm, prom, perm = (scope_summary(stats, profile, s) for s in SCOPES)
     weeks, _ = weekly_by_scope(stats, profile, 4)
     last4 = sum(p + q for _, p, q in weeks)
-    o.append(f"> **{allm['commits']:,} commits** across **{allm['repos']} repositories**: "
-             f"{prom['repos']} industry, {perm['repos']} personal · "
+    o.append(f"> **{allm['commits']:,} commits** across **{allm['repos']} repositories** "
+             f"({prom['repos']} industry, {perm['repos']} personal) · "
+             f"**+{fmt(allm['added'])}** lines added · **−{fmt(allm['deleted'])}** lines deleted · "
              f"**{last4} commits in the last 4 weeks**")
+    o.append("")
+    o.append("| | Repos | Commits | Lines added | Lines deleted |")
+    o.append("|---|--:|--:|--:|--:|")
+    for s, m in (("professional", prom), ("personal", perm), ("all", allm)):
+        label = "**Both**" if s == "all" else f"{'💼' if s == 'professional' else '🧪'} {SCOPE_LABELS[s]}"
+        o.append(f"| {label} | {m['repos']} | {m['commits']:,} | +{m['added']:,} | −{m['deleted']:,} |")
     o.append("")
 
     # --- Work split with a native toggle (<details>)
@@ -410,11 +547,15 @@ def readme(stats, profile):
     o.append("Every changed file in my commits is classified as **AI / ML**, **Backend**, **DevOps** or "
              "**Frontend**, then split into **industry** work (production code at companies) vs **personal** projects. "
              "Expand a view below" + (f", or [open the interactive dashboard]({dash}) to toggle areas "
-                                      "and click into repos." if dash else "."))
+                                      "and click into repos." if dash else ".")
+             + " <sub>Area figures count at most 800 lines per file per commit, so generated files and "
+               "notebook outputs don't dominate; the totals above are raw.</sub>")
     o.append("")
     for s, open_ in (("all", True), ("professional", False), ("personal", False)):
         m = scope_summary(stats, profile, s)
         t = area_totals(stats, profile, s)
+        ta = area_totals(stats, profile, s, metric="added")
+        td = area_totals(stats, profile, s, metric="deleted")
         tot = sum(t[a] for a in PIE_AREAS) or 1
         icon = {"all": "🌐", "professional": "💼", "personal": "🧪"}[s]
         name = "Both" if s == "all" else SCOPE_LABELS[s]
@@ -425,10 +566,11 @@ def readme(stats, profile):
         o.append("")
         o.append(f'<img src="./assets/work-split-{s}.svg" alt="{name} work split" width="460">')
         o.append("")
-        o.append("| Area | Share | Lines changed |" + (" |" if dash else ""))
-        o.append("|---|--:|--:|" + ("---|" if dash else ""))
+        o.append("| Area | Share | Added | Deleted |" + (" |" if dash else ""))
+        o.append("|---|--:|--:|--:|" + ("---|" if dash else ""))
         for a in PIE_AREAS:
-            row = f"| {AREA_EMOJI[a]} {AREA_LABELS[a]} | {round(100 * t[a] / tot)}% | {t[a]:,} |"
+            row = (f"| {AREA_EMOJI[a]} {AREA_LABELS[a]} | {round(100 * t[a] / tot)}% "
+                   f"| +{ta[a]:,} | −{td[a]:,} |")
             if dash:
                 row += f" [explore →]({dash}#scope={s}&area={a}) |"
             o.append(row)
@@ -450,6 +592,8 @@ def readme(stats, profile):
         o.append("<sub>The recent-commit feed fills in after the next scheduled run.</sub>")
     o.append("")
 
+    o += habits_section(stats, profile)
+
     # --- Industry experience
     o.append("## 💼 Industry experience")
     o.append("")
@@ -470,13 +614,13 @@ def readme(stats, profile):
             o.append(f"{meta['summary']}  ")
         o.append(f"<sub>{len(repos)} repos · {commits:,} commits · {area_mix_text(t, 4)}</sub>")
         o.append("")
-        o.append("| Repository | Discipline | Commits | Lines changed |")
-        o.append("|---|---|--:|--:|")
+        o.append("| Repository | Discipline | Commits | Added | Deleted |")
+        o.append("|---|---|--:|--:|--:|")
         for r in sorted(repos, key=lambda x: -stats["by_repo"][x]["commits"]):
             s = stats["by_repo"][r]
             a = primary_area(stats, r)
             o.append(f"| `{r.split('/', 1)[1]}` | {AREA_EMOJI[a]} {AREA_LABELS[a]} "
-                     f"| {s['commits']:,} | {lines(s):,} |")
+                     f"| {s['commits']:,} | +{s['additions']:,} | −{s['deletions']:,} |")
         o.append("")
 
     # --- Featured / personal projects
@@ -567,8 +711,11 @@ def write_dashboard(stats, profile):
             "org": meta.get("display", org) if meta else owner,
             "commits": s["commits"], "additions": s["additions"], "deletions": s["deletions"],
             "areas": {a: lines(v) for a, v in stats.get("by_repo_area", {}).get(r, {}).items()},
+            "areas_added": {a: v.get("additions", 0) for a, v in stats.get("by_repo_area", {}).get(r, {}).items()},
+            "areas_deleted": {a: v.get("deletions", 0) for a, v in stats.get("by_repo_area", {}).get(r, {}).items()},
             "weeks": stats.get("by_repo_week", {}).get(r, {}),
             "languages": {l: lines(v) for l, v in stats.get("by_repo_language", {}).get(r, {}).items()},
+            "habits": stats.get("by_repo_habits", {}).get(r),
         }
     payload = {
         "generated_at": stats.get("generated_at"),
@@ -582,6 +729,9 @@ def write_dashboard(stats, profile):
         "areas": {a: {"label": AREA_LABELS[a], "light": AREA_COLORS[a][0], "dark": AREA_COLORS[a][1]}
                   for a in AREAS},
         "by_week": stats.get("by_week", {}),
+        "pull_requests": stats.get("pull_requests"),
+        "commit_types": COMMIT_TYPE_LABELS,
+        "noise_langs": sorted(_HIDE_LANGS),
         "repos": repos,
     }
     blob = json.dumps(payload, separators=(",", ":")).replace("</", "<\\/")
@@ -595,7 +745,7 @@ def render_all(stats):
     ASSETS.mkdir(exist_ok=True)
     for s in SCOPES:
         m = scope_summary(stats, profile, s)
-        sub = f"{m['repos']} repos · {m['commits']:,} commits · excludes docs/lockfiles"
+        sub = f"{m['repos']} repos · {m['commits']:,} commits · +{fmt(m['added'])} / −{fmt(m['deleted'])} lines"
         name = "Both" if s == "all" else SCOPE_LABELS[s]
         (ASSETS / f"work-split-{s}.svg").write_text(
             donut_svg(area_totals(stats, profile, s), f"{name} — work split", sub))

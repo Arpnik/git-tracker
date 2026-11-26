@@ -13,8 +13,14 @@ GitHub API ──► collect_stats.py ──► data/stats.json ──► render
 
 ## Pipeline
 
-1. **Discover**: list every repo the token can push to: own repos, collaborations and org
-   repos (GraphQL, plus a per-org fallback for SSO-restricted orgs).
+1. **Discover** every repo you committed to in the look-back window (3 years by default):
+   - repos the token can push to (own, collaborations, org repos, with a per-org fallback for SSO);
+   - **archived** repos, even if they're now read-only;
+   - repos found in your **contribution history**, year by year: open-source projects and old
+     collaborations you no longer have write access to.
+
+   Commits are matched by your GitHub login plus any `commit_emails` in `profile.yaml`
+   (for commits made with an email that isn't linked to your account).
 2. **Collect**: for each new commit authored by you on the default branch (merge commits
    skipped), fetch per-file diff stats. Runs are incremental via `data/state.json`.
 3. **Classify**: each changed file gets a language and one **work area**
@@ -34,11 +40,20 @@ GitHub API ──► collect_stats.py ──► data/stats.json ──► render
    Each file contributes at most **800 lines per commit** to the work split
    (`AREA_FILE_CAP`), so notebook outputs and generated files can't swamp real work.
    Raw line totals elsewhere are uncapped.
-4. **Scope**: repos owned by `professional_orgs` are **Industry** work, everything else
+4. **Habits**: per commit, the collector also records:
+   - test vs non-test lines;
+   - a commit type: feature / fix / refactor / test / docs / build, from conventional-commit
+     prefixes, what the diff touched, then message keywords;
+   - commit size, the local day and hour (`timezone` in `profile.yaml`), and languages per month.
+
+   From these it derives test share, median commit size, commit mix, streaks, a weekday × hour
+   heatmap and recent languages. Pull-request counts (opened / merged / reviewed) come from the
+   search API on each run.
+5. **Scope**: repos owned by `professional_orgs` are **Industry** work, everything else
    **Personal**.
-5. **Render**: [`scripts/render.py`](../scripts/render.py) writes the README, the donut and
+6. **Render**: [`scripts/render.py`](../scripts/render.py) writes the README, the donut and
    activity SVGs, `README_STATS.md` and `index.html`.
-6. **Publish**: the workflow copies `README.md` + `assets/` to your profile repo
+7. **Publish**: the workflow copies `README.md` + `assets/` to your profile repo
    (`<user>/<user>`), so it shows on your GitHub profile page.
 
 Changing the rules in `dev_tags.py` or `repo_areas` in `profile.yaml` changes the
