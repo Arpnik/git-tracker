@@ -19,13 +19,13 @@
 
 **Tech Stack:** Python · PyTorch · LangGraph · LlamaIndex · AWS · Terraform · Docker · Java · React · Node.js
 
-> **987 commits** across **34 repositories** (10 industry, 24 personal) · **+564k** lines added · **−98k** lines deleted · **42 commits in the last 4 weeks**
+> **991 commits** across **34 repositories** (10 industry, 24 personal) · **+564k** lines added · **−98k** lines deleted · **46 commits in the last 4 weeks**
 
 | | Repos | Commits | Lines added | Lines deleted |
 |---|--:|--:|--:|--:|
-| 💼 Industry | 10 | 544 | +163,813 | −71,789 |
-| 🧪 Personal | 24 | 443 | +400,043 | −26,637 |
-| **Both** | 34 | 987 | +563,856 | −98,426 |
+| 💼 Industry | 10 | 545 | +163,816 | −71,790 |
+| 🧪 Personal | 24 | 446 | +400,281 | −26,702 |
+| **Both** | 34 | 991 | +564,097 | −98,492 |
 
 <sub>🔄 All stats, charts and activity on this page update automatically every day from my commit history · last updated Nov 27, 2026</sub>
 
@@ -34,7 +34,7 @@
 Every changed file in my commits is classified as **AI / ML**, **Backend**, **DevOps** or **Frontend**, then split into **industry** work (production code at companies) vs **personal** projects. Expand a view below, or [open the interactive dashboard](https://arpnik.github.io/git-tracker/) to toggle areas and click into repos. <sub>Area figures count at most 800 lines per file per commit, so generated files and notebook outputs don't dominate; the totals above are raw.</sub>
 
 <details open>
-<summary><b>🌐 Both</b> · 34 repos · 987 commits · AI / ML 41% · Backend 31% · Frontend 22%</summary>
+<summary><b>🌐 Both</b> · 34 repos · 991 commits · AI / ML 41% · Backend 31% · Frontend 22%</summary>
 <br>
 
 <img src="./assets/work-split-all.svg" alt="Both work split" width="460">
@@ -42,14 +42,14 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 | Area | Share | Added | Deleted | |
 |---|--:|--:|--:|---|
 | 🧠 AI / ML | 41% | +75,123 | −12,459 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=ai) |
-| ⚙️ Backend | 31% | +49,708 | −16,912 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=backend) |
-| 🚀 DevOps | 5% | +9,462 | −2,015 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=devops) |
-| 🎨 Frontend | 22% | +32,924 | −14,124 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=frontend) |
+| ⚙️ Backend | 31% | +49,711 | −16,913 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=backend) |
+| 🚀 DevOps | 5% | +9,531 | −2,021 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=devops) |
+| 🎨 Frontend | 22% | +33,006 | −14,130 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=frontend) |
 
 </details>
 
 <details>
-<summary><b>💼 Industry</b> · 10 repos · 544 commits · Frontend 37% · Backend 31% · AI / ML 27%</summary>
+<summary><b>💼 Industry</b> · 10 repos · 545 commits · Frontend 37% · Backend 31% · AI / ML 27%</summary>
 <br>
 
 <img src="./assets/work-split-professional.svg" alt="Industry work split" width="460">
@@ -57,14 +57,14 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 | Area | Share | Added | Deleted | |
 |---|--:|--:|--:|---|
 | 🧠 AI / ML | 27% | +25,706 | −6,323 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=ai) |
-| ⚙️ Backend | 31% | +28,569 | −8,499 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=backend) |
+| ⚙️ Backend | 31% | +28,572 | −8,500 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=backend) |
 | 🚀 DevOps | 6% | +5,970 | −1,097 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=devops) |
 | 🎨 Frontend | 37% | +30,805 | −13,386 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=frontend) |
 
 </details>
 
 <details>
-<summary><b>🧪 Personal</b> · 24 repos · 443 commits · AI / ML 60% · Backend 32% · DevOps 5%</summary>
+<summary><b>🧪 Personal</b> · 24 repos · 446 commits · AI / ML 60% · Backend 32% · DevOps 5%</summary>
 <br>
 
 <img src="./assets/work-split-personal.svg" alt="Personal work split" width="460">
@@ -73,8 +73,8 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 |---|--:|--:|--:|---|
 | 🧠 AI / ML | 60% | +49,417 | −6,136 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=ai) |
 | ⚙️ Backend | 32% | +21,139 | −8,413 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=backend) |
-| 🚀 DevOps | 5% | +3,492 | −918 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=devops) |
-| 🎨 Frontend | 3% | +2,119 | −738 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=frontend) |
+| 🚀 DevOps | 5% | +3,561 | −924 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=devops) |
+| 🎨 Frontend | 3% | +2,201 | −744 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=frontend) |
 
 </details>
 
@@ -84,7 +84,7 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 
 **Recently**
 
-- **Nov 27** · [`Arpnik/git-tracker`](https://github.com/Arpnik/git-tracker) · 4 commits · “added coding agent instructions” · 🚀 DevOps
+- **Nov 27** · [`Arpnik/git-tracker`](https://github.com/Arpnik/git-tracker) · 7 commits · “full clean fetch and updated stats” · 🚀 DevOps
 - **Nov 26** · [`Arpnik/git-tracker`](https://github.com/Arpnik/git-tracker) · 4 commits · “added other software eng. metrics” · 🚀 DevOps
 - **Nov 19** · [`Arpnik/git-tracker`](https://github.com/Arpnik/git-tracker) · 1 commit · “Update track-stats.yml” · 🚀 DevOps
 - **Oct 20** · `Arpnik/agentic-assistant` · 2 commits · 🧠 AI / ML
@@ -102,18 +102,18 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 | ✂️ Small commits (≤ 200 lines) | 77% | 77% | 77% |
 | 🧩 Commit mix | Features 63% · Fixes 16% · Build/CI 9% | Features 57% · Docs 14% · Refactors 10% | Features 60% · Fixes 12% · Docs 8% |
 | ♻️ Lines deleted per 100 added | 32 | 21 | 27 |
-| 📅 Active days, last 12 months | 113 | 49 | 153 |
+| 📅 Active days, last 12 months | 114 | 49 | 153 |
 | 🔥 Longest streak | 6 days | 14 days | 14 days |
-| 🕒 Most active | Wednesdays, 10:00–13:00 | Fridays, 11:00–14:00 | Tuesdays, 10:00–13:00 |
+| 🕒 Most active | Wednesdays, 10:00–13:00 | Fridays, 12:00–15:00 | Tuesdays, 10:00–13:00 |
 | 🗣️ Languages, last 90 days | Python, JavaScript, Java, Terraform | JavaScript, Python, HTML, Docker | JavaScript, Python, Java, Terraform |
 
-<sub>Pull requests since Nov 2023: 244 opened · 215 merged · 9 reviewed</sub>
+<sub>Pull requests since Nov 2023: 244 opened · 216 merged · 9 reviewed</sub>
 
 ## 💼 Industry experience
 
 ### AltConvey · Software Engineer
 React UI, Java REST API, Python AI services and Terraform-managed infrastructure.  
-<sub>5 repos · 279 commits · AI / ML 33% · Backend 32% · Frontend 27% · DevOps 8%</sub>
+<sub>5 repos · 280 commits · AI / ML 33% · Backend 32% · Frontend 27% · DevOps 8%</sub>
 
 | Repository | Discipline | Commits | Added | Deleted |
 |---|---|--:|--:|--:|
@@ -121,7 +121,7 @@ React UI, Java REST API, Python AI services and Terraform-managed infrastructure
 | `acy-ai` | 🧠 AI / ML | 50 | +4,555 | −1,278 |
 | `acy-ui` | 🎨 Frontend (web app) | 44 | +24,758 | −12,270 |
 | `acy-rest` | ⚙️ Backend | 37 | +16,659 | −4,383 |
-| `acy-materials` | ⚙️ Backend | 19 | +29,655 | −1,037 |
+| `acy-materials` | ⚙️ Backend | 20 | +29,658 | −1,038 |
 
 ### Knowbie · Lead Software Engineer
 Operator & admin platforms (web app frontends + backend), Flutter mobile app, Node.js API and CMS.  

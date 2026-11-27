@@ -1,8 +1,8 @@
 {
  "totals": {
-  "commits": 987,
-  "additions": 563856,
-  "deletions": 98426
+  "commits": 991,
+  "additions": 564097,
+  "deletions": 98492
  },
  "by_repo": {
   "GetKnowbie/Operators": {
@@ -136,9 +136,9 @@
    "deletions": 376
   },
   "Arpnik/git-tracker": {
-   "commits": 21,
-   "additions": 5409,
-   "deletions": 2775
+   "commits": 24,
+   "additions": 5647,
+   "deletions": 2840
   },
   "Arpnik/web-crawler": {
    "commits": 11,
@@ -166,9 +166,9 @@
    "deletions": 1278
   },
   "altconvey/acy-materials": {
-   "commits": 19,
-   "additions": 29655,
-   "deletions": 1037
+   "commits": 20,
+   "additions": 29658,
+   "deletions": 1038
   },
   "altconvey/acy-ai-contract": {
    "commits": 129,
@@ -183,9 +183,9 @@
    "files": 816
   },
   "JSON": {
-   "additions": 109540,
-   "deletions": 22629,
-   "files": 198
+   "additions": 109573,
+   "deletions": 22650,
+   "files": 201
   },
   "Production": {
    "additions": 1,
@@ -208,9 +208,9 @@
    "files": 8
   },
   "Markdown": {
-   "additions": 10777,
-   "deletions": 5624,
-   "files": 203
+   "additions": 10815,
+   "deletions": 5638,
+   "files": 209
   },
   "Lock": {
    "additions": 15312,
@@ -218,9 +218,9 @@
    "files": 22
   },
   "Image": {
-   "additions": 150,
-   "deletions": 7,
-   "files": 59
+   "additions": 169,
+   "deletions": 26,
+   "files": 62
   },
   "Config": {
    "additions": 2737,
@@ -268,9 +268,9 @@
    "files": 1
   },
   "YAML": {
-   "additions": 1215,
-   "deletions": 290,
-   "files": 89
+   "additions": 1241,
+   "deletions": 291,
+   "files": 91
   },
   "Dart": {
    "additions": 4100,
@@ -323,9 +323,9 @@
    "files": 20
   },
   "Python": {
-   "additions": 56129,
-   "deletions": 12558,
-   "files": 919
+   "additions": 56172,
+   "deletions": 12563,
+   "files": 922
   },
   "Dev": {
    "additions": 0,
@@ -368,9 +368,9 @@
    "files": 33
   },
   "HTML": {
-   "additions": 2013,
-   "deletions": 737,
-   "files": 36
+   "additions": 2095,
+   "deletions": 743,
+   "files": 39
   },
   "Log": {
    "additions": 16,
@@ -480,29 +480,29 @@
    "files": 902
   },
   "other": {
-   "additions": 158269,
-   "deletions": 38690,
-   "files": 791
+   "additions": 158302,
+   "deletions": 38711,
+   "files": 794
   },
   "docs": {
-   "additions": 10285,
-   "deletions": 5308,
-   "files": 195
+   "additions": 10323,
+   "deletions": 5322,
+   "files": 201
   },
   "ui_design": {
-   "additions": 2548,
-   "deletions": 755,
-   "files": 99
+   "additions": 2649,
+   "deletions": 780,
+   "files": 105
   },
   "infra": {
-   "additions": 6229,
-   "deletions": 1468,
-   "files": 288
+   "additions": 6255,
+   "deletions": 1469,
+   "files": 290
   },
   "backend": {
-   "additions": 81859,
-   "deletions": 19672,
-   "files": 1470
+   "additions": 81902,
+   "deletions": 19677,
+   "files": 1473
   },
   "data_ml": {
    "additions": 249894,
@@ -517,9 +517,9 @@
  },
  "by_week": {
   "2026-11-23": {
-   "commits": 12,
-   "additions": 10107,
-   "deletions": 3126
+   "commits": 16,
+   "additions": 10348,
+   "deletions": 3192
   },
   "2026-09-28": {
    "commits": 10,
@@ -1791,35 +1791,35 @@
    }
   },
   "Arpnik/git-tracker": {
-   "JSON": {
-    "additions": 0,
-    "deletions": 1200,
-    "files": 1
-   },
    "Markdown": {
-    "additions": 622,
-    "deletions": 343,
-    "files": 22
-   },
-   "Python": {
-    "additions": 2704,
-    "deletions": 820,
-    "files": 26
+    "additions": 660,
+    "deletions": 357,
+    "files": 28
    },
    "Image": {
-    "additions": 128,
-    "deletions": 7,
-    "files": 9
+    "additions": 147,
+    "deletions": 26,
+    "files": 12
    },
-   "YAML": {
-    "additions": 294,
-    "deletions": 40,
-    "files": 13
+   "JSON": {
+    "additions": 30,
+    "deletions": 1220,
+    "files": 3
    },
    "HTML": {
-    "additions": 1437,
-    "deletions": 365,
+    "additions": 1519,
+    "deletions": 371,
+    "files": 18
+   },
+   "YAML": {
+    "additions": 320,
+    "deletions": 41,
     "files": 15
+   },
+   "Python": {
+    "additions": 2747,
+    "deletions": 825,
+    "files": 29
    },
    "Config": {
     "additions": 224,
@@ -1964,9 +1964,9 @@
   },
   "altconvey/acy-materials": {
    "JSON": {
-    "additions": 29102,
-    "deletions": 979,
-    "files": 53
+    "additions": 29105,
+    "deletions": 980,
+    "files": 54
    },
    "YAML": {
     "additions": 189,
@@ -2079,24 +2079,24 @@
  },
  "by_area": {
   "backend": {
-   "additions": 49708,
-   "deletions": 16912,
-   "files": 1230
+   "additions": 49711,
+   "deletions": 16913,
+   "files": 1231
   },
   "frontend": {
-   "additions": 32924,
-   "deletions": 14124,
-   "files": 750
+   "additions": 33006,
+   "deletions": 14130,
+   "files": 753
   },
   "other": {
-   "additions": 25454,
-   "deletions": 14075,
-   "files": 777
+   "additions": 25541,
+   "deletions": 14128,
+   "files": 788
   },
   "devops": {
-   "additions": 9462,
-   "deletions": 2015,
-   "files": 275
+   "additions": 9531,
+   "deletions": 2021,
+   "files": 280
   },
   "ai": {
    "additions": 75123,
@@ -2469,19 +2469,19 @@
   },
   "Arpnik/git-tracker": {
    "other": {
-    "additions": 753,
-    "deletions": 1151,
-    "files": 34
-   },
-   "devops": {
-    "additions": 3219,
-    "deletions": 859,
-    "files": 40
+    "additions": 840,
+    "deletions": 1204,
+    "files": 45
    },
    "frontend": {
-    "additions": 1437,
-    "deletions": 365,
-    "files": 15
+    "additions": 1519,
+    "deletions": 371,
+    "files": 18
+   },
+   "devops": {
+    "additions": 3288,
+    "deletions": 865,
+    "files": 45
    }
   },
   "Arpnik/web-crawler": {
@@ -2561,9 +2561,9 @@
   },
   "altconvey/acy-materials": {
    "backend": {
-    "additions": 8798,
-    "deletions": 978,
-    "files": 50
+    "additions": 8801,
+    "deletions": 979,
+    "files": 51
    },
    "ai": {
     "additions": 2416,
@@ -2795,7 +2795,7 @@
    "2026-05-11": 7
   },
   "Arpnik/git-tracker": {
-   "2026-11-23": 8,
+   "2026-11-23": 11,
    "2026-11-16": 1,
    "2026-07-20": 9,
    "2026-07-06": 3
@@ -2866,7 +2866,7 @@
    "2026-01-05": 8
   },
   "altconvey/acy-materials": {
-   "2026-11-23": 1,
+   "2026-11-23": 2,
    "2026-11-16": 2,
    "2026-10-26": 2,
    "2026-10-19": 1,
@@ -5012,14 +5012,21 @@
   "Arpnik/git-tracker": {
    "tests": {
     "test": 0,
-    "code": 5880
+    "code": 6043
    },
    "types": {
-    "feature": 16,
-    "chore": 1,
-    "docs": 4
+    "feature": 18,
+    "fix": 1,
+    "docs": 4,
+    "chore": 1
    },
    "sizes": [
+    2,
+    14,
+    147,
+    0,
+    3,
+    141,
     764,
     742,
     77,
@@ -5037,39 +5044,37 @@
     339,
     2,
     531,
-    218,
-    0,
-    3,
-    141
+    218
    ],
    "days": {
+    "2026-11-27": 6,
     "2026-11-26": 5,
     "2026-11-19": 1,
     "2026-07-22": 9,
-    "2026-07-11": 3,
-    "2026-11-27": 3
+    "2026-07-11": 3
    },
    "slots": {
+    "4-14": 3,
+    "4-13": 3,
     "3-19": 1,
     "3-17": 5,
     "2-14": 1,
     "2-13": 3,
     "2-12": 5,
-    "5-17": 3,
-    "4-13": 3
+    "5-17": 3
    },
    "lang_months": {
-    "Python": {
-     "2026-11": 2518,
-     "2026-07": 1002
+    "HTML": {
+     "2026-11": 1569,
+     "2026-07": 321
     },
     "YAML": {
-     "2026-11": 211,
+     "2026-11": 238,
      "2026-07": 123
     },
-    "HTML": {
-     "2026-11": 1481,
-     "2026-07": 321
+    "Python": {
+     "2026-11": 2566,
+     "2026-07": 1002
     },
     "Config": {
      "2026-11": 3,
@@ -5602,15 +5607,17 @@
   "altconvey/acy-materials": {
    "tests": {
     "test": 0,
-    "code": 12534
+    "code": 12538
    },
    "types": {
+    "test": 1,
     "chore": 3,
     "feature": 12,
     "refactor": 2,
     "fix": 2
    },
    "sizes": [
+    4,
     3872,
     60,
     8,
@@ -5632,6 +5639,7 @@
     74
    ],
    "days": {
+    "2026-11-27": 1,
     "2026-11-26": 1,
     "2026-11-17": 1,
     "2026-11-16": 1,
@@ -5653,12 +5661,12 @@
     "2026-01-19": 1
    },
    "slots": {
+    "4-14": 2,
     "3-16": 1,
     "1-10": 1,
     "0-11": 3,
     "4-15": 1,
     "1-11": 3,
-    "4-14": 1,
     "3-13": 1,
     "0-10": 2,
     "4-11": 1,
@@ -5670,7 +5678,7 @@
    },
    "lang_months": {
     "JSON": {
-     "2026-11": 3872,
+     "2026-11": 3876,
      "2026-10": 167,
      "2026-09": 510,
      "2026-08": 2428,
@@ -5968,6 +5976,50 @@
  },
  "recent": [
   {
+   "repo": "altconvey/acy-materials",
+   "sha": "3970b28",
+   "date": "2026-11-27T19:46:24Z",
+   "type": "test",
+   "message": "",
+   "areas": {
+    "backend": 4
+   }
+  },
+  {
+   "repo": "Arpnik/git-tracker",
+   "sha": "9d9fbd1",
+   "date": "2026-11-27T19:44:46Z",
+   "type": "feature",
+   "message": "full clean fetch and updated stats",
+   "areas": {
+    "other": 36,
+    "frontend": 2
+   }
+  },
+  {
+   "repo": "Arpnik/git-tracker",
+   "sha": "f8ba39b",
+   "date": "2026-11-27T19:43:01Z",
+   "type": "feature",
+   "message": "full clean fetch",
+   "areas": {
+    "devops": 14,
+    "other": 24
+   }
+  },
+  {
+   "repo": "Arpnik/git-tracker",
+   "sha": "e4154c2",
+   "date": "2026-11-27T19:27:52Z",
+   "type": "fix",
+   "message": "added option to show tech stack next to repo and fixed the area mix",
+   "areas": {
+    "other": 80,
+    "devops": 61,
+    "frontend": 86
+   }
+  },
+  {
    "repo": "Arpnik/git-tracker",
    "sha": "f7f7da0",
    "date": "2026-11-27T18:29:32Z",
@@ -6095,7 +6147,7 @@
    "type": "chore",
    "message": "",
    "areas": {
-    "frontend": 283
+    "backend": 283
    }
   },
   {
@@ -6807,7 +6859,7 @@
    "type": "chore",
    "message": "",
    "areas": {
-    "frontend": 2
+    "backend": 2
    }
   },
   {
@@ -6817,7 +6869,7 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 4
+    "backend": 4
    }
   },
   {
@@ -6827,7 +6879,8 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 133,
+    "frontend": 21,
+    "backend": 112,
     "other": 2
    }
   },
@@ -6889,7 +6942,7 @@
    "type": "fix",
    "message": "",
    "areas": {
-    "frontend": 56
+    "backend": 56
    }
   },
   {
@@ -6929,7 +6982,8 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 291
+    "frontend": 181,
+    "backend": 110
    }
   },
   {
@@ -6939,7 +6993,8 @@
    "type": "fix",
    "message": "",
    "areas": {
-    "frontend": 247
+    "frontend": 25,
+    "backend": 222
    }
   },
   {
@@ -7242,36 +7297,6 @@
    }
   },
   {
-   "repo": "Arpnik/git-tracker",
-   "sha": "9cf3c95",
-   "date": "2026-07-22T17:30:22Z",
-   "type": "feature",
-   "message": "file updated",
-   "areas": {
-    "devops": 63
-   }
-  },
-  {
-   "repo": "Arpnik/git-tracker",
-   "sha": "2c55cb0",
-   "date": "2026-07-22T16:20:21Z",
-   "type": "feature",
-   "message": "file updated",
-   "areas": {
-    "devops": 56
-   }
-  },
-  {
-   "repo": "Arpnik/git-tracker",
-   "sha": "b88040a",
-   "date": "2026-07-22T16:13:53Z",
-   "type": "feature",
-   "message": "file updated",
-   "areas": {
-    "frontend": 96
-   }
-  },
-  {
    "repo": "GetKnowbie/end-user",
    "sha": "13006a7",
    "date": "2026-07-21T15:16:48Z",
@@ -7370,7 +7395,7 @@
    "type": "fix",
    "message": "",
    "areas": {
-    "frontend": 10
+    "backend": 10
    }
   },
   {
@@ -7602,7 +7627,7 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 2
+    "backend": 2
    }
   },
   {
@@ -7612,17 +7637,7 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 34
-   }
-  },
-  {
-   "repo": "altconvey/acy-materials",
-   "sha": "a125e5d",
-   "date": "2026-05-07T14:33:42Z",
-   "type": "feature",
-   "message": "",
-   "areas": {
-    "devops": 57
+    "backend": 34
    }
   },
   {
@@ -7632,7 +7647,7 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 8
+    "backend": 8
    }
   },
   {
@@ -7642,7 +7657,7 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 9
+    "backend": 9
    }
   },
   {
@@ -7652,7 +7667,7 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 24
+    "backend": 24
    }
   },
   {
@@ -7902,7 +7917,7 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 2
+    "backend": 2
    }
   },
   {
@@ -7912,7 +7927,8 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 6
+    "backend": 2,
+    "frontend": 4
    }
   },
   {
@@ -8473,7 +8489,8 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 6
+    "backend": 1,
+    "frontend": 5
    }
   },
   {
@@ -9129,7 +9146,8 @@
    "type": "fix",
    "message": "",
    "areas": {
-    "frontend": 225
+    "frontend": 166,
+    "backend": 59
    }
   },
   {
@@ -9140,7 +9158,7 @@
    "message": "",
    "areas": {
     "other": 171,
-    "frontend": 277
+    "backend": 277
    }
   },
   {
@@ -9150,7 +9168,7 @@
    "type": "fix",
    "message": "",
    "areas": {
-    "frontend": 1
+    "backend": 1
    }
   },
   {
@@ -9160,7 +9178,8 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 96
+    "backend": 10,
+    "frontend": 86
    }
   },
   {
@@ -9170,8 +9189,9 @@
    "type": "feature",
    "message": "",
    "areas": {
-    "frontend": 280,
-    "other": 1602
+    "backend": 105,
+    "other": 1602,
+    "frontend": 175
    }
   },
   {
@@ -10325,13 +10345,13 @@
   "since": "2023-11-28",
   "all": {
    "opened": 244,
-   "merged": 215,
+   "merged": 216,
    "reviewed": 9
   },
   "orgs": {
    "altconvey": {
     "opened": 125,
-    "merged": 112,
+    "merged": 113,
     "reviewed": 0
    },
    "GetKnowbie": {
@@ -10341,5 +10361,5 @@
    }
   }
  },
- "generated_at": "2026-11-27T18:30:25.183870+00:00"
+ "generated_at": "2026-11-27T19:45:15.427232+00:00"
 }

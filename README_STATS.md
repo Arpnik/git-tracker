@@ -1,47 +1,47 @@
 # Full dev stats
 
-_Last updated: 2026-11-27T18:30:25.183870+00:00_
+_Last updated: 2026-11-27T19:45:15.427232+00:00_
 
 ← [Back to profile](https://github.com/Arpnik/git-tracker)
 
-**Totals:** 987 commits · +563,856 / -98,426 lines
+**Totals:** 991 commits · +564,097 / -98,492 lines
 
 ## By work area
 
 | Area | Industry | Personal | All |
 |---|--:|--:|--:|
 | AI / ML | 32,029 | 55,553 | 87,582 |
-| Backend | 37,068 | 29,552 | 66,620 |
-| DevOps | 7,067 | 4,410 | 11,477 |
-| Frontend | 44,191 | 2,857 | 47,048 |
-| Docs & data | 25,447 | 14,082 | 39,529 |
+| Backend | 37,072 | 29,552 | 66,624 |
+| DevOps | 7,067 | 4,485 | 11,552 |
+| Frontend | 44,191 | 2,945 | 47,136 |
+| Docs & data | 25,447 | 14,222 | 39,669 |
 
 ## By language
 
 | Language | + | - | Files touched |
 |---|--:|--:|--:|
 | Jupyter Notebook | 249,883 | 5,345 | 20 |
-| JSON | 109,540 | 22,629 | 198 |
-| Python | 56,129 | 12,558 | 919 |
+| JSON | 109,573 | 22,650 | 201 |
+| Python | 56,172 | 12,563 | 922 |
 | JavaScript | 39,250 | 15,263 | 816 |
 | Text | 30,529 | 61 | 4 |
 | Java | 26,002 | 7,100 | 572 |
 | Lock | 15,312 | 14,815 | 22 |
-| Markdown | 10,777 | 5,624 | 203 |
+| Markdown | 10,815 | 5,638 | 209 |
 | Solidity | 5,197 | 4,852 | 30 |
 | Dart | 4,100 | 2,999 | 126 |
 | Terraform | 3,971 | 726 | 106 |
 | Config | 2,737 | 238 | 47 |
-| HTML | 2,013 | 737 | 36 |
+| HTML | 2,095 | 743 | 39 |
 | XML | 1,588 | 319 | 57 |
 | Scala | 1,375 | 1,602 | 33 |
 | Shell | 1,255 | 149 | 14 |
-| YAML | 1,215 | 290 | 89 |
+| YAML | 1,241 | 291 | 91 |
 | SCSS | 801 | 47 | 11 |
 | Other | 749 | 183 | 203 |
 | TypeScript | 245 | 161 | 21 |
+| Image | 169 | 26 | 62 |
 | TOML | 162 | 9 | 9 |
-| Image | 150 | 7 | 59 |
 | Docker | 142 | 80 | 9 |
 | CSS | 125 | 62 | 8 |
 | Plist | 124 | 122 | 2 |
@@ -65,10 +65,10 @@ _Last updated: 2026-11-27T18:30:25.183870+00:00_
 | Arpnik/SOEN-341 | Personal | Backend | 25 | 242 | 24 |
 | GetKnowbie/AdminV2 | 💼 Industry | Frontend (web app) · Backend | 24 | 15,233 | 14,517 |
 | FrancescoBonzi/twin-transformer | Personal | AI / ML | 24 | 344 | 226 |
-| Arpnik/git-tracker | Personal | DevOps | 21 | 5,409 | 2,775 |
+| Arpnik/git-tracker | Personal | DevOps | 24 | 5,647 | 2,840 |
 | Arpnik/DISRPT-Segmenter | Personal | AI / ML | 20 | 22,034 | 930 |
 | Arpnik/FedBN | Personal | AI / ML | 20 | 2,259 | 843 |
-| altconvey/acy-materials | 💼 Industry | Backend | 19 | 29,655 | 1,037 |
+| altconvey/acy-materials | 💼 Industry | Backend | 20 | 29,658 | 1,038 |
 | Arpnik/COMP-6481-Assignment-2 | Personal | Backend | 16 | 1,531 | 244 |
 | Arpnik/agentic-assistant | Personal | AI / ML | 15 | 12,565 | 1,349 |
 | Arpnik/LinkedInQueenGame | Personal | Backend | 12 | 595 | 13 |
@@ -136,7 +136,7 @@ _Last updated: 2026-11-27T18:30:25.183870+00:00_
 
 | Language | + | - | Files touched |
 |---|--:|--:|--:|
-| JSON | 29,102 | 979 | 53 |
+| JSON | 29,105 | 980 | 54 |
 | Python | 270 | 2 | 3 |
 | YAML | 189 | 24 | 7 |
 | Makefile | 94 | 32 | 5 |
@@ -314,6 +314,20 @@ _Last updated: 2026-11-27T18:30:25.183870+00:00_
 
 </details>
 
+<details><summary><strong>Arpnik/git-tracker</strong></summary>
+
+| Language | + | - | Files touched |
+|---|--:|--:|--:|
+| Python | 2,747 | 825 | 29 |
+| HTML | 1,519 | 371 | 18 |
+| Markdown | 660 | 357 | 28 |
+| YAML | 320 | 41 | 15 |
+| Config | 224 | 0 | 3 |
+| Image | 147 | 26 | 12 |
+| JSON | 30 | 1,220 | 3 |
+
+</details>
+
 <details><summary><strong>Arpnik/speech-pd-detection</strong></summary>
 
 | Language | + | - | Files touched |
@@ -322,20 +336,6 @@ _Last updated: 2026-11-27T18:30:25.183870+00:00_
 | Config | 174 | 0 | 1 |
 | Markdown | 74 | 29 | 12 |
 | Image | 16 | 0 | 5 |
-
-</details>
-
-<details><summary><strong>Arpnik/git-tracker</strong></summary>
-
-| Language | + | - | Files touched |
-|---|--:|--:|--:|
-| Python | 2,704 | 820 | 26 |
-| HTML | 1,437 | 365 | 15 |
-| Markdown | 622 | 343 | 22 |
-| YAML | 294 | 40 | 13 |
-| Config | 224 | 0 | 3 |
-| Image | 128 | 7 | 9 |
-| JSON | 0 | 1,200 | 1 |
 
 </details>
 
