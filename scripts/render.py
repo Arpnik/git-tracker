@@ -22,7 +22,7 @@ from urllib.parse import quote
 import yaml
 
 from dev_tags import (AREAS, AREA_LABELS, COMMIT_TYPES, COMMIT_TYPE_LABELS,
-                      area_for_language, repo_default_area)
+                      area_for_language, repo_default_area, repo_scope, scrub_messages)
 
 ROOT = Path(__file__).resolve().parent.parent
 STATS_FILE = ROOT / "data" / "stats.json"
@@ -59,24 +59,15 @@ FONT = "-apple-system,Segoe UI,Helvetica,Arial,sans-serif"
 def load_profile():
     p = yaml.safe_load(PROFILE_FILE.read_text()) if PROFILE_FILE.exists() else {}
     p = p or {}
-    for k in ("professional_orgs", "links", "repo_areas", "featured", "activity"):
+    for k in ("professional_orgs", "links", "repo_areas", "repo_disciplines", "featured", "activity"):
         p[k] = p.get(k) or {}
     p["about"] = p.get("about") or []
+    p["tech_stack"] = p.get("tech_stack") or []
     return p
 
 
 def dashboard_url(profile):
     return profile.get("dashboard_url") or profile["links"].get("Dashboard") or ""
-
-
-def repo_scope(full, profile):
-    if full in (profile.get("professional_repos") or []):
-        return "professional"
-    if full in (profile.get("personal_repos") or []):
-        return "personal"
-    owner = full.split("/")[0].lower()
-    orgs = {o.lower() for o in profile["professional_orgs"]}
-    return "professional" if owner in orgs else "personal"
 
 
 def org_meta(owner, profile):
@@ -152,6 +143,36 @@ def primary_area(stats, repo):
     areas = {a: lines(s) for a, s in stats.get("by_repo_area", {}).get(repo, {}).items()
              if a != "other"}
     return max(areas, key=areas.get) if areas and max(areas.values()) > 0 else "other"
+
+
+# `repo_disciplines` entries: an area, or "frontend:web" / "frontend:mobile".
+DISCIPLINE_VARIANTS = {
+    "frontend:web": ("🎨", "Frontend (web app)"),
+    "frontend:mobile": ("📱", "Frontend (mobile app)"),
+}
+
+
+def disciplines(stats, profile, repo):
+    """[(emoji, label)] for a repo: the declared `repo_disciplines` from
+    profile.yaml, else the area with the most measured changed lines."""
+    declared = {k.lower(): v for k, v in profile["repo_disciplines"].items()}.get(repo.lower())
+    if isinstance(declared, str):
+        declared = [declared]
+    out = []
+    for d in declared or []:
+        d = str(d).strip().lower()
+        if d in DISCIPLINE_VARIANTS:
+            out.append(DISCIPLINE_VARIANTS[d])
+        elif d in AREA_LABELS:
+            out.append((AREA_EMOJI[d], AREA_LABELS[d]))
+    if not out:
+        a = primary_area(stats, repo)
+        out = [(AREA_EMOJI[a], AREA_LABELS[a])]
+    return out
+
+
+def discipline_text(stats, profile, repo, emoji=True):
+    return " · ".join(f"{e} {l}" if emoji else l for e, l in disciplines(stats, profile, repo))
 
 
 def area_mix_text(totals, top=3):
@@ -464,7 +485,6 @@ LINK_STYLE = {
 
 
 def recent_activity(stats, profile, n):
-    show_msgs = profile["activity"].get("show_professional_messages", False)
     include_pro = profile["activity"].get("include_professional", False)
     groups = []
     for c in stats.get("recent", []):
@@ -492,7 +512,7 @@ def recent_activity(stats, profile, n):
         if repo_scope(repo, profile) == "professional":
             org, meta = org_meta(repo.split("/")[0], profile)
             where = f"💼 **{meta.get('display', org)}** · `{repo.split('/', 1)[1]}`"
-            msg = f" · “{escape(g['msg'])}”" if show_msgs and g["msg"] else ""
+            msg = ""  # industry commit messages are never published
         else:
             where = repo_link(stats, repo)
             msg = f" · “{escape(g['msg'])}”" if g["msg"] else ""
@@ -509,7 +529,8 @@ def readme(stats, profile):
     o.append(f'<h1>Hi, I\'m {escape(profile.get("name", ""))} 👋</h1>')
     o.append("")
     if profile.get("headline"):
-        o.append(f"**{profile['headline']}**")
+        sub = f" · {profile['headline_note']}" if profile.get("headline_note") else ""
+        o.append(f"**{profile['headline']}**{sub}")
         o.append("")
     badges = []
     for k, url in profile["links"].items():
@@ -522,8 +543,11 @@ def readme(stats, profile):
         o.append("<p>\n  " + "\n  ".join(badges) + "\n</p>")
         o.append("")
     for line in profile["about"]:
-        o.append(f"- {line}")
-    o.append("")
+        o.append(line)
+        o.append("")
+    if profile["tech_stack"]:
+        o.append("**Tech Stack:** " + " · ".join(profile["tech_stack"]))
+        o.append("")
 
     # --- Headline numbers
     allm, prom, perm = (scope_summary(stats, profile, s) for s in SCOPES)
@@ -618,8 +642,7 @@ def readme(stats, profile):
         o.append("|---|---|--:|--:|--:|")
         for r in sorted(repos, key=lambda x: -stats["by_repo"][x]["commits"]):
             s = stats["by_repo"][r]
-            a = primary_area(stats, r)
-            o.append(f"| `{r.split('/', 1)[1]}` | {AREA_EMOJI[a]} {AREA_LABELS[a]} "
+            o.append(f"| `{r.split('/', 1)[1]}` | {discipline_text(stats, profile, r)} "
                      f"| {s['commits']:,} | +{s['additions']:,} | −{s['deletions']:,} |")
         o.append("")
 
@@ -633,7 +656,6 @@ def readme(stats, profile):
     rest = sorted((r for r in personal if r not in featured),
                   key=lambda x: -stats["by_repo"][x]["commits"])
     for r in featured + rest[:max(0, 10 - len(featured))]:
-        a = primary_area(stats, r)
         meta = stats.get("repo_meta", {}).get(r, {})
         desc = profile["featured"].get(r) or meta.get("description") or "–"
         star = "⭐ " if r in profile["featured"] else ""
@@ -641,7 +663,7 @@ def readme(stats, profile):
         if not r.startswith(profile["links"].get("GitHub", "").rstrip("/").split("/")[-1] + "/"):
             name += f" <sub>with {r.split('/')[0]}</sub>"
         o.append(f"| {star}{name} | {escape(desc)} "
-                 f"| {AREA_EMOJI[a]} {AREA_LABELS[a]} | {stats['by_repo'][r]['commits']:,} |")
+                 f"| {discipline_text(stats, profile, r)} | {stats['by_repo'][r]['commits']:,} |")
     hidden = len(personal) - len(featured) - max(0, 10 - len(featured))
     if hidden > 0:
         o.append("")
@@ -683,7 +705,7 @@ def write_stats_md(stats, profile):
     out.append("|---|---|---|--:|--:|--:|")
     for repo, s in sorted(stats["by_repo"].items(), key=lambda x: -x[1]["commits"]):
         kind = "💼 Industry" if repo_scope(repo, profile) == "professional" else "Personal"
-        out.append(f"| {repo} | {kind} | {AREA_LABELS[primary_area(stats, repo)]} "
+        out.append(f"| {repo} | {kind} | {discipline_text(stats, profile, repo, emoji=False)} "
                    f"| {s['commits']:,} | {s['additions']:,} | {s['deletions']:,} |")
 
     out.append("\n## Language detail by repository\n")
@@ -716,12 +738,13 @@ def write_dashboard(stats, profile):
             "weeks": stats.get("by_repo_week", {}).get(r, {}),
             "languages": {l: lines(v) for l, v in stats.get("by_repo_language", {}).get(r, {}).items()},
             "habits": stats.get("by_repo_habits", {}).get(r),
+            "focus": discipline_text(stats, profile, r, emoji=False),
         }
     payload = {
         "generated_at": stats.get("generated_at"),
         "area_estimated": bool(stats.get("area_estimated")),
         "profile": {
-            "name": profile.get("name", ""), "headline": profile.get("headline", ""),
+            "name": profile.get("name", ""), "headline": " · ".join(x for x in (profile.get("headline"), profile.get("headline_note")) if x),
             "links": {k: v for k, v in profile["links"].items() if k.lower() != "dashboard"},
             "orgs": {meta.get("display", org): {k: meta.get(k) for k in ("role", "summary", "url")}
                      for org, meta in profile["professional_orgs"].items() if meta is not None},
@@ -741,7 +764,7 @@ def write_dashboard(stats, profile):
 
 def render_all(stats):
     profile = load_profile()
-    stats = ensure_area_data(stats, profile)
+    stats = scrub_messages(ensure_area_data(stats, profile), profile)
     ASSETS.mkdir(exist_ok=True)
     for s in SCOPES:
         m = scope_summary(stats, profile, s)

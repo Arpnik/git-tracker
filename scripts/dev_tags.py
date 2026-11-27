@@ -141,6 +141,27 @@ _WEAK = [(a, [re.compile(p) for p in ps]) for a, ps in _WEAK_RULES]
 _REPO_NAME = [(a, re.compile(p)) for a, p in _REPO_NAME_RULES]
 
 
+def repo_scope(full, profile):
+    """'professional' (industry) or 'personal' for an owner/repo name."""
+    if full in (profile.get("professional_repos") or []):
+        return "professional"
+    if full in (profile.get("personal_repos") or []):
+        return "personal"
+    owner = full.split("/")[0].lower()
+    orgs = {o.lower() for o in (profile.get("professional_orgs") or {})}
+    return "professional" if owner in orgs else "personal"
+
+
+def scrub_messages(stats, profile):
+    """Blank commit messages of industry and private repos in stats["recent"].
+    stats.json is public, and industry commit messages must never be published."""
+    private = {r for r, m in (stats.get("repo_meta") or {}).items() if m.get("private")}
+    for c in stats.get("recent", []):
+        if c["repo"] in private or repo_scope(c["repo"], profile) == "professional":
+            c["message"] = ""
+    return stats
+
+
 def repo_default_area(full_name, overrides=None):
     """The main discipline of a repo: explicit `repo_areas` override in
     profile.yaml first, then repo-name hints. None if unknown."""

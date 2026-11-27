@@ -36,6 +36,7 @@ from pathlib import Path
 
 import aggregate
 from render import render_all, load_profile
+from dev_tags import scrub_messages
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
@@ -522,6 +523,7 @@ def main():
             stats["pull_requests"] = old["pull_requests"]
 
     stats["generated_at"] = now.isoformat()
+    scrub_messages(stats, profile)  # industry commit messages never leave this run
     # Both files are written together at the end and committed together by the
     # workflow, so the cursors always match what stats.json already counts.
     STATS_FILE.write_text(json.dumps(stats, indent=1))

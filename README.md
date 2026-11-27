@@ -1,15 +1,23 @@
 <h1>Hi, I'm Arpnik Singh 👋</h1>
 
-**Software engineer · AI systems, backend, DevOps & frontend**
+**Builder at heart. AI Engineer & Senior Software Engineer** · 6+ years building and shipping production systems.
 
 <p>
   <a href="https://github.com/Arpnik"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-Arpnik-181717?style=for-the-badge&logo=github&logoColor=white"></a>
   <a href="https://arpnik.github.io/git-tracker/"><img alt="Dashboard" src="https://img.shields.io/badge/Dashboard-open%20interactive%20view-257de0?style=for-the-badge"></a>
 </p>
 
-- 💼 Built production products at **Knowbie** and **AltConvey**:, AI services, Terraform infra, Node.js & Java APIs, React and Flutter mobile apps.
-- 🧠 AI / NLP work: RAG with discourse-unit chunking, discourse segmentation, NL→SQL, agentic assistants, Multi-Agent Systems.
-- 🎓 Concordia University, Montréal.
+🧠 Building production-grade LLM applications, RAG pipelines, and agentic AI systems.
+
+💼 6+ years engineering across financial services, supply chain, and hospitality.
+
+🌍 Collaborating with global teams and business stakeholders across North America and APAC, including Japan and Singapore.
+
+🏢 Currently at AltConvey, building AI-powered contract intelligence systems on AWS (Bedrock, Lambda, Terraform).
+
+🔭 Open to AI Engineer, Forward-Deployed Engineer, and Senior Software Engineer opportunities.
+
+**Tech Stack:** Python · PyTorch · LangGraph · LlamaIndex · AWS · Terraform · Docker · Java · React · Node.js
 
 > **984 commits** across **34 repositories** (10 industry, 24 personal) · **+564k** lines added · **−98k** lines deleted · **39 commits in the last 4 weeks**
 
@@ -109,20 +117,20 @@ React UI, Java REST API, Python AI services and Terraform-managed infrastructure
 |---|---|--:|--:|--:|
 | `acy-ai-contract` | 🧠 AI / ML | 129 | +37,985 | −16,192 |
 | `acy-ai` | 🧠 AI / ML | 50 | +4,555 | −1,278 |
-| `acy-ui` | 🎨 Frontend | 44 | +24,758 | −12,270 |
+| `acy-ui` | 🎨 Frontend (web app) | 44 | +24,758 | −12,270 |
 | `acy-rest` | ⚙️ Backend | 37 | +16,659 | −4,383 |
 | `acy-materials` | ⚙️ Backend | 19 | +29,655 | −1,037 |
 
 ### Knowbie · Lead Software Engineer
-Operator & admin web apps, Flutter end-user app, Node.js backend and CMS.  
+Operator & admin platforms (web app frontends + backend), Flutter mobile app, Node.js API and CMS.  
 <sub>5 repos · 265 commits · Frontend 81% · Backend 13% · AI / ML 5%</sub>
 
 | Repository | Discipline | Commits | Added | Deleted |
 |---|---|--:|--:|--:|
-| `Operators` | 🎨 Frontend | 117 | +14,616 | −12,171 |
-| `end-user` | 🎨 Frontend | 73 | +5,107 | −4,298 |
+| `Operators` | 🎨 Frontend (web app) · ⚙️ Backend | 117 | +14,616 | −12,171 |
+| `end-user` | 📱 Frontend (mobile app) | 73 | +5,107 | −4,298 |
 | `knowbie-back` | ⚙️ Backend | 48 | +10,176 | −5,217 |
-| `AdminV2` | 🎨 Frontend | 24 | +15,233 | −14,517 |
+| `AdminV2` | 🎨 Frontend (web app) · ⚙️ Backend | 24 | +15,233 | −14,517 |
 | `knowbie-cms` | 🧠 AI / ML | 3 | +5,069 | −426 |
 
 ## 🧪 Projects

@@ -2,12 +2,17 @@
 # the interactive dashboard and the auto-generated charts.
 
 name: Arpnik Singh
-headline: Software engineer · AI systems, backend, DevOps & frontend
-# Short bullets under your name on the profile page. Keep each in quotes.
+headline: Builder at heart. AI Engineer & Senior Software Engineer
+# Shown after the bold headline, separated by " · ".
+headline_note: 6+ years building and shipping production systems.
+# Short paragraphs under the headline on the profile page. Keep each in quotes.
 about:
-  - "💼 Built production products at **Knowbie** and **AltConvey**:, AI services, Terraform infra, Node.js & Java APIs, React and Flutter mobile apps."
-  - "🧠 AI / NLP work: RAG with discourse-unit chunking, discourse segmentation, NL→SQL, agentic assistants, Multi-Agent Systems."
-  - "🎓 Concordia University, Montréal."
+  - "🧠 Building production-grade LLM applications, RAG pipelines, and agentic AI systems."
+  - "💼 6+ years engineering across financial services, supply chain, and hospitality."
+  - "🌍 Collaborating with global teams and business stakeholders across North America and APAC, including Japan and Singapore."
+  - "🏢 Currently at AltConvey, building AI-powered contract intelligence systems on AWS (Bedrock, Lambda, Terraform)."
+  - "🔭 Open to AI Engineer, Forward-Deployed Engineer, and Senior Software Engineer opportunities."
+tech_stack: [Python, PyTorch, LangGraph, LlamaIndex, AWS, Terraform, Docker, Java, React, Node.js]
 links:
   GitHub: https://github.com/Arpnik
   Dashboard: https://arpnik.github.io/git-tracker/
@@ -32,7 +37,7 @@ professional_orgs:
   GetKnowbie:
     display: Knowbie
     role: Lead Software Engineer
-    summary: Operator & admin web apps, Flutter end-user app, Node.js backend and CMS.
+    summary: Operator & admin platforms (web app frontends + backend), Flutter mobile app, Node.js API and CMS.
     url: https://github.com/GetKnowbie
 
 # Main discipline of each repo: ai | backend | devops | frontend.
@@ -68,6 +73,16 @@ repo_areas:
   toyosi12/fs-agent: ai
   anubhavm101/SOEN-6441--TubeLytics: backend
 
+# What each repo's "Discipline" column says, when one measured area isn't the
+# whole story. List areas (ai | backend | devops | frontend), or use
+# frontend:web / frontend:mobile to say which kind of frontend it is.
+# Display only: the measured area charts still come from the changed files.
+repo_disciplines:
+  GetKnowbie/Operators: [frontend:web, backend]
+  GetKnowbie/AdminV2: [frontend:web, backend]
+  GetKnowbie/end-user: [frontend:mobile]
+  altconvey/acy-ui: [frontend:web]
+
 # Personal repos to highlight first on the profile page (owner/repo: one-liner).
 featured:
   Arpnik/EDU-Chunking-RAG: Retrieval-augmented generation using elementary-discourse-unit chunking.
@@ -77,11 +92,10 @@ featured:
   Arpnik/FedBN: Federated learning with local batch normalization.
 
 # Recent-activity feed. Industry (company) commits are left out entirely by
-# default; set include_professional: true to list them as "N commits to <Company>"
-# (messages stay hidden unless show_professional_messages is also true).
+# default; set include_professional: true to list them as "N commits to <Company>".
+# Industry commit messages are NEVER published (not configurable).
 activity:
   include_professional: false
-  show_professional_messages: false
   items: 8
 
 # Individual repos (owner/repo) to force into a bucket regardless of owner.

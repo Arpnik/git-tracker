@@ -51,19 +51,19 @@ _Last updated: 2026-11-27T11:43:41.122826+00:00_
 | Repo | Type | Discipline | Commits | + | - |
 |---|---|---|--:|--:|--:|
 | altconvey/acy-ai-contract | 💼 Industry | AI / ML | 129 | 37,985 | 16,192 |
-| GetKnowbie/Operators | 💼 Industry | Frontend | 117 | 14,616 | 12,171 |
-| GetKnowbie/end-user | 💼 Industry | Frontend | 73 | 5,107 | 4,298 |
+| GetKnowbie/Operators | 💼 Industry | Frontend (web app) · Backend | 117 | 14,616 | 12,171 |
+| GetKnowbie/end-user | 💼 Industry | Frontend (mobile app) | 73 | 5,107 | 4,298 |
 | anubhavm101/SOEN-6441--TubeLytics | Personal | Backend | 64 | 6,173 | 6,973 |
 | altconvey/acy-ai | 💼 Industry | AI / ML | 50 | 4,555 | 1,278 |
 | GetKnowbie/knowbie-back | 💼 Industry | Backend | 48 | 10,176 | 5,217 |
 | Arpnik/neetcode-submissions | Personal | Backend | 48 | 3,783 | 0 |
-| altconvey/acy-ui | 💼 Industry | Frontend | 44 | 24,758 | 12,270 |
+| altconvey/acy-ui | 💼 Industry | Frontend (web app) | 44 | 24,758 | 12,270 |
 | Arpnik/EDU-Chunking-RAG | Personal | AI / ML | 41 | 278,427 | 2,717 |
 | Arpnik/SafeNL2SQL | Personal | Backend | 39 | 4,247 | 526 |
 | altconvey/acy-rest | 💼 Industry | Backend | 37 | 16,659 | 4,383 |
 | Arpnik/taskd-technical-challenge | Personal | AI / ML | 33 | 1,324 | 586 |
 | Arpnik/SOEN-341 | Personal | Backend | 25 | 242 | 24 |
-| GetKnowbie/AdminV2 | 💼 Industry | Frontend | 24 | 15,233 | 14,517 |
+| GetKnowbie/AdminV2 | 💼 Industry | Frontend (web app) · Backend | 24 | 15,233 | 14,517 |
 | FrancescoBonzi/twin-transformer | Personal | AI / ML | 24 | 344 | 226 |
 | Arpnik/DISRPT-Segmenter | Personal | AI / ML | 20 | 22,034 | 930 |
 | Arpnik/FedBN | Personal | AI / ML | 20 | 2,259 | 843 |

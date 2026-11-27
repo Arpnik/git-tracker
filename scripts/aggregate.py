@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
-from dev_tags import area_for, commit_type, is_test, repo_default_area
+from dev_tags import area_for, commit_type, is_test, repo_default_area, repo_scope
 
 ROOT = Path(__file__).resolve().parent.parent
 CATEGORIES = yaml.safe_load((ROOT / "config" / "categories.yaml").read_text())
@@ -151,7 +151,9 @@ def build(commits, profile, exclude=(), repo_meta=None, legacy=None):
         if repo in exclude or not records:
             continue
         repo_area = repo_default_area(repo, repo_areas)
-        private = repo_meta.get(repo, {}).get("private", False)
+        # stats.json is public: never publish messages from private or industry repos.
+        hide_msg = (repo_meta.get(repo, {}).get("private", False)
+                    or repo_scope(repo, profile) == "professional")
         habit = {"tests": {"test": 0, "code": 0}, "types": {}, "sizes": [],
                  "days": {}, "slots": {}, "lang_months": {}}
         for rec in records:
@@ -204,8 +206,7 @@ def build(commits, profile, exclude=(), repo_meta=None, legacy=None):
             habit["slots"][slot] = habit["slots"].get(slot, 0) + 1
             stats["recent"].append({
                 "repo": repo, "sha": rec["sha"][:7], "date": rec["date"], "type": ctype,
-                # stats.json is public: never publish messages from private repos.
-                "message": "" if private else (rec.get("message") or "")[:120],
+                "message": "" if hide_msg else (rec.get("message") or "")[:120],
                 "areas": areas,
             })
         stats["by_repo_habits"][repo] = habit

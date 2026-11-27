@@ -415,7 +415,7 @@ function renderTable() {
       const link = pro || r.private ? esc(name) : `<a href="https://github.com/${esc(name)}" target="_blank" rel="noopener">${esc(name)}</a>`;
       return `<tr><td><span class="repo">${link}</span></td>
         <td><span class="badge ${pro ? "pro" : "per"}">${pro ? "Industry · " + esc(r.org) : "Personal"}</span></td>
-        <td>${esc(DATA.areas[primaryArea(r)].label)}</td>
+        <td>${esc(r.focus || DATA.areas[primaryArea(r)].label)}</td>
         <td><div class="mini">${areaBar(r.areas)}</div></td>
         <td class="num">${nf.format(r.commits)}</td><td class="num">+${short(r.additions)}</td><td class="num">−${short(r.deletions)}</td></tr>`;
     }).join("") + "</tbody>";
