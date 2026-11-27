@@ -19,13 +19,13 @@
 
 **Tech Stack:** Python · PyTorch · LangGraph · LlamaIndex · AWS · Terraform · Docker · Java · React · Node.js
 
-> **984 commits** across **34 repositories** (10 industry, 24 personal) · **+564k** lines added · **−98k** lines deleted · **39 commits in the last 4 weeks**
+> **987 commits** across **34 repositories** (10 industry, 24 personal) · **+564k** lines added · **−98k** lines deleted · **42 commits in the last 4 weeks**
 
 | | Repos | Commits | Lines added | Lines deleted |
 |---|--:|--:|--:|--:|
 | 💼 Industry | 10 | 544 | +163,813 | −71,789 |
-| 🧪 Personal | 24 | 440 | +399,878 | −26,584 |
-| **Both** | 34 | 984 | +563,691 | −98,373 |
+| 🧪 Personal | 24 | 443 | +400,043 | −26,637 |
+| **Both** | 34 | 987 | +563,856 | −98,426 |
 
 <sub>🔄 All stats, charts and activity on this page update automatically every day from my commit history · last updated Nov 27, 2026</sub>
 
@@ -34,7 +34,7 @@
 Every changed file in my commits is classified as **AI / ML**, **Backend**, **DevOps** or **Frontend**, then split into **industry** work (production code at companies) vs **personal** projects. Expand a view below, or [open the interactive dashboard](https://arpnik.github.io/git-tracker/) to toggle areas and click into repos. <sub>Area figures count at most 800 lines per file per commit, so generated files and notebook outputs don't dominate; the totals above are raw.</sub>
 
 <details open>
-<summary><b>🌐 Both</b> · 34 repos · 984 commits · AI / ML 41% · Backend 31% · Frontend 22%</summary>
+<summary><b>🌐 Both</b> · 34 repos · 987 commits · AI / ML 41% · Backend 31% · Frontend 22%</summary>
 <br>
 
 <img src="./assets/work-split-all.svg" alt="Both work split" width="460">
@@ -64,7 +64,7 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 </details>
 
 <details>
-<summary><b>🧪 Personal</b> · 24 repos · 440 commits · AI / ML 60% · Backend 32% · DevOps 5%</summary>
+<summary><b>🧪 Personal</b> · 24 repos · 443 commits · AI / ML 60% · Backend 32% · DevOps 5%</summary>
 <br>
 
 <img src="./assets/work-split-personal.svg" alt="Personal work split" width="460">
@@ -73,8 +73,8 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 |---|--:|--:|--:|---|
 | 🧠 AI / ML | 60% | +49,417 | −6,136 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=ai) |
 | ⚙️ Backend | 32% | +21,139 | −8,413 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=backend) |
-| 🚀 DevOps | 5% | +3,391 | −881 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=devops) |
-| 🎨 Frontend | 3% | +2,116 | −735 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=frontend) |
+| 🚀 DevOps | 5% | +3,492 | −918 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=devops) |
+| 🎨 Frontend | 3% | +2,119 | −738 | [explore →](https://arpnik.github.io/git-tracker/#scope=personal&area=frontend) |
 
 </details>
 
@@ -84,7 +84,7 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 
 **Recently**
 
-- **Nov 27** · [`Arpnik/git-tracker`](https://github.com/Arpnik/git-tracker) · 1 commit · “added more metrics and changed fetch time ot 90 days” · 🚀 DevOps
+- **Nov 27** · [`Arpnik/git-tracker`](https://github.com/Arpnik/git-tracker) · 4 commits · “added coding agent instructions” · 🚀 DevOps
 - **Nov 26** · [`Arpnik/git-tracker`](https://github.com/Arpnik/git-tracker) · 4 commits · “added other software eng. metrics” · 🚀 DevOps
 - **Nov 19** · [`Arpnik/git-tracker`](https://github.com/Arpnik/git-tracker) · 1 commit · “Update track-stats.yml” · 🚀 DevOps
 - **Oct 20** · `Arpnik/agentic-assistant` · 2 commits · 🧠 AI / ML
@@ -102,12 +102,12 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 | ✂️ Small commits (≤ 200 lines) | 77% | 77% | 77% |
 | 🧩 Commit mix | Features 63% · Fixes 16% · Build/CI 9% | Features 57% · Docs 14% · Refactors 10% | Features 60% · Fixes 12% · Docs 8% |
 | ♻️ Lines deleted per 100 added | 32 | 21 | 27 |
-| 📅 Active days, last 12 months | 113 | 48 | 152 |
+| 📅 Active days, last 12 months | 113 | 49 | 153 |
 | 🔥 Longest streak | 6 days | 14 days | 14 days |
 | 🕒 Most active | Wednesdays, 10:00–13:00 | Fridays, 11:00–14:00 | Tuesdays, 10:00–13:00 |
 | 🗣️ Languages, last 90 days | Python, JavaScript, Java, Terraform | JavaScript, Python, HTML, Docker | JavaScript, Python, Java, Terraform |
 
-<sub>Pull requests since Nov 2023: 243 opened · 215 merged · 9 reviewed</sub>
+<sub>Pull requests since Nov 2023: 244 opened · 215 merged · 9 reviewed</sub>
 
 ## 💼 Industry experience
 
