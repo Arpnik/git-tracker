@@ -2078,20 +2078,20 @@
   }
  },
  "by_area": {
+  "backend": {
+   "additions": 49708,
+   "deletions": 16912,
+   "files": 1230
+  },
   "frontend": {
-   "additions": 35611,
-   "deletions": 15361,
-   "files": 878
+   "additions": 32924,
+   "deletions": 14124,
+   "files": 750
   },
   "other": {
    "additions": 25454,
    "deletions": 14075,
    "files": 777
-  },
-  "backend": {
-   "additions": 49708,
-   "deletions": 16912,
-   "files": 1230
   },
   "devops": {
    "additions": 9462,

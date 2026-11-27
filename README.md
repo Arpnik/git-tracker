@@ -43,8 +43,8 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 |---|--:|--:|--:|---|
 | 🧠 AI / ML | 41% | +75,123 | −12,459 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=ai) |
 | ⚙️ Backend | 31% | +49,708 | −16,912 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=backend) |
-| 🚀 DevOps | 5% | +9,361 | −1,978 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=devops) |
-| 🎨 Frontend | 22% | +32,921 | −14,121 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=frontend) |
+| 🚀 DevOps | 5% | +9,462 | −2,015 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=devops) |
+| 🎨 Frontend | 22% | +32,924 | −14,124 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=frontend) |
 
 </details>
 
