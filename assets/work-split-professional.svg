@@ -3,26 +3,26 @@
 <rect class="bg" x="0.5" y="0.5" width="459" height="239" rx="12"/>
 <text class="t" x="16" y="28">Industry — work split</text>
 <text class="st" x="16" y="46">10 repos · 544 commits · +164k / −72k lines</text>
-<path class="s-ai gap" stroke-width="2" d="M110.00,66.00 A80,80 0 0 1 187.49,165.89 L159.40,158.68 A51,51 0 0 0 110.00,95.00 Z"/>
-<path class="s-backend gap" stroke-width="2" d="M187.49,165.89 A80,80 0 0 1 109.63,226.00 L109.76,197.00 A51,51 0 0 0 159.40,158.68 Z"/>
-<path class="s-devops gap" stroke-width="2" d="M109.63,226.00 A80,80 0 0 1 76.88,218.82 L88.88,192.42 A51,51 0 0 0 109.76,197.00 Z"/>
-<path class="s-frontend gap" stroke-width="2" d="M76.88,218.82 A80,80 0 0 1 110.00,66.00 L110.00,95.00 A51,51 0 0 0 88.88,192.42 Z"/>
-<text class="c" x="110" y="148" text-anchor="middle">110k</text>
+<path class="s-ai gap" stroke-width="2" d="M110.00,66.00 A80,80 0 0 1 189.59,154.09 L160.74,151.16 A51,51 0 0 0 110.00,95.00 Z"/>
+<path class="s-backend gap" stroke-width="2" d="M189.59,154.09 A80,80 0 0 1 89.37,223.29 L96.85,195.28 A51,51 0 0 0 160.74,151.16 Z"/>
+<path class="s-devops gap" stroke-width="2" d="M89.37,223.29 A80,80 0 0 1 62.89,210.66 L79.96,187.22 A51,51 0 0 0 96.85,195.28 Z"/>
+<path class="s-frontend gap" stroke-width="2" d="M62.89,210.66 A80,80 0 0 1 110.00,66.00 L110.00,95.00 A51,51 0 0 0 79.96,187.22 Z"/>
+<text class="c" x="110" y="148" text-anchor="middle">120k</text>
 <text class="st" x="110" y="164" text-anchor="middle">lines</text>
 <rect class="s-ai" x="236" y="81" width="12" height="12" rx="3"/>
 <text class="ln" x="256" y="92">AI / ML</text>
-<text class="ln" x="440" y="92" text-anchor="end">29%</text>
+<text class="ln" x="440" y="92" text-anchor="end">27%</text>
 <text class="lv" x="256" y="107">32k lines</text>
 <rect class="s-backend" x="236" y="117" width="12" height="12" rx="3"/>
 <text class="ln" x="256" y="128">Backend</text>
-<text class="ln" x="440" y="128" text-anchor="end">21%</text>
-<text class="lv" x="256" y="143">23k lines</text>
+<text class="ln" x="440" y="128" text-anchor="end">28%</text>
+<text class="lv" x="256" y="143">33k lines</text>
 <rect class="s-devops" x="236" y="153" width="12" height="12" rx="3"/>
 <text class="ln" x="256" y="164">DevOps</text>
-<text class="ln" x="440" y="164" text-anchor="end">7%</text>
-<text class="lv" x="256" y="179">7.4k lines</text>
+<text class="ln" x="440" y="164" text-anchor="end">6%</text>
+<text class="lv" x="256" y="179">7.1k lines</text>
 <rect class="s-frontend" x="236" y="189" width="12" height="12" rx="3"/>
 <text class="ln" x="256" y="200">Frontend</text>
-<text class="ln" x="440" y="200" text-anchor="end">43%</text>
+<text class="ln" x="440" y="200" text-anchor="end">40%</text>
 <text class="lv" x="256" y="215">48k lines</text>
 </svg>

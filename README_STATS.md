@@ -1,47 +1,47 @@
 # Full dev stats
 
-_Last updated: 2026-11-26T22:07:03.420350+00:00_
+_Last updated: 2026-11-27T00:42:33.003047+00:00_
 
 ← [Back to profile](https://github.com/Arpnik/git-tracker)
 
-**Totals:** 980 commits · +562,406 / -96,645 lines
+**Totals:** 984 commits · +563,691 / -98,373 lines
 
 ## By work area
 
 | Area | Industry | Personal | All |
 |---|--:|--:|--:|
-| AI / ML | 31,894 | 43,957 | 75,851 |
-| Backend | 23,179 | 30,475 | 53,654 |
-| DevOps | 7,391 | 2,640 | 10,031 |
-| Frontend | 47,519 | 2,499 | 50,018 |
-| Docs & data | 35,819 | 24,052 | 59,871 |
+| AI / ML | 32,029 | 55,553 | 87,582 |
+| Backend | 33,144 | 29,552 | 62,696 |
+| DevOps | 7,067 | 4,272 | 11,339 |
+| Frontend | 48,115 | 2,851 | 50,966 |
+| Docs & data | 25,447 | 14,008 | 39,455 |
 
 ## By language
 
 | Language | + | - | Files touched |
 |---|--:|--:|--:|
 | Jupyter Notebook | 249,883 | 5,345 | 20 |
-| JSON | 109,540 | 21,429 | 197 |
-| Python | 55,221 | 12,144 | 906 |
+| JSON | 109,540 | 22,629 | 198 |
+| Python | 56,051 | 12,530 | 914 |
 | JavaScript | 39,250 | 15,263 | 816 |
 | Text | 30,529 | 61 | 4 |
 | Java | 26,002 | 7,100 | 572 |
 | Lock | 15,312 | 14,815 | 22 |
-| Markdown | 10,605 | 5,535 | 191 |
+| Markdown | 10,716 | 5,611 | 198 |
 | Solidity | 5,197 | 4,852 | 30 |
 | Dart | 4,100 | 2,999 | 126 |
 | Terraform | 3,971 | 726 | 106 |
 | Config | 2,737 | 238 | 47 |
-| HTML | 1,700 | 692 | 30 |
+| HTML | 2,010 | 734 | 34 |
 | XML | 1,588 | 319 | 57 |
 | Scala | 1,375 | 1,602 | 33 |
 | Shell | 1,255 | 149 | 14 |
-| YAML | 1,165 | 264 | 85 |
+| YAML | 1,192 | 281 | 88 |
 | SCSS | 801 | 47 | 11 |
 | Other | 749 | 183 | 203 |
 | TypeScript | 245 | 161 | 21 |
 | TOML | 162 | 9 | 9 |
-| Image | 143 | 0 | 54 |
+| Image | 150 | 7 | 59 |
 | Docker | 142 | 80 | 9 |
 | CSS | 125 | 62 | 8 |
 | Plist | 124 | 122 | 2 |
@@ -61,16 +61,16 @@ _Last updated: 2026-11-26T22:07:03.420350+00:00_
 | Arpnik/EDU-Chunking-RAG | Personal | AI / ML | 41 | 278,427 | 2,717 |
 | Arpnik/SafeNL2SQL | Personal | Backend | 39 | 4,247 | 526 |
 | altconvey/acy-rest | 💼 Industry | Backend | 37 | 16,659 | 4,383 |
-| Arpnik/taskd-technical-challenge | Personal | Backend | 33 | 1,324 | 586 |
+| Arpnik/taskd-technical-challenge | Personal | AI / ML | 33 | 1,324 | 586 |
 | Arpnik/SOEN-341 | Personal | Backend | 25 | 242 | 24 |
 | GetKnowbie/AdminV2 | 💼 Industry | Frontend | 24 | 15,233 | 14,517 |
 | FrancescoBonzi/twin-transformer | Personal | AI / ML | 24 | 344 | 226 |
 | Arpnik/DISRPT-Segmenter | Personal | AI / ML | 20 | 22,034 | 930 |
 | Arpnik/FedBN | Personal | AI / ML | 20 | 2,259 | 843 |
-| altconvey/acy-materials | 💼 Industry | AI / ML | 19 | 29,655 | 1,037 |
+| altconvey/acy-materials | 💼 Industry | Backend | 19 | 29,655 | 1,037 |
+| Arpnik/git-tracker | Personal | DevOps | 18 | 5,244 | 2,722 |
 | Arpnik/COMP-6481-Assignment-2 | Personal | Backend | 16 | 1,531 | 244 |
 | Arpnik/agentic-assistant | Personal | AI / ML | 15 | 12,565 | 1,349 |
-| Arpnik/git-tracker | Personal | DevOps | 14 | 3,959 | 994 |
 | Arpnik/LinkedInQueenGame | Personal | Backend | 12 | 595 | 13 |
 | Arpnik/speech-pd-detection | Personal | AI / ML | 12 | 5,430 | 31 |
 | Arpnik/web-crawler | Personal | Backend | 11 | 3,967 | 269 |
@@ -83,7 +83,7 @@ _Last updated: 2026-11-26T22:07:03.420350+00:00_
 | toyosi12/fs-agent | Personal | AI / ML | 3 | 153 | 18 |
 | Arpnik/tech-salary-analysis | Personal | Docs & data | 2 | 366 | 0 |
 | Arpnik/Recommender-Systems | Personal | AI / ML | 2 | 2,955 | 0 |
-| Arpnik/llm-zoomcamp | Personal | Docs & data | 1 | 365 | 0 |
+| Arpnik/llm-zoomcamp | Personal | AI / ML | 1 | 365 | 0 |
 
 ## Language detail by repository
 
@@ -325,6 +325,20 @@ _Last updated: 2026-11-26T22:07:03.420350+00:00_
 
 </details>
 
+<details><summary><strong>Arpnik/git-tracker</strong></summary>
+
+| Language | + | - | Files touched |
+|---|--:|--:|--:|
+| Python | 2,626 | 792 | 21 |
+| HTML | 1,434 | 362 | 13 |
+| Markdown | 561 | 330 | 17 |
+| YAML | 271 | 31 | 12 |
+| Config | 224 | 0 | 3 |
+| Image | 128 | 7 | 9 |
+| JSON | 0 | 1,200 | 1 |
+
+</details>
+
 <details><summary><strong>Aisha8665/rexploit-dataset</strong></summary>
 
 | Language | + | - | Files touched |
@@ -398,19 +412,6 @@ _Last updated: 2026-11-26T22:07:03.420350+00:00_
 | Config | 218 | 0 | 1 |
 | Markdown | 87 | 4 | 3 |
 | TOML | 28 | 2 | 3 |
-
-</details>
-
-<details><summary><strong>Arpnik/git-tracker</strong></summary>
-
-| Language | + | - | Files touched |
-|---|--:|--:|--:|
-| Python | 1,796 | 406 | 13 |
-| HTML | 1,124 | 320 | 9 |
-| Markdown | 450 | 254 | 10 |
-| YAML | 244 | 14 | 9 |
-| Config | 224 | 0 | 3 |
-| Image | 121 | 0 | 4 |
 
 </details>
 
