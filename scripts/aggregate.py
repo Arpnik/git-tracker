@@ -12,7 +12,8 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
-from dev_tags import area_for, commit_type, is_test, repo_default_area, repo_scope
+from dev_tags import (area_for, commit_type, is_test, repo_default_area, repo_path_area,
+                      repo_scope)
 
 ROOT = Path(__file__).resolve().parent.parent
 CATEGORIES = yaml.safe_load((ROOT / "config" / "categories.yaml").read_text())
@@ -105,12 +106,12 @@ def classify_file(filename, config):
 
 # ---------------------------------------------------------------- per-file rows
 
-def classify_rows(files, repo_area):
+def classify_rows(files, repo_area, repo=None, repo_paths=None):
     """[[path, add, del], ...] -> [[language, area, is_test, is_doc, add, del], ...]"""
     rows = []
     for path, add, dele in files:
         lang, _ = classify_file(path, CATEGORIES)
-        area = area_for(path, lang, repo_area)
+        area = area_for(path, lang, repo_path_area(repo or "", path, repo_paths, repo_area))
         rows.append([lang, area, is_test(path) and area != "other", bool(_DOC_RE.search(path)), add, dele])
     return rows
 
@@ -144,6 +145,7 @@ def build(commits, profile, exclude=(), repo_meta=None, legacy=None):
     """Aggregate {repo: [{"sha","date","message","files":[[path,add,del]]}]}."""
     tz = ZoneInfo(profile.get("timezone") or "UTC")
     repo_areas = profile.get("repo_areas") or {}
+    repo_paths = profile.get("repo_paths") or {}
     stats = _blank()
     repo_meta = repo_meta or {}
 
@@ -157,7 +159,7 @@ def build(commits, profile, exclude=(), repo_meta=None, legacy=None):
         habit = {"tests": {"test": 0, "code": 0}, "types": {}, "sizes": [],
                  "days": {}, "slots": {}, "lang_months": {}}
         for rec in records:
-            rows = classify_rows(rec["files"], repo_area)
+            rows = classify_rows(rec["files"], repo_area, repo, repo_paths)
             ctype = commit_type_for(rec.get("message", ""), rows)
             cats = [classify_file(p, CATEGORIES)[1] for p, _, _ in rec["files"]]
 

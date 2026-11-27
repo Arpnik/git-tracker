@@ -34,7 +34,7 @@
 Every changed file in my commits is classified as **AI / ML**, **Backend**, **DevOps** or **Frontend**, then split into **industry** work (production code at companies) vs **personal** projects. Expand a view below, or [open the interactive dashboard](https://arpnik.github.io/git-tracker/) to toggle areas and click into repos. <sub>Area figures count at most 800 lines per file per commit, so generated files and notebook outputs don't dominate; the totals above are raw.</sub>
 
 <details open>
-<summary><b>🌐 Both</b> · 34 repos · 984 commits · AI / ML 41% · Backend 29% · Frontend 24%</summary>
+<summary><b>🌐 Both</b> · 34 repos · 984 commits · AI / ML 41% · Backend 31% · Frontend 22%</summary>
 <br>
 
 <img src="./assets/work-split-all.svg" alt="Both work split" width="460">
@@ -42,14 +42,14 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 | Area | Share | Added | Deleted | |
 |---|--:|--:|--:|---|
 | 🧠 AI / ML | 41% | +75,123 | −12,459 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=ai) |
-| ⚙️ Backend | 29% | +47,021 | −15,675 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=backend) |
+| ⚙️ Backend | 31% | +49,708 | −16,912 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=backend) |
 | 🚀 DevOps | 5% | +9,361 | −1,978 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=devops) |
-| 🎨 Frontend | 24% | +35,608 | −15,358 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=frontend) |
+| 🎨 Frontend | 22% | +32,921 | −14,121 | [explore →](https://arpnik.github.io/git-tracker/#scope=all&area=frontend) |
 
 </details>
 
 <details>
-<summary><b>💼 Industry</b> · 10 repos · 544 commits · Frontend 40% · Backend 28% · AI / ML 27%</summary>
+<summary><b>💼 Industry</b> · 10 repos · 544 commits · Frontend 37% · Backend 31% · AI / ML 27%</summary>
 <br>
 
 <img src="./assets/work-split-professional.svg" alt="Industry work split" width="460">
@@ -57,9 +57,9 @@ Every changed file in my commits is classified as **AI / ML**, **Backend**, **De
 | Area | Share | Added | Deleted | |
 |---|--:|--:|--:|---|
 | 🧠 AI / ML | 27% | +25,706 | −6,323 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=ai) |
-| ⚙️ Backend | 28% | +25,882 | −7,262 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=backend) |
+| ⚙️ Backend | 31% | +28,569 | −8,499 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=backend) |
 | 🚀 DevOps | 6% | +5,970 | −1,097 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=devops) |
-| 🎨 Frontend | 40% | +33,492 | −14,623 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=frontend) |
+| 🎨 Frontend | 37% | +30,805 | −13,386 | [explore →](https://arpnik.github.io/git-tracker/#scope=professional&area=frontend) |
 
 </details>
 
@@ -125,7 +125,7 @@ React UI, Java REST API, Python AI services and Terraform-managed infrastructure
 
 ### Knowbie · Lead Software Engineer
 Operator & admin platforms (web app frontends + backend), Flutter mobile app, Node.js API and CMS.  
-<sub>5 repos · 265 commits · Frontend 81% · Backend 13% · AI / ML 5%</sub>
+<sub>5 repos · 265 commits · Frontend 68% · Backend 27% · AI / ML 5%</sub>
 
 | Repository | Discipline | Commits | Added | Deleted |
 |---|---|--:|--:|--:|

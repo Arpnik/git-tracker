@@ -2079,9 +2079,9 @@
  },
  "by_area": {
   "frontend": {
-   "additions": 35608,
-   "deletions": 15358,
-   "files": 876
+   "additions": 32921,
+   "deletions": 14121,
+   "files": 748
   },
   "other": {
    "additions": 25393,
@@ -2089,9 +2089,9 @@
    "files": 772
   },
   "backend": {
-   "additions": 47021,
-   "deletions": 15675,
-   "files": 1102
+   "additions": 49708,
+   "deletions": 16912,
+   "files": 1230
   },
   "devops": {
    "additions": 9361,
@@ -2106,10 +2106,15 @@
  },
  "by_repo_area": {
   "GetKnowbie/Operators": {
+   "backend": {
+    "additions": 2343,
+    "deletions": 1037,
+    "files": 106
+   },
    "frontend": {
-    "additions": 8072,
-    "deletions": 6158,
-    "files": 279
+    "additions": 5729,
+    "deletions": 5121,
+    "files": 173
    },
    "other": {
     "additions": 1999,
@@ -2118,10 +2123,15 @@
    }
   },
   "GetKnowbie/AdminV2": {
+   "backend": {
+    "additions": 344,
+    "deletions": 200,
+    "files": 22
+   },
    "frontend": {
-    "additions": 1374,
-    "deletions": 620,
-    "files": 61
+    "additions": 1030,
+    "deletions": 420,
+    "files": 39
    },
    "other": {
     "additions": 972,

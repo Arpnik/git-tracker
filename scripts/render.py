@@ -21,6 +21,7 @@ from urllib.parse import quote
 
 import yaml
 
+from aggregate import EXT_LANG, FILENAME_LANG
 from dev_tags import (AREAS, AREA_LABELS, COMMIT_TYPES, COMMIT_TYPE_LABELS,
                       area_for_language, repo_default_area, repo_scope, scrub_messages)
 
@@ -59,7 +60,8 @@ FONT = "-apple-system,Segoe UI,Helvetica,Arial,sans-serif"
 def load_profile():
     p = yaml.safe_load(PROFILE_FILE.read_text()) if PROFILE_FILE.exists() else {}
     p = p or {}
-    for k in ("professional_orgs", "links", "repo_areas", "repo_disciplines", "featured", "activity"):
+    for k in ("professional_orgs", "links", "repo_areas", "repo_disciplines", "repo_paths",
+              "repo_tech", "featured", "activity"):
         p[k] = p.get(k) or {}
     p["about"] = p.get("about") or []
     p["tech_stack"] = p.get("tech_stack") or []
@@ -169,6 +171,25 @@ def disciplines(stats, profile, repo):
         a = primary_area(stats, repo)
         out = [(AREA_EMOJI[a], AREA_LABELS[a])]
     return out
+
+
+_KNOWN_LANGS = set(EXT_LANG.values()) | set(FILENAME_LANG.values())
+
+
+def repo_tech(stats, profile, repo):
+    """Tags for a repo: its real languages by lines changed (most used first;
+    config/data formats and unknown extensions dropped), then any frameworks
+    listed under `repo_tech` in profile.yaml."""
+    langs = stats.get("by_repo_language", {}).get(repo, {})
+    ranked = sorted(((l, lines(s)) for l, s in langs.items()
+                     if l in _KNOWN_LANGS and l not in _HIDE_LANGS and lines(s) > 0),
+                    key=lambda x: -x[1])
+    tags = [l for l, _ in ranked]
+    declared = {k.lower(): v for k, v in profile["repo_tech"].items()}.get(repo.lower()) or []
+    for x in ([declared] if isinstance(declared, str) else declared):
+        if x and x.lower() not in {t.lower() for t in tags}:
+            tags.append(str(x))
+    return tags
 
 
 def discipline_text(stats, profile, repo, emoji=True):
@@ -742,6 +763,7 @@ def write_dashboard(stats, profile):
             "languages": {l: lines(v) for l, v in stats.get("by_repo_language", {}).get(r, {}).items()},
             "habits": stats.get("by_repo_habits", {}).get(r),
             "focus": discipline_text(stats, profile, r, emoji=False),
+            "tech": repo_tech(stats, profile, r),
         }
     payload = {
         "generated_at": stats.get("generated_at"),

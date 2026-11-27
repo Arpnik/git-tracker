@@ -4,9 +4,9 @@
 <text class="t" x="16" y="28">Industry — work split</text>
 <text class="st" x="16" y="46">10 repos · 544 commits · +164k / −72k lines</text>
 <path class="s-ai gap" stroke-width="2" d="M110.00,66.00 A80,80 0 0 1 189.59,154.09 L160.74,151.16 A51,51 0 0 0 110.00,95.00 Z"/>
-<path class="s-backend gap" stroke-width="2" d="M189.59,154.09 A80,80 0 0 1 89.37,223.29 L96.85,195.28 A51,51 0 0 0 160.74,151.16 Z"/>
-<path class="s-devops gap" stroke-width="2" d="M89.37,223.29 A80,80 0 0 1 62.89,210.66 L79.96,187.22 A51,51 0 0 0 96.85,195.28 Z"/>
-<path class="s-frontend gap" stroke-width="2" d="M62.89,210.66 A80,80 0 0 1 110.00,66.00 L110.00,95.00 A51,51 0 0 0 79.96,187.22 Z"/>
+<path class="s-backend gap" stroke-width="2" d="M189.59,154.09 A80,80 0 0 1 74.08,217.48 L87.10,191.57 A51,51 0 0 0 160.74,151.16 Z"/>
+<path class="s-devops gap" stroke-width="2" d="M74.08,217.48 A80,80 0 0 1 50.72,199.72 L72.21,180.25 A51,51 0 0 0 87.10,191.57 Z"/>
+<path class="s-frontend gap" stroke-width="2" d="M50.72,199.72 A80,80 0 0 1 110.00,66.00 L110.00,95.00 A51,51 0 0 0 72.21,180.25 Z"/>
 <text class="c" x="110" y="148" text-anchor="middle">120k</text>
 <text class="st" x="110" y="164" text-anchor="middle">lines</text>
 <rect class="s-ai" x="236" y="81" width="12" height="12" rx="3"/>
@@ -15,14 +15,14 @@
 <text class="lv" x="256" y="107">32k lines</text>
 <rect class="s-backend" x="236" y="117" width="12" height="12" rx="3"/>
 <text class="ln" x="256" y="128">Backend</text>
-<text class="ln" x="440" y="128" text-anchor="end">28%</text>
-<text class="lv" x="256" y="143">33k lines</text>
+<text class="ln" x="440" y="128" text-anchor="end">31%</text>
+<text class="lv" x="256" y="143">37k lines</text>
 <rect class="s-devops" x="236" y="153" width="12" height="12" rx="3"/>
 <text class="ln" x="256" y="164">DevOps</text>
 <text class="ln" x="440" y="164" text-anchor="end">6%</text>
 <text class="lv" x="256" y="179">7.1k lines</text>
 <rect class="s-frontend" x="236" y="189" width="12" height="12" rx="3"/>
 <text class="ln" x="256" y="200">Frontend</text>
-<text class="ln" x="440" y="200" text-anchor="end">40%</text>
-<text class="lv" x="256" y="215">48k lines</text>
+<text class="ln" x="440" y="200" text-anchor="end">37%</text>
+<text class="lv" x="256" y="215">44k lines</text>
 </svg>

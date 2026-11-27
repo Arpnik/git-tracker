@@ -73,6 +73,13 @@ repo_areas:
   toyosi12/fs-agent: ai
   anubhavm101/SOEN-6441--TubeLytics: backend
 
+# Repos that hold more than one discipline, split by folder: {prefix: area},
+# first match wins, "*" = everything else. Overrides repo_areas for those files
+# (clear signals like Dockerfiles, .tsx or .css still win).
+repo_paths:
+  GetKnowbie/Operators: {client/: frontend, "*": backend}   # React client + Express API
+  GetKnowbie/AdminV2: {client/: frontend, "*": backend}     # React client + Express API
+
 # What each repo's "Discipline" column says, when one measured area isn't the
 # whole story. List areas (ai | backend | devops | frontend), or use
 # frontend:web / frontend:mobile to say which kind of frontend it is.
@@ -82,6 +89,12 @@ repo_disciplines:
   GetKnowbie/AdminV2: [frontend:web, backend]
   GetKnowbie/end-user: [frontend:mobile]
   altconvey/acy-ui: [frontend:web]
+
+# Frameworks/tools to tag on a repo in the dashboard, after its measured
+# languages (which are ranked by lines changed). Optional.
+repo_tech:
+  GetKnowbie/Operators: [React, Node.js, Express, MongoDB, Firebase, Tailwind CSS, GraphQL]
+  GetKnowbie/AdminV2: [React, Node.js, Express, MongoDB, Firebase, Redux, Material UI, AWS]
 
 # Personal repos to highlight first on the profile page (owner/repo: one-liner).
 featured:

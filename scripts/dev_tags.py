@@ -175,6 +175,20 @@ def repo_default_area(full_name, overrides=None):
     return None
 
 
+def repo_path_area(full_name, path, repo_paths=None, default=None):
+    """Discipline for one file of a repo, from `repo_paths` in profile.yaml:
+    {folder prefix: area}, first match wins, "*" for everything else. Falls back
+    to `default` (the repo's discipline) when the repo has no rule."""
+    rules = {k.lower(): v for k, v in (repo_paths or {}).items()}.get(full_name.lower())
+    if not rules:
+        return default
+    p = path.lower()
+    for prefix, area in rules.items():
+        if prefix != "*" and p.startswith(prefix.lower()):
+            return area
+    return rules.get("*", default)
+
+
 def area_for(filename, language=None, repo_area=None):
     """Return one development area for a changed file.
 

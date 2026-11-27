@@ -104,6 +104,13 @@
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   td .repo{font-family:var(--mono);font-size:13px}
   td .mini{width:120px}
+  .tags{display:flex;gap:4px;align-items:center}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--chip);color:var(--text-2);white-space:nowrap}
+  .tag.more{background:none;border:1px dashed var(--line);cursor:help}
+  .tag.more:focus-visible{outline:2px solid var(--pro-ink);outline-offset:1px}
+  .tip{position:fixed;z-index:20;max-width:260px;padding:8px;border-radius:8px;background:var(--surface);
+       border:1px solid var(--line);box-shadow:0 6px 20px rgba(0,0,0,.18);display:flex;flex-wrap:wrap;gap:4px;pointer-events:none}
+  .tip[hidden]{display:none}
   .filter-note{font-size:13px;color:var(--text-2);margin:-6px 0 10px}
   .filter-note button{border:0;background:none;color:var(--pro-ink);cursor:pointer;font:inherit;padding:0}
   .langs{display:grid;gap:8px}
@@ -201,9 +208,10 @@
 
     <section class="card span-12">
       <h2>Repositories</h2>
-      <p class="hint">Every repository I've committed to, tagged industry or personal.</p>
+      <p class="hint">Every repository I've committed to, tagged industry or personal, with its languages and tech.</p>
       <div class="filter-note" id="filterNote" hidden></div>
       <div class="table-wrap"><table id="repoTable"></table></div>
+      <div class="tip" id="tagTip" role="tooltip" hidden></div>
     </section>
   </div>
   <footer id="footer"></footer>
@@ -397,6 +405,35 @@ function renderLangs() {
     || `<p class="hint">No data in this scope.</p>`;
 }
 
+function techTags(tech) {
+  if (!tech.length) return `<span class="hint">–</span>`;
+  const shown = tech.slice(0, 2).map(t => `<span class="tag">${esc(t)}</span>`).join("");
+  const rest = tech.slice(2);
+  const more = rest.length ? `<span class="tag more" tabindex="0" data-more="${esc(rest.join("|"))}"
+      aria-label="Also: ${esc(rest.join(", "))}">+${rest.length} more</span>` : "";
+  return `<div class="tags">${shown}${more}</div>`;
+}
+
+// One floating tooltip for every "+N more" chip (hover, keyboard focus or tap).
+(() => {
+  const tip = () => document.getElementById("tagTip");
+  const show = el => {
+    const t = tip();
+    t.innerHTML = el.dataset.more.split("|").map(x => `<span class="tag">${esc(x)}</span>`).join("");
+    t.hidden = false;
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    t.style.left = Math.max(8, Math.min(r.left, innerWidth - w - 8)) + "px";
+    t.style.top = (r.bottom + 6 + h > innerHeight ? r.top - h - 6 : r.bottom + 6) + "px";
+  };
+  const hide = () => { const t = tip(); if (t) t.hidden = true; };
+  const chip = e => e.target.closest && e.target.closest(".tag.more");
+  document.addEventListener("mouseover", e => { const c = chip(e); c ? show(c) : hide(); });
+  document.addEventListener("focusin", e => { const c = chip(e); c ? show(c) : hide(); });
+  document.addEventListener("focusout", hide);
+  document.addEventListener("click", e => { const c = chip(e); c ? show(c) : hide(); });
+  addEventListener("scroll", hide, true);
+})();
+
 function renderTable() {
   let rs = repos();
   if (state.focus) rs = rs.filter(([, r]) => (r.areas[state.focus] || 0) > 0)
@@ -408,7 +445,7 @@ function renderTable() {
     note.innerHTML = `Showing repos with ${esc(DATA.areas[state.focus].label)} work, sorted by lines in that area · <button id="clearFocus">clear filter</button>`;
     document.getElementById("clearFocus").onclick = () => focusArea(state.focus);
   }
-  document.getElementById("repoTable").innerHTML = `<thead><tr><th>Repository</th><th>Type</th><th>Focus</th><th>Area mix</th>
+  document.getElementById("repoTable").innerHTML = `<thead><tr><th>Repository</th><th>Type</th><th>Focus</th><th>Languages &amp; tech</th><th>Area mix</th>
       <th class="num">Commits</th><th class="num">Added</th><th class="num">Deleted</th></tr></thead><tbody>` +
     rs.map(([name, r]) => {
       const pro = r.scope === "professional";
@@ -416,6 +453,7 @@ function renderTable() {
       return `<tr><td><span class="repo">${link}</span></td>
         <td><span class="badge ${pro ? "pro" : "per"}">${pro ? "Industry · " + esc(r.org) : "Personal"}</span></td>
         <td>${esc(r.focus || DATA.areas[primaryArea(r)].label)}</td>
+        <td>${techTags(r.tech || [])}</td>
         <td><div class="mini">${areaBar(r.areas)}</div></td>
         <td class="num">${nf.format(r.commits)}</td><td class="num">+${short(r.additions)}</td><td class="num">−${short(r.deletions)}</td></tr>`;
     }).join("") + "</tbody>";
