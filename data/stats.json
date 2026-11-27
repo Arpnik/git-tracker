@@ -1,8 +1,8 @@
 {
  "totals": {
-  "commits": 984,
-  "additions": 563691,
-  "deletions": 98373
+  "commits": 987,
+  "additions": 563856,
+  "deletions": 98426
  },
  "by_repo": {
   "GetKnowbie/Operators": {
@@ -136,9 +136,9 @@
    "deletions": 376
   },
   "Arpnik/git-tracker": {
-   "commits": 18,
-   "additions": 5244,
-   "deletions": 2722
+   "commits": 21,
+   "additions": 5409,
+   "deletions": 2775
   },
   "Arpnik/web-crawler": {
    "commits": 11,
@@ -208,9 +208,9 @@
    "files": 8
   },
   "Markdown": {
-   "additions": 10716,
-   "deletions": 5611,
-   "files": 198
+   "additions": 10777,
+   "deletions": 5624,
+   "files": 203
   },
   "Lock": {
    "additions": 15312,
@@ -268,9 +268,9 @@
    "files": 1
   },
   "YAML": {
-   "additions": 1192,
-   "deletions": 281,
-   "files": 88
+   "additions": 1215,
+   "deletions": 290,
+   "files": 89
   },
   "Dart": {
    "additions": 4100,
@@ -323,9 +323,9 @@
    "files": 20
   },
   "Python": {
-   "additions": 56051,
-   "deletions": 12530,
-   "files": 914
+   "additions": 56129,
+   "deletions": 12558,
+   "files": 919
   },
   "Dev": {
    "additions": 0,
@@ -368,9 +368,9 @@
    "files": 33
   },
   "HTML": {
-   "additions": 2010,
-   "deletions": 734,
-   "files": 34
+   "additions": 2013,
+   "deletions": 737,
+   "files": 36
   },
   "Log": {
    "additions": 16,
@@ -485,24 +485,24 @@
    "files": 791
   },
   "docs": {
-   "additions": 10224,
-   "deletions": 5295,
-   "files": 190
+   "additions": 10285,
+   "deletions": 5308,
+   "files": 195
   },
   "ui_design": {
-   "additions": 2545,
-   "deletions": 752,
-   "files": 97
+   "additions": 2548,
+   "deletions": 755,
+   "files": 99
   },
   "infra": {
-   "additions": 6206,
-   "deletions": 1459,
-   "files": 287
+   "additions": 6229,
+   "deletions": 1468,
+   "files": 288
   },
   "backend": {
-   "additions": 81781,
-   "deletions": 19644,
-   "files": 1465
+   "additions": 81859,
+   "deletions": 19672,
+   "files": 1470
   },
   "data_ml": {
    "additions": 249894,
@@ -517,9 +517,9 @@
  },
  "by_week": {
   "2026-11-23": {
-   "commits": 9,
-   "additions": 9942,
-   "deletions": 3073
+   "commits": 12,
+   "additions": 10107,
+   "deletions": 3126
   },
   "2026-09-28": {
    "commits": 10,
@@ -1797,14 +1797,14 @@
     "files": 1
    },
    "Markdown": {
-    "additions": 561,
-    "deletions": 330,
-    "files": 17
+    "additions": 622,
+    "deletions": 343,
+    "files": 22
    },
    "Python": {
-    "additions": 2626,
-    "deletions": 792,
-    "files": 21
+    "additions": 2704,
+    "deletions": 820,
+    "files": 26
    },
    "Image": {
     "additions": 128,
@@ -1812,14 +1812,14 @@
     "files": 9
    },
    "YAML": {
-    "additions": 271,
-    "deletions": 31,
-    "files": 12
+    "additions": 294,
+    "deletions": 40,
+    "files": 13
    },
    "HTML": {
-    "additions": 1434,
-    "deletions": 362,
-    "files": 13
+    "additions": 1437,
+    "deletions": 365,
+    "files": 15
    },
    "Config": {
     "additions": 224,
@@ -2079,14 +2079,14 @@
  },
  "by_area": {
   "frontend": {
-   "additions": 35608,
-   "deletions": 15358,
-   "files": 876
+   "additions": 35611,
+   "deletions": 15361,
+   "files": 878
   },
   "other": {
-   "additions": 25393,
-   "deletions": 14062,
-   "files": 772
+   "additions": 25454,
+   "deletions": 14075,
+   "files": 777
   },
   "backend": {
    "additions": 47021,
@@ -2094,9 +2094,9 @@
    "files": 1102
   },
   "devops": {
-   "additions": 9361,
-   "deletions": 1978,
-   "files": 269
+   "additions": 9462,
+   "deletions": 2015,
+   "files": 275
   },
   "ai": {
    "additions": 75123,
@@ -2459,19 +2459,19 @@
   },
   "Arpnik/git-tracker": {
    "other": {
-    "additions": 692,
-    "deletions": 1138,
-    "files": 29
-   },
-   "devops": {
-    "additions": 3118,
-    "deletions": 822,
+    "additions": 753,
+    "deletions": 1151,
     "files": 34
    },
+   "devops": {
+    "additions": 3219,
+    "deletions": 859,
+    "files": 40
+   },
    "frontend": {
-    "additions": 1434,
-    "deletions": 362,
-    "files": 13
+    "additions": 1437,
+    "deletions": 365,
+    "files": 15
    }
   },
   "Arpnik/web-crawler": {
@@ -2785,7 +2785,7 @@
    "2026-05-11": 7
   },
   "Arpnik/git-tracker": {
-   "2026-11-23": 5,
+   "2026-11-23": 8,
    "2026-11-16": 1,
    "2026-07-20": 9,
    "2026-07-06": 3
@@ -5002,12 +5002,12 @@
   "Arpnik/git-tracker": {
    "tests": {
     "test": 0,
-    "code": 5736
+    "code": 5880
    },
    "types": {
-    "feature": 14,
+    "feature": 16,
     "chore": 1,
-    "docs": 3
+    "docs": 4
    },
    "sizes": [
     764,
@@ -5027,13 +5027,17 @@
     339,
     2,
     531,
-    218
+    218,
+    0,
+    3,
+    141
    ],
    "days": {
     "2026-11-26": 5,
     "2026-11-19": 1,
     "2026-07-22": 9,
-    "2026-07-11": 3
+    "2026-07-11": 3,
+    "2026-11-27": 3
    },
    "slots": {
     "3-19": 1,
@@ -5041,19 +5045,20 @@
     "2-14": 1,
     "2-13": 3,
     "2-12": 5,
-    "5-17": 3
+    "5-17": 3,
+    "4-13": 3
    },
    "lang_months": {
     "Python": {
-     "2026-11": 2412,
+     "2026-11": 2518,
      "2026-07": 1002
     },
     "YAML": {
-     "2026-11": 179,
+     "2026-11": 211,
      "2026-07": 123
     },
     "HTML": {
-     "2026-11": 1475,
+     "2026-11": 1481,
      "2026-07": 321
     },
     "Config": {
@@ -5952,6 +5957,39 @@
   }
  },
  "recent": [
+  {
+   "repo": "Arpnik/git-tracker",
+   "sha": "f7f7da0",
+   "date": "2026-11-27T18:29:32Z",
+   "type": "docs",
+   "message": "added coding agent instructions",
+   "areas": {
+    "other": 38
+   }
+  },
+  {
+   "repo": "Arpnik/git-tracker",
+   "sha": "0c303f0",
+   "date": "2026-11-27T18:28:27Z",
+   "type": "feature",
+   "message": "added message in the end",
+   "areas": {
+    "other": 2,
+    "devops": 3
+   }
+  },
+  {
+   "repo": "Arpnik/git-tracker",
+   "sha": "68dbda0",
+   "date": "2026-11-27T18:22:26Z",
+   "type": "feature",
+   "message": "improvement on project classification, updated main profile",
+   "areas": {
+    "other": 34,
+    "devops": 135,
+    "frontend": 6
+   }
+  },
   {
    "repo": "Arpnik/git-tracker",
    "sha": "0bc2437",
@@ -7221,37 +7259,6 @@
    "message": "file updated",
    "areas": {
     "frontend": 96
-   }
-  },
-  {
-   "repo": "Arpnik/git-tracker",
-   "sha": "01e64f4",
-   "date": "2026-07-22T16:13:19Z",
-   "type": "feature",
-   "message": "updated gitignore",
-   "areas": {
-    "devops": 3
-   }
-  },
-  {
-   "repo": "Arpnik/git-tracker",
-   "sha": "bd59a89",
-   "date": "2026-07-22T16:02:41Z",
-   "type": "docs",
-   "message": "added missing file",
-   "areas": {
-    "other": 3
-   }
-  },
-  {
-   "repo": "Arpnik/git-tracker",
-   "sha": "e2c52db",
-   "date": "2026-07-22T16:00:44Z",
-   "type": "docs",
-   "message": "added better org handling and changed readme.md as new data comes in",
-   "areas": {
-    "devops": 339,
-    "other": 33
    }
   },
   {
@@ -10307,13 +10314,13 @@
  "pull_requests": {
   "since": "2023-11-28",
   "all": {
-   "opened": 243,
+   "opened": 244,
    "merged": 215,
    "reviewed": 9
   },
   "orgs": {
    "altconvey": {
-    "opened": 124,
+    "opened": 125,
     "merged": 112,
     "reviewed": 0
    },
@@ -10324,5 +10331,5 @@
    }
   }
  },
- "generated_at": "2026-11-27T11:43:41.122826+00:00"
+ "generated_at": "2026-11-27T18:30:25.183870+00:00"
 }

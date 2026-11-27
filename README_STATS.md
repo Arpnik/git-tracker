@@ -1,10 +1,10 @@
 # Full dev stats
 
-_Last updated: 2026-11-27T11:43:41.122826+00:00_
+_Last updated: 2026-11-27T18:30:25.183870+00:00_
 
 ← [Back to profile](https://github.com/Arpnik/git-tracker)
 
-**Totals:** 984 commits · +563,691 / -98,373 lines
+**Totals:** 987 commits · +563,856 / -98,426 lines
 
 ## By work area
 
@@ -12,9 +12,9 @@ _Last updated: 2026-11-27T11:43:41.122826+00:00_
 |---|--:|--:|--:|
 | AI / ML | 32,029 | 55,553 | 87,582 |
 | Backend | 33,144 | 29,552 | 62,696 |
-| DevOps | 7,067 | 4,272 | 11,339 |
-| Frontend | 48,115 | 2,851 | 50,966 |
-| Docs & data | 25,447 | 14,008 | 39,455 |
+| DevOps | 7,067 | 4,410 | 11,477 |
+| Frontend | 48,115 | 2,857 | 50,972 |
+| Docs & data | 25,447 | 14,082 | 39,529 |
 
 ## By language
 
@@ -22,21 +22,21 @@ _Last updated: 2026-11-27T11:43:41.122826+00:00_
 |---|--:|--:|--:|
 | Jupyter Notebook | 249,883 | 5,345 | 20 |
 | JSON | 109,540 | 22,629 | 198 |
-| Python | 56,051 | 12,530 | 914 |
+| Python | 56,129 | 12,558 | 919 |
 | JavaScript | 39,250 | 15,263 | 816 |
 | Text | 30,529 | 61 | 4 |
 | Java | 26,002 | 7,100 | 572 |
 | Lock | 15,312 | 14,815 | 22 |
-| Markdown | 10,716 | 5,611 | 198 |
+| Markdown | 10,777 | 5,624 | 203 |
 | Solidity | 5,197 | 4,852 | 30 |
 | Dart | 4,100 | 2,999 | 126 |
 | Terraform | 3,971 | 726 | 106 |
 | Config | 2,737 | 238 | 47 |
-| HTML | 2,010 | 734 | 34 |
+| HTML | 2,013 | 737 | 36 |
 | XML | 1,588 | 319 | 57 |
 | Scala | 1,375 | 1,602 | 33 |
 | Shell | 1,255 | 149 | 14 |
-| YAML | 1,192 | 281 | 88 |
+| YAML | 1,215 | 290 | 89 |
 | SCSS | 801 | 47 | 11 |
 | Other | 749 | 183 | 203 |
 | TypeScript | 245 | 161 | 21 |
@@ -65,10 +65,10 @@ _Last updated: 2026-11-27T11:43:41.122826+00:00_
 | Arpnik/SOEN-341 | Personal | Backend | 25 | 242 | 24 |
 | GetKnowbie/AdminV2 | 💼 Industry | Frontend (web app) · Backend | 24 | 15,233 | 14,517 |
 | FrancescoBonzi/twin-transformer | Personal | AI / ML | 24 | 344 | 226 |
+| Arpnik/git-tracker | Personal | DevOps | 21 | 5,409 | 2,775 |
 | Arpnik/DISRPT-Segmenter | Personal | AI / ML | 20 | 22,034 | 930 |
 | Arpnik/FedBN | Personal | AI / ML | 20 | 2,259 | 843 |
 | altconvey/acy-materials | 💼 Industry | Backend | 19 | 29,655 | 1,037 |
-| Arpnik/git-tracker | Personal | DevOps | 18 | 5,244 | 2,722 |
 | Arpnik/COMP-6481-Assignment-2 | Personal | Backend | 16 | 1,531 | 244 |
 | Arpnik/agentic-assistant | Personal | AI / ML | 15 | 12,565 | 1,349 |
 | Arpnik/LinkedInQueenGame | Personal | Backend | 12 | 595 | 13 |
@@ -329,10 +329,10 @@ _Last updated: 2026-11-27T11:43:41.122826+00:00_
 
 | Language | + | - | Files touched |
 |---|--:|--:|--:|
-| Python | 2,626 | 792 | 21 |
-| HTML | 1,434 | 362 | 13 |
-| Markdown | 561 | 330 | 17 |
-| YAML | 271 | 31 | 12 |
+| Python | 2,704 | 820 | 26 |
+| HTML | 1,437 | 365 | 15 |
+| Markdown | 622 | 343 | 22 |
+| YAML | 294 | 40 | 13 |
 | Config | 224 | 0 | 3 |
 | Image | 128 | 7 | 9 |
 | JSON | 0 | 1,200 | 1 |
