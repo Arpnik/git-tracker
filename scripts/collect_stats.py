@@ -1,21 +1,28 @@
 #!/usr/bin/env python3
 """
-Collects your commit / line-change stats across every repo you have
-write access to (owned, collaborator, or org member), broken down by
-language and by category (frontend/backend/UI/infra/etc.).
+Fetches your commits from GitHub, adds them to data/stats.json and renders the
+profile (render.py).
+
+Incremental, using one small file, data/last_commit.json:
+    {"owner/repo": {"time": <committer date of the newest fetched commit>,
+                    "recent": [SHAs already counted from the last OVERLAP_DAYS]}}
+
+  * no file (first run): fetch every commit from DAYS_LOOKBACK ago until now and
+    build stats.json from scratch;
+  * a repo with a stored time: fetch only commits after it (minus OVERLAP_DAYS,
+    skipping the SHAs in "recent") and ADD them to the existing stats.json. Nothing already counted is ever removed, so repos you
+    lose access to keep their numbers.
+
+Delete data/last_commit.json to force a full re-fetch (e.g. after changing the
+classification rules). Repos that can no longer be fetched are carried over.
 
 Env vars:
   STATS_PAT       - GitHub PAT (classic) with `repo` + `read:org` scopes. Required.
   GH_USERNAME     - Your GitHub login. Required.
-  DAYS_LOOKBACK   - On first run, how far back to look. Default 730 (two years).
-  INCLUDE_ORGS    - Comma-separated org logins to restrict to (optional, default: all).
-  EXCLUDE_REPOS   - Comma-separated "owner/repo" to skip (optional). Merged with the
-                    in-script EXCLUDE_REPOS_DEFAULT set below.
-
-State is kept in data/state.json so re-runs are incremental (only new
-commits since the last processed SHA per repo are fetched). Repos that
-are discovered for the first time (e.g. a newly SSO-authorized org) get a
-full DAYS_LOOKBACK backfill instead of only "since last run".
+  DAYS_LOOKBACK   - How far back the first fetch goes. Default 1095 (3 years).
+  OVERLAP_DAYS    - Days re-checked before the stored time. Default 90.
+  INCLUDE_ORGS    - Comma-separated org logins to restrict to (optional).
+  EXCLUDE_REPOS   - Comma-separated "owner/repo" to hide.
 """
 import os
 import re
@@ -27,34 +34,28 @@ import requests
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-import hashlib
-
-from zoneinfo import ZoneInfo
-
-from dev_tags import area_for, repo_default_area, is_test, commit_type
+import aggregate
 from render import render_all, load_profile
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
-STATE_FILE = DATA_DIR / "state.json"
+CURSOR_FILE = DATA_DIR / "last_commit.json"
+# GitHub filters commits by the time they were made, not when they reached the
+# default branch. A commit made on a feature branch and merged days later can be
+# older than the stored time, so each run re-checks this many days before it.
+# Commits already counted in that window are skipped by SHA.
+OVERLAP_DAYS = int(os.environ.get("OVERLAP_DAYS", "90"))
 STATS_FILE = DATA_DIR / "stats.json"
-CONFIG_FILE = ROOT / "config" / "categories.yaml"
 
 GITHUB_API = "https://api.github.com"
 GRAPHQL_API = "https://api.github.com/graphql"
 
-# Bump when stats.json gains fields that need a full recompute.
-SCHEMA_VERSION = 2
-# Max lines a single file in a single commit adds to the work-area split.
-AREA_FILE_CAP = int(os.environ.get("AREA_FILE_CAP", "800"))
-# Commits kept per repo for the "Recently" feed.
-RECENT_PER_REPO = 15
 # Extra commit-author emails, filled from profile.yaml at runtime.
 COMMIT_EMAILS = []
 
 TOKEN = os.environ.get("STATS_PAT")
 USERNAME = os.environ.get("GH_USERNAME")
-DAYS_LOOKBACK = int(os.environ.get("DAYS_LOOKBACK", "730"))
+DAYS_LOOKBACK = int(os.environ.get("DAYS_LOOKBACK", "1095"))
 INCLUDE_ORGS = {o.strip() for o in os.environ.get("INCLUDE_ORGS", "").split(",") if o.strip()}
 
 # --- Repos to exclude from the analysis -------------------------------------
@@ -74,51 +75,6 @@ session.headers.update({
     "Accept": "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
 })
-
-EXT_LANG = {
-    ".py": "Python", ".pyi": "Python", ".js": "JavaScript", ".jsx": "JavaScript",
-    ".mjs": "JavaScript", ".cjs": "JavaScript", ".ts": "TypeScript",
-    ".tsx": "TypeScript", ".go": "Go", ".rb": "Ruby", ".php": "PHP", ".java": "Java",
-    ".kt": "Kotlin", ".kts": "Kotlin", ".rs": "Rust", ".cs": "C#", ".c": "C", ".h": "C",
-    ".cpp": "C++", ".cc": "C++", ".cxx": "C++", ".hpp": "C++", ".hh": "C++",
-    ".swift": "Swift", ".m": "Objective-C", ".mm": "Objective-C", ".scala": "Scala",
-    ".sh": "Shell", ".bash": "Shell", ".zsh": "Shell", ".fish": "Shell",
-    ".ps1": "PowerShell", ".sql": "SQL", ".html": "HTML", ".htm": "HTML", ".css": "CSS",
-    ".scss": "SCSS", ".sass": "Sass", ".less": "Less", ".vue": "Vue", ".svelte": "Svelte",
-    ".yml": "YAML", ".yaml": "YAML", ".json": "JSON", ".jsonl": "JSON Lines",
-    ".ndjson": "JSON Lines", ".md": "Markdown", ".mdx": "Markdown", ".rst": "reStructuredText",
-    ".tf": "Terraform", ".tfvars": "Terraform", ".hcl": "HCL", ".toml": "TOML",
-    ".ini": "INI", ".cfg": "INI", ".env": "Dotenv", ".ipynb": "Jupyter Notebook",
-    ".r": "R", ".rmd": "R", ".lua": "Lua", ".ex": "Elixir", ".exs": "Elixir",
-    ".erl": "Erlang", ".dart": "Dart", ".graphql": "GraphQL", ".gql": "GraphQL",
-    ".sol": "Solidity", ".vy": "Vyper", ".proto": "Protocol Buffers", ".txt": "Text",
-    ".csv": "CSV", ".tsv": "CSV", ".xml": "XML", ".gradle": "Gradle", ".groovy": "Groovy",
-    ".clj": "Clojure", ".hs": "Haskell", ".pl": "Perl", ".pm": "Perl", ".jl": "Julia",
-    ".nim": "Nim", ".zig": "Zig", ".png": "Image", ".jpg": "Image", ".jpeg": "Image",
-    ".gif": "Image", ".svg": "Image", ".webp": "Image", ".ico": "Image", ".pdf": "PDF",
-}
-
-# Files that have no extension (or a misleading one) but are well-known by name.
-FILENAME_LANG = {
-    "dockerfile": "Docker",
-    "makefile": "Makefile",
-    "gnumakefile": "Makefile",
-    "cmakelists.txt": "CMake",
-    "gemfile": "Ruby",
-    "rakefile": "Ruby",
-    "procfile": "Config",
-    "requirements.txt": "Python",
-    "pipfile": "Python",
-    "go.mod": "Go",
-    "go.sum": "Go",
-    "cargo.toml": "TOML",
-    "package.json": "JSON",
-    "tsconfig.json": "JSON",
-    ".gitignore": "Config",
-    ".gitattributes": "Config",
-    ".env": "Dotenv",
-}
-
 
 def gh_request(method, url, **kwargs):
     for attempt in range(6):
@@ -349,29 +305,15 @@ def list_accessible_repos():
     return list(by_name.values())
 
 
-def list_commit_shas(owner, repo, branch, since_iso):
-    """List SHAs authored by you on `branch` since `since_iso`: by GitHub login,
-    plus any extra `commit_emails` from profile.yaml (commits made with an email
-    that isn't linked to your account). Returns (shas, error)."""
-    seen, out, err = set(), [], None
-    for author in [USERNAME] + COMMIT_EMAILS:
-        shas, e = _list_commit_shas(owner, repo, branch, since_iso, author)
-        err = err or e
-        for sha in shas:
-            if sha not in seen:
-                seen.add(sha)
-                out.append(sha)
-    return out, err
+def _list_commits(owner, repo, branch, since_iso, author):
+    """{sha: committer_date} by one author (login or email) on `branch` since
+    `since_iso` (inclusive).
 
-
-def _list_commit_shas(owner, repo, branch, since_iso, author):
-    """List SHAs by one author (login or email) on `branch` since `since_iso`.
-
-    Returns (shas, error). On any fetch problem we print a debuggable message
+    Returns (commits, error). On any fetch problem we print a debuggable message
     and return whatever we have plus a short error string (None on success).
     """
     full = f"{owner}/{repo}"
-    shas, page = [], 1
+    shas, page = {}, 1
     while True:
         r = gh_request("GET", f"{GITHUB_API}/repos/{owner}/{repo}/commits", params={
             "sha": branch, "author": author, "since": since_iso,
@@ -394,7 +336,7 @@ def _list_commit_shas(owner, repo, branch, since_iso, author):
         batch = r.json()
         if not batch:
             break
-        shas.extend(c["sha"] for c in batch)
+        shas.update((c["sha"], c["commit"]["committer"]["date"]) for c in batch)
         if len(batch) < 100:
             break
         page += 1
@@ -431,50 +373,77 @@ def get_commit_detail(owner, repo, sha):
     return r.json()
 
 
-def classify_file(filename, config):
-    """Return (language, category) for a changed file path.
-
-    Language detection order:
-      1. Well-known bare filenames (Dockerfile, Makefile, go.mod, ...).
-      2. File extension lookup.
-      3. Fallback: a prettified version of the extension, or "Other".
-    """
-    base = Path(filename).name.lower()
-    ext = Path(filename).suffix.lower()
-
-    if base in FILENAME_LANG:
-        lang = FILENAME_LANG[base]
-    elif ext in EXT_LANG:
-        lang = EXT_LANG[ext]
-    elif ext:
-        # Unknown extension: title-case it instead of shouting in ALL CAPS.
-        lang = ext.lstrip(".").capitalize()
-    else:
-        lang = "Other"
-
-    category = "other"
-    for cat, patterns in config["categories"].items():
-        if any(re.search(p, filename, re.IGNORECASE) for p in patterns):
-            category = cat
-            break
-    return lang, category
-
-
 def load_json(path, default):
     if path.exists():
         return json.loads(path.read_text())
     return default
 
 
+def _iso(dt):
+    return dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def fetch_repo(repo, cursor, now):
+    """Fetch this repo's commits after its cursor (or the whole look-back).
+
+    Returns (records, new_cursor, error). On any error the records are dropped
+    by the caller and the cursor stays put, so the next run simply retries.
+    """
+    full = repo["nameWithOwner"]
+    owner, name = full.split("/")
+    branch = repo["defaultBranchRef"]["name"]
+    if cursor:
+        last = datetime.fromisoformat(cursor["time"].replace("Z", "+00:00"))
+        since = _iso(last - timedelta(days=OVERLAP_DAYS))
+        counted = set(cursor.get("recent", []))
+    else:
+        since, counted = _iso(now - timedelta(days=DAYS_LOOKBACK)), set()
+
+    listed = {}
+    for author in [USERNAME] + COMMIT_EMAILS:
+        got, err = _list_commits(owner, name, branch, since, author)
+        if err:
+            return [], cursor, err
+        listed.update(got)
+    if not listed:
+        return [], cursor, None
+
+    records = []
+    for sha in listed:
+        if sha in counted:
+            continue
+        detail = get_commit_detail(owner, name, sha)
+        if not detail:
+            return [], cursor, f"commit {sha[:7]}: detail fetch failed"
+        login = (detail.get("author") or {}).get("login")
+        # Not yours (loose REST author match) or a merge commit (its diff
+        # re-counts the merged work).
+        if (login and login.lower() != USERNAME.lower()) or len(detail.get("parents", [])) > 1:
+            continue
+        records.append({
+            "sha": sha,
+            "date": detail["commit"]["author"]["date"],
+            "message": (detail["commit"].get("message") or "").split("\n")[0][:200],
+            "files": [[f["filename"], f.get("additions", 0), f.get("deletions", 0)]
+                      for f in detail.get("files", [])],
+        })
+    # Remember every SHA from the new overlap window (including skipped merges),
+    # so the next run doesn't count or re-fetch them.
+    newest = max(listed.values())
+    if cursor and cursor["time"] > newest:
+        newest = cursor["time"]
+    cutoff = _iso(datetime.fromisoformat(newest.replace("Z", "+00:00")) - timedelta(days=OVERLAP_DAYS))
+    recent = sorted(s for s, t in listed.items() if t >= cutoff)
+    return records, {"time": newest, "recent": recent}, None
+
+
 def main():
-    global USERNAME
+    global USERNAME, COMMIT_EMAILS
     if not TOKEN or not USERNAME:
         sys.exit("STATS_PAT and GH_USERNAME must be set")
 
     # Resolve the ACTUAL login that owns the token and use it for the commit
-    # `author` filter. Repo discovery uses the token's own identity, so if the
-    # GH_USERNAME secret doesn't exactly match your commit-author login, every
-    # repo is found but zero commits match — the "stats still zero" bug.
+    # `author` filter (GH_USERNAME may differ in case or be stale).
     try:
         token_login = graphql("query { viewer { login } }")["viewer"]["login"]
         if token_login and token_login.lower() != USERNAME.lower():
@@ -485,253 +454,82 @@ def main():
         print(f"Could not resolve token login ({e}); using GH_USERNAME '{USERNAME}'.")
 
     DATA_DIR.mkdir(exist_ok=True)
-    config = yaml.safe_load(CONFIG_FILE.read_text())
-    state = load_json(STATE_FILE, {"processed_shas": {}, "last_run": None})
-    stats = load_json(STATS_FILE, {
-        "totals": {"commits": 0, "additions": 0, "deletions": 0},
-        "by_repo": {}, "by_language": {}, "by_category": {}, "by_week": {},
-        "by_repo_language": {}, "by_area": {}, "by_repo_area": {}, "by_repo_week": {},
-        "schema_version": SCHEMA_VERSION,
-    })
-    # Ensure key exists when loading older stats files.
-    stats.setdefault("by_repo_language", {})
-
-    # Schema bump (v2 adds exact per-repo work areas + per-repo weeks, which can't
-    # be derived from older aggregates) -> recompute everything once.
     profile = load_profile()
-    repo_areas = profile.get("repo_areas") or {}
-    global COMMIT_EMAILS
     COMMIT_EMAILS = [e for e in (profile.get("commit_emails") or []) if e]
-    tz = ZoneInfo(profile.get("timezone") or "UTC")
-    # Fingerprint of everything that affects classification. Editing the rules in
-    # dev_tags.py or `repo_areas` in profile.yaml triggers one full recompute.
-    fingerprint = hashlib.sha256(json.dumps({
-        "schema": SCHEMA_VERSION,
-        "rules": (Path(__file__).parent / "dev_tags.py").read_text(),
-        "repo_areas": repo_areas,
-        "cap": AREA_FILE_CAP,
-        "recent_per_repo": RECENT_PER_REPO,
-        "emails": COMMIT_EMAILS,
-        "timezone": str(tz),
-        "lookback": DAYS_LOOKBACK,
-    }, sort_keys=True).encode()).hexdigest()[:16]
-    needs_reset = stats.get("classifier") != fingerprint
-    if needs_reset:
-        print(f"Classifier changed ({stats.get('classifier')} -> {fingerprint}): "
-              "full recompute this run.")
 
-    # If a now-excluded repo already contributed to the accumulated aggregates,
-    # we can't cleanly subtract it from every breakdown (by_category / by_week
-    # aren't stored per-repo), so recompute everything from scratch this once.
-    polluted = sorted(r for r in EXCLUDE_REPOS if r in stats.get("by_repo", {}))
-    if polluted or needs_reset:
-        if polluted:
-            print(f"Excluded repo(s) already present in stats: {', '.join(polluted)}.")
-        print("Resetting state + stats to recompute clean totals (full backfill this run).")
-        state = {"processed_shas": {}, "last_run": None}
-        stats = {
-            "totals": {"commits": 0, "additions": 0, "deletions": 0},
-            "by_repo": {}, "by_language": {}, "by_category": {}, "by_week": {},
-            "by_repo_language": {}, "by_area": {}, "by_repo_area": {}, "by_repo_week": {},
-            "recent": [], "by_repo_habits": {},
-        }
-    stats["schema_version"] = SCHEMA_VERSION
-    stats["classifier"] = fingerprint
-    stats.setdefault("recent", [])
-    stats.setdefault("by_repo_habits", {})
-
-    processed = set()
-    for repo_shas in state["processed_shas"].values():
-        processed.update(repo_shas)
-
-    default_since = (datetime.now(timezone.utc) - timedelta(days=DAYS_LOOKBACK)).isoformat()
+    old = load_json(STATS_FILE, {})
+    first_run = not CURSOR_FILE.exists()
+    cursors = load_json(CURSOR_FILE, {})
+    now = datetime.now(timezone.utc)
 
     print(f"Discovering repos for {USERNAME}...")
     if EXCLUDE_REPOS:
         print(f"Excluding repos: {', '.join(sorted(EXCLUDE_REPOS))}")
-    repos = list_accessible_repos()
-    # Public metadata for the profile page (descriptions, visibility, stars).
-    stats["repo_meta"] = {
-        r["nameWithOwner"]: {
+    repos = [r for r in list_accessible_repos() if r["nameWithOwner"] not in EXCLUDE_REPOS]
+    print(f"Found {len(repos)} repos." + ("  First run: fetching the full "
+          f"{DAYS_LOOKBACK}-day look-back." if first_run else ""))
+
+    # Repo metadata is kept forever, so a repo whose access is later revoked
+    # keeps its last known visibility (private repos stay unlinked).
+    repo_meta = dict(old.get("repo_meta", {})) if not first_run else {}
+    for r in repos:
+        repo_meta[r["nameWithOwner"]] = {
             "description": r.get("description") or "",
             "private": bool(r.get("isPrivate")),
             "stars": r.get("stargazerCount", 0),
-        } for r in repos
-    }
-    print(f"Found {len(repos)} writable repos (looking back {DAYS_LOOKBACK} days).")
+        }
 
-    fetch_errors = []  # (repo, reason) for repos we couldn't fully collect
-
+    new_commits, fetch_errors = {}, []
     for repo in repos:
         full = repo["nameWithOwner"]
-        owner, name = full.split("/")
-        branch = repo["defaultBranchRef"]["name"]
-        # New repos (never processed before) need a FULL look-back; already-seen
-        # repos only need commits since the last successful run. Using the global
-        # last_run for everything meant freshly-discovered repos — e.g. a newly
-        # SSO-authorized org like `altconvey` — were never backfilled and so
-        # showed zero stats even though they were detected.
-        first_seen = full not in state["processed_shas"]
-        since_iso = default_since if first_seen else (state.get("last_run") or default_since)
-
         try:
-            shas, err = list_commit_shas(owner, name, branch, since_iso)
+            records, cursor, err = fetch_repo(repo, cursors.get(full), now)
         except Exception as e:  # noqa: BLE001 - never let one repo kill the run
-            print(f"    ! {full}: unexpected error listing commits: {e}")
-            fetch_errors.append((full, f"list commits: {e}"))
-            continue
+            records, cursor, err = [], cursors.get(full), str(e)
         if err:
+            print(f"    ! {full}: {err} (will retry next run)")
             fetch_errors.append((full, err))
-
-        new_shas = [s for s in shas if s not in processed]
-        if not new_shas:
             continue
-        print(f"  {full}: {len(new_shas)} new commit(s)"
-              + ("  [backfill]" if first_seen else ""))
+        if records:
+            print(f"  {full}: {len(records)} new commit(s)")
+            new_commits[full] = records
+        if cursor:
+            cursors[full] = cursor
+    print(f"Fetched {sum(map(len, new_commits.values()))} new commit(s) this run.")
 
-        state["processed_shas"].setdefault(full, [])
-        repo_area = repo_default_area(full, repo_areas)
-
-        for sha in new_shas:
-            try:
-                detail = get_commit_detail(owner, name, sha)
-            except Exception as e:  # noqa: BLE001
-                print(f"    ! {full}@{sha[:7]}: unexpected error: {e}")
-                fetch_errors.append((full, f"commit {sha[:7]}: {e}"))
-                continue
-            if not detail:
-                fetch_errors.append((full, f"commit {sha[:7]}: detail unavailable"))
-                continue
-            # Mark as processed regardless, so we never re-fetch this SHA.
-            state["processed_shas"][full].append(sha)
-            processed.add(sha)
-
-            # Count only YOUR commits. The REST `author` filter can be loose for
-            # commits whose email isn't linked, so double-check the resolved
-            # GitHub login and skip anything that clearly isn't you.
-            author = detail.get("author") or {}
-            if author.get("login") and author["login"].lower() != USERNAME.lower():
-                continue
-            # Skip merge commits: their diff re-counts changes already attributed
-            # to the merged commits, massively inflating "lines I changed".
-            if len(detail.get("parents", [])) > 1:
-                continue
-
-            # Local time (profile timezone) for days, weeks and the time-of-day heatmap.
-            when = datetime.fromisoformat(
-                detail["commit"]["author"]["date"].replace("Z", "+00:00")).astimezone(tz)
-            commit_date = when.date().isoformat()
-            week = (when.date() - timedelta(days=when.weekday())).isoformat()
-
-            stats["totals"]["commits"] += 1
-            rstat = stats["by_repo"].setdefault(full, {"commits": 0, "additions": 0, "deletions": 0})
-            rstat["commits"] += 1
-            wstat = stats["by_week"].setdefault(week, {"commits": 0, "additions": 0, "deletions": 0})
-            wstat["commits"] += 1
-            rweeks = stats["by_repo_week"].setdefault(full, {})
-            rweeks[week] = rweeks.get(week, 0) + 1
-            recent = {
-                "repo": full, "sha": sha[:7],
-                "date": detail["commit"]["author"]["date"],
-                "message": (detail["commit"].get("message") or "").split("\n")[0][:120],
-                "areas": {},
-            }
-            habit = stats["by_repo_habits"].setdefault(full, {
-                "tests": {"test": 0, "code": 0}, "types": {}, "sizes": [],
-                "days": {}, "slots": {}, "lang_months": {},
-            })
-            month = commit_date[:7]
-            c_test = c_code = c_size = 0
-            docs_only = True
-
-            for f in detail.get("files", []):
-                add, dele = f.get("additions", 0), f.get("deletions", 0)
-                lang, cat = classify_file(f["filename"], config)
-
-                stats["totals"]["additions"] += add
-                stats["totals"]["deletions"] += dele
-                rstat["additions"] += add
-                rstat["deletions"] += dele
-                wstat["additions"] += add
-                wstat["deletions"] += dele
-
-                lstat = stats["by_language"].setdefault(lang, {"additions": 0, "deletions": 0, "files": 0})
-                lstat["additions"] += add
-                lstat["deletions"] += dele
-                lstat["files"] += 1
-
-                # Language-level detail broken down per repository.
-                rl = stats["by_repo_language"].setdefault(full, {})
-                rlstat = rl.setdefault(lang, {"additions": 0, "deletions": 0, "files": 0})
-                rlstat["additions"] += add
-                rlstat["deletions"] += dele
-                rlstat["files"] += 1
-
-                cstat = stats["by_category"].setdefault(cat, {"additions": 0, "deletions": 0, "files": 0})
-                cstat["additions"] += add
-                cstat["deletions"] += dele
-                cstat["files"] += 1
-
-                # Work area (ai/backend/devops/frontend/other), overall + per repo.
-                # Cap each file's contribution to the work-split so generated dumps
-                # (notebook outputs, fixtures, vendored code) can't swamp real work.
-                area = area_for(f["filename"], lang, repo_area)
-                scale = min(1.0, AREA_FILE_CAP / max(add + dele, 1))
-                c_add, c_del = round(add * scale), round(dele * scale)
-                recent["areas"][area] = recent["areas"].get(area, 0) + c_add + c_del
-                if area != "other":
-                    docs_only = False
-                    c_size += c_add + c_del
-                    if is_test(f["filename"]):
-                        c_test += c_add + c_del
-                    else:
-                        c_code += c_add + c_del
-                    lm = habit["lang_months"].setdefault(lang, {})
-                    lm[month] = lm.get(month, 0) + c_add + c_del
-                elif not re.search(r"\.(md|mdx|rst|txt)$|(^|/)docs?/", f["filename"], re.I):
-                    docs_only = False
-                for bucket in (stats["by_area"], stats["by_repo_area"].setdefault(full, {})):
-                    astat = bucket.setdefault(area, {"additions": 0, "deletions": 0, "files": 0})
-                    astat["additions"] += c_add
-                    astat["deletions"] += c_del
-                    astat["files"] += 1
-
-            ctype = commit_type(recent["message"], c_test, c_code, docs_only and bool(detail.get("files")))
-            recent["type"] = ctype
-            habit["types"][ctype] = habit["types"].get(ctype, 0) + 1
-            habit["tests"]["test"] += c_test
-            habit["tests"]["code"] += c_code
-            habit["sizes"].append(c_size)
-            habit["days"][commit_date] = habit["days"].get(commit_date, 0) + 1
-            slot = f"{when.weekday()}-{when.hour}"
-            habit["slots"][slot] = habit["slots"].get(slot, 0) + 1
-            stats["recent"].append(recent)
-
-    # Keep the newest commits *per repo* for the activity feed, so filtering out
-    # industry repos on the profile page still leaves plenty of personal history.
-    recent, per_repo = [], {}
-    for c in sorted(stats["recent"], key=lambda c: c["date"], reverse=True):
-        per_repo[c["repo"]] = per_repo.get(c["repo"], 0) + 1
-        if per_repo[c["repo"]] <= RECENT_PER_REPO:
-            recent.append(c)
-    stats["recent"] = recent
+    if first_run:
+        # Build from scratch. Repos in the previous stats.json that couldn't be
+        # fetched now (e.g. access revoked) are carried over, and get a cursor
+        # so a later fetch only adds what's newer.
+        stats = aggregate.build(new_commits, profile, EXCLUDE_REPOS, repo_meta, legacy=old)
+        stamp = _iso(datetime.fromisoformat(old["generated_at"])) if old.get("generated_at") else _iso(now)
+        for repo in stats["legacy_repos"]:
+            cursors.setdefault(repo, {"time": stamp, "recent": []})
+            repo_meta.setdefault(repo, old.get("repo_meta", {}).get(repo, {"private": True}))
+    else:
+        delta = aggregate.build(new_commits, profile, EXCLUDE_REPOS, repo_meta)
+        stats = aggregate.merge(old, delta)
+    stats.pop("legacy_repos", None)
+    stats["repo_meta"] = repo_meta
 
     # Pull-request counts (a handful of search calls; refreshed every run).
     try:
-        since = (datetime.now(timezone.utc) - timedelta(days=DAYS_LOOKBACK)).date().isoformat()
+        since = (now - timedelta(days=DAYS_LOOKBACK)).date().isoformat()
         stats["pull_requests"] = collect_pull_requests(list(profile["professional_orgs"]), since)
-    except Exception as e:  # noqa: BLE001 - optional metric
+    except Exception as e:  # noqa: BLE001 - optional metric; keep last known
         print(f"  ! pull request counts failed: {e}")
+        if old.get("pull_requests"):
+            stats["pull_requests"] = old["pull_requests"]
 
-    state["last_run"] = datetime.now(timezone.utc).isoformat()
-    stats["generated_at"] = state["last_run"]
-
-    STATE_FILE.write_text(json.dumps(state, indent=2))
-    STATS_FILE.write_text(json.dumps(stats, indent=2))
+    stats["generated_at"] = now.isoformat()
+    # Both files are written together at the end and committed together by the
+    # workflow, so the cursors always match what stats.json already counts.
+    STATS_FILE.write_text(json.dumps(stats, indent=1))
+    CURSOR_FILE.write_text(json.dumps(dict(sorted(cursors.items())), indent=1))
     render_all(stats)
 
     if fetch_errors:
-        print(f"\n{len(fetch_errors)} fetch issue(s) to debug:")
+        print(f"\n{len(fetch_errors)} repo(s) failed and will be retried next run:")
         for full, reason in fetch_errors:
             print(f"  - {full}: {reason}")
         print("Tip: 403 usually means the PAT isn't SSO-authorized for that org, "

@@ -21,8 +21,21 @@ GitHub API ──► collect_stats.py ──► data/stats.json ──► render
 
    Commits are matched by your GitHub login plus any `commit_emails` in `profile.yaml`
    (for commits made with an email that isn't linked to your account).
-2. **Collect**: for each new commit authored by you on the default branch (merge commits
-   skipped), fetch per-file diff stats. Runs are incremental via `data/state.json`.
+2. **Collect incrementally**: for each commit authored by you on the default branch
+   (merge commits skipped), fetch per-file diff stats. The newest fetched commit's time
+   and SHA per repo are saved in `data/last_commit.json`.
+   - **First run** (no `last_commit.json`): fetch everything from 3 years ago until now and
+     build `data/stats.json` from scratch.
+   - **Daily runs**: fetch only commits after each repo's stored time and **add** them to the
+     existing `stats.json`. Typically one listing call per repo plus one per new commit.
+   - **Late merges**: GitHub filters by when a commit was made, not when it reached the
+     default branch, so each run re-checks the 90 days before the stored time
+     (`OVERLAP_DAYS`). The SHAs already counted in that window are kept in `last_commit.json`
+     and skipped, so nothing is counted twice.
+   - A repo that fails keeps its old time and is retried next run.
+   - **Revoked access never loses data.** Numbers already in `stats.json` are never removed,
+     and repo metadata (e.g. "private") is remembered.
+   - `stats.json` never contains commit messages from private repos.
 3. **Classify**: each changed file gets a language and one **work area**
    ([`scripts/dev_tags.py`](../scripts/dev_tags.py)), decided in this order:
 
@@ -38,7 +51,7 @@ GitHub API ──► collect_stats.py ──► data/stats.json ──► render
    or else from name hints (`-back`, `-api`, `-ui`, `-ai`, …).
 
    Each file contributes at most **800 lines per commit** to the work split
-   (`AREA_FILE_CAP`), so notebook outputs and generated files can't swamp real work.
+   (`AREA_FILE_CAP` in `aggregate.py`), so notebook outputs and generated files can't swamp real work.
    Raw line totals elsewhere are uncapped.
 4. **Habits**: per commit, the collector also records:
    - test vs non-test lines;
@@ -56,8 +69,10 @@ GitHub API ──► collect_stats.py ──► data/stats.json ──► render
 7. **Publish**: the workflow copies `README.md` + `assets/` to your profile repo
    (`<user>/<user>`), so it shows on your GitHub profile page.
 
-Changing the rules in `dev_tags.py` or `repo_areas` in `profile.yaml` changes the
-classifier fingerprint, and the next run recomputes everything from scratch.
+Because new commits are added on top of existing totals, changes to the rules in `dev_tags.py`,
+`repo_areas` or the timezone only apply to commits fetched after the change. To re-apply them to
+all history, delete `data/last_commit.json`: the next run re-fetches the 3 years and rebuilds,
+carrying over repos that can no longer be fetched.
 
 ## Set it up for yourself
 
@@ -92,4 +107,5 @@ python scripts/render.py     # then open README.md / index.html
   `EXCLUDE_REPOS` env var.
 - **Confidentiality**: private industry repos show by name (no link). Their commits are left
   out of the "Recently" feed unless `activity.include_professional` is `true`.
-- Rate limits: 5,000 REST calls/hour. A full recompute is roughly one call per commit.
+- Rate limits: 5,000 REST calls/hour. Only the first run is heavy (about one call per commit);
+  daily runs need roughly one call per repo plus one per new commit.
