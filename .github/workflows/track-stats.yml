@@ -4,7 +4,12 @@ name: Track Dev Stats
 on:
   schedule:
     - cron: '0 3 * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      full_refresh:
+        description: 'Re-fetch every commit from the last 3 years and rebuild stats from scratch (later runs go back to incremental)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -28,6 +33,13 @@ jobs:
 
       - name: Install deps
         run: pip install -r requirements.txt
+
+      - name: Reset fetch state (full refresh)
+        if: ${{ inputs.full_refresh }}
+        # No cursor file = the collector fetches the full DAYS_LOOKBACK window and
+        # rebuilds stats.json from scratch, then writes a fresh cursor file so the
+        # next runs are incremental again.
+        run: rm -f data/last_commit.json
 
       - name: Collect stats
         env:
