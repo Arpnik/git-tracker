@@ -564,6 +564,9 @@ def readme(stats, profile):
         label = "**Both**" if s == "all" else f"{'💼' if s == 'professional' else '🧪'} {SCOPE_LABELS[s]}"
         o.append(f"| {label} | {m['repos']} | {m['commits']:,} | +{m['added']:,} | −{m['deleted']:,} |")
     o.append("")
+    o.append(f"<sub>🔄 All stats, charts and activity on this page update automatically every day from my "
+             f"commit history · last updated {gen}</sub>")
+    o.append("")
 
     # --- Work split with a native toggle (<details>)
     o.append("## 🧭 What I work on")

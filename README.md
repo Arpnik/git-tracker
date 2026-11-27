@@ -27,6 +27,8 @@
 | 🧪 Personal | 24 | 440 | +399,878 | −26,584 |
 | **Both** | 34 | 984 | +563,691 | −98,373 |
 
+<sub>🔄 All stats, charts and activity on this page update automatically every day from my commit history · last updated Nov 27, 2026</sub>
+
 ## 🧭 What I work on
 
 Every changed file in my commits is classified as **AI / ML**, **Backend**, **DevOps** or **Frontend**, then split into **industry** work (production code at companies) vs **personal** projects. Expand a view below, or [open the interactive dashboard](https://arpnik.github.io/git-tracker/) to toggle areas and click into repos. <sub>Area figures count at most 800 lines per file per commit, so generated files and notebook outputs don't dominate; the totals above are raw.</sub>
