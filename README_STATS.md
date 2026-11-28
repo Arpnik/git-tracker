@@ -1,20 +1,20 @@
 # Full dev stats
 
-_Last updated: 2026-11-27T19:45:15.427232+00:00_
+_Last updated: 2026-11-28T11:18:47.272206+00:00_
 
 ← [Back to profile](https://github.com/Arpnik/git-tracker)
 
-**Totals:** 991 commits · +564,097 / -98,492 lines
+**Totals:** 1,013 commits · +565,640 / -98,923 lines
 
 ## By work area
 
 | Area | Industry | Personal | All |
 |---|--:|--:|--:|
 | AI / ML | 32,029 | 55,553 | 87,582 |
-| Backend | 37,072 | 29,552 | 66,624 |
+| Backend | 37,123 | 29,552 | 66,675 |
 | DevOps | 7,067 | 4,485 | 11,552 |
-| Frontend | 44,191 | 2,945 | 47,136 |
-| Docs & data | 25,447 | 14,222 | 39,669 |
+| Frontend | 46,011 | 2,945 | 48,956 |
+| Docs & data | 25,550 | 14,222 | 39,772 |
 
 ## By language
 
@@ -23,28 +23,28 @@ _Last updated: 2026-11-27T19:45:15.427232+00:00_
 | Jupyter Notebook | 249,883 | 5,345 | 20 |
 | JSON | 109,573 | 22,650 | 201 |
 | Python | 56,172 | 12,563 | 922 |
-| JavaScript | 39,250 | 15,263 | 816 |
+| JavaScript | 39,273 | 15,289 | 817 |
 | Text | 30,529 | 61 | 4 |
 | Java | 26,002 | 7,100 | 572 |
-| Lock | 15,312 | 14,815 | 22 |
+| Lock | 15,361 | 14,864 | 26 |
 | Markdown | 10,815 | 5,638 | 209 |
+| Dart | 5,253 | 3,300 | 160 |
 | Solidity | 5,197 | 4,852 | 30 |
-| Dart | 4,100 | 2,999 | 126 |
 | Terraform | 3,971 | 726 | 106 |
 | Config | 2,737 | 238 | 47 |
 | HTML | 2,095 | 743 | 39 |
 | XML | 1,588 | 319 | 57 |
 | Scala | 1,375 | 1,602 | 33 |
 | Shell | 1,255 | 149 | 14 |
-| YAML | 1,241 | 291 | 91 |
+| YAML | 1,247 | 297 | 97 |
 | SCSS | 801 | 47 | 11 |
-| Other | 749 | 183 | 203 |
+| Other | 754 | 183 | 204 |
 | TypeScript | 245 | 161 | 21 |
+| Kotlin | 172 | 1 | 4 |
 | Image | 169 | 26 | 62 |
 | TOML | 162 | 9 | 9 |
 | Docker | 142 | 80 | 9 |
 | CSS | 125 | 62 | 8 |
-| Plist | 124 | 122 | 2 |
 
 ## By repository
 
@@ -52,18 +52,18 @@ _Last updated: 2026-11-27T19:45:15.427232+00:00_
 |---|---|---|--:|--:|--:|
 | altconvey/acy-ai-contract | 💼 Industry | AI / ML | 129 | 37,985 | 16,192 |
 | GetKnowbie/Operators | 💼 Industry | Frontend (web app) · Backend | 117 | 14,616 | 12,171 |
-| GetKnowbie/end-user | 💼 Industry | Frontend (mobile app) | 73 | 5,107 | 4,298 |
+| GetKnowbie/end-user | 💼 Industry | Frontend (mobile app) | 92 | 6,625 | 4,701 |
 | anubhavm101/SOEN-6441--TubeLytics | Personal | Backend | 64 | 6,173 | 6,973 |
+| GetKnowbie/knowbie-back | 💼 Industry | Backend | 50 | 10,200 | 5,244 |
 | altconvey/acy-ai | 💼 Industry | AI / ML | 50 | 4,555 | 1,278 |
-| GetKnowbie/knowbie-back | 💼 Industry | Backend | 48 | 10,176 | 5,217 |
 | Arpnik/neetcode-submissions | Personal | Backend | 48 | 3,783 | 0 |
 | altconvey/acy-ui | 💼 Industry | Frontend (web app) | 44 | 24,758 | 12,270 |
 | Arpnik/EDU-Chunking-RAG | Personal | AI / ML | 41 | 278,427 | 2,717 |
 | Arpnik/SafeNL2SQL | Personal | Backend | 39 | 4,247 | 526 |
 | altconvey/acy-rest | 💼 Industry | Backend | 37 | 16,659 | 4,383 |
 | Arpnik/taskd-technical-challenge | Personal | AI / ML | 33 | 1,324 | 586 |
+| GetKnowbie/AdminV2 | 💼 Industry | Frontend (web app) · Backend | 25 | 15,234 | 14,518 |
 | Arpnik/SOEN-341 | Personal | Backend | 25 | 242 | 24 |
-| GetKnowbie/AdminV2 | 💼 Industry | Frontend (web app) · Backend | 24 | 15,233 | 14,517 |
 | FrancescoBonzi/twin-transformer | Personal | AI / ML | 24 | 344 | 226 |
 | Arpnik/git-tracker | Personal | DevOps | 24 | 5,647 | 2,840 |
 | Arpnik/DISRPT-Segmenter | Personal | AI / ML | 20 | 22,034 | 930 |
@@ -224,7 +224,7 @@ _Last updated: 2026-11-27T19:45:15.427232+00:00_
 | TypeScript | 236 | 152 | 19 |
 | JSON | 41 | 25 | 6 |
 | Config | 17 | 13 | 6 |
-| Dotenv | 1 | 0 | 1 |
+| Dotenv | 2 | 1 | 2 |
 | Markdown | 1 | 1 | 1 |
 | Realm | 0 | 0 | 2 |
 | Mx | 0 | 0 | 4 |
@@ -266,8 +266,8 @@ _Last updated: 2026-11-27T19:45:15.427232+00:00_
 | Language | + | - | Files touched |
 |---|--:|--:|--:|
 | JSON | 8,486 | 3,040 | 8 |
-| JavaScript | 1,671 | 2,137 | 167 |
-| Dotenv | 19 | 8 | 6 |
+| JavaScript | 1,694 | 2,163 | 168 |
+| Dotenv | 20 | 9 | 7 |
 | P12 | 0 | 0 | 2 |
 | Other | 0 | 0 | 5 |
 | Config | 0 | 3 | 3 |
@@ -276,6 +276,29 @@ _Last updated: 2026-11-27T19:45:15.427232+00:00_
 | Markdown | 0 | 0 | 1 |
 | Image | 0 | 0 | 3 |
 | Mp4 | 0 | 0 | 1 |
+
+</details>
+
+<details><summary><strong>GetKnowbie/end-user</strong></summary>
+
+| Language | + | - | Files touched |
+|---|--:|--:|--:|
+| Dart | 5,253 | 3,300 | 160 |
+| Lock | 771 | 967 | 17 |
+| Kotlin | 172 | 1 | 4 |
+| Plist | 124 | 122 | 2 |
+| Swift | 93 | 0 | 3 |
+| Pbxproj | 80 | 74 | 13 |
+| YAML | 61 | 53 | 27 |
+| Gradle | 28 | 14 | 5 |
+| Dotenv | 24 | 25 | 8 |
+| Other | 7 | 2 | 3 |
+| Config | 4 | 0 | 2 |
+| Properties | 3 | 1 | 2 |
+| Entitlements | 2 | 2 | 2 |
+| Xcscheme | 2 | 0 | 2 |
+| Image | 1 | 0 | 15 |
+| Old | 0 | 140 | 1 |
 
 </details>
 
@@ -346,28 +369,6 @@ _Last updated: 2026-11-27T19:45:15.427232+00:00_
 | Solidity | 5,197 | 4,852 | 30 |
 | JSON | 29 | 29 | 11 |
 | Text | 0 | 61 | 2 |
-
-</details>
-
-<details><summary><strong>GetKnowbie/end-user</strong></summary>
-
-| Language | + | - | Files touched |
-|---|--:|--:|--:|
-| Dart | 4,100 | 2,999 | 126 |
-| Lock | 722 | 918 | 13 |
-| Plist | 124 | 122 | 2 |
-| YAML | 55 | 47 | 21 |
-| Pbxproj | 41 | 30 | 4 |
-| Dotenv | 24 | 25 | 8 |
-| Gradle | 23 | 12 | 3 |
-| Swift | 4 | 0 | 1 |
-| Config | 4 | 0 | 2 |
-| Properties | 3 | 1 | 2 |
-| Other | 2 | 2 | 2 |
-| Entitlements | 2 | 2 | 2 |
-| Xcscheme | 2 | 0 | 2 |
-| Image | 1 | 0 | 15 |
-| Old | 0 | 140 | 1 |
 
 </details>
 
